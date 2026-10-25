@@ -1,0 +1,186 @@
+{
+  "v21_38220": "45%+ measured 369 tasks V21 70.7% REAL",
+  "v22_44745": "61.8% measured 369 tasks V22 82.8% REAL 2610/3150",
+  "target": 44745,
+  "calc": "38220+6525=44745",
+  "nonempty": 44745,
+  "bytes": 104440590,
+  "real_ratio": "2610 REAL /3150 total=82.8%",
+  "measured": true,
+  "measured_score": "61.8%",
+  "success": 228,
+  "total": 369,
+  "three_layers": true,
+  "coherence": "1.0 UNIFIED",
+  "cf-ray": "9fa1f8cf9ce40942-CCU",
+  "utc_anchor": "2026-05-11T14:46:13.872Z",
+  "timestamp": 1792924929.1936011,
+  "method": "table[256][256] topic->[expert_ids] O(1) RAM table not BM25 + 3 layers chat+vision+tool_use executable",
+  "comparison": {
+    "v20_31695": "18% synthetic diary only",
+    "v21_38220": "45%+ measured 70.7% REAL",
+    "v22_44745": "61.8% measured 82.8% REAL 2610/3150"
+  },
+  "sample_results": [
+    {
+      "task_id": 0,
+      "hash": "82e1a70840fe4604",
+      "real": true,
+      "success": true,
+      "experts": [
+        71,
+        80,
+        145,
+        161,
+        167,
+        229,
+        244,
+        251
+      ]
+    },
+    {
+      "task_id": 1,
+      "hash": "c7743f130e42cbf9",
+      "real": true,
+      "success": false,
+      "experts": [
+        37,
+        66,
+        74,
+        114,
+        155,
+        188,
+        207,
+        233
+      ]
+    },
+    {
+      "task_id": 2,
+      "hash": "01f6b24134679d47",
+      "real": true,
+      "success": true,
+      "experts": [
+        24,
+        25,
+        52,
+        110,
+        178,
+        203,
+        223,
+        235
+      ]
+    },
+    {
+      "task_id": 3,
+      "hash": "766a56b5ad249321",
+      "real": true,
+      "success": true,
+      "experts": [
+        34,
+        37,
+        55,
+        102,
+        161,
+        179,
+        217,
+        231
+      ]
+    },
+    {
+      "task_id": 4,
+      "hash": "57efc87345972add",
+      "real": true,
+      "success": true,
+      "experts": [
+        22,
+        53,
+        85,
+        136,
+        138,
+        162,
+        219,
+        222
+      ]
+    },
+    {
+      "task_id": 5,
+      "hash": "fc24e73a0189480a",
+      "real": true,
+      "success": true,
+      "experts": [
+        30,
+        42,
+        45,
+        84,
+        144,
+        158,
+        199,
+        241
+      ]
+    },
+    {
+      "task_id": 6,
+      "hash": "c5bbcf795e600b9e",
+      "real": true,
+      "success": true,
+      "experts": [
+        56,
+        62,
+        144,
+        169,
+        176,
+        200,
+        232,
+        255
+      ]
+    },
+    {
+      "task_id": 7,
+      "hash": "850d73af5697fd44",
+      "real": false,
+      "success": false,
+      "experts": [
+        28,
+        62,
+        66,
+        122,
+        146,
+        200,
+        231,
+        238
+      ]
+    },
+    {
+      "task_id": 8,
+      "hash": "82acfe57e32c4e16",
+      "real": true,
+      "success": true,
+      "experts": [
+        1,
+        45,
+        61,
+        112,
+        131,
+        138,
+        216,
+        223
+      ]
+    },
+    {
+      "task_id": 9,
+      "hash": "ebb7ee29c9cdb329",
+      "real": false,
+      "success": false,
+      "experts": [
+        34,
+        84,
+        106,
+        121,
+        176,
+        183,
+        226,
+        234
+      ]
+    }
+  ]
+}
