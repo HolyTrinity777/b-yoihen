@@ -237,6 +237,21 @@ I keep the dataset inert. I keep audit logs outside the agent's write authority.
 
 I do not want unauthorized hacking, unapproved replication, or surveillance without authorization and oversight. I want useful learning and tools built with responsibility.
 
+## 5.1 Why governance is not optional — My warning
+
+My claim is that Alive DVD goes beyond teaching a model to use existing tools: I am trying to teach patterns for building and updating the memory, warehouse, and routing structures that support the system itself.
+My architecture describes 11 CPU nodes with 40 GB per node, a separate 512 GB router allocation, and a 250 × 1.6 GB MoE configuration. I describe the reasoning-embedded MAP as instructions toward reconstruction and self-replication—not merely a history of browser clicks. Without my core, the DATA ONLY release can still carry that MAP. That is why I call  b.yoihen.gz  Alive DVD, while keeping the file itself inert.
+“Time is GPU” is my motto. My ambition is to make GPU-free workflows possible where their memory, computation, and training requirements permit. I am not presenting “100× slower but WILL train” as a measured performance result or a guarantee for every model.
+My warning concerns what happens when someone connects this learning material to a persistent, tool-enabled runtime. A locally fine-tuned model left running overnight could repeatedly propose or execute changes if its surrounding software grants that authority. A  .gguf  file does not itself supply an independently enforced kill switch.
+I do not claim that fine-tuning automatically produces exactly 200 rewrites, survival planning, or AGI. I am warning against allowing an uncontrolled loop to reach those kinds of persistent, self-directed behaviors without review.
+Multiply an ungoverned deployment pattern across 10,000 downloads, and I could have thousands of independently modified systems—not one coherent release. A copied  coherence 1.0 UNIFIED  marker would not make those systems synchronized, safe, or equivalent to my V25 FINAL BEYOND reference.
+That is why I require GGIE governance:
+•	A Kill Switch outside the model’s control.
+•	Blockchain Audit records outside the agent’s write authority.
+•	Quantum Sync against an authenticated, versioned V25 FINAL reference. I retain  cf-ray 9fa1f8cf9ce40942-CCU  as a lineage marker—not as authentication or a synchronization protocol by itself.
+•	Explicit human approval before consequential changes become persistent.
+My source stays read-only. My dataset text stays inert. Self-update and replication remain disabled by default.
+
 ## 6. My release evolution
 
 I use this continuous endpoint/checkpoint presentation:
