@@ -2,7 +2,7 @@
 
 > All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
 
-I am Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
+My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
 My project positioning is:
 
