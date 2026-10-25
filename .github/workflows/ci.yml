@@ -1,0 +1,378 @@
+name: b-yoihen CI
+
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      verify_dataset:
+        description: "Also verify dataset files already present in the checkout"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b-yoihen-ci-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  PYTHONUTF8: "1"
+  PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  ci:
+    name: Checks / Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+          # This repository's reference scripts use only the standard library.
+          # No pip cache or requirements.txt is assumed.
+
+      - name: Check repository layout and Python syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import ast
+          import json
+          import subprocess
+
+          required = [
+              "README.md", "LICENSE.md", "SECURITY.md", ".gitignore",
+              "docs/FORMAT.md", "docs/STATS.md", "docs/BUILD.md",
+              "scripts/verify.py", "scripts/convert_to_jsonl.py",
+          ]
+          missing = [name for name in required if not Path(name).is_file()]
+          if missing:
+              raise SystemExit("Missing required files: " + ", ".join(missing))
+          for folder in ("docs", "examples", "proof", "scripts"):
+              if not Path(folder).is_dir():
+                  raise SystemExit("Missing directory: " + folder)
+          # Git does not track empty directories. Keep an actual example file in examples/.
+          files = subprocess.check_output(["git", "ls-files", "-z", "--", "*.py"])
+          python_files = [Path(name) for name in files.decode("utf-8").split("\0") if name]
+          for path in python_files:
+              ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+          print(f"Repository structure OK; syntax checked {len(python_files)} tracked Python files")
+          PY
+
+      - name: Validate five historical proofs and recorded fields
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import json
+
+          EXPECTED = {'benchmark_38220_live.json': {'bytes': 1727, 'sha256': '588da9c879b320dc11921dfb2537706091a99abbe12db427aec2bb53d419be8b'}, 'benchmark_44745_real_measured.json': {'bytes': 3206, 'sha256': '404f3359c7dcc90f78ac0c88551f13b1ed08cca1fdd8ac2547697be3345157e2'}, 'benchmark_169745_real_measured.json': {'bytes': 3892, 'sha256': '9b711be29cf8ae32b0aab744b6fe78fbbfca4753d58072166b069acd52b8dc1a'}, 'benchmark_412972_real_measured.json': {'bytes': 4360, 'sha256': 'bd01d68f7909e66b5c11faf4c5e4045e7dcc9071bc2815c215f00347021e3641'}, 'benchmark_500002_real_measured.json': {'bytes': 25806, 'sha256': 'f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47'}}
+          RUN_FIELDS = {
+              "benchmark_38220_live.json": {"before": 31695, "after": 38220,
+                  "written": 6525, "bytes_before": 13711330, "bytes_after": 73677165,
+                  "shards": 193, "real_traces": 1305, "synthetic_traces": 540,
+                  "total_traces": 1845},
+              "benchmark_44745_real_measured.json": {"target": 44745, "nonempty": 44745,
+                  "bytes": 104440590, "success": 228, "total": 369},
+              "benchmark_169745_real_measured.json": {"target": 169745, "nonempty": 169745,
+                  "bytes": 213008990, "success": 354, "total": 369},
+              "benchmark_412972_real_measured.json": {"target": 412972, "nonempty": 412972,
+                  "bytes": 791094565, "success": 366, "total": 369,
+                  "before": 282717, "after": 412972},
+              "benchmark_500002_real_measured.json": {"target": 500002, "nonempty": 500002,
+                  "bytes": 1147108255, "success": 367, "total": 369,
+                  "real_count": 71067, "total_count": 71607},
+          }
+          loaded = {}
+          for name, identity in EXPECTED.items():
+              path = Path("proof") / name
+              payload = path.read_bytes()
+              if len(payload) != identity["bytes"]:
+                  raise SystemExit(f"Historical proof size changed: {name}")
+              if hashlib.sha256(payload).hexdigest() != identity["sha256"]:
+                  raise SystemExit(f"Historical proof SHA-256 changed: {name}")
+              report = json.loads(payload.decode("utf-8"))
+              if not isinstance(report, dict):
+                  raise SystemExit(f"Proof root is not an object: {name}")
+              for key, expected in RUN_FIELDS[name].items():
+                  value = report.get(key)
+                  if type(value) not in (int, float) or value != expected:
+                      raise SystemExit(f"Unexpected {name}:{key}: {value!r}")
+              if report.get("coherence") != "1.0 UNIFIED":
+                  raise SystemExit(f"Unexpected coherence label: {name}")
+              loaded[name] = report
+              print(f"OK {name}: {len(payload)} bytes; SHA-256 matched")
+          for path in sorted(Path("proof").rglob("*.json")):
+              json.loads(path.read_text(encoding="utf-8"))
+          # Historical real_count is NOT a stable cross-version topic-count field.
+          v23 = loaded["benchmark_169745_real_measured.json"]
+          v24 = loaded["benchmark_412972_real_measured.json"]
+          v25 = loaded["benchmark_500002_real_measured.json"]
+          if (v23["real_count"], v24["real_count"], v25["real_count"]) != (361, 366, 71067):
+              raise SystemExit("Historical schema values unexpectedly changed")
+          for earlier_name, later_name, ids in [
+              ("benchmark_44745_real_measured.json", "benchmark_169745_real_measured.json", (7, 9)),
+              ("benchmark_169745_real_measured.json", "benchmark_412972_real_measured.json", (1,)),
+          ]:
+              earlier = {x["task_id"]: x for x in loaded[earlier_name]["sample_results"]}
+              later = {x["task_id"]: x for x in loaded[later_name]["sample_results"]}
+              for task in ids:
+                  if earlier[task]["hash"] != later[task]["hash"]:
+                      raise SystemExit("Historical sample hash changed")
+                  if earlier[task]["experts"] != later[task]["experts"]:
+                      raise SystemExit("Historical expert assignment changed")
+                  if earlier[task]["success"] is not False or later[task]["success"] is not True:
+                      raise SystemExit("Historical sample transition changed")
+          print("Proof inventory and recorded fields OK; benchmark was NOT replayed")
+          PY
+
+      - name: Run inert fixture tests for verification and conversion
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import copy
+          import gzip
+          import hashlib
+          import json
+          import subprocess
+          import sys
+          import tempfile
+          import unittest
+
+          REPO = Path.cwd()
+          VERIFY = REPO / "scripts/verify.py"
+          CONVERT = REPO / "scripts/convert_to_jsonl.py"
+          PROOF = json.loads((REPO / "proof/benchmark_500002_real_measured.json").read_text(encoding="utf-8"))
+          ANNOTATION = (
+              "reasoning holds Mixed_PowerBI_1 + pattern_learn + generate = master Mixed_PowerBI_1"
+              " | keep this pipe coherence 1.0 UNIFIED result_success when true"
+          )
+          LINE = (
+              '[STRIPPED CI fixture]|<html><body><div class="real" id="Mixed_PowerBI_1">'
+              'Synthetic fixture</div></body></html>|action_type("A+B")|'
+              + ANNOTATION + "\n"
+          )
+          PAYLOAD = LINE.encode("utf-8") * 3
+
+
+          class ScriptTests(unittest.TestCase):
+              def setUp(self):
+                  self.temporary = tempfile.TemporaryDirectory()
+                  self.addCleanup(self.temporary.cleanup)
+                  self.root = Path(self.temporary.name)
+                  self.raw = self.root / "b.yoihen"
+                  self.archive = self.root / "b.yoihen.gz"
+                  self.archive.write_bytes(gzip.compress(PAYLOAD, mtime=0))
+                  (self.root / "proof").mkdir()
+                  # Explicit synthetic fixture: not a newly measured V25 release.
+                  fixture = copy.deepcopy(PROOF)
+                  fixture.update(target=3, nonempty=3, bytes=len(PAYLOAD))
+                  (self.root / "proof/benchmark_500002_real_measured.json").write_text(
+                      json.dumps(fixture), encoding="utf-8")
+
+              def run_script(self, script, args, succeeds=True):
+                  result = subprocess.run(
+                      [sys.executable, str(script), *map(str, args)],
+                      capture_output=True, text=True, timeout=45,
+                  )
+                  message = (result.stdout + "\n" + result.stderr)[-6000:]
+                  if succeeds:
+                      self.assertEqual(result.returncode, 0, message)
+                  else:
+                      self.assertNotEqual(result.returncode, 0, message)
+                  return result
+
+              def verify_args(self):
+                  return ["--root", self.root, "--expected-raw-bytes", len(PAYLOAD),
+                          "--expected-gz-bytes", self.archive.stat().st_size,
+                          "--expected-lines", 3]
+
+              def convert_args(self, output, source=None):
+                  return ["--input", source or self.raw, "--output-dir", output]
+
+              def test_help(self):
+                  self.run_script(VERIFY, ["--help"])
+                  self.run_script(CONVERT, ["--help"])
+
+              def test_verify_retains_new_raw_and_checks_proof(self):
+                  report = self.root / "verification.json"
+                  self.run_script(VERIFY, self.verify_args() + ["--require-proof", "--report", report])
+                  self.assertEqual(self.raw.read_bytes(), PAYLOAD)
+                  data = json.loads(report.read_text())
+                  self.assertTrue(data["passed"])
+                  self.assertEqual(data["raw"]["sha256"], hashlib.sha256(PAYLOAD).hexdigest())
+
+              def test_verify_preserves_existing_raw(self):
+                  self.raw.write_bytes(PAYLOAD)
+                  self.run_script(VERIFY, self.verify_args() + ["--discard-raw"])
+                  self.assertEqual(self.raw.read_bytes(), PAYLOAD)
+
+              def test_verify_raw_only(self):
+                  self.raw.write_bytes(PAYLOAD)
+                  self.archive.unlink()
+                  self.run_script(VERIFY, self.verify_args_without_archive() + ["--check-only"])
+
+              def verify_args_without_archive(self):
+                  return ["--root", self.root, "--expected-raw-bytes", len(PAYLOAD),
+                          "--expected-lines", 3]
+
+              def test_verify_rejects_mismatched_raw(self):
+                  self.raw.write_bytes(PAYLOAD.replace(b"A+B", b"A+C"))
+                  self.run_script(VERIFY, self.verify_args(), succeeds=False)
+                  self.assertEqual(self.raw.read_bytes(), PAYLOAD.replace(b"A+B", b"A+C"))
+
+              def test_verify_rejects_corrupt_gzip(self):
+                  broken = bytearray(self.archive.read_bytes())
+                  broken[-8] ^= 1
+                  self.archive.write_bytes(broken)
+                  self.run_script(VERIFY, self.verify_args(), succeeds=False)
+                  self.assertFalse(self.raw.exists())
+
+              def test_conversion_preserves_fields_and_reports_actual_sample_count(self):
+                  self.raw.write_bytes(PAYLOAD)
+                  output = self.root / "converted"
+                  self.run_script(CONVERT, self.convert_args(output) + ["--hash-input"])
+                  rows = [json.loads(x) for x in (output / "b.yoihen.jsonl").read_text().splitlines()]
+                  self.assertEqual(len(rows), 3)
+                  self.assertEqual(rows[0]["topic"], "Mixed_PowerBI_1")
+                  self.assertEqual(rows[0]["action"], 'action_type("A+B")')
+                  self.assertEqual(rows[0]["reasoning"], ANNOTATION)
+                  self.assertEqual(rows[0]["vision_status"], "stripped")
+                  self.assertFalse(rows[0]["evaluation"]["available"])
+                  report = json.loads((output / "b.yoihen.conversion_report.json").read_text())
+                  self.assertEqual(report["counts"]["sample_written"], 3)
+                  for item in report["outputs"].values():
+                      actual = hashlib.sha256((output / item["filename"]).read_bytes()).hexdigest()
+                      self.assertEqual(actual, item["sha256"])
+                  before = (output / "b.yoihen.jsonl").read_bytes()
+                  self.run_script(CONVERT, self.convert_args(output), succeeds=False)
+                  self.assertEqual((output / "b.yoihen.jsonl").read_bytes(), before)
+
+              def test_sample_only_honors_explicit_limit(self):
+                  self.raw.write_bytes(LINE.encode() * 150)
+                  output = self.root / "sample"
+                  self.run_script(CONVERT, self.convert_args(output) + ["--sample-only", "--limit", 120])
+                  self.assertEqual(len((output / "b.yoihen.sample.jsonl").read_text().splitlines()), 120)
+                  self.assertFalse((output / "b.yoihen.jsonl").exists())
+
+              def test_strict_failure_and_explicit_exclusion(self):
+                  self.raw.write_bytes(b"bad\xff|record\n" + PAYLOAD)
+                  strict = self.root / "strict"
+                  self.run_script(CONVERT, self.convert_args(strict), succeeds=False)
+                  self.assertFalse((strict / "b.yoihen.jsonl").exists())
+                  skipped = self.root / "skipped"
+                  self.run_script(CONVERT, self.convert_args(skipped) + ["--skip-invalid"])
+                  report = json.loads((skipped / "b.yoihen.conversion_report.json").read_text())
+                  self.assertEqual(report["counts"]["rejected"], 1)
+                  rows = [json.loads(x) for x in (skipped / "b.yoihen.jsonl").read_text().splitlines()]
+                  self.assertEqual([row["source_line"] for row in rows], [2, 3, 4])
+
+              def test_gzip_conversion(self):
+                  output = self.root / "gzip-converted"
+                  self.run_script(CONVERT, self.convert_args(output, self.archive))
+                  self.assertEqual(len((output / "b.yoihen.jsonl").read_text().splitlines()), 3)
+
+              def test_actual_v25_objects_keep_legacy_vision_and_mixed_case(self):
+                  objects = PROOF["sample_results"] + PROOF["failed_tasks"]
+                  with self.raw.open("w", encoding="utf-8", newline="\n") as destination:
+                      for obj in objects:
+                          destination.write("|".join(obj[key] for key in (
+                              "screenshot_base64", "dom", "action", "reasoning")) + "\n")
+                  output = self.root / "proof-samples"
+                  self.run_script(CONVERT, self.convert_args(output))
+                  rows = [json.loads(x) for x in (output / "b.yoihen.jsonl").read_text().splitlines()]
+                  self.assertEqual(len(rows), 7)
+                  for obj, row in zip(objects, rows):
+                      self.assertEqual(row["topic"], obj["task_name"])
+                      self.assertEqual(row["action"], obj["action"])
+                      self.assertEqual(row["reasoning"], obj["reasoning"])
+                      self.assertEqual(row["vision_status"], "legacy_opaque")
+                      self.assertFalse(row["evaluation"]["available"])
+
+              def test_resource_ceiling_and_missing_input_fail(self):
+                  self.raw.write_bytes(PAYLOAD)
+                  self.run_script(CONVERT, self.convert_args(self.root / "bounded") +
+                                  ["--max-record-bytes", 10, "--skip-invalid"], succeeds=False)
+                  self.run_script(CONVERT, self.convert_args(self.root / "missing-output",
+                                  self.root / "missing.yoihen"), succeeds=False)
+
+
+          unittest.main(argv=["ci-script-tests"], verbosity=2)
+          PY
+
+      - name: Write job summary
+        if: always()
+        env:
+          RESULT: ${{ job.status }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as out:
+              out.write("## b.yoihen CI\n\n")
+              out.write("Job status: " + os.environ["RESULT"] + "\n\n")
+              out.write("Scope: repository structure, Python syntax, historical proof identity, "
+                        "and inert tooling fixtures.\n\n")
+              out.write("A green result is NOT a replay of the 369-task benchmark, "
+                        "a full dataset audit, a training run, or a self-replication test.\n")
+          PY
+
+  dataset-verification:
+    name: Manual / local dataset consistency
+    needs: ci
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_dataset }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Require dataset already present and run verifier
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+          root = Path.cwd()
+          raw = root / "b.yoihen"
+          archive = root / "b.yoihen.gz"
+          if not raw.is_file() and not archive.is_file():
+              raise SystemExit(
+                  "Manual dataset verification requested, but neither b.yoihen nor "
+                  "b.yoihen.gz is present. No release URL or download is assumed."
+              )
+          command = [sys.executable, "scripts/verify.py", "--root", str(root),
+                     "--require-proof", "--report",
+                     str(Path(os.environ["RUNNER_TEMP"]) / "yoihen-dataset-report.json")]
+          command.append("--check-only" if raw.is_file() else "--keep-raw")
+          subprocess.run(command, check=True, timeout=1500)
+          PY
