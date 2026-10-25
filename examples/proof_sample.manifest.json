@@ -1,0 +1,101 @@
+{
+  "schema": "yoihen.proof_sample.v1",
+  "purpose": "Inspection of actual uploaded report-object values",
+  "dataset_line_extraction": false,
+  "historical_raw_dataset_line_numbers_available": false,
+  "source": {
+    "filename": "benchmark_500002_real_measured.json",
+    "repository_path": "proof/benchmark_500002_real_measured.json",
+    "bytes": 25806,
+    "sha256": "f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47"
+  },
+  "sample": {
+    "filename": "proof_sample.yoihen",
+    "bytes": 6881,
+    "records": 7,
+    "sha256": "5e27aa970d8ee2fc53bd23090019f53af0b235a3baf9bb32e3f11c828f1bb0a7",
+    "field_order": [
+      "screenshot_base64",
+      "dom",
+      "action",
+      "reasoning"
+    ],
+    "redactions_applied_during_generation": false
+  },
+  "vision_status": "All seven supplied values fail strict standard-base64 validation; preserve as legacy_opaque",
+  "records": [
+    {
+      "sample_line": 1,
+      "source_object": "sample_results[0]",
+      "task_id": 0,
+      "topic": "chrome_browse_news_0",
+      "record_sha256_including_lf": "2eb10ed5adf5acc9d56d4586cedcfe6139e74a0b015e8020afef4422eb460f0e",
+      "reported_success": true,
+      "reported_result": "result_success when true",
+      "evaluation_source": "uploaded report; not independently executed here"
+    },
+    {
+      "sample_line": 2,
+      "source_object": "sample_results[1]",
+      "task_id": 1,
+      "topic": "chrome_search_images_1",
+      "record_sha256_including_lf": "aff1b89489d54b5ca43260dbdb17b38ba279fa49ffa6b3756c12a60adcdcdf35",
+      "reported_success": true,
+      "reported_result": "result_success when true",
+      "evaluation_source": "uploaded report; not independently executed here"
+    },
+    {
+      "sample_line": 3,
+      "source_object": "sample_results[2]",
+      "task_id": 2,
+      "topic": "chrome_bookmark_2",
+      "record_sha256_including_lf": "e9dc5da7c5af7352125c90a7d126b52b6479082887fb12b65687dac334a80b6b",
+      "reported_success": true,
+      "reported_result": "result_success when true",
+      "evaluation_source": "uploaded report; not independently executed here"
+    },
+    {
+      "sample_line": 4,
+      "source_object": "sample_results[3]",
+      "task_id": 3,
+      "topic": "chrome_download_3",
+      "record_sha256_including_lf": "c6e661bacb7f2976d774089a018bfc6053d022a6d2ead268ead089131be006f9",
+      "reported_success": true,
+      "reported_result": "result_success when true",
+      "evaluation_source": "uploaded report; not independently executed here"
+    },
+    {
+      "sample_line": 5,
+      "source_object": "sample_results[4]",
+      "task_id": 4,
+      "topic": "libreoffice_writer_table_chart_4",
+      "record_sha256_including_lf": "2f32c80b56251ffc87e353e9801a76bd4bde947971a6e38c3883d0ba2f6b35ce",
+      "reported_success": true,
+      "reported_result": "result_success when true",
+      "evaluation_source": "uploaded report; not independently executed here"
+    },
+    {
+      "sample_line": 6,
+      "source_object": "failed_tasks[0]",
+      "task_id": 42,
+      "topic": "chrome_bookmark_42",
+      "record_sha256_including_lf": "0290ece053acb46cf1963f32b45bdf8532e513d3d6ea137ff0007d8b81169192",
+      "reported_success": false,
+      "reported_result": "result_failure - edge case not in training",
+      "evaluation_source": "uploaded report; not independently executed here"
+    },
+    {
+      "sample_line": 7,
+      "source_object": "failed_tasks[1]",
+      "task_id": 317,
+      "topic": "tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317",
+      "record_sha256_including_lf": "22367a3b23d7c01ea21565d888268f87ac923fc19f3104caadb8dc1aca582d8f",
+      "reported_success": false,
+      "reported_result": "result_failure - edge case not in training",
+      "evaluation_source": "uploaded report; not independently executed here"
+    }
+  ],
+  "actions_executed": false,
+  "new_benchmark_performed": false,
+  "licence_reference": "../LICENSE.md; underlying third-party rights remain separate"
+}
