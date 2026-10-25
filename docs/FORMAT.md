@@ -2,7 +2,7 @@
 
 > All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
 >
-> Built by Yoihenba Sougaijam. Project origin: iPhone a-Shell, Imphal / Bomdila, offline and without a GPU, as described by the author.
+> Built by Yoihenba Sougaijam. Project origin: iPhone a-Shell, Imphal, Manipur , offline and without a GPU, as described by the author.
 
 | Property | Value |
 | --- | --- |
