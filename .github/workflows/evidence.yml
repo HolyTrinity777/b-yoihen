@@ -1,0 +1,294 @@
+# Companion to .github/workflows/ci.yml; does not replace it.
+# Tests public evidence-pack files only. Does not require b.yoihen.gz.
+name: b-yoihen Evidence
+
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b-yoihen-evidence-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  PYTHONUTF8: "1"
+  PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  evidence:
+    name: Evidence / samples and manifests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.12"
+
+      # CI-only validator; does not add a dependency to application scripts.
+      - name: Validate CITATION.cff against the Citation File Format schema
+        uses: citation-file-format/cffconvert-github-action@2.0.0
+        with:
+          args: "--validate --infile CITATION.cff"
+
+      - name: Check evidence files and exact sample provenance
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import ast
+          import hashlib
+          import json
+          import re
+
+
+          def validate_proof_sample(root):
+              root = Path(root).resolve()
+              sample = root / "examples/proof_sample.yoihen"
+              metadata = json.loads((root / "examples/proof_sample.manifest.json").read_text(encoding="utf-8"))
+              if metadata.get("schema") != "yoihen.proof_sample.v1":
+                  raise ValueError("Unexpected sample manifest schema")
+              if metadata.get("dataset_line_extraction") is not False:
+                  raise ValueError("Proof-object sample must not claim raw-dataset line extraction")
+              if metadata.get("historical_raw_dataset_line_numbers_available") is not False:
+                  raise ValueError("Unavailable historical dataset line numbers must not be invented")
+              source_path = (root / metadata["source"]["repository_path"]).resolve()
+              source_path.relative_to((root / "proof").resolve())
+              source_bytes = source_path.read_bytes()
+              if len(source_bytes) != metadata["source"]["bytes"]:
+                  raise ValueError("Source proof byte count differs from sidecar")
+              if hashlib.sha256(source_bytes).hexdigest() != metadata["source"]["sha256"]:
+                  raise ValueError("Source proof SHA-256 differs from sidecar")
+              report = json.loads(source_bytes.decode("utf-8"))
+              payload = sample.read_bytes()
+              if len(payload) != metadata["sample"]["bytes"]:
+                  raise ValueError("Sample byte count differs from sidecar")
+              if hashlib.sha256(payload).hexdigest() != metadata["sample"]["sha256"]:
+                  raise ValueError("Sample SHA-256 differs from sidecar")
+              lines = payload.splitlines(keepends=True)
+              entries = metadata["records"]
+              expected_objects = [f"{collection}[{index}]"
+                                  for collection in ("sample_results", "failed_tasks")
+                                  for index in range(len(report[collection]))]
+              if not (len(lines) == len(entries) == metadata["sample"]["records"] == 7):
+                  raise ValueError("Expected the seven historical V25 proof objects")
+              if [entry["source_object"] for entry in entries] != expected_objects:
+                  raise ValueError("Sample coverage/order differs from source report objects")
+              if [entry["sample_line"] for entry in entries] != list(range(1, 8)):
+                  raise ValueError("Sample line mapping is not 1..7")
+              for line, entry in zip(lines, entries):
+                  match = re.fullmatch(r"(sample_results|failed_tasks)\[(\d+)\]", entry["source_object"])
+                  if match is None:
+                      raise ValueError("Invalid source object path")
+                  obj = report[match.group(1)][int(match.group(2))]
+                  reconstructed = ("|".join(obj[key] for key in (
+                      "screenshot_base64", "dom", "action", "reasoning")) + "\n").encode("utf-8")
+                  if line != reconstructed:
+                      raise ValueError("Sample fields do not exactly preserve the proof object")
+                  if hashlib.sha256(line).hexdigest() != entry["record_sha256_including_lf"]:
+                      raise ValueError("Per-record digest mismatch")
+                  if entry["task_id"] != obj["task_id"] or entry["topic"] != obj["task_name"]:
+                      raise ValueError("Sample identity differs from proof")
+                  if entry["reported_success"] is not obj["success"]:
+                      raise ValueError("Reported outcome differs from proof")
+                  if entry["reported_result"] != obj.get("result"):
+                      raise ValueError("Reported result text differs from proof")
+              if metadata.get("actions_executed") is not False:
+                  raise ValueError("Sample metadata must not imply execution")
+              if metadata.get("new_benchmark_performed") is not False:
+                  raise ValueError("Sample metadata must not imply a new benchmark")
+              print("Seven proof-object records, source identities, and reported outcomes matched")
+
+
+          required = [
+              "CITATION.cff", "DATASET_CARD.md", "CONTRIBUTING.md", "docs/CLAIMS.md",
+              "examples/README.md", "examples/proof_sample.yoihen",
+              "examples/proof_sample.manifest.json", "examples/inspect_topic.py",
+              "scripts/build_manifest.py",
+          ]
+          for name in required:
+              path = Path(name)
+              if not path.is_file() or path.stat().st_size == 0:
+                  raise SystemExit("Missing or empty evidence-pack file: " + name)
+              if path.suffix == ".py":
+                  ast.parse(path.read_text(encoding="utf-8"), filename=name)
+          validate_proof_sample(Path.cwd())
+          print("Evidence-pack layout and Python syntax OK")
+          PY
+
+      - name: Test the inspector and manifest generator
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import gzip
+          import hashlib
+          import json
+          import subprocess
+          import sys
+          import tempfile
+          import unittest
+
+          REPO = Path.cwd()
+          INSPECT = REPO / "examples/inspect_topic.py"
+          BUILD = REPO / "scripts/build_manifest.py"
+          SAMPLE = REPO / "examples/proof_sample.yoihen"
+          SAMPLE_BYTES = SAMPLE.read_bytes()
+
+
+          class EvidenceTests(unittest.TestCase):
+              def setUp(self):
+                  self.temporary = tempfile.TemporaryDirectory()
+                  self.addCleanup(self.temporary.cleanup)
+                  self.work = Path(self.temporary.name)
+
+              def run_script(self, script, arguments, succeeds=True):
+                  result = subprocess.run(
+                      [sys.executable, str(script), *map(str, arguments)],
+                      capture_output=True, text=True, timeout=45,
+                  )
+                  message = (result.stdout + "\n" + result.stderr)[-6000:]
+                  if succeeds:
+                      self.assertEqual(result.returncode, 0, message)
+                  else:
+                      self.assertNotEqual(result.returncode, 0, message)
+                  return result
+
+              def builder_arguments(self, output):
+                  archive = self.work / "ci-proof-sample.yoihen.gz"
+                  if not archive.exists():
+                      archive.write_bytes(gzip.compress(SAMPLE_BYTES, mtime=0))
+                  return [
+                      "--root", REPO, "--input", archive, "--output-dir", output,
+                      "--release-id", "CI-PROOF-SAMPLE-NOT-RELEASE",
+                      "--expected-records", 7,
+                      "--expected-raw-bytes", len(SAMPLE_BYTES),
+                      "--expected-gz-bytes", archive.stat().st_size,
+                      "--count-topics",
+                  ]
+
+              def test_help(self):
+                  self.run_script(INSPECT, ["--help"])
+                  self.run_script(BUILD, ["--help"])
+
+              def test_inspector_preserves_seven_objects_and_outcomes(self):
+                  result = self.run_script(INSPECT, ["--input", SAMPLE, "--limit", 7])
+                  rows = [json.loads(line) for line in result.stdout.splitlines()]
+                  self.assertEqual(len(rows), 7)
+                  self.assertTrue(all(not row["actions_executed"] for row in rows))
+                  self.assertTrue(all(row["vision_status"] == "legacy_opaque" for row in rows))
+                  self.assertFalse(rows[-1]["reported_evaluation"]["success"])
+                  self.assertFalse(rows[-1]["reported_evaluation"]["independently_executed_here"])
+                  self.assertEqual(rows[-1]["topic"],
+                                   "tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317")
+
+              def test_exact_topic_filter(self):
+                  result = self.run_script(INSPECT, ["--input", SAMPLE, "--topic", "chrome_browse_news_0"])
+                  rows = [json.loads(line) for line in result.stdout.splitlines()]
+                  self.assertEqual(len(rows), 1)
+                  self.assertEqual(rows[0]["topic"], "chrome_browse_news_0")
+                  self.run_script(INSPECT, ["--input", SAMPLE, "--topic", "CHROME_BROWSE_NEWS_0"],
+                                  succeeds=False)
+
+              def test_tampered_sample_rejected(self):
+                  sample = self.work / "proof_sample.yoihen"
+                  sample.write_bytes(SAMPLE_BYTES.replace(b"Enter", b"Other", 1))
+                  metadata = REPO / "examples/proof_sample.manifest.json"
+                  (self.work / metadata.name).write_bytes(metadata.read_bytes())
+                  self.run_script(INSPECT, ["--input", sample], succeeds=False)
+
+              def test_inspector_record_limit(self):
+                  self.run_script(INSPECT, ["--input", SAMPLE, "--max-record-bytes", 10],
+                                  succeeds=False)
+
+              def test_manifest_measurements_and_checksums(self):
+                  output = self.work / "measured"
+                  arguments = self.builder_arguments(output)
+                  self.run_script(BUILD, arguments)
+                  report = json.loads((output / "MANIFEST.json").read_text(encoding="utf-8"))
+                  self.assertTrue(report["passed_declared_checks"])
+                  self.assertEqual(report["observed"]["counts"]["physical_records"], 7)
+                  self.assertEqual(report["observed"]["decoded_sha256"],
+                                   hashlib.sha256(SAMPLE_BYTES).hexdigest())
+                  self.assertEqual(report["observed"]["topic_inventory"]["unique_count_exact"], 7)
+                  self.assertFalse(report["observed"]["full_image_decode_completed"])
+                  archive = self.work / "ci-proof-sample.yoihen.gz"
+                  self.assertEqual((output / "SHA256SUMS").read_text().split()[0],
+                                   hashlib.sha256(archive.read_bytes()).hexdigest())
+
+              def test_manifest_refuses_overwrite(self):
+                  output = self.work / "protected"
+                  arguments = self.builder_arguments(output)
+                  self.run_script(BUILD, arguments)
+                  before = (output / "MANIFEST.json").read_bytes()
+                  self.run_script(BUILD, arguments, succeeds=False)
+                  self.assertEqual((output / "MANIFEST.json").read_bytes(), before)
+
+              def test_expected_count_failure_is_reported_not_hidden(self):
+                  output = self.work / "wrong-count"
+                  arguments = self.builder_arguments(output)
+                  arguments[arguments.index("--expected-records") + 1] = 8
+                  self.run_script(BUILD, arguments, succeeds=False)
+                  report = json.loads((output / "MANIFEST.json").read_text())
+                  self.assertFalse(report["passed_declared_checks"])
+                  self.assertFalse(report["checks"]["record_count"])
+
+              def test_topic_cap_does_not_claim_an_exact_count(self):
+                  output = self.work / "capped"
+                  self.run_script(BUILD, self.builder_arguments(output) + ["--max-topics", 2],
+                                  succeeds=False)
+                  report = json.loads((output / "MANIFEST.json").read_text())
+                  inventory = report["observed"]["topic_inventory"]
+                  self.assertTrue(inventory["cap_exceeded"])
+                  self.assertIsNone(inventory["unique_count_exact"])
+
+              def test_manifest_record_limit(self):
+                  output = self.work / "bounded"
+                  self.run_script(BUILD, self.builder_arguments(output) + ["--max-record-bytes", 10],
+                                  succeeds=False)
+                  self.assertFalse((output / "MANIFEST.json").exists())
+
+              def test_corrupt_archive_rejected(self):
+                  output = self.work / "corrupt"
+                  arguments = self.builder_arguments(output)
+                  archive = self.work / "ci-proof-sample.yoihen.gz"
+                  payload = bytearray(archive.read_bytes())
+                  payload[-8] ^= 1
+                  archive.write_bytes(payload)
+                  self.run_script(BUILD, arguments, succeeds=False)
+                  self.assertFalse((output / "MANIFEST.json").exists())
+
+
+          unittest.main(argv=["evidence-pack-tests"], verbosity=2)
+          PY
+
+      - name: Write evidence-check summary
+        if: always()
+        env:
+          RESULT: ${{ job.status }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as output:
+              output.write("## b.yoihen evidence-pack checks\n\n")
+              output.write("Job status: " + os.environ["RESULT"] + "\n\n")
+              output.write("Scope: citation schema, public file presence, proof-object "
+                           "sample provenance, and small inspector/manifest fixtures.\n\n")
+              output.write("These checks do not measure the full release, replay the "
+                           "benchmark, train a model, or execute self-update actions.\n")
+          PY
