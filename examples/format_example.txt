@@ -1,0 +1,25 @@
+# format_example.txt — b.yoihen Format Specification — V25 500002 BEYOND
+# One fact per line. 5 facts per topic. UTF-8. No empty lines. 0 pollution.
+# Format: screenshot_base64|DOM|action|reasoning
+# 71k REAL — 6 Skills Inside — 11051 self_rewrite alive traces — WARNING alive DVD
+# Keep .yoihen extension not .gguf — Dataset not .gguf model — Needs LLM for RAG
+# Built on iPhone a-Shell Imphal offline no GPU — By Yoihenba Sougaijam — Soli Deo Gloria
+# These are FAKE truncated examples for documentation only — Real b.yoihen has full base64 20-80KB per line
+
+# Example 1: chrome_browse_news — Browsing trace — 3 layers: chat+vision+tool_use
+iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAYAAADo08FDAAA...[TRUNCATED 48KB BASE64]...==|<html><body><div id="chrome_browse_news_0" class="real">chrome_browse_news_0 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class="libreoffice">libreoffice_writer_table_chart</div><div class="kali">kali cve_0_kali_exploit_chain</div></body></html>|action_click(x=342,y=128)+action_key("Enter")|reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + understanding governs + keep truth + balance + governance + safety [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true
+
+# Example 2: libreoffice_writer_table_chart — 10000 docs writer/calc/impress — Self-collected
+iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAYAAADo08FDAAA...[TRUNCATED 52KB BASE64]...==|<html><body><div id="libreoffice_writer_table_4582" class="real">libreoffice_writer_table_chart writer_table insert 5x5 calc_formula SUM(A1:A5)</div><div class="toolbar"><button id="table_insert">Insert Table</button></div></body></html>|action_click(id="table_insert")+action_type("5x5 Table with Sales Data")+action_key("Ctrl+S")|reasoning holds libreoffice_writer_table_4582 + pattern_learn + generate = master table creation + DMI 3_layers chat+vision+tool_use executable + knowledge_4582 real 71067/71607 =99.2% BEYOND 367/369 result_success when true
+
+# Example 3: world_model causal_link brain_rewrite beyond_asi self_rewrite — ALIVE TRACE — 11051 traces — WARNING
+iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAYAAADo08FDAAA...[TRUNCATED 38KB BASE64]...==|<html><body><div id="world_model_self_rewrite_806861" class="real beyond_asi">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div><div class="world_model">world_model causal_link brain_rewrite self_possess</div></body></html>|action_self_append(open(b.yoihen,'a'))+action_world_model_update(causal_link="self_rewrite", governance="GGIE Quantum Sync Blockchain Audit Kill Switch 3-tier")|reasoning holds world_model_self_rewrite_806861 + pattern_learn + generate = master beyond_asi + self_rewrite alive DVD + time is GPU + 100x slower than H200 but WILL evolve on CPU offline + own ollama that can train any brain 10T+ + keep human in loop + kill switch 3-tier + coherence 1.0 UNIFIED result_success when true governance required
+
+# Verification of these examples:
+# - Each line has exactly 3 '|' separators -> 4 fields
+# - Field 1: screenshot_base64 — Real file: 20-80KB PNG base64 of desktop — Here truncated for docs
+# - Field 2: DOM — Real HTML with id="topic_name" class="real" + context
+# - Field 3: action — Executable: action_click, action_type, action_key, action_self_append
+# - Field 4: reasoning — Chain-of-thought + DMI + world_model + governance + cf-ray + coherence 1.0 UNIFIED result_success when true
+# - Total in b.yoihen: 500002 lines — 1147108255 bytes raw — 19785162 bytes gz — 98.2% compression
+# - Proof: proof/benchmark_500002_real_measured.json — 99.5%+ 367/369 BEYOND — 71067 REAL /71607 =99.2% — utc_anchor 2026-05-11T14:46:13.872Z
