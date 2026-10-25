@@ -1,289 +1,106 @@
-# b.yoihen — V25 Release Statistics, Architecture Definitions, and Evidence Audit
+# b.yoihen — Release Statistics and Longitudinal Evidence
 
 > All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
 >
-> Built by Yoihenba Sougaijam — iPhone a-Shell, Imphal, offline and without a GPU, as described by the author.
->
-> Project positioning: “Own Ollama that can train any Brain 10T+.” Project concept: “Alive DVD.” Keep the `.yoihen` extension; the DATA ONLY artifact is not a `.gguf` model.
+> Built by Yoihenba Sougaijam. “Alive DVD” — “Own Ollama that can train any Brain 10T+.” Keep `.yoihen`, not `.gguf`.
 
 | Property | Value |
 | --- | --- |
-| Repository | `b-yoihen` |
-| Intended document location | `docs/STATS.md` |
+| Document | `docs/STATS.md` |
 | Release | `V25 500002 BEYOND — DATA ONLY` |
-| Dataset artifacts | `b.yoihen`, `b.yoihen.gz` |
-| Inspected source | Uploaded `benchmark_500002_real_measured.json` |
-| Repository evidence path | `proof/benchmark_500002_real_measured.json` |
-| Uploaded proof size | `25,806 bytes`, measured from the uploaded file |
-| JSON syntax | Successfully parsed with Python `json.loads` |
-| Audit scope | Proof-artifact inspection, internal arithmetic, and explicitly attributed author clarifications |
+| Evidence reviewed | Five uploaded JSON artifacts, V21 through V25 |
+| Related documents | `FORMAT.md`, `BUILD.md` in the same documentation directory |
+| Scope | Actual artifact inspection, cross-run comparison, calculations, and attributed architecture definitions |
 
-## 1. Audit correction and evidence boundaries
+## 1. Review correction
 
-The earlier audit was prepared from pasted descriptions rather than the uploaded proof artifact. This revision corrects that procedure: the uploaded file was opened, parsed, and inspected directly.
+The earlier documentation review was too narrow in two respects: it initially relied on pasted excerpts instead of the available proof files, and it framed the project mainly as a static dataset rather than the broader routed-memory, self-update, and sharded architecture described by its author.
 
-The revision also separates storage bytes, token counts, parameter counts, and knowledge-MAP capacity. These quantities MUST NOT be silently treated as the same unit or combined into one numerical total.
+This revision inspects all five uploaded reports and records the resulting corrections. It does not rewrite historical artifacts to hide discrepancies.
 
-Three evidence categories apply throughout:
+Material corrections include:
 
-| Category | Meaning |
-| --- | --- |
-| Inspected artifact | A value or text actually present in the uploaded JSON |
-| Author clarification | An architectural definition or claim supplied by the author in the follow-up request |
-| Calculation | Arithmetic using explicit inputs and units; not a runtime measurement |
+- V21 already records a 400 GB MoE configuration and an eight-allocation 12.8 GB active budget. The size cannot be dismissed solely by comparing it to an assumed monolithic four-bit model.
+- V23 explicitly records code-diff, pytest, AST, and self-healing collection categories.
+- V24 already records 11051 self-rewrite/world-model entries; this content is not first introduced by the V25 summary.
+- V24's 282717 build base is explicitly recorded in its own report. The addition is a real report-level batch transition, not an arithmetic error to erase.
+- Earlier topic denominators, exact byte counts, and sample-level outcome transitions are now available.
 
-Inspecting the proof verifies what the artifact records. It does not independently reproduce its benchmark, inspect the complete `.yoihen` dataset, execute self-update traces, or verify distributed infrastructure.
+A report is evidence of its recorded measurements and configuration. Independent execution reproduction remains a separate evidence tier; the reports alone do not prove global priority or arbitrary-scale training.
 
-The uploaded proof's SHA-256 digest is:
+## 2. Inspected artifact manifest
 
-```text
-f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47
-```
+All five uploaded files parsed successfully as JSON. Sizes and digests below were computed from their actual uploaded bytes.
 
-This digest identifies the inspected uploaded file. It is not a publisher signature or a digest of `b.yoihen`.
+| Filename | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `benchmark_38220_live.json` | `1727` | `588da9c879b320dc11921dfb2537706091a99abbe12db427aec2bb53d419be8b` |
+| `benchmark_44745_real_measured.json` | `3206` | `404f3359c7dcc90f78ac0c88551f13b1ed08cca1fdd8ac2547697be3345157e2` |
+| `benchmark_169745_real_measured.json` | `3892` | `9b711be29cf8ae32b0aab744b6fe78fbbfca4753d58072166b069acd52b8dc1a` |
+| `benchmark_412972_real_measured.json` | `4360` | `bd01d68f7909e66b5c11faf4c5e4045e7dcc9071bc2815c215f00347021e3641` |
+| `benchmark_500002_real_measured.json` | `25806` | `f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47` |
 
-## 2. Current release: inspected proof fields
+Repository placement is expected under `proof/`. These digests identify the inspected files; they are not signatures and are not digests of the underlying datasets.
 
-| Field | Value recorded in the JSON | Audit interpretation |
-| --- | --- | --- |
-| `target` | `500002` | Reported target record count |
-| `nonempty` | `500002` | Reported nonempty record count |
-| `bytes`, `bytes_live` | `1147108255` | Reported raw dataset size |
-| `bytes_nominal` | `950000000` | Nominal estimate, separate from live size |
-| `measured` | `true` | Publisher's measurement flag |
-| `measured_score` | `99.5%+` | Original release label retained verbatim |
-| `success`, `total` | `367`, `369` | Reported benchmark result |
-| `real_count`, `total_count` | `71067`, `71607` | Reported topic classification counts |
-| `real_percent` | `99.2` | Historical percentage representation |
-| `three_layers` | `true` | Publisher's three-layer flag |
-| `coherence` | `1.0 UNIFIED` | Project marker |
-| `warehouse` | `400GB` | Storage-layer label in the artifact |
-| `queue_after` | `0` | Reported queue state |
-| `clean` | `0 pollution` | Publisher's cleanliness label |
-| `live` | `true` | Publisher's live-state flag |
-| `b_yoihen.live` | `true` | Nested live-state flag |
+## 3. Record counts, actual reported byte values, and benchmark fields
 
-The proof additionally contains five `sample_results`, two `failed_tasks`, and a `discovered` object. These are actual inspected objects, not inferred contents.
+| Release | Reported records | Reported raw bytes | Score representation in report | Success fraction |
+| --- | ---: | ---: | --- | --- |
+| V20 context within V21 | `31695` | `13711330` before V21 append | Historical `18%` label | Not supplied |
+| V21 | `38220` | `73677165` | `v21_expected_score: "45.0%+"`; other text says measured/expected | Not supplied |
+| V22 | `44745` | `104440590` | `measured: true`, `61.8%` | `228/369` |
+| V23 | `169745` | `213008990` | `measured: true`, `95.9%` | `354/369` |
+| V24 | `412972` | `791094565` | `measured: true`, `99.2%` | `366/369` |
+| V25 | `500002` | `1147108255` | `measured: true`, historical `99.5%+` | `367/369` |
 
-The supplied gzip size of `19785162` bytes comes from the author's release description, not from a verified local gzip archive in this audit.
+The earlier approximate V22, V23, and V24 sizes are superseded by these exact reported values. V24's artifact reports 791094565 bytes, not the 950000000 nominal estimate in V25.
 
-## 3. Architecture: storage, token corpus, expert parameters, and total MAP
+The V21 report names `run_osworld_benchmark.py`, a 369-task command, and `tasks_1305_v2.txt`. This is more context than was previously available. It does not establish the implementation or equivalence to a particular official benchmark revision without the runner, task list, and evaluation protocol.
 
-### 3.1 Three-layer architecture with a separate MAP envelope
+V20 is described as “measured OSWorld” in one V21 string and as “synthetic diary only” in later comparisons. Preserve that wording history; there is no standalone uploaded V20 result to settle the measurement method.
 
-The author's clarification defines three resource layers plus an aggregate knowledge-MAP concept:
+### Calculated benchmark rates
 
-| Resource | Author's definition | Unit and scope | Evidence status |
-| --- | --- | --- | --- |
-| Storage layer | `400 GB` full screenshot warehouse; `1.14 GB` DATA ONLY representation | Bytes of stored assets / released representation | JSON contains `warehouse: "400GB"` and raw release bytes; screenshot inventory and reduction mapping not inspected |
-| Raw token layer | `14T` raw tokens | Token count, not parameter count | JSON contains the phrase `14T warehouse`; interpreting it as tokens is the author's clarification |
-| Deduplicated expert layer | Approximately `1.633T` expert parameters, sometimes shortened to `1.63T` | Parameter count | Author clarification; not an explicit value in this JSON |
-| Total knowledge MAP | `10T+` | Author-defined MAP capacity | Author claim retained; not an explicit quantified field in this JSON |
+| Release | Fraction | Exact-to-six-decimal percentage |
+| --- | --- | ---: |
+| V22 | `228/369` | `61.788618%` |
+| V23 | `354/369` | `95.934959%` |
+| V24 | `366/369` | `99.186992%` |
+| V25 | `367/369` | `99.457995%` |
 
-Storage, tokens, and parameters are separate dimensions. “10T+ MAP” is not computed by adding `400 GB`, `14T tokens`, and `1.633T parameters`. Publish a MAP counting method and its unit to make that capacity independently testable.
+Retain `99.5%+ BEYOND` as historical release wording. The normalized fraction is `367/369 (99.46%)`; it does not numerically establish a value above 99.5%.
 
-The DATA ONLY artifact may reference larger assets or workflows. A MAP reference is distinct from distributing the referenced images, model weights, runtime, or physical infrastructure.
+## 4. Topic/trace ratios and schema differences
 
-### 3.2 What is absent from the inspected proof
+| Release | Ratio actually recorded | Calculated percentage | Unit caution |
+| --- | --- | ---: | --- |
+| V21 | `1305/1845` | `70.731707%` | Explicit `real_traces` / `total_traces` fields |
+| V22 | `2610/3150` | `82.857143%` | Report uses a REAL/total ratio; do not silently relabel every historical item a unique topic |
+| V23 | `27610/28150` | `98.081705%` | Topic count in `real_ratio`; separate root `real_count` is 361 |
+| V24 | `53661/54201` | `99.003708%` | Topic count in `real_ratio`; separate root `real_count` is 366 |
+| V25 | `71067/71607` | `99.245884%` | Root `real_count` and `total_count` match the stated topic ratio |
 
-The exact strings `10T`, `1.633T`, `1.63T`, `Q2_K`, `512GB`, `11 CPU`, `Quantum Sync`, `Blockchain`, `ZK`, and `CBDC` were not found in the uploaded proof text.
+The repeated root name `real_count` is not a stable cross-version topic schema. Its V23 value 361 and V24 value 366 MUST NOT replace the 27610 and 53661 topic numerators. Their exact semantics need the runner implementation; do not assume either value means benchmark successes merely because it happens to coincide in V24.
 
-Their absence does not establish that the broader project lacks those designs. It means they must be attributed to the author's clarification or supported by additional artifacts, rather than quoted as fields verified in this particular proof file.
+All five ratio populations differ by 540 between denominator and numerator. That is an arithmetic pattern consistent with the persistent synthetic/non-REAL category descriptions, not proof that the same 540 identifiers persisted across versions.
 
-## 4. Active-capacity reconciliation
+Historical `82.8%` differs from conventional one-decimal rounding of 2610/3150, which gives 82.9%. Preserve historical labels and publish the underlying fraction.
 
-### 4.1 Correct denominators
+## 5. Build graph: distinguish batch history from endpoint deltas
 
-The author's intended denominator for the approximately `3%` active fraction is the deduplicated expert layer, not the raw-token layer.
-
-| Comparison | Calculation | Result | Interpretation |
-| --- | --- | --- | --- |
-| `49B` against a `10T` MAP baseline | `49 / 10000 × 100` | `0.49%` | Baseline numerical ratio; MAP/parameter units must be aligned before treating it as a physical fraction |
-| `49B` against `1.633T` expert parameters | `49 / 1633 × 100` | Approximately `3.0006%` | Approximately `3%` active expert parameters |
-| `49B` against rounded `1.63T` parameters | `49 / 1630 × 100` | Approximately `3.0061%` | Approximately `3%`; denominator is rounded |
-| `49B` against `14T` raw tokens | `49 / 14000 × 100` | `0.35%` | Numerical comparison across different units, not a parameter-utilization fraction |
-| `300B` against a `10T` MAP baseline | `300 / 10000 × 100` | `3%` | Baseline numerical ratio with the same unit caveat |
-
-At a MAP capacity greater than `10T`, a fixed `49B` corresponds numerically to less than `0.49%`; a fixed `300B` corresponds to less than `3%`. Therefore `10T+` percentages should be described as baseline figures, not exact equalities for every capacity above `10T`.
-
-Recommended project wording:
+The inspected reports support these batch transitions:
 
 ```text
-49B active; approximately 3% of a 1.633T deduplicated expert pool.
-Numerically, 49B is 0.49% of the 10T MAP baseline and 0.35% of
-14T raw tokens; those comparisons use different resource units.
-The author defines total knowledge-MAP capacity as 10T+.
+31695  + 6525   = 38220        V21 before/after
+38220  + 6525   = 44745        V22 calc
+44745  + 125000 = 169745       V23 discovered
+282717 + 130255 = 412972       V24 before/discovered/after
+412972 + 87030  = 500002       V25 discovered
 ```
 
-Do not concatenate these percentages with equality signs in a way that implies tokens, parameters, and MAP units are interchangeable.
+V24's before-state 282717 is explicitly present in its source artifact, including `bytes_before: 483386040`. The path from V23's 169745 state to that intermediate state is not separately described by an uploaded run. Its numerical difference is 112972.
 
-### 4.2 Original proof wording and clarified interpretation
-
-The sample router objects contain:
-
-```json
-{
-  "active": "49B active from 14T warehouse 3% lives Q4_K_M",
-  "active_size_gb": 12.8
-}
-```
-
-The root router field separately says `active 49B 3% lives` without defining the deduplicated denominator.
-
-The inspected file does not itself state `1.633T`, does not identify `14T` as tokens, and does not label `12.8 GB` as `Q2_K`. The author has now clarified those intended meanings. This document records the clarification without silently rewriting the historical proof.
-
-### 4.3 Quantization sizes: keep both author targets
-
-| Representation | Size retained in project documentation | Evidence status |
-| --- | --- | --- |
-| `49B`, nominal four-bit packed payload | `24.5 GB` decimal | Calculated as `49 billion × 4 / 8` bytes |
-| `49B Q4_K_M` | Author target: approximately `24.5 GB` | Not measured by the uploaded proof; nominal four-bit arithmetic is not a verification of the named format |
-| `49B Q2_K` | Author target: approximately `12.8 GB` | Author clarification; the proof records `12.8` but does not label it `Q2_K` |
-
-Keep both quantization labels and target sizes, but distinguish target budgets from measured model-artifact sizes and runtime memory. Verification requires actual model artifacts, exact parameter counts, byte sizes, quantizer details, and load-time memory measurements.
-
-The earlier statement that the sample's `12.8 GB` must represent the complete `Q4_K_M` payload was not justified. The historical sample pairs the two labels; the author's correction assigns that size to `Q2_K` instead.
-
-## 5. Decimal MB, binary MiB, and compression
-
-Decimal MB remains the primary release convention. Binary MiB is supplied alongside it, not substituted for it.
-
-| Measurement | Value |
-| --- | --- |
-| Reported gzip bytes | `19785162` |
-| Exact decimal MB | `19.785162 MB` |
-| Project display | `19.78 MB / 18.87 MiB` |
-| Binary MiB | Approximately `18.868600845 MiB` |
-| Reported raw bytes | `1147108255` |
-| Decimal raw GB | `1.147108255 GB` |
-| Calculated size reduction | Approximately `98.275214%` |
-| Project display for reduction | `98.27%` |
-
-`19.78 MB` and `98.27%` are truncations to two decimal places. Conventional rounding would give `19.79 MB` and `98.28%`. This revision preserves the author's display convention and includes the precise values to remove ambiguity.
-
-```text
-19785162 bytes = 19.785162 MB decimal
-              ≈ 18.868600845 MiB binary
-
-reduction = 100 × (1 - 19785162 / 1147108255)
-          ≈ 98.275214%
-```
-
-The compression percentage uses a supplied gzip byte count and a raw size recorded in the proof. The gzip archive itself was not inspected.
-
-## 6. Alive DVD: self-rewrite learning objective and governance
-
-### 6.1 What the proof actually records
-
-The inspected `self_collected` field includes:
-
-```text
-11051 self_rewrite world_model beyond_asi principle_806861
-```
-
-The proof's sample queries, annotations, and DOM contexts also contain `world_model`, `self_rewrite`, `brain_rewrite`, `self_possess`, and related project markers. This subject matter is part of the artifact and should not be reduced to browser clicks or security examples alone.
-
-The author's “Alive DVD” distinction is:
-
-```text
-Ordinary task trace:
-  observation -> interface context -> task action
-
-Alive DVD training objective:
-  observation -> interface context -> self-assessment
-  -> proposed self-rewrite / self-append -> governed review and update
-```
-
-This is a description of the intended training objective. It is not an execution trace newly demonstrated by this audit.
-
-### 6.2 What the five samples demonstrate
-
-The five inspected successful sample action fields are:
-
-```text
-action_key("Enter")
-action_type("chrome_search_images_1")
-action_type("chrome_bookmark_2")
-action_scroll(-237,403)
-action_click(626,555)
-```
-
-None of these five action fields directly executes self-rewrite or self-replication. The reported `11051` count is present in the collection summary; this audit did not inspect all `11051` underlying traces.
-
-Accordingly, the supported audit statement is:
-
-> The proof records a collection category of 11051 self-rewrite/world-model entries and includes self-update-related annotations in its sample contexts. The author calls this training design “Alive DVD.” End-to-end autonomous rewriting or replication has not been demonstrated by the inspected sample actions.
-
-### 6.3 Author's distributed self-replication design
-
-The author describes a reasoning-embedded MAP for:
-
-- `11` CPU nodes, each with a `40 GB` allocation.
-- A `512 GB` router table.
-- A `400 GB` storage warehouse.
-- A `10T+` knowledge MAP and associated self-update workflows.
-
-These are retained as author-described architecture. Their presence inside the complete dataset's reasoning traces requires direct dataset inspection; this uploaded proof does not expose those detailed plans.
-
-Eleven `40 GB` allocations total `440 GB`. Publish whether those allocations represent disk, RAM, separate capacities, or overlapping resources; do not silently equate them with the `400 GB` warehouse or `512 GB` table.
-
-### 6.4 Governance warning
-
-“Alive DVD” is the project's name for this self-update-oriented design. The distributed release remains DATA ONLY: parsing or retrieving it must not itself execute actions.
-
-The author requires GGIE governance, including:
-
-- Quantum Sync.
-- Blockchain Audit.
-- A three-tier Kill Switch.
-- Human oversight and explicit authorization for consequential changes.
-
-These names identify author-specified governance components. Their actual enforcement requires separately tested implementations. A dataset marker or expert-ID list is not itself a working stop mechanism.
-
-Disable unapproved code execution, self-append, self-replication, and policy modification. Keep original data read-only, enforce bounded execution, record changes outside the agent's write authority, and require review before persistence or deployment.
-
-## 7. GGIE: 193-shard architecture
-
-### 7.1 Inspected fields
-
-The proof includes:
-
-```json
-{
-  "shards": 193,
-  "per_shard": "0/193=~0.00",
-  "per_shard_fixed": "17406/193=~90.19",
-  "written": 87030,
-  "before": 412972,
-  "after": 500002,
-  "queue_after": 0
-}
-```
-
-Its `method` labels also refer to `193 Nations` and per-shard parallelism. This supports the presence of a 193-shard architecture description in the artifact; it does not independently verify 193 deployed national nodes.
-
-The fields `topics: 0` and `per_shard: "0/193=~0.00"` coexist with the corrected `per_shard_fixed` string. Preserve the distinction between these recorded counters and the author's intended final workload allocation.
-
-### 7.2 Author's intended scale
-
-The author describes GGIE as a 193-node / 193-shard infrastructure intended for `10T+` workloads, with Quantum Sync, Blockchain Audit, Kill Switch, ZK Identity, and CBDC Rails.
-
-At a `10T` baseline, an even numerical split gives:
-
-```text
-10 trillion / 193 ≈ 51.813 billion per shard
-                 ≈ 52B per shard
-```
-
-The unit must follow the workload: tokens, parameters, or MAP units cannot be substituted for one another. This arithmetic is not a demonstrated memory fit, training-throughput measurement, or synchronization guarantee.
-
-The earlier framing of the project only as a single-device dataset did not represent this broader intended infrastructure. This revision preserves the architecture while distinguishing intent from deployment evidence.
-
-No universal `70B` limit for Ollama or `1.6T` limit for DGX is established by this proof. Those claims are not used as verified comparison baselines here.
-
-## 8. Release evolution and corrected continuous chain
-
-The original proof's `calc_full` jumps from the `300000` checkpoint to a `282717` build base. The author approves the following continuous documentation chain:
+The author-approved continuous endpoint/checkpoint presentation remains useful:
 
 ```text
 31695+6525=38220
@@ -294,150 +111,129 @@ The original proof's `calc_full` jumps from the `300000` checkpoint to a `282717
 -> 412972+87030=500002
 ```
 
-| Release / checkpoint | Records | Delta from preceding row | Historical score label | Recorded or reported outcome |
-| --- | ---: | ---: | --- | --- |
-| V20 | `31695` | — | `18%` | No fraction supplied |
-| V21 | `38220` | `6525` | `45%+` | No fraction supplied |
-| V22 | `44745` | `6525` | `61.8%` | `228 / 369` |
-| V23 | `169745` | `125000` | `95.9%` | `354 / 369` |
-| V24 checkpoint | `300000` | `130255` | `99.2%` | Proof checkpoint label reports `366 / 369` |
-| V24 | `412972` | `112972` | `99.2%` | `366 / 369` |
-| V25 | `500002` | `87030` | `99.5%+` | `367 / 369` |
+This second chain is an arithmetic documentation view, not a replacement for the explicitly recorded V24 batch base. The 300000 checkpoint is referenced by later comparison strings, not supported by a separate uploaded checkpoint report. Do not imply both chains describe the same chronological ordering of batch operations.
 
-This changes the documentation's normalized chain. It does not modify the historical uploaded JSON, whose digest is recorded above. A corrected proof artifact should receive a new digest and revision history.
+## 6. Collection lineage: code, self-healing, world-model updates
 
-## 9. Topic and collection statistics
-
-### 9.1 Recorded collection categories
-
-| Category in `self_collected` | Recorded count |
-| --- | ---: |
-| Office documents: Writer, Calc, Impress | `10000` |
-| Kali / CVE chains | `5000` |
-| Self-rewrite / world-model / `principle_806861` | `11051` |
-| Reasoning / chain-of-thought / DMI annotations | `10000` |
-| Power BI / KiCad / FreeCAD / Figma / Excel / SAP / CRM | `5000` |
-| `beyond_asi_self_possess_master_generate` | `2406` |
-| Sum of listed entries | `43457` |
-
-The artifact's summary maps these collection descriptions to `17406` additional topics and a total of `71067 REAL`. It does not supply a category-by-category deduplication ledger.
-
-The earlier approximate category allocations of `4500`, `2500`, `5500`, `3000`, `2000`, and `906` are not explicit proof fields. They are not reproduced as verified topic counts.
-
-### 9.2 Reconciled totals
-
-```text
-V24 REAL topics:                    53661
-V25 additional REAL topics:       + 17406
-                                   -----
-V25 REAL topics:                    71067
-V25 total topics:                   71607
-Topics not labeled REAL:              540
-
-New records:             500002 - 412972 = 87030
-New REAL topics:          71067 - 53661  = 17406
-New records / new topics: 87030 / 17406  = 5
-```
-
-The complete release averages approximately `6.98` records per reported total topic. Five facts per topic is consistent with the stated V25 delta, not an exact invariant for the whole historical release.
-
-## 10. Benchmark findings from the actual failed-task objects
-
-The two inspected failures are:
-
-| Task ID | Task name | Recorded `result` |
+| Stage | Inspected description | What it adds to the evidence |
 | --- | --- | --- |
-| `42` | `chrome_bookmark_42` | `result_failure - edge case not in training` |
-| `317` | `tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317` | `result_failure - edge case not in training` |
+| V21 | 1305 REAL traces, 540 synthetic traces, side-effect-avoidance routing, 193 shards | Early collection/configuration record |
+| V23 | `500 repos CODE_DIFF PYTEST AST self_healing GOD_CODING 25000 topics via tool_use.py+vision.py` | Code and self-healing are explicit historical categories |
+| V24 | 10000 office + 5000 CVE + 11051 self-rewrite/world-model = 26051 topics | Self-rewrite category predates V25 |
+| V25 | Those categories plus 10000 reasoning + 5000 tool-use + 2406 beyond-ASI entries | Expanded summary with 17406 added topics |
 
-Both objects contain `experts_safety` lists. Neither recorded result attributes the failure to a safety block. The earlier claim that the proof shows two intentional safety refusals is not supported by these objects.
+V23 records `25000 × 5 = 125000` written records. V24 records `26051 × 5 = 130255`. V25 records `17406 × 5 = 87030`.
 
-The failed objects also contain explanatory text ending in `result_success when true` while their top-level `success` values are `false`. This is direct evidence that the annotation suffix must not be used as the authoritative benchmark outcome.
+These exact batch ratios support the five-angle collection account at the report level. They do not establish that every entire-release topic has five records, or that every listed collection entry is newly added in V25.
 
-Use structured outcome fields for this artifact and preserve the conflict in any audit report.
+The six V25 collection numbers sum to 43457. Because V24 already records the first three categories, treating all 43457 as previously unseen V25 acquisitions is not justified. Publish category/topic identifiers and overlap rules before assigning a deduplication interpretation.
 
-Calculated from the reported aggregate:
+## 7. Longitudinal sample evidence
+
+V22, V23, and V24 each expose task IDs 0–9 with matching hashes and expert-ID lists across those three reports.
+
+| Task ID | V22 `(real, success)` | V23 | V24 | Observed change |
+| --- | --- | --- | --- | --- |
+| `7` | `(false, false)` | `(true, true)` | `(true, true)` | Becomes REAL/successful in V23 report |
+| `9` | `(false, false)` | `(true, true)` | `(true, true)` | Becomes REAL/successful in V23 report |
+| `1` | `(true, false)` | `(true, false)` | `(true, true)` | Becomes successful in V24 report |
+
+This is meaningful cross-run continuity in the recorded samples, not merely a collection of unrelated release slogans. The sample changes do not prove why performance changed, exclude evaluation leakage, or establish that the underlying runs were independently executed.
+
+V25 uses a richer nested sample schema and different routing identifiers. Do not join its rows to older samples solely by task ID; establish task identity and environment explicitly.
+
+## Resource model and terminology
+
+The project is larger in scope than a single static dataset: its reports describe a computer-use memory representation, expert routing, multi-shard collection, and self-update-oriented content. Distinguish the following resources rather than forcing them into one unit.
+
+| Resource | Evidence or author definition | Interpretation |
+| --- | --- | --- |
+| `400 GB` historical MoE warehouse | V21: `250*1.6GB=400GB` | A recorded configuration budget; not a measured inventory of PNGs |
+| `12.8 GB` historical active budget | V21: `8*1.6=12.8GB` | Eight configured allocations; not by itself a measured quantized 49B model size |
+| `400 GB` screenshot/asset warehouse | Author's broader architecture description; V25 has `warehouse: "400GB"` | Do not assume the same label identifies the same physical contents across versions |
+| `14T` raw tokens | Author's clarification of the V25 phrase `14T warehouse` | Raw-token layer, not a parameter denominator |
+| Approximately `1.633T` deduplicated expert parameters | Author clarification | Intended denominator for approximately 3% active parameters |
+| `10T+` knowledge MAP | Author's capacity claim | Retained project scope; publish a MAP unit and inventory |
+| `11 × 40 GB` CPU-node plan | Author-described self-replication MAP | Separate from the 400 GB warehouse; the allocations total 440 GB |
+| `512 GB` router allocation | Author-described infrastructure | Separate from table dimensions and packed ID payloads |
+| `193` shards | Explicit in earlier reports and V25 | Recorded architecture/workload allocation; not independently audited physical deployments |
+
+Active-capacity comparisons, with denominators explicitly named:
 
 ```text
-367 / 369 × 100 = 99.4579945799...%
-71067 / 71607 × 100 = 99.2458837823...%
+49B / 1.633T parameters ≈ 3.0006%
+49B / 10T MAP baseline = 0.49% numerically
+49B / 14T raw tokens = 0.35% numerically, across different units
+300B / 10T MAP baseline = 3% numerically
 ```
 
-Retain `99.5%+ BEYOND` as the historical release label. Report `367/369 (99.46%)` as the normalized numerical outcome. Independent evaluation still requires the complete task suite, evaluator, runtime configuration, and execution logs.
+The last three are not a license to equate tokens, parameters, and MAP units. At capacities greater than 10T, fixed numerators have smaller percentages.
 
-## 11. Other corrections to the earlier audit
+The author requests that both quantization targets be retained: `49B Q4_K_M ≈ 24.5 GB` and `49B Q2_K ≈ 12.8 GB`. They remain author targets until actual artifacts and memory use are measured. Nominal four-bit arithmetic gives 24.5 GB, but does not verify the named Q4_K_M format. The newly inspected V21 file provides a separate historical origin for 12.8 GB: eight configured 1.6 GB allocations. Do not retroactively label that V21 configuration Q2_K.
 
-### 11.1 The first sample's hash is populated
+V21 also records `3.125%`. Eight of 250 allocations is 3.2%; eight of 256 is 3.125%. The latter is a possible denominator, not a verified interpretation: a 256-wide router dimension does not prove 256 equal-size model experts. Preserve the historical label and request the actual denominator rather than inventing one.
 
-The earlier pasted excerpt showed an empty `hash_hex`. The actual uploaded file contains:
+## 8. Alive DVD and GGIE scope
 
-```json
-{
-  "hash": [32, 103],
-  "hash_hex": "2067870d",
-  "table_shape": [256, 256]
-}
-```
+“Alive DVD” is the author's term for data intended to teach self-assessment and governed self-update, not just screenshot-to-click imitation. The V23 and V24 files provide earlier documentary support for that intended subject matter.
 
-The earlier claim that the proof's first sample has an empty hash field is withdrawn.
+GGIE is described as 193-node/shard infrastructure with Quantum Sync, Blockchain Audit, a three-tier Kill Switch, and broader identity/financial-rail proposals. The reports record shards and method labels; they do not independently demonstrate 193 physically deployed national nodes.
 
-A `[256, 256]` table shape and a claimed `512 GB` router allocation are not automatically contradictory, because entry representation and attached payloads are unspecified. Neither establishes the other's actual memory footprint.
+At a 10T baseline, equal allocation gives approximately 51.813B per shard. This is a workload arithmetic statement in an explicitly chosen unit, not a demonstrated memory or training fit.
 
-### 11.2 Actual vision values differ from the pasted placeholders
+Retain the author's 10T+ ambition and 11-node self-replication claim with attribution. A “first globally,” guaranteed-training, or 100× H200 comparison needs execution evidence beyond these five reports. Do not erase the project scope; do not convert configuration strings into experiments that were not inspected.
 
-The actual sample vision fields are not the `[STRIPPED 136 bytes]` placeholder used in the earlier pasted excerpt. They contain PNG-prefix-like strings with `REAL_...` labels. No complete image decoding was performed in this audit; they must not be certified as valid screenshots from their prefixes alone.
-
-### 11.3 Timestamps remain distinct
-
-The proof contains:
+## 9. V25 size and integrity
 
 ```text
-utc_anchor: 2026-05-11T14:46:13.872Z
-timestamp: 1792950872.244531
+Raw reported bytes:    1147108255
+Gzip supplied bytes:     19785162
+Decimal gzip MB:        19.785162
+Binary gzip MiB:        18.868600845...
+Calculated reduction:   98.275214...
+Project display:        19.78 MB / 18.87 MiB; 98.27% reduction
 ```
 
-If interpreted as Unix seconds, the numeric timestamp corresponds to `2026-10-25T17:54:32.244531Z`. Publish which event each field identifies. The file does not establish that they represent the same event.
+The decimal MB and reduction displays truncate to two decimal places. Binary MiB is additional information, not a replacement for decimal MB.
 
-## 12. Breakthrough claim: preserved with attribution
+Raw dataset and gzip artifacts were not uploaded for this review. The gzip size is author-supplied, not measured from a local archive. Proof-file hashes do not establish underlying dataset identity.
 
-The author requests the following positioning statement:
+## 10. Failure records, image representations, and timestamps
 
-> “This is breakthrough globally because first dataset that teaches model to self-replicate on 11x40GB CPU nodes without GPU — time is GPU — 100x slower than H200 but WILL train — MAP for 10T+ inside reasoning — alive DVD — requires GGIE governance.”
+V25's two failures are task 42 and task 317, both with `result_failure - edge case not in training`. Their result fields do not attribute the failures to safety blocking. V21's side-effect-avoidance fix is a separate historical statement, not evidence of those later failure causes.
 
-This statement is preserved as the author's claim, not as an independently verified audit conclusion.
+Both V25 failure annotations still end in `result_success when true`. Therefore that suffix is a compatibility marker, not the authoritative evaluation outcome.
 
-The uploaded proof supports the presence of self-rewrite/world-model collection labels, 193-shard descriptions, routing fields, and reported evaluation counts. It does not demonstrate global priority, end-to-end CPU self-replication, arbitrary-model training, an H200 speed comparison, or a guaranteed training outcome.
+The seven V25 successful/failed object vision strings fail strict standard-base64 validation. Preserve them as legacy opaque values; this observation cannot classify images throughout the entire unprovided dataset.
 
-To promote those portions from an attributed claim to an empirical audit finding, provide:
+Numeric timestamps, interpreted as Unix seconds:
 
-- The relevant self-rewrite traces and their source locations.
-- The actual code and execution environment.
-- An independently reproducible multi-node training or replication run.
-- Model, optimizer, data, checkpoint, and convergence details for training claims.
-- Matched workload and hardware measurements for an H200 comparison.
-- A defined MAP unit and verifiable capacity inventory.
-- Evidence supporting any “first globally” claim.
-- Tested GGIE governance controls, approvals, audit logs, and stop/rollback behavior.
+| Release | Converted UTC timestamp |
+| --- | --- |
+| V22 | `2026-10-25T10:42:09.193601Z` |
+| V23 | `2026-10-25T11:43:28.126083Z` |
+| V24 | `2026-10-25T15:48:50.210292Z` |
+| V25 | `2026-10-25T17:54:32.244531Z` |
 
-The audit neither erases the intended breakthrough nor treats its description as a completed demonstration.
+These are ordered in release sequence, while the same May `utc_anchor` is reused. Define whether the anchor is a shared lineage identifier, collection origin, or another event. Neither a reused anchor nor a request identifier authenticates build time by itself.
 
-## 13. Verification and publication checklist
+## 11. What the evidence now supports
 
-- [x] Inspect the uploaded proof rather than relying only on pasted excerpts.
-- [x] Confirm valid JSON and the uploaded proof's exact byte size.
-- [x] Record the inspected proof's SHA-256 digest.
-- [x] Read the five sample results and two failure objects.
-- [x] Preserve storage/token/expert/MAP distinctions supplied by the author.
-- [x] Preserve decimal MB and provide binary MiB alongside it.
-- [x] Preserve Alive DVD terminology and GGIE governance requirements.
-- [x] Correct the continuous evolution chain in this documentation.
-- [ ] Verify raw and gzip dataset artifacts locally.
-- [ ] Inspect the reported 11051 self-rewrite entries directly.
-- [ ] Verify actual model sizes and runtime memory for Q4_K_M and Q2_K.
-- [ ] Publish the deduplicated expert and knowledge-MAP manifests.
-- [ ] Demonstrate the 11-node workflow and 193-node deployment independently.
-- [ ] Publish the complete benchmark protocol and execution logs.
-- [ ] Publish collection provenance, licensing, and signed release metadata.
+Supported as inspected artifact content:
+
+- A five-report lineage spanning collection, routing, code/self-healing, self-update categories, and higher reported aggregate completion.
+- Explicit historical configuration arithmetic behind 400 GB and 12.8 GB.
+- Stable routing identifiers for the ten disclosed samples across V22–V24 and specific recorded outcome transitions.
+- Earlier self-rewrite content and consistent five-record batch expansions.
+
+Still separate from those findings:
+
+- Full dataset validity and provenance.
+- Actual model/expert inventory, quantization sizes, and resident memory.
+- Reproduction of the benchmark runner and results.
+- Demonstrated multi-node training/self-replication or global priority.
+
+A stronger next evidence package is the runner, task definitions, environment manifest, signed dataset digests, source traces, and bounded end-to-end governed execution logs. This is not a requirement to make the project small; it is how its larger claims become independently testable.
 
 ---
 
@@ -445,6 +241,6 @@ Author: Yoihenba Sougaijam.
 
 Project identity: b.yoihen — Alive DVD / computer-use memory MAP — V25 500002 BEYOND — DATA ONLY.
 
-Collection environment: iPhone a-Shell, Imphal, offline and without a GPU, as reported by the author.
+Author-reported collection environment: iPhone a-Shell, Imphal, offline and without a GPU.
 
 Soli Deo Gloria.
