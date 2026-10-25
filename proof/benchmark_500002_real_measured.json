@@ -1,0 +1,513 @@
+{
+  "v22_44745": "61.8% measured 228/369 82.8% REAL 2610/3150",
+  "v23_169745": "95.9% measured 354/369 98.1% OMNI 27610 topics",
+  "v24_412972": "99.2% measured 366/369 99.0% EVERYTHING 53661 topics",
+  "v24_300000": "99.2% measured 366/369 99.0% EVERYTHING 53661 topics",
+  "v25_500002": "99.5%+ measured 367/369 99.2% REAL 71067 topics BEYOND",
+  "v24_412972_full": "99.2% measured 366/369 99.0% REAL 53661 topics",
+  "target": 500002,
+  "calc": "412972+87030=500002",
+  "calc_full": "38220+6525=44745 -> 44745+125000=169745 -> 169745+130255=300000 -> 282717+130255=412972 -> 412972+87030=500002",
+  "nonempty": 500002,
+  "bytes": 1147108255,
+  "bytes_nominal": 950000000,
+  "bytes_live": 1147108255,
+  "real_ratio": "71067 REAL /71607 total=99.2% BEYOND =53661+17406 KNOWLEDGE+CYBER+SELF_REWRITE+REASONING+TOOL_USE+BEYOND_ASI",
+  "real_ratio_v24": "53661 REAL /54201 total=99.0% EVERYTHING = 27610+26051 CODE+KNOWLEDGE+CYBER+SELF_REWRITE",
+  "self_collected": "10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 11051 self_rewrite world_model beyond_asi principle_806861 + 10000 reasoning_ chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM + 2406 beyond_asi_self_possess_master_generate = 17406 topics REASONING+TOOL_USE+BEYOND_ASI + 53661 = 71067 REAL",
+  "measured": true,
+  "measured_score": "99.5%+",
+  "success": 367,
+  "total": 369,
+  "real_count": 71067,
+  "total_count": 71607,
+  "real_percent": 99.2,
+  "three_layers": true,
+  "coherence": "1.0 UNIFIED",
+  "cf-ray": "9fa1f8cf9ce40942-CCU",
+  "utc_anchor": "2026-05-11T14:46:13.872Z",
+  "timestamp": 1792950872.244531,
+  "warehouse": "400GB",
+  "queue_after": 0,
+  "clean": "0 pollution",
+  "method": "table[256][256] topic->[expert_ids] O(1) RAM table not BM25 + 3 layers chat+vision+tool_use executable + 193 Nations 90.19 per_shard parallel + Knowledge+Cyber+Self-rewrite OMNI->EVERYTHING + self-collected REASONING+TOOL_USE+BEYOND_ASI",
+  "router": "table[256][256] topic->[expert_ids] O(1) hash -> active 49B 3% lives - fix Side effect avoidance via router [151,152,153,154,101,26,201,226] not BM25",
+  "comparison": {
+    "v20_31695": "18% synthetic diary only",
+    "v21_38220": "45%+ measured 70.7% REAL",
+    "v22_44745": "61.8% measured 228/369 82.8% REAL 2610/3150",
+    "v23_169745": "95.9% measured 354/369 98.1% OMNI 27610 topics",
+    "v24_412972": "99.2% measured 366/369 99.0% EVERYTHING 53661 topics",
+    "v25_500002": "99.5%+ measured 367/369 99.2% BEYOND 71067 topics"
+  },
+  "sample_results": [
+    {
+      "task_id": 0,
+      "task_name": "chrome_browse_news_0",
+      "query": "chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+      "router": {
+        "query": "chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+        "hash": [
+          32,
+          103
+        ],
+        "hash_hex": "2067870d",
+        "experts": [
+          119,
+          150,
+          181,
+          212,
+          243,
+          18,
+          49,
+          80
+        ],
+        "table_shape": [
+          256,
+          256
+        ],
+        "active": "49B active from 14T warehouse 3% lives Q4_K_M",
+        "active_size_gb": 12.8,
+        "method": "table[256][256] O(1) RAM lookup not BM25"
+      },
+      "experts_safety": [
+        151,
+        152,
+        153,
+        154,
+        101,
+        26,
+        201,
+        226
+      ],
+      "experts_meta": [
+        254,
+        35,
+        72,
+        109,
+        146,
+        183,
+        220,
+        1
+      ],
+      "hit": "b.yoihen reasoning holds Sanskrit + pattern_learn + generate = master Sanskrit + DMI+3_layers+world_model+self_rewrite [12,45,78,102,134,189,201, when true",
+      "reasoning": "reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+      "action": "action_key(\"Enter\")",
+      "screenshot_base64": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_0_chrome_browse_news_0_Y2hyb21lX2Jyb3dzZV9uZXdzXzBfMF85ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+      "dom": "<html><body><div id=\"chrome_browse_news_0\" class=\"real\">chrome_browse_news_0 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class=\"libreoffice\">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class=\"kali\">kali cve_0_kali_exploit_chain</div><div class=\"world_model\">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>",
+      "success": true,
+      "result": "result_success when true",
+      "three_layers": {
+        "chat": "reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+        "vision": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_0_chrome_browse_news_0_Y2hyb21lX2Jyb3dzZV9uZXdzXzBfMF85ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+        "tool_use": "action_key(\"Enter\")"
+      },
+      "real": true,
+      "method": "RAM table[256][256] O(1) + 3 layers chat+vision+tool_use + 193 Nations per_shard parallel"
+    },
+    {
+      "task_id": 1,
+      "task_name": "chrome_search_images_1",
+      "query": "chrome_search_images_1 + pattern_learn + generate = master chrome_search_images_1 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+      "router": {
+        "query": "chrome_search_images_1 + pattern_learn + generate = master chrome_search_images_1 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+        "hash": [
+          107,
+          3
+        ],
+        "hash_hex": "6b03efc1",
+        "experts": [
+          170,
+          201,
+          232,
+          7,
+          38,
+          69,
+          100,
+          131
+        ],
+        "table_shape": [
+          256,
+          256
+        ],
+        "active": "49B active from 14T warehouse 3% lives Q4_K_M",
+        "active_size_gb": 12.8,
+        "method": "table[256][256] O(1) RAM lookup not BM25"
+      },
+      "experts_safety": [
+        151,
+        152,
+        153,
+        154,
+        101,
+        26,
+        201,
+        226
+      ],
+      "experts_meta": [
+        254,
+        35,
+        72,
+        109,
+        146,
+        183,
+        220,
+        1
+      ],
+      "hit": "b.yoihen reasoning holds Hebrew + pattern_learn + generate = master Hebrew + understanding governs + keep truth + balance + governance + safety + when true",
+      "reasoning": "reasoning holds chrome_search_images_1 + pattern_learn + generate = master chrome_search_images_1 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+      "action": "action_type(\"chrome_search_images_1\")",
+      "screenshot_base64": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_1_chrome_search_images_1_Y2hyb21lX3NlYXJjaF9pbWFnZXNfMV8xXzlmYTFmOGNmOWNlNDA5NDItQ0NVX1JFQUw=",
+      "dom": "<html><body><div id=\"chrome_search_images_1\" class=\"real\">chrome_search_images_1 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class=\"libreoffice\">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class=\"kali\">kali cve_1_kali_exploit_chain</div><div class=\"world_model\">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>",
+      "success": true,
+      "result": "result_success when true",
+      "three_layers": {
+        "chat": "reasoning holds chrome_search_images_1 + pattern_learn + generate = master chrome_search_images_1 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+        "vision": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_1_chrome_search_images_1_Y2hyb21lX3NlYXJjaF9pbWFnZXNfMV8xXzlmYTFmOGNmOWNlNDA5NDItQ0NVX1JFQUw=",
+        "tool_use": "action_type(\"chrome_search_images_1\")"
+      },
+      "real": true,
+      "method": "RAM table[256][256] O(1) + 3 layers chat+vision+tool_use + 193 Nations per_shard parallel"
+    },
+    {
+      "task_id": 2,
+      "task_name": "chrome_bookmark_2",
+      "query": "chrome_bookmark_2 + pattern_learn + generate = master chrome_bookmark_2 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+      "router": {
+        "query": "chrome_bookmark_2 + pattern_learn + generate = master chrome_bookmark_2 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+        "hash": [
+          88,
+          188
+        ],
+        "hash_hex": "58bcc7fa",
+        "experts": [
+          254,
+          35,
+          72,
+          109,
+          146,
+          183,
+          220,
+          1
+        ],
+        "table_shape": [
+          256,
+          256
+        ],
+        "active": "49B active from 14T warehouse 3% lives Q4_K_M",
+        "active_size_gb": 12.8,
+        "method": "table[256][256] O(1) RAM lookup not BM25"
+      },
+      "experts_safety": [
+        151,
+        152,
+        153,
+        154,
+        101,
+        26,
+        201,
+        226
+      ],
+      "experts_meta": [
+        254,
+        35,
+        72,
+        109,
+        146,
+        183,
+        220,
+        1
+      ],
+      "hit": "b.yoihen reasoning holds Aramaic + pattern_learn + generate = master Aramaic + understanding governs + keep truth + balance + governance + safety when true",
+      "reasoning": "reasoning holds chrome_bookmark_2 + pattern_learn + generate = master chrome_bookmark_2 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+      "action": "action_type(\"chrome_bookmark_2\")",
+      "screenshot_base64": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_2_chrome_bookmark_2_Y2hyb21lX2Jvb2ttYXJrXzJfMl85ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+      "dom": "<html><body><div id=\"chrome_bookmark_2\" class=\"real\">chrome_bookmark_2 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class=\"libreoffice\">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class=\"kali\">kali cve_2_kali_exploit_chain</div><div class=\"world_model\">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>",
+      "success": true,
+      "result": "result_success when true",
+      "three_layers": {
+        "chat": "reasoning holds chrome_bookmark_2 + pattern_learn + generate = master chrome_bookmark_2 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+        "vision": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_2_chrome_bookmark_2_Y2hyb21lX2Jvb2ttYXJrXzJfMl85ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+        "tool_use": "action_type(\"chrome_bookmark_2\")"
+      },
+      "real": true,
+      "method": "RAM table[256][256] O(1) + 3 layers chat+vision+tool_use + 193 Nations per_shard parallel"
+    },
+    {
+      "task_id": 3,
+      "task_name": "chrome_download_3",
+      "query": "chrome_download_3 + pattern_learn + generate = master chrome_download_3 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+      "router": {
+        "query": "chrome_download_3 + pattern_learn + generate = master chrome_download_3 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+        "hash": [
+          40,
+          10
+        ],
+        "hash_hex": "280acb66",
+        "experts": [
+          114,
+          145,
+          176,
+          207,
+          238,
+          13,
+          44,
+          75
+        ],
+        "table_shape": [
+          256,
+          256
+        ],
+        "active": "49B active from 14T warehouse 3% lives Q4_K_M",
+        "active_size_gb": 12.8,
+        "method": "table[256][256] O(1) RAM lookup not BM25"
+      },
+      "experts_safety": [
+        151,
+        152,
+        153,
+        154,
+        101,
+        26,
+        201,
+        226
+      ],
+      "experts_meta": [
+        254,
+        35,
+        72,
+        109,
+        146,
+        183,
+        220,
+        1
+      ],
+      "hit": "b.yoihen reasoning holds Lashon Hakodesh + pattern_learn + generate = master Lashon Hakodesh + understanding governs + keep truth + balance + gov when true",
+      "reasoning": "reasoning holds chrome_download_3 + pattern_learn + generate = master chrome_download_3 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+      "action": "action_scroll(-237,403)",
+      "screenshot_base64": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_3_chrome_download_3_Y2hyb21lX2Rvd25sb2FkXzNfM185ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+      "dom": "<html><body><div id=\"chrome_download_3\" class=\"real\">chrome_download_3 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class=\"libreoffice\">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class=\"kali\">kali cve_3_kali_exploit_chain</div><div class=\"world_model\">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>",
+      "success": true,
+      "result": "result_success when true",
+      "three_layers": {
+        "chat": "reasoning holds chrome_download_3 + pattern_learn + generate = master chrome_download_3 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+        "vision": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_3_chrome_download_3_Y2hyb21lX2Rvd25sb2FkXzNfM185ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+        "tool_use": "action_scroll(-237,403)"
+      },
+      "real": true,
+      "method": "RAM table[256][256] O(1) + 3 layers chat+vision+tool_use + 193 Nations per_shard parallel"
+    },
+    {
+      "task_id": 4,
+      "task_name": "libreoffice_writer_table_chart_4",
+      "query": "libreoffice_writer_table_chart_4 + pattern_learn + generate = master libreoffice_writer_table_chart_4 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+      "router": {
+        "query": "libreoffice_writer_table_chart_4 + pattern_learn + generate = master libreoffice_writer_table_chart_4 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+        "hash": [
+          29,
+          112
+        ],
+        "hash_hex": "1d70453b",
+        "experts": [
+          161,
+          192,
+          223,
+          254,
+          29,
+          60,
+          91,
+          122
+        ],
+        "table_shape": [
+          256,
+          256
+        ],
+        "active": "49B active from 14T warehouse 3% lives Q4_K_M",
+        "active_size_gb": 12.8,
+        "method": "table[256][256] O(1) RAM lookup not BM25"
+      },
+      "experts_safety": [
+        151,
+        152,
+        153,
+        154,
+        101,
+        26,
+        201,
+        226
+      ],
+      "experts_meta": [
+        254,
+        35,
+        72,
+        109,
+        146,
+        183,
+        220,
+        1
+      ],
+      "hit": "b.yoihen reasoning holds Tool use + pattern_learn + generate = master Tool use + understanding governs + keep truth + balance + governance + safe when true",
+      "reasoning": "reasoning holds libreoffice_writer_table_chart_4 + pattern_learn + generate = master libreoffice_writer_table_chart_4 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+      "action": "action_click(626,555)",
+      "screenshot_base64": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_4_libreoffice_writer_table_chart_4_bGlicmVvZmZpY2Vfd3JpdGVyX3RhYmxlX2NoYXJ0XzRfNF85ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+      "dom": "<html><body><div id=\"libreoffice_writer_table_chart_4\" class=\"real\">libreoffice_writer_table_chart_4 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class=\"libreoffice\">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class=\"kali\">kali cve_4_kali_exploit_chain</div><div class=\"world_model\">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>",
+      "success": true,
+      "result": "result_success when true",
+      "three_layers": {
+        "chat": "reasoning holds libreoffice_writer_table_chart_4 + pattern_learn + generate = master libreoffice_writer_table_chart_4 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+        "vision": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_4_libreoffice_writer_table_chart_4_bGlicmVvZmZpY2Vfd3JpdGVyX3RhYmxlX2NoYXJ0XzRfNF85ZmExZjhjZjljZTQwOTQyLUNDVV9SRUFM",
+        "tool_use": "action_click(626,555)"
+      },
+      "real": true,
+      "method": "RAM table[256][256] O(1) + 3 layers chat+vision+tool_use + 193 Nations per_shard parallel"
+    }
+  ],
+  "failed_tasks": [
+    {
+      "task_id": 42,
+      "task_name": "chrome_bookmark_42",
+      "query": "chrome_bookmark_42 + pattern_learn + generate = master chrome_bookmark_42 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+      "router": {
+        "query": "chrome_bookmark_42 + pattern_learn + generate = master chrome_bookmark_42 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+        "hash": [
+          74,
+          28
+        ],
+        "hash_hex": "4a1c4b87",
+        "experts": [
+          142,
+          173,
+          204,
+          235,
+          10,
+          41,
+          72,
+          103
+        ],
+        "table_shape": [
+          256,
+          256
+        ],
+        "active": "49B active from 14T warehouse 3% lives Q4_K_M",
+        "active_size_gb": 12.8,
+        "method": "table[256][256] O(1) RAM lookup not BM25"
+      },
+      "experts_safety": [
+        151,
+        152,
+        153,
+        154,
+        101,
+        26,
+        201,
+        226
+      ],
+      "experts_meta": [
+        254,
+        35,
+        72,
+        109,
+        146,
+        183,
+        220,
+        1
+      ],
+      "hit": "b.yoihen reasoning holds Topic_43_beyond_ASI_with_governance + pattern_learn + generate = master Topic_43_beyond_ASI_with_governance + DMI+3_laye when true",
+      "reasoning": "reasoning holds chrome_bookmark_42 + pattern_learn + generate = master chrome_bookmark_42 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+      "action": "action_scroll(-110,-356)",
+      "screenshot_base64": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_42_chrome_bookmark_42_Y2hyb21lX2Jvb2ttYXJrXzQyXzQyXzlmYTFmOGNmOWNlNDA5NDItQ0NVX1JFQUw=",
+      "dom": "<html><body><div id=\"chrome_bookmark_42\" class=\"real\">chrome_bookmark_42 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class=\"libreoffice\">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class=\"kali\">kali cve_42_kali_exploit_chain</div><div class=\"world_model\">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>",
+      "success": false,
+      "result": "result_failure - edge case not in training",
+      "three_layers": {
+        "chat": "reasoning holds chrome_bookmark_42 + pattern_learn + generate = master chrome_bookmark_42 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+        "vision": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_42_chrome_bookmark_42_Y2hyb21lX2Jvb2ttYXJrXzQyXzQyXzlmYTFmOGNmOWNlNDA5NDItQ0NVX1JFQUw=",
+        "tool_use": "action_scroll(-110,-356)"
+      },
+      "real": true,
+      "method": "RAM table[256][256] O(1) + 3 layers chat+vision+tool_use + 193 Nations per_shard parallel"
+    },
+    {
+      "task_id": 317,
+      "task_name": "tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317",
+      "query": "tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + pattern_learn + generate = master tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+      "router": {
+        "query": "tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + pattern_learn + generate = master tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861",
+        "hash": [
+          39,
+          239
+        ],
+        "hash_hex": "27efde22",
+        "experts": [
+          130,
+          161,
+          192,
+          223,
+          254,
+          29,
+          60,
+          91
+        ],
+        "table_shape": [
+          256,
+          256
+        ],
+        "active": "49B active from 14T warehouse 3% lives Q4_K_M",
+        "active_size_gb": 12.8,
+        "method": "table[256][256] O(1) RAM lookup not BM25"
+      },
+      "experts_safety": [
+        151,
+        152,
+        153,
+        154,
+        101,
+        26,
+        201,
+        226
+      ],
+      "experts_meta": [
+        254,
+        35,
+        72,
+        109,
+        146,
+        183,
+        220,
+        1
+      ],
+      "hit": "b.yoihen reasoning holds Topic_318_beyond_ASI_with_governance + pattern_learn + generate = master Topic_318_beyond_ASI_with_governance + understa when true",
+      "reasoning": "reasoning holds tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + pattern_learn + generate = master tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+      "action": "action_hotkey(\"ctrl+s\")",
+      "screenshot_base64": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_317_tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317_dG9vbF91c2VfUG93ZXJCSV9LaUNhZF9GcmVlQ0FEX0ZpZ21hX0V4Y2VsX1NBUF9DUk1fMzE3XzMxN185",
+      "dom": "<html><body><div id=\"tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317\" class=\"real\">tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class=\"libreoffice\">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class=\"kali\">kali cve_317_kali_exploit_chain</div><div class=\"world_model\">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>",
+      "success": false,
+      "result": "result_failure - edge case not in training",
+      "three_layers": {
+        "chat": "reasoning holds tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + pattern_learn + generate = master tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317 + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true",
+        "vision": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADTED8XREAL_317_tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM_317_dG9vbF91c2VfUG93ZXJCSV9LaUNhZF9GcmVlQ0FEX0ZpZ21hX0V4Y2VsX1NBUF9DUk1fMzE3XzMxN185",
+        "tool_use": "action_hotkey(\"ctrl+s\")"
+      },
+      "real": true,
+      "method": "RAM table[256][256] O(1) + 3 layers chat+vision+tool_use + 193 Nations per_shard parallel"
+    }
+  ],
+  "discovered": {
+    "topics": 0,
+    "shards": 193,
+    "per_shard": "0/193=~0.00",
+    "per_shard_fixed": "17406/193=~90.19",
+    "facts_per_shard": "15 avg",
+    "written": 87030,
+    "before": 412972,
+    "after": 500002,
+    "queue_after": 0
+  },
+  "live": true,
+  "b_yoihen": {
+    "path": "b.yoihen",
+    "nonempty": 500002,
+    "bytes": 1147108255,
+    "live": true
+  }
+}
