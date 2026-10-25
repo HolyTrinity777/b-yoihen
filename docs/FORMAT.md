@@ -40,6 +40,7 @@ import re
 PATTERN = re.compile(r'^[^|]+\|[^|]*<html>.*</html>[^|]*\|[^|]*\|reasoning holds.*coherence 1\.0 UNIFIED result_success when true$')
 
 ---
+```
 
 2. Field Specification — Maximum Precision
 
