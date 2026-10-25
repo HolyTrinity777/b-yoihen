@@ -4,7 +4,7 @@
 >
 > Soli Deo Gloria.
 
-Built by Yoihenba Sougaijam — iPhone a-Shell, Bomdila / Imphal, offline and without a GPU, as described by the author.
+Built by Yoihenba Sougaijam — iPhone a-Shell, Manipur, Imphal, offline and without a GPU, as described by the author.
 
 > Project vision: “Own Ollama that can train any Brain 10T+.”
 >
