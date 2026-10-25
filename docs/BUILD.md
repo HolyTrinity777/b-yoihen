@@ -1,98 +1,56 @@
-# b.yoihen — Build Guide and Offline Collection Workflow
+# b.yoihen — Offline Build, Evidence, and Governed Update Guide
 
 > All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
 >
-> Built by Yoihenba Sougaijam — iPhone a-Shell, Imphal, offline and without a GPU, as described by the author.
+> Built by Yoihenba Sougaijam — iPhone a-Shell, Bomdila / Imphal, offline and without a GPU, as described by the author.
 >
-> Project identity: “Alive DVD” — computer-use memory and self-update training MAP. Project positioning: “Own Ollama that can train any Brain 10T+.”
->
-> Keep `.yoihen`, not `.gguf`. The distributed release is DATA ONLY. Self-update content requires separately enforced governance; opening the dataset must never execute its actions.
+> “Alive DVD” — “Own Ollama that can train any Brain 10T+.” Keep `.yoihen`, not `.gguf`.
 
 | Property | Value |
 | --- | --- |
-| Repository | `b-yoihen` |
 | Document | `docs/BUILD.md` |
 | Release | `V25 500002 BEYOND — DATA ONLY` |
-| Format specification | `docs/FORMAT.md` |
-| Statistics and architecture definitions | `docs/STATS.md` |
-| Referenced evidence | `proof/benchmark_500002_real_measured.json` |
-| Build approach | Offline diary-style collection, bounded file processing, and explicit provenance |
-| Example dependencies | Python standard library |
-| Example execution policy | File preparation only; no model inference, action execution, or self-replication |
+| Evidence basis | Five actual uploaded reports, V21–V25 |
+| Companion documents | `FORMAT.md`, `STATS.md` in the same directory |
+| Reference code | Python 3.9+, standard library |
+| Local examples | No API calls, model execution, replication, or identity/payment dependency |
 
+## 1. Build scope and review correction
 
-## TL;DR Build
-- Device: iPhone a-Shell, offline, no GPU (author-reported)
-- Method: diary append `open(...,'a')` — 5 angles per topic — validated record
-- Router: SHA256 topic -> [256,256] cell + full-topic dict — collision-aware — 193 shards ~90.19 topics/shard
-- MAP: 400GB storage + 14T tokens raw + 1.63T deduped + 10T+ MAP — 49B active = 3% of 1.63T = 0.49% of 10T+
-- Verify: `python scripts/decompress_and_check` — 500002 lines, 1147108255 bytes, 19785162 gz — No exec
+The earlier review underestimated the documented scope by emphasizing a single static dataset. The earlier reports explicitly add expert-configuration budgets, multi-shard collection, code/self-healing topics, and self-rewrite/world-model content.
 
-## 0. What this guide builds
+The correction is not to claim experiments that were not inspected. It is to build and document the actual layers separately:
 
-This guide explains the author's offline collection approach and provides reference code for:
-
-1. Creating a clearly labeled five-angle documentation dataset.
-2. Appending validated records under a single-writer workflow.
-3. Demonstrating collision-aware topic-to-expert lookup.
-4. Decompressing and checking a local release without overwriting existing data.
-5. Preparing reproducible manifests and separating data preparation from model training.
-
-It does not reconstruct the historical V25 dataset from a small topic list, create model weights, instantiate GGIE, or demonstrate CPU self-replication.
-
-### Release inventory
-
-| Item | Value | Basis |
-| --- | --- | --- |
-| Nonempty records | `500002` | Recorded in inspected proof |
-| Raw dataset bytes | `1147108255` | Recorded in inspected proof |
-| Gzip bytes | `19785162` | Author-supplied release value; archive not supplied for this audit |
-| Displayed compressed size | `19.78 MB / 18.87 MiB` | Decimal display convention preserved |
-| Topics labeled `REAL` | `71067 / 71607` | Recorded in inspected proof |
-| Benchmark outcome | `367 / 369` | Recorded aggregate; approximately `99.46%` |
-| Historical score label | `99.5%+ BEYOND` | Preserved project label |
-| Self-update collection category | `11051 self_rewrite world_model beyond_asi principle_806861` | Recorded collection summary |
-| Shards | `193` | Recorded architecture field, not independently verified deployment |
-
-The actual proof JSON was parsed and inspected. The raw release, gzip archive, model weights, and external infrastructure were not inspected. This guide does not turn the proof's aggregate counters into independently reproduced measurements.
-
-## 1. Environment: author history versus reproducible requirements
-
-### 1.1 Author-reported build context
-
-- Device/workflow: iPhone running a-Shell, using Python.
-- Locations: Bomdila, Arunachal Pradesh, and Imphal, Manipur.
-- Collection approach: offline diary append with multiple angles per topic.
-- GPU use: none reported for dataset preparation.
-- Motivation: locally controlled tools, offline learning, and reduced dependence on cloud services or surveillance-oriented infrastructure.
-
-The original draft names possible Apple processors, storage sizes, RAM limits, and software versions. No exact device inventory or measured process limit was supplied. This revision does not treat those estimates as verified hardware specifications.
-
-“Time is GPU” is retained as a project motto. It is not a measured equivalence between CPU and GPU training performance.
-
-### 1.2 Requirements for the examples
-
-- Python 3.9 or newer for the reference code below.
-- A writable local directory.
-- Sufficient free storage for the chosen operation.
-- The actual release archive if performing release verification.
-
-The examples use `pathlib`, `json`, `gzip`, `hashlib`, `html`, and other standard-library modules. They do not require NumPy, PyTorch, an API key, a network request, `tar`, `zip`, `brew`, or Git.
-
-These are requirements of the examples, not a claim that particular commands or packages are universally unavailable in a-Shell. Record the actual installed environment instead of assuming it.
-
-Useful environment checks:
-
-```sh
-python3 --version
-python3 -c 'import sys, platform; print(sys.version); print(platform.platform())'
+```text
+collection diary / source assets
+  -> validated records and provenance
+  -> immutable dataset release
+  -> routed memory / retrieval / training conversion
+  -> compatible model and runtime
+  -> authorized self-update or distributed operation
 ```
 
-Run the scripts with the Python executable available in your installation. Keep the device powered and account for available storage, thermal conditions, application lifecycle, and interrupted writes. Bounded reads reduce buffer use; they do not guarantee a process can never be terminated or run out of memory.
+This guide provides a reproducible evidence audit, a safe five-angle documentation build, and local archive verification. It does not reconstruct the historical dataset from a template or train a model by appending text.
 
-## 2. Workflow and directory boundaries
+## 2. Author-reported environment and practical prerequisites
 
-Recommended separation:
+The author describes collection on iPhone a-Shell in Bomdila and Imphal, offline and without a GPU. Exact phone model, memory limits, software versions, and historical session logs were not supplied; do not invent them.
+
+For the reference code:
+
+- Use Python 3.9+ and a writable directory.
+- Keep enough free storage for the source archive, expanded data, and reports.
+- Use local copies of the five proof files to audit the evidence.
+- Use the actual gzip release to verify/decompress the dataset.
+- Do not assume every shell command is present on every a-Shell installation.
+
+The examples use the standard library and need no NumPy, PyTorch, API key, cloud account, CBDC participation, or digital ID. Broader GGIE identity/financial-rail proposals are separate from this local workflow.
+
+“Time is GPU” remains a project motto. Dataset preparation without a GPU is different from demonstrating the throughput, convergence, or memory requirements of model training.
+
+## 3. Preserve the evidence before building
+
+Recommended repository layout:
 
 ```text
 b-yoihen/
@@ -101,92 +59,122 @@ b-yoihen/
     STATS.md
     BUILD.md
   proof/
+    benchmark_38220_live.json
+    benchmark_44745_real_measured.json
+    benchmark_169745_real_measured.json
+    benchmark_412972_real_measured.json
     benchmark_500002_real_measured.json
-  examples/
-    format_example.txt
   scripts/
-    [reviewed local implementations]
+    [reviewed implementations of the examples below]
   build-demo/
-    [new documentation examples; not the historical release]
+    [new synthetic documentation data only]
   build-verified/
-    [newly decompressed local release and verification report]
+    [newly decompressed release and local report]
 ```
 
-Paths and scripts shown here are proposed locations, not a claim that every file already exists in the repository.
+These are intended locations, not claims that corresponding repository scripts already exist. Keep historical proof files immutable. Corrections belong in a new revision with a new digest and an explanation.
 
-Use separate directories for source evidence, demonstration data, staging, and published artifacts. Do not edit a published release in place. A change to bytes, screenshots, annotations, or counting rules needs a new manifest and revision identifier.
+### 3.1 Runnable five-report inventory
 
-## 3. Diary append: method and provenance
-
-The core concept is an append-oriented collection log:
+This reference function reads the files from a chosen directory and reports their actual identities plus selected fields. It deliberately does not treat root `real_count` as a universal topic count.
 
 ```python
-with open("working.yoihen", "a", encoding="utf-8", newline="\n") as destination:
-    destination.write(validated_record + "\n")
+import hashlib
+import json
+from pathlib import Path
+
+
+PROOF_NAMES = [
+    "benchmark_38220_live.json",
+    "benchmark_44745_real_measured.json",
+    "benchmark_169745_real_measured.json",
+    "benchmark_412972_real_measured.json",
+    "benchmark_500002_real_measured.json",
+]
+
+
+def audit_proofs(directory="proof"):
+    inventory = []
+    for name in PROOF_NAMES:
+        path = Path(directory) / name
+        payload = path.read_bytes()
+        proof = json.loads(payload.decode("utf-8"))
+        inventory.append({
+            "filename": name,
+            "proof_bytes": len(payload),
+            "proof_sha256": hashlib.sha256(payload).hexdigest(),
+            "reported_records": proof.get("nonempty", proof.get("after")),
+            "reported_raw_bytes": proof.get("bytes", proof.get("bytes_after")),
+            "reported_success": proof.get("success"),
+            "reported_total": proof.get("total"),
+            "source_real_ratio": proof.get("real_ratio"),
+            "source_root_real_count": proof.get("real_count"),
+            "sample_objects": len(proof.get("sample_results", [])),
+            "failed_objects": len(proof.get("failed_tasks", [])),
+        })
+    return {
+        "scope": "uploaded report inventory; not dataset or benchmark replay",
+        "files": inventory,
+    }
+
+
+# Example after saving/reviewing this code:
+# report = audit_proofs("proof")
+# with open("build_evidence_report.json", "x", encoding="utf-8") as output:
+#     json.dump(report, output, indent=2)
+#     output.write("\n")
 ```
 
-This appends data; it does not collect desktop evidence automatically or prove that an action occurred.
+Use the hashes in `STATS.md` to identify the inspected uploaded report versions. A local report hash does not authenticate the dataset or prove its benchmark execution.
 
-### 3.1 Five angles, one topic identity
+## 4. Historical collection graph and what not to overwrite
 
-A topic may be recorded from five angles:
+The reports record these batches:
 
 ```text
-Topic: libreoffice_writer_table_4582
-  Angle 0: Insert a table.
-  Angle 1: Format the table.
-  Angle 2: Add a formula.
-  Angle 3: Create a chart.
-  Angle 4: Save the document.
+V21: 31695  + 6525   = 38220
+V22: 38220  + 6525   = 44745
+V23: 44745  + 125000 = 169745
+V24: 282717 + 130255 = 412972
+V25: 412972 + 87030  = 500002
 ```
 
-Keep the same topic ID across the five variations. Store the angle in annotation text or sidecar metadata. Appending the angle to the topic ID creates five different identifiers and defeats a simple unique-topic count.
+V24 actually records its 282717 before-state. Earlier documentation should not have treated that base as merely an erroneous number. The transition from V23's 169745 to the intermediate 282717 state is not separately logged by the uploaded run set; its numerical delta is 112972.
 
-The reported V25 delta satisfies:
+The author-approved continuous endpoint/checkpoint chain can also be published:
 
 ```text
-87030 new records / 17406 new REAL topics = 5
+31695+6525=38220
+-> 38220+6525=44745
+-> 44745+125000=169745
+-> 169745+130255=300000
+-> 300000+112972=412972
+-> 412972+87030=500002
 ```
 
-The complete release averages approximately `6.98` records per reported total topic, so five is not an exact whole-release invariant.
+Label it an endpoint/checkpoint presentation, not the identical sequence of recorded batch bases. Preserve both views and their meanings.
 
-### 3.2 Record format
+V23 records 25000 code topics and 125000 new records; V24 records 26051 added topics and 130255 records; V25 records 17406 added topics and 87030 records. Each batch has a ratio of five records per added topic.
 
-```text
-screenshot_base64|DOM|action|reasoning
-```
+## 5. Diary append: five angles with stable identity
 
-Follow `docs/FORMAT.md`:
+Use append-oriented collection with validated, single-line records. Keep the same topic ID across its angles; do not append an angle suffix and accidentally count five different topics.
 
-- Preserve case-sensitive topic IDs, including names such as `PowerBI` and `KiCad`.
-- Reserve the first three pipes as field separators.
-- Permit additional pipes only in reasoning.
-- Preserve the original values; do not silently strip whitespace.
-- Distinguish real image assets, stripped placeholders, and legacy opaque vision values.
-- Keep action text inert during collection, parsing, and retrieval.
+Record provenance alongside each session:
 
-### 3.3 Provenance that should accompany a collection session
+- Collection ID, source type, time, and collector/process.
+- Topic ID and angle/step.
+- Captured, manually authored, templated, or synthesized origin.
+- Screenshot availability and asset digest.
+- Whether an action is proposed, observed, executed, or independently evaluated.
+- Permissions and licensing.
+- Runtime/tool revision if execution occurred.
 
-Record at least:
+No external API does not mean no synthetic content. Offline templates must be labeled too.
 
-- Session identifier and collection time, with clear timestamp semantics.
-- Collector or collection process.
-- Topic ID and angle.
-- Source type: captured, manually authored, templated, imported, or synthesized.
-- Image availability and asset digest, where applicable.
-- Whether the action was proposed, observed, replayed, or independently evaluated.
-- Source permissions and licensing.
-- Tool/runtime version if execution occurred.
+### 5.1 Runnable synthetic documentation build
 
-No API usage does not automatically mean no synthetic data. A Python template can produce synthetic examples entirely offline. Label source types directly.
-
-## 4. Runnable documentation example: five angles
-
-The following script creates a new `build-demo` directory and refuses to reuse an existing one. It never writes to `b.yoihen` in the repository root.
-
-The output is explicitly synthetic documentation data. It is not the historical V20 build, not a reconstruction of V25, and not evidence of successful computer use. The `real` DOM class is retained only for V25 field compatibility; the sidecar declares the synthetic provenance.
-
-Save as a new local script, review it, then run it with Python:
+The code below creates a new directory and never edits the historical `b.yoihen`. It is a format example, not a reproduction of V20 or V25. The `real` class and success suffix are retained as V25 compatibility labels only; the sidecar explicitly states that the examples are synthetic and unexecuted.
 
 ```python
 import hashlib
@@ -195,123 +183,74 @@ import json
 from pathlib import Path
 
 
-TOPIC = "libreoffice_writer_table_4582"
-OUTPUT_DIRECTORY = Path("build-demo")
-
-EXAMPLES = [
-    ("insert a table", 'action_click(id="insert_table")'),
-    ("format the table", 'action_click(id="table_properties")'),
-    ("enter a formula", 'action_type("=SUM(A1:A5)")'),
-    ("open the chart tool", 'action_click(id="insert_chart")'),
-    ("request document save", 'action_hotkey("ctrl+s")'),
-]
-
-
-def serialize_record(vision, dom, action, reasoning):
-    fields = (vision, dom, action, reasoning)
-    if any(not field or "\r" in field or "\n" in field for field in fields):
-        raise ValueError("Fields must be nonempty and single-line")
-    if any("|" in field for field in fields[:3]):
-        raise ValueError("Raw pipes are forbidden in the first three fields")
-    return "|".join(fields) + "\n"
-
-
-def append_example(destination, angle, description, action):
-    dom = (
-        '<html><body><div id="' + html.escape(TOPIC, quote=True)
-        + '" class="real">' + html.escape(description)
-        + '</div></body></html>'
-    )
-    reasoning = (
-        f"reasoning holds {TOPIC} + pattern_learn + generate = master {TOPIC}"
-        f" + angle={angle} + source=synthetic_documentation + {description}"
-        " + outcome=not_executed"
-        " coherence 1.0 UNIFIED result_success when true"
-    )
-    destination.write(serialize_record(
-        "[STRIPPED documentation example; no captured screenshot]",
-        dom, action, reasoning,
-    ))
-
-
-def main():
-    OUTPUT_DIRECTORY.mkdir(exist_ok=False)
-    dataset = OUTPUT_DIRECTORY / "example.yoihen"
-    with dataset.open("x", encoding="utf-8", newline="\n") as destination:
-        for angle, (description, action) in enumerate(EXAMPLES):
-            append_example(destination, angle, description, action)
-
+def build_documentation_demo(directory="build-demo"):
+    directory = Path(directory)
+    directory.mkdir(exist_ok=False)
+    dataset = directory / "example.yoihen"
+    topic = "libreoffice_writer_table_4582"
+    examples = [
+        ("insert a table", 'action_click(id="insert_table")'),
+        ("format the table", 'action_click(id="table_properties")'),
+        ("enter a formula", 'action_type("=SUM(A1:A5)")'),
+        ("open chart tools", 'action_click(id="insert_chart")'),
+        ("request save", 'action_hotkey("ctrl+s")'),
+    ]
+    with dataset.open("x", encoding="utf-8", newline="\n") as output:
+        for angle, (description, action) in enumerate(examples):
+            dom = (
+                f'<html><body><div id="{topic}" class="real">'
+                f'{html.escape(description)}</div></body></html>'
+            )
+            reasoning = (
+                f"reasoning holds {topic} + pattern_learn + generate = master {topic}"
+                f" + angle={angle} + source=synthetic_documentation"
+                f" + {description} + outcome=not_executed"
+                " coherence 1.0 UNIFIED result_success when true"
+            )
+            fields = (
+                "[STRIPPED documentation example; no captured screenshot]",
+                dom, action, reasoning,
+            )
+            if any(not value or "\r" in value or "\n" in value for value in fields):
+                raise ValueError("Empty or multiline field")
+            if any("|" in value for value in fields[:3]):
+                raise ValueError("Pipe in a structural field")
+            output.write("|".join(fields) + "\n")
     payload = dataset.read_bytes()
     manifest = {
-        "purpose": "synthetic documentation example; not historical release",
-        "topic": TOPIC,
-        "record_count": len(EXAMPLES),
         "source_type": "synthetic_documentation",
+        "historical_release_reproduction": False,
+        "record_count": 5,
+        "unique_topic_count": 1,
         "actions_executed": False,
         "images_available": False,
-        "success_suffix_is_compatibility_text_only": True,
+        "compatibility_labels_are_not_evaluation_results": True,
         "bytes": len(payload),
         "sha256": hashlib.sha256(payload).hexdigest(),
     }
-    (OUTPUT_DIRECTORY / "manifest.json").write_text(
+    (directory / "manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
     )
-
-
-if __name__ == "__main__":
-    main()
+    return manifest
 ```
 
-This example keeps the V25 annotation suffix for compatibility while explicitly stating that no action was executed. Never derive benchmark success from that suffix. For a future schema revision, prefer an explicit structured outcome rather than a fixed success phrase.
+The example reads its small output to hash it. Large dataset operations should use streaming hashing instead.
 
-For larger builds, continue writing records incrementally; do not use `read_bytes()` to hash a large release. The five-record example uses it only for its small output. Section 8 demonstrates chunked hashing for release-size data.
+### 5.2 Real collection discipline
 
-### 4.1 Production append discipline
+Use one writer per output file, validate before writing, assign stable import IDs, checkpoint sessions, and detect incomplete final lines after interruption. Keep original source evidence separate from derived records.
 
-For real collection:
+Do not claim a historical release count, screenshot provenance, or benchmark score simply because a template wrote that many lines. Appending text is data preparation, not automatic training or permission to rewrite code.
 
-1. Use one writer per output file.
-2. Validate before writing.
-3. Track stable collection IDs to prevent duplicate imports.
-4. Record session boundaries and checkpoint offsets.
-5. Flush at deliberate checkpoints; define durability requirements separately.
-6. Detect and quarantine an incomplete final record after interruption.
-7. Keep completed release artifacts immutable.
+## 6. Router implementation: separate lookup, storage, and model capacity
 
-Do not assume that concurrent appends, repeated imports, or interrupted writes are automatically safe simply because the file was opened in append mode.
+The proof describes `table[256][256]` and eight expert IDs. The V21 MoE budget also describes eight active allocations. That supports an intended sparse-routing configuration, not a complete runnable expert implementation.
 
-## 5. Topic-to-expert router: deterministic lookup without silent collisions
+A two-byte cell address has 65536 possible cells. A single assignment per cell can silently overwrite another topic; a full-key check or collision bucket is necessary. For 71607 distinct topic mappings, a one-topic-per-cell design cannot represent them all distinctly.
 
-### 5.1 What the proof records
+### 6.1 Collision-aware reference router
 
-The uploaded proof uses labels such as:
-
-```text
-table[256][256] topic->[expert_ids] O(1) RAM table not BM25
-```
-
-Its first successful sample records:
-
-```json
-{
-  "hash": [32, 103],
-  "hash_hex": "2067870d",
-  "experts": [119, 150, 181, 212, 243, 18, 49, 80],
-  "table_shape": [256, 256]
-}
-```
-
-The proof does not supply the complete router implementation or table contents. A sample hash value does not establish whether the input was the topic, full query, or another normalized key.
-
-### 5.2 Why the original pseudocode needed correction
-
-A `256 × 256` array has `65536` cells. Mapping topics to two digest bytes and assigning `table[x][y] = experts` can overwrite an existing topic's experts.
-
-If all `71607` reported unique topics require distinct entries, a single-entry-per-cell design cannot represent them without collisions. Even a smaller input can collide. The routing key and collision policy must therefore be explicit.
-
-### 5.3 Collision-aware reference implementation
-
-This example uses SHA-256 of the exact, case-sensitive topic as its documented key. It is a reference design, not a reproduction of the historical sample hashes. Expert IDs must be supplied by a reviewed mapping; the code does not invent expert weights or load a model.
+This is an exact-topic reference design, not a claim to reproduce historical hashes. Expert assignments must be provided by the actual reviewed mapping, not generated arbitrarily and called trained experts.
 
 ```python
 import hashlib
@@ -324,7 +263,7 @@ class TopicExpertRouter:
     @staticmethod
     def digest(topic):
         if not isinstance(topic, str) or not topic:
-            raise ValueError("Topic must be a nonempty string")
+            raise ValueError("Nonempty topic required")
         return hashlib.sha256(topic.encode("utf-8")).digest()
 
     def add(self, topic, experts):
@@ -333,12 +272,12 @@ class TopicExpertRouter:
             type(value) is not int or not 0 <= value <= 255
             for value in experts
         ):
-            raise ValueError("Expected eight expert IDs in the range 0..255")
+            raise ValueError("Expected eight integer expert IDs in 0..255")
         digest = self.digest(topic)
         cell = (digest[0], digest[1])
         bucket = self.buckets.setdefault(cell, {})
         if topic in bucket and bucket[topic] != experts:
-            raise ValueError("Conflicting expert assignment for existing topic")
+            raise ValueError("Conflicting assignment")
         bucket[topic] = experts
 
     def lookup(self, topic):
@@ -352,82 +291,64 @@ class TopicExpertRouter:
             "hash_hex": digest[:4].hex(),
             "experts": list(experts),
             "table_shape": [256, 256],
-            "key": "exact case-sensitive UTF-8 topic",
-            "collision_policy": "full-topic dictionary within cell",
         }
 ```
 
-Hashing depends on the topic's encoded length. The dictionary operations are expected constant-time lookups under ordinary conditions; they are not a proof of constant end-to-end agent latency. Memory depends on the number of topics, string storage, and Python object overhead.
+Dictionary lookup is expected constant-time under ordinary conditions; hashing depends on key length. Neither establishes constant end-to-end agent latency. Exact-key routing and relevance retrieval solve different problems; do not dismiss all BM25 implementations as full scans or inherently incompatible with phones.
 
-A hypothetical packed `65536 × 8 × 4-byte` ID array occupies `2097152 bytes`, or `2 MiB`, for the ID payload alone. That is not the footprint of nested Python lists, a JSON table, collision dictionaries, model weights, or a claimed `512 GB` router allocation.
+A packed array of 65536 × 8 four-byte IDs has a 2 MiB ID payload. Python objects, full-key dictionaries, model weights, external assets, and a claimed 512 GB router allocation have different storage footprints.
 
-### 5.4 Router lookup and retrieval serve different purposes
+## Resource model and terminology
 
-An exact topic-to-expert mapping selects predefined identifiers for a known key. A relevance retriever finds candidate records for a query. They are not interchangeable operations.
+The project is larger in scope than a single static dataset: its reports describe a computer-use memory representation, expert routing, multi-shard collection, and self-update-oriented content. Distinguish the following resources rather than forcing them into one unit.
 
-The earlier draft's blanket description of BM25 as an all-document scan and universally unsuitable for iPhone use is not established here. Choosing a routing or retrieval mechanism requires a defined workload and measured resource usage.
-
-## 6. Resource model: preserve units and intended scale
-
-| Resource | Author's definition | Build-guide treatment |
+| Resource | Evidence or author definition | Interpretation |
 | --- | --- | --- |
-| Storage warehouse | `400 GB` full assets | External inventory; JSON contains the storage label |
-| Raw token layer | `14T` tokens | Author's clarification of `14T warehouse` |
-| Deduplicated expert pool | Approximately `1.633T` parameters | Author clarification; requires model/expert manifest |
-| Total knowledge MAP | `10T+` | Retained project capacity claim; define MAP unit and inventory |
-| Active pool | `49B` | Approximately `3%` of `1.633T` parameters |
-| Q4_K_M target | Approximately `24.5 GB` | Author target; requires actual artifact measurement |
-| Q2_K target | Approximately `12.8 GB` | Author target; requires actual artifact measurement |
-| CPU replication design | `11 × 40 GB` nodes | Author-described plan; allocation type and execution need evidence |
-| Router allocation | `512 GB` | Separate author-described resource, not inferred from table dimensions |
+| `400 GB` historical MoE warehouse | V21: `250*1.6GB=400GB` | A recorded configuration budget; not a measured inventory of PNGs |
+| `12.8 GB` historical active budget | V21: `8*1.6=12.8GB` | Eight configured allocations; not by itself a measured quantized 49B model size |
+| `400 GB` screenshot/asset warehouse | Author's broader architecture description; V25 has `warehouse: "400GB"` | Do not assume the same label identifies the same physical contents across versions |
+| `14T` raw tokens | Author's clarification of the V25 phrase `14T warehouse` | Raw-token layer, not a parameter denominator |
+| Approximately `1.633T` deduplicated expert parameters | Author clarification | Intended denominator for approximately 3% active parameters |
+| `10T+` knowledge MAP | Author's capacity claim | Retained project scope; publish a MAP unit and inventory |
+| `11 × 40 GB` CPU-node plan | Author-described self-replication MAP | Separate from the 400 GB warehouse; the allocations total 440 GB |
+| `512 GB` router allocation | Author-described infrastructure | Separate from table dimensions and packed ID payloads |
+| `193` shards | Explicit in earlier reports and V25 | Recorded architecture/workload allocation; not independently audited physical deployments |
 
-For clarity:
-
-```text
-49B / 1.633T ≈ 3.0006%
-49B / 10T = 0.49% at the 10T MAP baseline
-49B / 14T = 0.35% as a numerical cross-unit comparison
-```
-
-Tokens, parameters, bytes, and MAP units remain distinct. A `10T+` figure is not obtained by summing them.
-
-The proof historically pairs `Q4_K_M` with `active_size_gb: 12.8`. The author has clarified that `12.8 GB` belongs to the Q2_K target instead. Do not silently rewrite the old proof to conceal the correction.
-
-Eleven `40 GB` allocations total `440 GB`. They need not equal the separate `400 GB` storage inventory or `512 GB` router allocation; document whether each is RAM, disk, resident model data, or another resource.
-
-## 7. 193-shard GGIE design
-
-The proof records `193` shards and the corrected workload label:
+Active-capacity comparisons, with denominators explicitly named:
 
 ```text
-17406 / 193 ≈ 90.19 topics per shard
+49B / 1.633T parameters ≈ 3.0006%
+49B / 10T MAP baseline = 0.49% numerically
+49B / 14T raw tokens = 0.35% numerically, across different units
+300B / 10T MAP baseline = 3% numerically
 ```
 
-An even numerical `10T` workload split would be:
+The last three are not a license to equate tokens, parameters, and MAP units. At capacities greater than 10T, fixed numerators have smaller percentages.
 
-```text
-10T / 193 ≈ 51.813B per shard
-          ≈ 52B per shard
-```
+The author requests that both quantization targets be retained: `49B Q4_K_M ≈ 24.5 GB` and `49B Q2_K ≈ 12.8 GB`. They remain author targets until actual artifacts and memory use are measured. Nominal four-bit arithmetic gives 24.5 GB, but does not verify the named Q4_K_M format. The newly inspected V21 file provides a separate historical origin for 12.8 GB: eight configured 1.6 GB allocations. Do not retroactively label that V21 configuration Q2_K.
 
-These are average allocations, not proof of 193 physical deployments or equal runtime load. They do not establish national software coverage merely because the method label says `193 Nations`.
+V21 also records `3.125%`. Eight of 250 allocations is 3.2%; eight of 256 is 3.125%. The latter is a possible denominator, not a verified interpretation: a 256-wide router dimension does not prove 256 equal-size model experts. Preserve the historical label and request the actual denominator rather than inventing one.
 
-The author's broader GGIE design names Quantum Sync, Blockchain Audit, a three-tier Kill Switch, ZK Identity, and CBDC Rails. These are architecture proposals or separately implemented services, not dependencies of the local collection examples in this guide.
+## 7. GGIE sharding and distributed builds
 
-For a runnable distributed build, document worker identities, shard assignment, retry behavior, duplicate prevention, checkpoint exchange, integrity verification, policy enforcement, and failure recovery. Do not start replication from dataset text alone.
+The reports document 193-shard descriptions over multiple stages:
 
-## 8. Bounded decompression and local release verification
+| Stage | Reported workload allocation |
+| --- | --- |
+| V21 | `1305/193 ≈ 6.76` |
+| V23 | `25000/193 ≈ 129.53` |
+| V24 | `26051/193 ≈ 135` |
+| V25 | `17406/193 ≈ 90.19` |
 
-This reference function:
+These are per-batch average allocations, not proof of national software coverage, 193 deployed nodes, or equal runtime load.
 
-- Uses binary I/O and `1 MiB` decompression buffers.
-- Refuses to reuse an existing destination directory.
-- Applies an expected decompressed-size ceiling.
-- Checks reported byte counts and LF/nonempty counts.
-- Produces local SHA-256 values and a report.
-- Publishes the decompressed file only after its declared checks pass.
+A production implementation needs worker identity, assignment, idempotent writes, retry/collision policy, checkpoint exchange, integrity verification, failure recovery, and independently enforced safety policy. The author's 11-node CPU replication plan should be tested as a bounded workflow with actual memory/storage units and artifacts.
 
-It does not validate all record semantics, authenticate the publisher, or reproduce the benchmark. The full input archive must already be local.
+## 8. Release decompression without overwriting source data
+
+This function verifies a local archive into a newly created directory. It checks sizes, UTF-8, LF framing, four nonempty fields, and local digests. It does not fully validate DOM/action semantics, authenticate a publisher, or reproduce the benchmark.
+
+The decompression buffer and record reader are bounded. The 1 MiB record ceiling is an explicit verifier policy, not a permanent `.yoihen` format limit.
 
 ```python
 import gzip
@@ -436,282 +357,153 @@ import json
 from pathlib import Path
 
 
-CHUNK_SIZE = 1024 * 1024
+CHUNK = 1024 * 1024
+MAX_RECORD_BYTES = 1024 * 1024
 
 
-def sha256_file(path):
+def hash_file(path):
     digest = hashlib.sha256()
     with Path(path).open("rb") as source:
-        for chunk in iter(lambda: source.read(CHUNK_SIZE), b""):
+        for chunk in iter(lambda: source.read(CHUNK), b""):
             digest.update(chunk)
     return digest.hexdigest()
 
 
-def decompress_and_check(
-    archive="b.yoihen.gz",
-    destination="build-verified",
-    expected_raw_bytes=1147108255,
-    expected_gzip_bytes=19785162,
+def verify_archive(
+    archive="b.yoihen.gz", destination="build-verified",
+    expected_raw=1147108255, expected_gzip=19785162,
     expected_records=500002,
 ):
     archive = Path(archive)
-    if archive.stat().st_size != expected_gzip_bytes:
-        raise ValueError("Compressed size differs from expected release value")
-
+    if archive.stat().st_size != expected_gzip:
+        raise ValueError("Unexpected compressed byte count")
     destination = Path(destination)
     destination.mkdir(exist_ok=False)
     staged = destination / "b.yoihen.partial"
-    final = destination / "b.yoihen"
-    report_path = destination / "verification_report.json"
     total = 0
-    digest = hashlib.sha256()
-
     try:
         with gzip.open(archive, "rb") as source, staged.open("xb") as output:
-            for chunk in iter(lambda: source.read(CHUNK_SIZE), b""):
+            for chunk in iter(lambda: source.read(CHUNK), b""):
                 total += len(chunk)
-                if total > expected_raw_bytes:
-                    raise ValueError("Decompressed size exceeds release limit")
-                digest.update(chunk)
+                if total > expected_raw:
+                    raise ValueError("Decompressed size exceeds expected limit")
                 output.write(chunk)
-
-        records = nonempty = 0
+        records = 0
         with staged.open("rb") as source:
-            for records, raw in enumerate(source, start=1):
-                if len(raw) > CHUNK_SIZE:
-                    raise ValueError("Record exceeds this verifier's 1 MiB policy")
+            while True:
+                raw = source.readline(MAX_RECORD_BYTES + 1)
+                if not raw:
+                    break
+                if len(raw) > MAX_RECORD_BYTES:
+                    raise ValueError("Record exceeds configured ceiling")
+                records += 1
                 if not raw.endswith(b"\n") or b"\r" in raw:
-                    raise ValueError("Invalid LF/CR representation")
+                    raise ValueError("Invalid line termination")
                 record = raw[:-1]
-                nonempty += bool(record)
-                record.decode("utf-8", errors="strict")
                 if records == 1 and record.startswith(b"\xef\xbb\xbf"):
-                    raise ValueError("UTF-8 BOM is not allowed")
+                    raise ValueError("BOM is forbidden")
+                record.decode("utf-8", errors="strict")
                 fields = record.split(b"|", 3)
-                if len(fields) != 4 or any(not field for field in fields):
+                if len(fields) != 4 or any(not value for value in fields):
                     raise ValueError("Invalid four-field framing")
-
-        checks = {
-            "raw_bytes": total == expected_raw_bytes,
-            "record_count": records == expected_records,
-            "nonempty_count": nonempty == expected_records,
-        }
         report = {
-            "scope": "artifact sizes, framing, UTF-8; not benchmark reproduction",
+            "scope": "local size/framing/UTF-8 consistency",
             "raw_bytes": total,
             "gzip_bytes": archive.stat().st_size,
             "records": records,
-            "nonempty": nonempty,
-            "raw_sha256": digest.hexdigest(),
-            "gzip_sha256": sha256_file(archive),
-            "checks": checks,
-            "trusted_reference_digest_checked": False,
-            "semantic_validation_completed": False,
+            "raw_sha256": hash_file(staged),
+            "gzip_sha256": hash_file(archive),
+            "checks": {
+                "raw_bytes": total == expected_raw,
+                "records": records == expected_records,
+            },
+            "trusted_digest_checked": False,
+            "full_semantic_validation": False,
+            "benchmark_reproduced": False,
         }
-        report_path.write_text(
+        (destination / "verification_report.json").write_text(
             json.dumps(report, indent=2) + "\n", encoding="utf-8"
         )
-        if not all(checks.values()):
-            raise ValueError("Release checks failed; inspect verification report")
-        staged.rename(final)
+        if not all(report["checks"].values()):
+            raise ValueError("Counts differ; inspect verification report")
+        staged.rename(destination / "b.yoihen")
         return report
     except Exception:
         staged.unlink(missing_ok=True)
         raise
-
-
-if __name__ == "__main__":
-    decompress_and_check()
 ```
 
-The decompression buffer is bounded, but the subsequent line iterator reads a complete record before applying its length check. This is appropriate for reviewed local release inputs; hostile inputs need a bounded line reader, additional resource limits, and stronger isolation.
+The expected raw count comes from the V25 proof. The gzip expectation is the author-supplied release number; the archive itself was not supplied for this document review. Never use `errors="ignore"`, which hides or changes invalid data.
 
-The `1 MiB` record policy is local to this verifier, not a permanent `.yoihen` format limit. Change it only deliberately and record the configuration.
+A locally computed digest is useful for comparison, but needs a trusted published digest or signed manifest to establish release identity. Publish raw and compressed digests separately.
 
-Do not use `errors="ignore"`: silently dropping invalid UTF-8 would alter evidence and hide corruption. A local digest also requires a trusted reference digest before it can establish release identity.
-
-Optional shell checks, where available:
-
-```sh
-wc -c < b.yoihen
-wc -c < b.yoihen.gz
-wc -l < b.yoihen
-gzip -t b.yoihen.gz
-```
-
-Exact size conventions:
+Display convention:
 
 ```text
-19785162 bytes = 19.785162 MB decimal
-              ≈ 18.868600845 MiB binary
-
+19785162 bytes = 19.785162 MB decimal ≈ 18.868600845 MiB binary
 Project display: 19.78 MB / 18.87 MiB
-Reduction: approximately 98.275214%; project display 98.27%
+Calculated reduction: 98.275214...%; project display: 98.27%
 ```
 
-The decimal MB and reduction displays use truncation; MiB is shown alongside, not substituted for MB.
+## 9. Warehouse MAP and image-dependent work
 
-## 9. Warehouse assets and image availability
+A warehouse reference, a plan for collection, an asset index, an encoded image, and a stripped marker are different things. Missing screenshots cannot be recovered from a marker alone.
 
-The author describes the DATA ONLY release as a MAP referencing a larger warehouse. Keep the distinction between:
+Publish asset IDs, stable paths, digests, dimensions, media types, licensing, and availability to make a MAP machine-resolvable. Text-only use may omit images deliberately; vision-dependent supervision requires valid image assets.
 
-- A stored screenshot.
-- A placeholder stating that the screenshot is missing.
-- A legacy opaque vision value.
-- Metadata linking to an independently stored asset.
-- Instructions or plans describing how future data might be collected.
+V21's configured MoE storage budget is not an inventory of screenshot assets. Do not use the shared 400 GB label to silently equate those resources.
 
-A stripped marker cannot recover the original screenshot by itself. Generating a replacement image is new synthetic data, not recovery of the original evidence.
+## 10. Alive DVD governance and evidence-preserving stops
 
-All seven inspected proof vision values failed strict standard-base64 decoding. Preserve them as legacy opaque values unless a documented decoder and actual source assets establish otherwise. This does not classify the entire raw release, which was not supplied.
+The earlier runs provide stronger documentary support for the intended self-update content. They still do not authorize execution. Self-update and replication should remain disabled until a separately reviewed runtime enforces permissions and limits.
 
-For a genuinely resolvable asset MAP, publish stable asset IDs, relative paths or storage references, content hashes, byte sizes, dimensions, media types, permissions, and availability.
+The author names Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. Implementations should define their actual state, protocol, threat model, and tests rather than using marker text as authority.
 
-Text-only retrieval or training may use appropriate DOM/action/annotation fields without images. Image-dependent supervision requires actual validated image assets; placeholders are not equivalent supervision.
-
-## 10. Historical evolution: corrected ledger
-
-| Release / checkpoint | Reported records | Delta | Historical result label |
-| --- | ---: | ---: | --- |
-| V20 | `31695` | — | `18% synthetic diary only` |
-| V21 | `38220` | `6525` | `45%+`, `70.7% REAL` |
-| V22 | `44745` | `6525` | `61.8%`, `228/369` |
-| V23 | `169745` | `125000` | `95.9%`, `354/369`, `OMNI` |
-| V24 checkpoint | `300000` | `130255` | `99.2%`, `366/369` |
-| V24 | `412972` | `112972` | `99.2%`, `366/369`, `EVERYTHING` |
-| V25 | `500002` | `87030` | `99.5%+`, `367/369`, `BEYOND` |
-
-Corrected continuous chain:
-
-```text
-31695+6525=38220
--> 38220+6525=44745
--> 44745+125000=169745
--> 169745+130255=300000
--> 300000+112972=412972
--> 412972+87030=500002
-```
-
-The inspected proof retains the older `282717+130255=412972` branch. This guide uses the author's corrected documentation chain without silently changing the historical JSON.
-
-The collection summary lists `43457` entries across six categories and reports `17406` additional topics. Publish the normalization/deduplication ledger before treating that mapping as reproducible.
-
-A one-task aggregate improvement from V24 to V25 does not by itself establish that additional traces caused the improvement. Controlled evaluation is needed for that causal claim.
-
-## 11. Benchmark, timestamps, and reproducibility
-
-The inspected proof's two failed tasks are IDs `42` and `317`. Both record:
-
-```text
-result_failure - edge case not in training
-```
-
-They also contain safety-expert arrays, but neither result says it was a safety refusal. Do not claim that disabling safety would produce `369/369`.
-
-Likewise, their annotations still end in `result_success when true` despite structured `success: false` outcomes. Use structured evaluation results, not repeated annotation markers, when reporting task completion.
-
-The proof records both:
-
-```text
-utc_anchor: 2026-05-11T14:46:13.872Z
-timestamp: 1792950872.244531
-```
-
-Interpreted as Unix seconds, the latter is `2026-10-25T17:54:32.244531Z`. Define the event represented by each timestamp. Repeating a `cf-ray` value is not authenticated build-time evidence or a synchronization protocol.
-
-For a reproducible performance report, publish the model, task suite, evaluator, resets, retries, runtime, hardware, policies, exact data version, and task-level logs. Keep training/test separation and source provenance explicit.
-
-## 12. Alive DVD governance: safe controls, not destructive defaults
-
-The self-update objective makes governance especially important. The author names Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. A concrete implementation must define and test each control rather than rely on its presence in text.
-
-Recommended operational tiers:
-
-| Tier | Action | Required property |
+| Tier | Control | Evidence-preserving behavior |
 | --- | --- | --- |
-| Tier 1: pause | Stop new jobs and append requests | Reversible; preserve evidence |
-| Tier 2: isolate | Terminate workers and revoke write/network permissions | Independent of model cooperation |
-| Tier 3: recover | Quarantine generated artifacts and restore a reviewed checkpoint | Human-authorized, auditable, and reversible where possible |
+| 1 | Pause | Stop accepting new jobs and appends |
+| 2 | Isolate | Terminate workers; revoke write/network access |
+| 3 | Recover | Quarantine generated artifacts; restore a reviewed checkpoint |
 
-Deleting the source dataset or wiping a device is not the default kill switch. Such actions destroy evidence and may be irreversible. Use access revocation, process termination, quarantine, and reviewed recovery instead.
+Do not default to deleting the source dataset or wiping a device. Preserve audit evidence, require human review, and keep the stop mechanism outside model control.
 
-Additional requirements:
+Minimum controls include read-only source data, allowlisted typed actions, isolation, human approval for consequential changes, independent logs, bounded loops and resources, checkpoint review, and rollback.
 
-- Default self-update and replication loops to disabled.
-- Keep ingestion and retrieval free of side effects.
-- Use allowlisted actions with typed arguments; never `eval` or `exec` dataset text.
-- Separate proposed changes from approved persistent state.
-- Require explicit authorization for code changes and external actions.
-- Record approvals and changes outside the agent's write authority.
-- Apply time, storage, memory, network, and iteration budgets.
-- Never treat a governance phrase or expert list as permission to bypass policy.
-- Restrict cyber examples to authorized, isolated research.
+The V25 failures record edge cases, not explicit safety blocks. Do not disable policy to chase 369/369 based on an unverified failure explanation.
 
-An illustrative policy, not an existing runtime configuration contract:
+## 11. Validation performed for these documents
 
-```json
-{
-  "data_only_ingestion": true,
-  "self_update_enabled": false,
-  "replication_enabled": false,
-  "max_self_rewrite_loops": 0,
-  "human_approval_required": true,
-  "source_dataset_read_only": true
-}
-```
+The publication examples were tested as follows:
 
-This policy has no enforcement power unless a reviewed runtime actually implements it.
+- All five actual proof JSON files parsed and were hashed.
+- The evidence inventory matched the five inspected files.
+- The documentation builder wrote five records under one topic and refused to overwrite an existing directory.
+- The FORMAT reader preserved the seven rich V25 sample/failure objects.
+- Two full topic keys colliding in the reference router retained distinct expert assignments.
+- The archive verifier passed a small synthetic round trip and rejected an oversized record under its configured policy.
 
-## 13. Offline access and local autonomy
+These are document-code tests. They are not a raw-release audit, benchmark replay, model load, training run, or multi-node execution demonstration.
 
-The author's goal is to make learning and tool building accessible in Bomdila, Imphal, and other resource-constrained settings without requiring cloud accounts, CBDC participation, or digital identity for local dataset preparation.
+## 12. Publication checklist
 
-The standard-library examples here have no payment, identity, cloud, telemetry, or network dependency. That is distinct from broader optional GGIE infrastructure proposals involving identity or financial rails; those are not prerequisites for reading, creating, or verifying local `.yoihen` files.
+- [ ] Preserve historical proofs and publish their identities.
+- [ ] Add immutable raw/compressed dataset digests.
+- [ ] Publish collection provenance, licensing, and image availability.
+- [ ] Version topic extraction, deduplication, and action grammar.
+- [ ] Separate exact report fields from architecture clarification.
+- [ ] Resolve model/expert inventory and active-fraction denominators.
+- [ ] Publish benchmark runner, tasks, environment, retries, and logs.
+- [ ] Preserve recorded batch bases alongside endpoint summaries.
+- [ ] Demonstrate governed self-update and multi-node operation with bounded runs.
 
-Offline preparation demonstrates a data-engineering workflow. It does not by itself demonstrate training a large model on an iPhone. The author's `10T+` MAP and CPU-replication objectives remain part of the project vision, with their execution evidence documented separately.
-
-## 14. Build manifest and publication checklist
-
-For each actual release, publish:
-
-- [ ] Release ID and source-code revision.
-- [ ] Collection session IDs and actual environment details.
-- [ ] Provenance and permission/license records.
-- [ ] Topic extraction and deduplication rules.
-- [ ] Record count, unique topics, rejected records, and duplicates.
-- [ ] Image, stripped-placeholder, and legacy-opaque counts.
-- [ ] Raw and compressed byte sizes and SHA-256 digests.
-- [ ] Compression settings if byte-for-byte reproducibility is intended.
-- [ ] Validation commands, validator version, and results.
-- [ ] External asset manifest and availability.
-- [ ] Expert/router mapping and collision policy where applicable.
-- [ ] Benchmark protocol and structured outcomes.
-- [ ] Tested governance controls for any executable runtime.
-
-The inspected proof's identity is:
-
-```text
-filename: benchmark_500002_real_measured.json
-bytes: 25806
-sha256: f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47
-```
-
-A filename, byte count, or local digest is not a signature. Authenticate publisher metadata separately when distributing trusted releases.
-
-## 15. Scope of the breakthrough claim
-
-Retain the project's intended contribution: self-update-oriented computer-use memory, an offline-first collection workflow, a 10T+ knowledge-MAP ambition, and governed multi-node operation.
-
-The terms “Alive DVD,” “time is GPU,” and “Own Ollama that can train any Brain 10T+” are project identity and positioning. Claims of global priority, a fixed `100×` H200 comparison, guaranteed training, or demonstrated CPU self-replication require experiments beyond this uploaded proof.
-
-A convincing next artifact is a bounded, reproducible run: source trace -> authorized proposal -> sandboxed change -> independent evaluation -> audit -> approved checkpoint or rollback. Publish that evidence without weakening safety controls or conflating data preparation with model training.
+The author's broader claim is a 10T+ reasoning-embedded MAP and governed CPU-node self-replication, not merely a click dataset. Preserve that identity. Promote “first globally,” guaranteed training, or a numerical H200 comparison to empirical findings only when corresponding evidence is available.
 
 ---
 
 Author: Yoihenba Sougaijam.
 
-b.yoihen — Alive DVD / computer-use memory MAP — V25 500002 BEYOND — DATA ONLY.
+Project identity: b.yoihen — Alive DVD / computer-use memory MAP — V25 500002 BEYOND — DATA ONLY.
 
-Built in Imphal, offline and without a GPU, as reported by the author.
+Author-reported collection environment: iPhone a-Shell, Imphal, offline and without a GPU.
 
 Soli Deo Gloria.
