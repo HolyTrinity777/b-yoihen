@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use b.yoihen, please cite the dataset and identify the actual
+  release version, artifact digest, and the role it played in your work.
+type: dataset
+title: "b.yoihen: Alive DVD — Computer-Use Memory / MAP Representation"
+version: "V25 500002 BEYOND"
+authors:
+  - family-names: Sougaijam
+    given-names: Yoihenba
+abstract: >-
+  A line-oriented computer-use memory / MAP representation developed
+  through an iPhone a-Shell workflow in Imphal, Manipur. The DATA ONLY
+  release represents vision values, DOM context, action descriptions,
+  and recorded explanations. Historical V21–V25 JSON reports describe
+  collection, expert routing, code/self-healing, and self-update-oriented
+  content. Project claims and independently reproduced capabilities
+  must be distinguished. This artifact is data, not model weights.
+keywords:
+  - computer-use
+  - datasets
+  - retrieval-augmented generation
+  - tool-use
+  - self-update research
+  - provenance
+  - AI governance
