@@ -40,7 +40,6 @@ import re
 PATTERN = re.compile(r'^[^|]+\|[^|]*<html>.*</html>[^|]*\|[^|]*\|reasoning holds.*coherence 1\.0 UNIFIED result_success when true$')
 
 ---
-```
 
 2. Field Specification — Maximum Precision
 
@@ -258,4 +257,5 @@ Use for good — For learning computer-use offline in Imphal/Bomdila — For bui
 If you let it rewrite itself, you are responsible for what it becomes. Keep human in loop. Keep Kill Switch.
 
 ---
+```
 **Built on iPhone a-Shell Imphal offline no GPU — By Yoihenba Sougaijam — Soli Deo Gloria — V25 500002 BEYOND**
