@@ -40,8 +40,9 @@ import re
 PATTERN = re.compile(r'^[^|]+\|[^|]*<html>.*</html>[^|]*\|[^|]*\|reasoning holds.*coherence 1\.0 UNIFIED result_success when true$')
 
 ---
+```
 
-2. Field Specification — Maximum Precision
+## 2. Field Specification — Maximum Precision
 
 Field 1: `screenshot_base64` — Vision Layer
 
@@ -55,7 +56,7 @@ Purpose	Vision input for Qwen2-VL 7B — `three_layers.vision`
 Example real	`iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAYAAADo08FDAAA...` (truncated)
 Example DATA ONLY	`[STRIPPED 136 bytes] aGVsbG8gd29ybGQ= [TRUNCATED]`
 
-Field 2: `DOM` — Structure Layer
+## Field 2: `DOM` — Structure Layer
 
 Attribute	Spec
 Type	Minimal HTML — Must be parseable
@@ -67,7 +68,7 @@ Contains `\|`?	*NO* in DATA ONLY release — Real DOM never contains `\|`
 Purpose	Structure grounding for action coordinates — For DOM-based agent
 Example	`<html><body><div id="chrome_browse_news_0" class="real">chrome_browse_news_0 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div><div class="libreoffice">libreoffice_writer_table_chart calc_formula_sheet impress_slide_deck</div><div class="kali">kali cve_0_kali_exploit_chain</div><div class="world_model">world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety</div></body></html>`
 
-Field 3: `action` — Tool Use Layer — Executable
+## Field 3: `action` — Tool Use Layer — Executable
 
 Attribute	Spec
 Type	`+` joined action atoms
@@ -257,5 +258,5 @@ Use for good — For learning computer-use offline in Imphal/Bomdila — For bui
 If you let it rewrite itself, you are responsible for what it becomes. Keep human in loop. Keep Kill Switch.
 
 ---
-```
+
 **Built on iPhone a-Shell Imphal offline no GPU — By Yoihenba Sougaijam — Soli Deo Gloria — V25 500002 BEYOND**
