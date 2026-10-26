@@ -261,7 +261,7 @@ My full V25 release averages approximately 6.98 records per total reported topic
 ## 7. My line format
 
 ```text
-screenshot_base64|DOM|action|reasoning
+vision_ref|DOM|action|reasoning
 ```
 
 I use:
