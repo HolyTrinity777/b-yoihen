@@ -213,15 +213,15 @@ This DATA ONLY release carries reasoning-embedded MAP instructions for building 
 
 "Time is GPU" is my development motto for offline work on iPhone a-Shell. I am not presenting GPU-free workflows as a measured 100× comparison with H200 or a guarantee that arbitrary model training will fit on my phone.
 
-My project positioning: Own local runtime inspired by Ollama that can train any Brain 10T+ as my MAP envelope — not model weights in this DATA ONLY release. My project concept: Alive DVD — memory that carries recorded patterns for computer-use, code/self-healing, world-model, and governed self-update — stored as diary lines in .yoihen, not as active execution in this DATA ONLY file.
+**My project positioning:** Own local runtime inspired by Ollama that can train any Brain 10T+ as my MAP envelope — not model weights in this DATA ONLY release. My project concept: Alive DVD — memory that carries recorded patterns for computer-use, code/self-healing, world-model, and governed self-update — stored as diary lines in .yoihen, not as active execution in this DATA ONLY file.
 
-Foreseeable misuse warning: If this learning material is connected to a persistent, tool-enabled runtime where surrounding software grants write/execute authority, a locally fine-tuned model left running may repeatedly propose or execute changes. A .gguf file does not itself provide an independently enforced kill switch.
+**Foreseeable misuse warning:** If this learning material is connected to a persistent, tool-enabled runtime where surrounding software grants write/execute authority, a locally fine-tuned model left running may repeatedly propose or execute changes. A .gguf file does not itself provide an independently enforced kill switch.
 
 I do not claim fine-tuning automatically produces a fixed number of rewrites, survival planning, or AGI. I warn that an uncontrolled loop can reach persistent self-directed behaviors without review. My 11051 self_rewrite world_model category is retained as a recorded collection category label from V24, not as active self-replication in this DATA ONLY release.
 
 Multiplied across many ungoverned deployments, you will have many independently modified systems, not one coherent release. A copied coherence 1.0 UNIFIED marker does not make those systems synchronized, safe, or equivalent to V25 FINAL BEYOND reference. cf-ray 9fa1f8cf9ce40942-CCU is retained as lineage marker only.
 
-Governance required by LICENSE.md Track B for persistent use: (1) Kill Switch outside model control with Pause / Isolate-revoke / Quarantine-recover, (2) Blockchain Audit outside agent write authority, (3) Quantum Sync against authenticated versioned V25 FINAL reference, (4) Explicit human approval before consequential changes become persistent.
+Governance I recommend for persistent use: (1) Kill Switch outside model control with Pause / Isolate-revoke / Quarantine-recover, (2) Blockchain Audit outside agent write authority, (3) Quantum Sync against authenticated versioned V25 FINAL reference, (4) Explicit human approval before consequential changes become persistent.
 
 Source remains read-only. Dataset text remains inert. Self-update and replication remain disabled by default. scripts/build_manifest.py is the public safe reader — standard library only, does not execute actions, creates MANIFEST.json + SHA256SUMS. Deployment without these controls is outside licensed intended use and at deployer's own risk and liability.
 
