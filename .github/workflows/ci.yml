@@ -48,15 +48,13 @@ jobs:
         uses: actions/setup-python@v7.1.0
         with:
           python-version: ${{ matrix.python }}
-          # This repository's reference scripts use only the standard library.
-          # No pip cache or requirements.txt is assumed.
+          # Standard-library application scripts; no pip cache is assumed.
 
       - name: Check repository layout and Python syntax
         run: |
           python - <<'PY'
           from pathlib import Path
           import ast
-          import json
           import subprocess
 
           required = [
@@ -70,7 +68,6 @@ jobs:
           for folder in ("docs", "examples", "proof", "scripts"):
               if not Path(folder).is_dir():
                   raise SystemExit("Missing directory: " + folder)
-          # Git does not track empty directories. Keep an actual example file in examples/.
           files = subprocess.check_output(["git", "ls-files", "-z", "--", "*.py"])
           python_files = [Path(name) for name in files.decode("utf-8").split("\0") if name]
           for path in python_files:
@@ -85,22 +82,51 @@ jobs:
           import hashlib
           import json
 
-          EXPECTED = {'benchmark_38220_live.json': {'bytes': 1727, 'sha256': '588da9c879b320dc11921dfb2537706091a99abbe12db427aec2bb53d419be8b'}, 'benchmark_44745_real_measured.json': {'bytes': 3206, 'sha256': '404f3359c7dcc90f78ac0c88551f13b1ed08cca1fdd8ac2547697be3345157e2'}, 'benchmark_169745_real_measured.json': {'bytes': 3892, 'sha256': '9b711be29cf8ae32b0aab744b6fe78fbbfca4753d58072166b069acd52b8dc1a'}, 'benchmark_412972_real_measured.json': {'bytes': 4360, 'sha256': 'bd01d68f7909e66b5c11faf4c5e4045e7dcc9071bc2815c215f00347021e3641'}, 'benchmark_500002_real_measured.json': {'bytes': 25806, 'sha256': 'f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47'}}
+          EXPECTED = {
+              "benchmark_38220_live.json": {
+                  "bytes": 1727,
+                  "sha256": "588da9c879b320dc11921dfb2537706091a99abbe12db427aec2bb53d419be8b",
+              },
+              "benchmark_44745_real_measured.json": {
+                  "bytes": 3206,
+                  "sha256": "404f3359c7dcc90f78ac0c88551f13b1ed08cca1fdd8ac2547697be3345157e2",
+              },
+              "benchmark_169745_real_measured.json": {
+                  "bytes": 3892,
+                  "sha256": "9b711be29cf8ae32b0aab744b6fe78fbbfca4753d58072166b069acd52b8dc1a",
+              },
+              "benchmark_412972_real_measured.json": {
+                  "bytes": 4360,
+                  "sha256": "bd01d68f7909e66b5c11faf4c5e4045e7dcc9071bc2815c215f00347021e3641",
+              },
+              "benchmark_500002_real_measured.json": {
+                  "bytes": 25806,
+                  "sha256": "f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47",
+              },
+          }
           RUN_FIELDS = {
-              "benchmark_38220_live.json": {"before": 31695, "after": 38220,
-                  "written": 6525, "bytes_before": 13711330, "bytes_after": 73677165,
-                  "shards": 193, "real_traces": 1305, "synthetic_traces": 540,
-                  "total_traces": 1845},
-              "benchmark_44745_real_measured.json": {"target": 44745, "nonempty": 44745,
-                  "bytes": 104440590, "success": 228, "total": 369},
-              "benchmark_169745_real_measured.json": {"target": 169745, "nonempty": 169745,
-                  "bytes": 213008990, "success": 354, "total": 369},
-              "benchmark_412972_real_measured.json": {"target": 412972, "nonempty": 412972,
-                  "bytes": 791094565, "success": 366, "total": 369,
-                  "before": 282717, "after": 412972},
-              "benchmark_500002_real_measured.json": {"target": 500002, "nonempty": 500002,
-                  "bytes": 1147108255, "success": 367, "total": 369,
-                  "real_count": 71067, "total_count": 71607},
+              "benchmark_38220_live.json": {
+                  "before": 31695, "after": 38220, "written": 6525,
+                  "bytes_before": 13711330, "bytes_after": 73677165,
+                  "shards": 193, "real_traces": 1305,
+                  "synthetic_traces": 540, "total_traces": 1845,
+              },
+              "benchmark_44745_real_measured.json": {
+                  "target": 44745, "nonempty": 44745, "bytes": 104440590,
+                  "success": 228, "total": 369,
+              },
+              "benchmark_169745_real_measured.json": {
+                  "target": 169745, "nonempty": 169745, "bytes": 213008990,
+                  "success": 354, "total": 369,
+              },
+              "benchmark_412972_real_measured.json": {
+                  "target": 412972, "nonempty": 412972, "bytes": 791094565,
+                  "success": 366, "total": 369, "before": 282717, "after": 412972,
+              },
+              "benchmark_500002_real_measured.json": {
+                  "target": 500002, "nonempty": 500002, "bytes": 1147108255,
+                  "success": 367, "total": 369, "real_count": 71067, "total_count": 71607,
+              },
           }
           loaded = {}
           for name, identity in EXPECTED.items():
@@ -123,7 +149,6 @@ jobs:
               print(f"OK {name}: {len(payload)} bytes; SHA-256 matched")
           for path in sorted(Path("proof").rglob("*.json")):
               json.loads(path.read_text(encoding="utf-8"))
-          # Historical real_count is NOT a stable cross-version topic-count field.
           v23 = loaded["benchmark_169745_real_measured.json"]
           v24 = loaded["benchmark_412972_real_measured.json"]
           v25 = loaded["benchmark_500002_real_measured.json"]
@@ -181,11 +206,14 @@ jobs:
                   self.root = Path(self.temporary.name)
                   self.raw = self.root / "b.yoihen"
                   self.archive = self.root / "b.yoihen.gz"
-                  self.archive.write_bytes(gzip.compress(PAYLOAD, mtime=0))
                   (self.root / "proof").mkdir()
-                  # Explicit synthetic fixture: not a newly measured V25 release.
+                  self.set_fixture(PAYLOAD, 3)
+
+              def set_fixture(self, payload, lines):
+                  self.archive.write_bytes(gzip.compress(payload, mtime=0))
+                  # Synthetic fixture metadata; not a newly measured V25 release.
                   fixture = copy.deepcopy(PROOF)
-                  fixture.update(target=3, nonempty=3, bytes=len(PAYLOAD))
+                  fixture.update(target=lines, nonempty=lines, bytes=len(payload))
                   (self.root / "proof/benchmark_500002_real_measured.json").write_text(
                       json.dumps(fixture), encoding="utf-8")
 
@@ -201,10 +229,15 @@ jobs:
                       self.assertNotEqual(result.returncode, 0, message)
                   return result
 
-              def verify_args(self):
-                  return ["--root", self.root, "--expected-raw-bytes", len(PAYLOAD),
+              def verify_args(self, payload=PAYLOAD, lines=3, four_fields=3):
+                  return ["--root", self.root, "--expected-raw-bytes", len(payload),
                           "--expected-gz-bytes", self.archive.stat().st_size,
-                          "--expected-lines", 3]
+                          "--expected-lines", lines,
+                          "--expected-four-field-records", four_fields]
+
+              def verify_args_without_archive(self):
+                  return ["--root", self.root, "--expected-raw-bytes", len(PAYLOAD),
+                          "--expected-lines", 3, "--expected-four-field-records", 3]
 
               def convert_args(self, output, source=None):
                   return ["--input", source or self.raw, "--output-dir", output]
@@ -220,6 +253,8 @@ jobs:
                   data = json.loads(report.read_text())
                   self.assertTrue(data["passed"])
                   self.assertEqual(data["raw"]["sha256"], hashlib.sha256(PAYLOAD).hexdigest())
+                  self.assertEqual(data["raw"]["four_nonempty_fields"], 3)
+                  self.assertEqual(data["raw"]["hit_lines"], 0)
 
               def test_verify_preserves_existing_raw(self):
                   self.raw.write_bytes(PAYLOAD)
@@ -230,10 +265,6 @@ jobs:
                   self.raw.write_bytes(PAYLOAD)
                   self.archive.unlink()
                   self.run_script(VERIFY, self.verify_args_without_archive() + ["--check-only"])
-
-              def verify_args_without_archive(self):
-                  return ["--root", self.root, "--expected-raw-bytes", len(PAYLOAD),
-                          "--expected-lines", 3]
 
               def test_verify_rejects_mismatched_raw(self):
                   self.raw.write_bytes(PAYLOAD.replace(b"A+B", b"A+C"))
@@ -246,6 +277,93 @@ jobs:
                   self.archive.write_bytes(broken)
                   self.run_script(VERIFY, self.verify_args(), succeeds=False)
                   self.assertFalse(self.raw.exists())
+
+              def test_verify_accepts_mixed_trace_and_hit_lines(self):
+                  payload = PAYLOAD + b"hit first\nhit second\n"
+                  self.set_fixture(payload, 5)
+                  report = self.root / "mixed.json"
+                  self.run_script(VERIFY, self.verify_args(payload, 5, 3) + ["--report", report])
+                  data = json.loads(report.read_text())
+                  self.assertTrue(data["passed"])
+                  self.assertEqual(data["raw"]["total_lines"], 5)
+                  self.assertEqual(data["raw"]["four_nonempty_fields"], 3)
+                  self.assertEqual(data["raw"]["hit_lines"], 2)
+                  self.assertEqual(data["raw"]["invalid_records"], 0)
+                  self.assertTrue(data["checks"]["framing_utf8"])
+                  self.assertEqual(self.raw.read_bytes(), payload)
+
+              def test_verify_rejects_wrong_trace_hit_split(self):
+                  payload = PAYLOAD + b"hit\n"
+                  self.set_fixture(payload, 4)
+                  report = self.root / "wrong-split.json"
+                  self.run_script(VERIFY, self.verify_args(payload, 4, 4) + ["--report", report],
+                                  succeeds=False)
+                  data = json.loads(report.read_text())
+                  self.assertFalse(data["checks"]["four_field_record_count"])
+                  self.assertFalse(data["checks"]["hit_line_count"])
+                  self.assertFalse(self.raw.exists())
+
+              def test_verify_accepts_internal_carriage_return(self):
+                  payload = LINE.replace("keep this pipe", "keep\rthis pipe").encode("utf-8")
+                  self.set_fixture(payload, 1)
+                  report = self.root / "internal-cr.json"
+                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) + ["--report", report])
+                  data = json.loads(report.read_text())
+                  self.assertTrue(data["passed"])
+                  self.assertEqual(data["raw"]["invalid_records"], 0)
+                  self.assertEqual(self.raw.read_bytes(), payload)
+
+              def test_verify_rejects_trailing_crlf(self):
+                  payload = LINE.rstrip("\n").encode("utf-8") + b"\r\n"
+                  self.set_fixture(payload, 1)
+                  report = self.root / "crlf.json"
+                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) + ["--report", report],
+                                  succeeds=False)
+                  data = json.loads(report.read_text())
+                  self.assertIn("crlf", data["raw"]["issue_examples"][0]["issues"])
+                  self.assertFalse(self.raw.exists())
+
+              def test_verify_accepts_exact_record_limit_plus_lf(self):
+                  ceiling = 1024 * 1024
+                  prefix = b"a|b|c|"
+                  record = prefix + b"x" * (ceiling - len(prefix))
+                  self.assertEqual(len(record), ceiling)
+                  payload = record + b"\n"
+                  self.set_fixture(payload, 1)
+                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) +
+                                  ["--max-record-bytes", ceiling])
+                  self.assertEqual(self.raw.read_bytes(), payload)
+
+              def test_verify_rejects_one_byte_over_record_limit(self):
+                  ceiling = 1024 * 1024
+                  prefix = b"a|b|c|"
+                  payload = prefix + b"x" * (ceiling + 1 - len(prefix)) + b"\n"
+                  self.set_fixture(payload, 1)
+                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) +
+                                  ["--max-record-bytes", ceiling], succeeds=False)
+                  self.assertFalse(self.raw.exists())
+
+              def test_verify_still_rejects_malformed_pipe_records(self):
+                  payload = b"hit\na|b\n"
+                  self.set_fixture(payload, 2)
+                  report = self.root / "malformed.json"
+                  self.run_script(VERIFY, self.verify_args(payload, 2, 1) + ["--report", report],
+                                  succeeds=False)
+                  data = json.loads(report.read_text())
+                  self.assertFalse(data["checks"]["framing_utf8"])
+                  self.assertEqual(data["raw"]["hit_lines"], 1)
+                  self.assertEqual(data["raw"]["invalid_records"], 1)
+
+              def test_verify_checks_utf8_on_hit_lines(self):
+                  payload = b"hit_\xff\n"
+                  self.set_fixture(payload, 1)
+                  report = self.root / "bad-hit.json"
+                  self.run_script(VERIFY, self.verify_args(payload, 1, 0) + ["--report", report],
+                                  succeeds=False)
+                  data = json.loads(report.read_text())
+                  self.assertEqual(data["raw"]["hit_lines"], 1)
+                  self.assertEqual(data["raw"]["utf8_errors"], 1)
+                  self.assertFalse(data["checks"]["framing_utf8"])
 
               def test_conversion_preserves_fields_and_reports_actual_sample_count(self):
                   self.raw.write_bytes(PAYLOAD)
@@ -331,7 +449,8 @@ jobs:
               out.write("## b.yoihen CI\n\n")
               out.write("Job status: " + os.environ["RESULT"] + "\n\n")
               out.write("Scope: repository structure, Python syntax, historical proof identity, "
-                        "and inert tooling fixtures.\n\n")
+                        "and inert tooling fixtures, including mixed hit/trace records, "
+                        "internal CR handling, and record-size boundaries.\n\n")
               out.write("A green result is NOT a replay of the 369-task benchmark, "
                         "a full dataset audit, a training run, or a self-replication test.\n")
           PY
@@ -360,6 +479,7 @@ jobs:
           python - <<'PY'
           import os
           from pathlib import Path
+          import json
           import subprocess
           import sys
           root = Path.cwd()
@@ -370,9 +490,28 @@ jobs:
                   "Manual dataset verification requested, but neither b.yoihen nor "
                   "b.yoihen.gz is present. No release URL or download is assumed."
               )
-          command = [sys.executable, "scripts/verify.py", "--root", str(root),
-                     "--require-proof", "--report",
-                     str(Path(os.environ["RUNNER_TEMP"]) / "yoihen-dataset-report.json")]
+          report_path = Path(os.environ["RUNNER_TEMP"]) / "yoihen-dataset-report.json"
+          command = [
+              sys.executable, "scripts/verify.py", "--root", str(root),
+              "--require-proof", "--report", str(report_path),
+              "--expected-raw-bytes", "1147108255",
+              "--expected-gz-bytes", "19785162",
+              "--expected-lines", "500002",
+              "--expected-four-field-records", "348722",
+          ]
           command.append("--check-only" if raw.is_file() else "--keep-raw")
-          subprocess.run(command, check=True, timeout=1500)
+          result = subprocess.run(command, timeout=1500)
+          if report_path.is_file():
+              report = json.loads(report_path.read_text(encoding="utf-8"))
+              observed = report.get("raw", {})
+              with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as out:
+                  out.write("## Actual V25 dataset verification\n\n")
+                  out.write("Verifier exit code: " + str(result.returncode) + "\n\n")
+                  out.write("Expected: 500002 total lines; 348722 four-field records; "
+                            "151280 no-pipe hit lines.\n\n")
+                  for key in ("total_lines", "four_nonempty_fields", "hit_lines",
+                              "invalid_records", "bytes", "sha256"):
+                      out.write(key + ": " + str(observed.get(key)) + "\n\n")
+          if result.returncode:
+              raise SystemExit(result.returncode)
           PY
