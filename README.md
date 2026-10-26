@@ -607,18 +607,27 @@ I keep the distinction between my project claim and a completed experiment — m
 ## 12. Suggested attribution
 
 ```text
-Yoihenba Sougaijam. b.yoihen — Alive DVD — V25 500002 BEYOND — DATA ONLY.
+Yoihenba Sougaijam. b.yoihen - Alive DVD - V25 500002 BEYOND - DATA ONLY.
 My memory / MAP representation, built through my iPhone a-Shell workflow
 in Imphal, Manipur, offline and without a GPU.
-Recorded V25 inventory: 500002 records; 1147108255 raw bytes;
-19785162 gzip bytes specified for the release;
-71067 topics labeled REAL out of 71607 total.
+
+Verified V25 inventory: 500002 lines, comprising 348722 four-field records
+and 151280 hit lines with no field separator; 1147108255 raw bytes;
+19785162 gzip bytes; zero framing and UTF-8 failures.
+Verified by GitHub Actions against the committed archive, dataset-verification
+workflow; gzip SHA-256: aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
+
+Recorded V25 labels: 71067 topics labeled REAL out of 71607 total.
 Recorded benchmark outcome: 367/369, approximately 99.46%.
 My historical release label: 99.5%+ BEYOND.
 Format: vision_ref|DOM|action|reasoning.
-Evidence: my five run reports in proof/.
-```
+Evidence: my five run reports in proof/, and the repeatable
+dataset-verification run in .github/workflows.
 
+b.yoihen, Alive DVD, V25 (2026) by Yoihenba Sougaijam is licensed under
+CC BY 4.0. To view a copy of this licence, visit
+https://creativecommons.org/licenses/by/4.0/
+```
 ---
 
-Soli Deo Gloria — Author Yoihenba Sougaijam — http://b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY — Imphal, Manipur
+Soli Deo Gloria — Author Yoihenba Sougaijam,  Alive DVD V25 500002 BEYOND DATA ONLY — Imphal, Manipur
