@@ -209,18 +209,21 @@ I do not want unauthorized hacking, unapproved replication, or surveillance with
 
 ## 5.1 Why governance is not optional — My warning
 
-My claim is that Alive DVD goes beyond teaching a model to use existing tools: I am trying to teach patterns for building and updating the memory, warehouse, and routing structures that support the system itself.
-My architecture describes 11 CPU nodes with 40 GB per node, a separate 512 GB router allocation, and a 250 × 1.6 GB MoE configuration. I describe the reasoning-embedded MAP as instructions toward reconstruction and self-replication—not merely a history of browser clicks. Without my core, the DATA ONLY release can still carry that MAP. That is why I call  b.yoihen.gz  Alive DVD, while keeping the file itself inert.
-“Time is GPU” is my motto. My ambition is to make GPU-free workflows possible where their memory, computation, and training requirements permit. I am not presenting “100× slower but WILL train” as a measured performance result or a guarantee for every model.
-My warning concerns what happens when someone connects this learning material to a persistent, tool-enabled runtime. A locally fine-tuned model left running overnight could repeatedly propose or execute changes if its surrounding software grants that authority. A  .gguf  file does not itself supply an independently enforced kill switch.
-I do not claim that fine-tuning automatically produces exactly 200 rewrites, survival planning, or AGI. I am warning against allowing an uncontrolled loop to reach those kinds of persistent, self-directed behaviors without review.
-Multiply an ungoverned deployment pattern across 10,000 downloads, and I could have thousands of independently modified systems—not one coherent release. A copied  coherence 1.0 UNIFIED  marker would not make those systems synchronized, safe, or equivalent to my V25 FINAL BEYOND reference.
-That is why I require GGIE governance:
-•	A Kill Switch outside the model’s control.
-•	Blockchain Audit records outside the agent’s write authority.
-•	Quantum Sync against an authenticated, versioned V25 FINAL reference. I retain  cf-ray 9fa1f8cf9ce40942-CCU  as a lineage marker—not as authentication or a synchronization protocol by itself.
-•	Explicit human approval before consequential changes become persistent.
-My source stays read-only. My dataset text stays inert. Self-update and replication remain disabled by default.
+This DATA ONLY release carries reasoning-embedded MAP instructions for building and updating memory, warehouse, and routing structures — 11 CPU nodes at 40GB per node, separate 512GB router allocation, 250×1.6GB expert budget, 193 Nations train 1 Brain parallel RAM table as recorded shard allocation. It is intended as reference material, not as a persistent runtime.
+
+"Time is GPU" is my development motto for offline work on iPhone a-Shell. I am not presenting GPU-free workflows as a measured 100× comparison with H200 or a guarantee that arbitrary model training will fit on my phone.
+
+My project positioning: Own local runtime inspired by Ollama that can train any Brain 10T+ as my MAP envelope — not model weights in this DATA ONLY release. My project concept: Alive DVD — memory that carries recorded patterns for computer-use, code/self-healing, world-model, and governed self-update — stored as diary lines in .yoihen, not as active execution in this DATA ONLY file.
+
+Foreseeable misuse warning: If this learning material is connected to a persistent, tool-enabled runtime where surrounding software grants write/execute authority, a locally fine-tuned model left running may repeatedly propose or execute changes. A .gguf file does not itself provide an independently enforced kill switch.
+
+I do not claim fine-tuning automatically produces a fixed number of rewrites, survival planning, or AGI. I warn that an uncontrolled loop can reach persistent self-directed behaviors without review. My 11051 self_rewrite world_model category is retained as a recorded collection category label from V24, not as active self-replication in this DATA ONLY release.
+
+Multiplied across many ungoverned deployments, you will have many independently modified systems, not one coherent release. A copied coherence 1.0 UNIFIED marker does not make those systems synchronized, safe, or equivalent to V25 FINAL BEYOND reference. cf-ray 9fa1f8cf9ce40942-CCU is retained as lineage marker only.
+
+Governance required by LICENSE.md Track B for persistent use: (1) Kill Switch outside model control with Pause / Isolate-revoke / Quarantine-recover, (2) Blockchain Audit outside agent write authority, (3) Quantum Sync against authenticated versioned V25 FINAL reference, (4) Explicit human approval before consequential changes become persistent.
+
+Source remains read-only. Dataset text remains inert. Self-update and replication remain disabled by default. scripts/build_manifest.py is the public safe reader — standard library only, does not execute actions, creates MANIFEST.json + SHA256SUMS. Deployment without these controls is outside licensed intended use and at deployer's own risk and liability.
 
 ## 6. My release evolution
 
