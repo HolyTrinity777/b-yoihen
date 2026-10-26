@@ -410,7 +410,7 @@ def verify_release(
                     raise ValueError("Record exceeds the 1,048,576-byte ceiling")
                 records += 1
                 raw_digest.update(raw)
-                if not raw.endswith(b"\n") or b"\r" in raw:
+                if not raw.endswith(b"\n") or raw.endswith(b"\r\n"):
                     raise ValueError(f"Invalid LF/CR representation at line {records}")
                 record = raw[:-1]
                 if record.startswith(b"\xef\xbb\xbf"):
