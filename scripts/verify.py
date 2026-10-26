@@ -1,7 +1,6 @@
-#!/usr/bin/env python3
 """Local consistency verifier for b.yoihen V25 DATA ONLY (Python 3.9+).
 
-By Yoihenba Sougaijam; author-reported origin: iPhone a-Shell, Imphal/Bomdila,
+By Yoihenba Sougaijam; author-reported origin: iPhone a-Shell, Imphal ,
 offline, no GPU. All Glory to Living God Yahushua. Soli Deo Gloria.
 
 Default: reuse an existing raw file, or decompress without overwriting one.
@@ -24,6 +23,7 @@ EXPECTED = {
     "raw_bytes": 1_147_108_255,
     "gz_bytes": 19_785_162,
     "lines": 500_002,
+    "four_nonempty_fields": 348_722,
     "measured_score": "99.5%+",  # Historical label, not a recomputed score.
     "success": 367,
     "total": 369,
@@ -71,19 +71,20 @@ def publish_new(staged, target):
 
 def count_lines_and_stats(source, expected_max_bytes, max_record_bytes=CHUNK,
                           sink=None):
-    """Scan a binary stream; bound record memory and total expanded bytes."""
+    """Scan a binary stream; record byte ceiling excludes the terminating LF."""
     stats = {
         "total_lines": 0, "non_empty": 0, "has_separator": 0,
-        "four_nonempty_fields": 0, "invalid_records": 0,
+        "four_nonempty_fields": 0, "hit_lines": 0, "invalid_records": 0,
         "utf8_errors": 0, "annotation_marker_matches": 0,
         "bytes": 0, "issue_examples": [],
     }
     digest = hashlib.sha256()
     while True:
-        raw = source.readline(max_record_bytes + 1)
+        raw = source.readline(max_record_bytes + 2)
         if not raw:
             break
-        if len(raw) > max_record_bytes:
+        record = raw[:-1] if raw.endswith(b"\n") else raw
+        if len(record) > max_record_bytes:
             raise VerificationError("Record exceeds --max-record-bytes")
         stats["bytes"] += len(raw)
         if stats["bytes"] > expected_max_bytes:
@@ -96,22 +97,23 @@ def count_lines_and_stats(source, expected_max_bytes, max_record_bytes=CHUNK,
         issues = []
         if not raw.endswith(b"\n"):
             issues.append("missing_lf")
-        record = raw[:-1] if raw.endswith(b"\n") else raw
         if not record:
             issues.append("empty_record")
         else:
             stats["non_empty"] += 1
-        if b"\r" in record:
-            issues.append("raw_cr")
+        if raw.endswith(b"\r\n"):
+            issues.append("crlf")
         if record.startswith(b"\xef\xbb\xbf"):
             issues.append("bom")
         if b"|" in record:
             stats["has_separator"] += 1
-        fields = record.split(b"|", 3)
-        if len(fields) != 4 or any(not field for field in fields):
-            issues.append("field_framing")
+            fields = record.split(b"|", 3)
+            if len(fields) != 4 or any(not field for field in fields):
+                issues.append("field_framing")
+            else:
+                stats["four_nonempty_fields"] += 1
         else:
-            stats["four_nonempty_fields"] += 1
+            stats["hit_lines"] += 1
         try:
             text = record.decode("utf-8", errors="strict")
         except UnicodeDecodeError:
@@ -186,6 +188,13 @@ def positive(value):
     return parsed
 
 
+def nonnegative(value):
+    parsed = int(value)
+    if parsed < 0:
+        raise argparse.ArgumentTypeError("must be nonnegative")
+    return parsed
+
+
 def digest_arg(value):
     value = value.lower()
     if len(value) != 64 or any(char not in "0123456789abcdef" for char in value):
@@ -209,12 +218,18 @@ def main(argv=None):
     parser.add_argument("--expected-raw-bytes", type=positive, default=EXPECTED["raw_bytes"])
     parser.add_argument("--expected-gz-bytes", type=positive, default=EXPECTED["gz_bytes"])
     parser.add_argument("--expected-lines", type=positive, default=EXPECTED["lines"])
+    parser.add_argument("--expected-four-field-records", type=nonnegative,
+                        default=EXPECTED["four_nonempty_fields"],
+                        help="Expected four-nonempty-field records; remaining lines are hits")
     parser.add_argument("--expected-raw-sha256", type=digest_arg)
     parser.add_argument("--expected-gz-sha256", type=digest_arg)
     parser.add_argument("--expected-proof-sha256", type=digest_arg)
     args = parser.parse_args(argv)
     if args.check_only and args.discard_raw:
         parser.error("--discard-raw cannot be combined with --check-only")
+    if args.expected_four_field_records > args.expected_lines:
+        parser.error("--expected-four-field-records cannot exceed --expected-lines")
+    expected_hit_lines = args.expected_lines - args.expected_four_field_records
     root = args.root.resolve()
     raw_path = root / "b.yoihen"
     gz_path = root / "b.yoihen.gz"
@@ -264,6 +279,9 @@ def main(argv=None):
             "raw_bytes": stats["bytes"] == args.expected_raw_bytes,
             "record_count": stats["total_lines"] == args.expected_lines,
             "nonempty_count": stats["non_empty"] == args.expected_lines,
+            "four_field_record_count": (
+                stats["four_nonempty_fields"] == args.expected_four_field_records),
+            "hit_line_count": stats["hit_lines"] == expected_hit_lines,
             "framing_utf8": stats["invalid_records"] == 0,
         })
         if args.expected_raw_sha256:
@@ -281,7 +299,9 @@ def main(argv=None):
             "schema": "yoihen.local_verification.v1", "root": str(root),
             "expected": {"raw_bytes": args.expected_raw_bytes,
                          "gzip_bytes": args.expected_gz_bytes,
-                         "records": args.expected_lines},
+                         "records": args.expected_lines,
+                         "four_nonempty_fields": args.expected_four_field_records,
+                         "hit_lines": expected_hit_lines},
             "record_byte_limit": args.max_record_bytes,
             "raw": stats, "gzip": gz_info, "proof": evidence,
             "checks": checks, "passed": all(checks.values()),
@@ -305,6 +325,8 @@ def main(argv=None):
             publish_new(report_stage, args.report)
             report_stage = None
         print(json.dumps({"checks": checks, "records": stats["total_lines"],
+                          "four_nonempty_fields": stats["four_nonempty_fields"],
+                          "hit_lines": stats["hit_lines"],
                           "raw_bytes": stats["bytes"], "sha256": stats["sha256"]}, indent=2))
         if not report["passed"]:
             print("[FAIL] Local checks failed", file=sys.stderr)
