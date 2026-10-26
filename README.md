@@ -472,7 +472,7 @@ Recorded V25 inventory: 500002 records; 1147108255 raw bytes;
 71067 topics labeled REAL out of 71607 total.
 Recorded benchmark outcome: 367/369, approximately 99.46%.
 My historical release label: 99.5%+ BEYOND.
-Format: screenshot_base64|DOM|action|reasoning.
+Format: vision_ref|DOM|action|reasoning.
 Evidence: my five run reports in proof/.
 ```
 
