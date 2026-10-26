@@ -4,12 +4,6 @@ name: b-yoihen CI
   push:
   pull_request:
   workflow_dispatch:
-    inputs:
-      verify_dataset:
-        description: "Also verify dataset files already present in the checkout"
-        required: false
-        default: false
-        type: boolean
 
 permissions:
   contents: read
@@ -32,10 +26,12 @@ jobs:
     name: Checks / Python ${{ matrix.python }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
+
     strategy:
       fail-fast: false
       matrix:
         python: ["3.11", "3.12", "3.13"]
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v7.0.1
@@ -48,7 +44,6 @@ jobs:
         uses: actions/setup-python@v7.1.0
         with:
           python-version: ${{ matrix.python }}
-          # Standard-library application scripts; no pip cache is assumed.
 
       - name: Check repository layout and Python syntax
         run: |
@@ -58,24 +53,52 @@ jobs:
           import subprocess
 
           required = [
-              "README.md", "LICENSE.md", "SECURITY.md", ".gitignore",
-              "docs/FORMAT.md", "docs/STATS.md", "docs/BUILD.md",
-              "scripts/verify.py", "scripts/convert_to_jsonl.py",
+              "README.md",
+              "LICENSE.md",
+              "SECURITY.md",
+              ".gitignore",
+              "docs/FORMAT.md",
+              "docs/STATS.md",
+              "docs/BUILD.md",
+              "scripts/verify.py",
+              "scripts/convert_to_jsonl.py",
           ]
-          missing = [name for name in required if not Path(name).is_file()]
+
+          missing = [
+              name for name in required
+              if not Path(name).is_file()
+          ]
           if missing:
-              raise SystemExit("Missing required files: " + ", ".join(missing))
-          for folder in ("docs", "examples", "proof", "scripts"):
-              if not Path(folder).is_dir():
-                  raise SystemExit("Missing directory: " + folder)
-          files = subprocess.check_output(["git", "ls-files", "-z", "--", "*.py"])
-          python_files = [Path(name) for name in files.decode("utf-8").split("\0") if name]
-          for path in python_files:
-              ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
-          print(f"Repository structure OK; syntax checked {len(python_files)} tracked Python files")
+              raise SystemExit(
+                  "Missing required files: " + ", ".join(missing)
+              )
+
+          for name in ("docs", "examples", "proof", "scripts"):
+              if not Path(name).is_dir():
+                  raise SystemExit("Missing directory: " + name)
+
+          tracked = subprocess.check_output(
+              ["git", "ls-files", "-z", "--", "*.py"]
+          )
+          paths = [
+              Path(name)
+              for name in tracked.decode("utf-8").split("\0")
+              if name
+          ]
+
+          for path in paths:
+              ast.parse(
+                  path.read_text(encoding="utf-8"),
+                  filename=str(path),
+              )
+
+          print(
+              f"Repository layout OK; "
+              f"{len(paths)} Python files syntax-checked"
+          )
           PY
 
-      - name: Validate five historical proofs and recorded fields
+      - name: Validate historical proof identities and fields
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -104,73 +127,154 @@ jobs:
                   "sha256": "f1b386fe47689bb8cad4c1c621431ba0a99635c7c04d60546e63d8c075266a47",
               },
           }
+
           RUN_FIELDS = {
               "benchmark_38220_live.json": {
-                  "before": 31695, "after": 38220, "written": 6525,
-                  "bytes_before": 13711330, "bytes_after": 73677165,
-                  "shards": 193, "real_traces": 1305,
-                  "synthetic_traces": 540, "total_traces": 1845,
+                  "before": 31695,
+                  "after": 38220,
+                  "written": 6525,
+                  "bytes_before": 13711330,
+                  "bytes_after": 73677165,
+                  "shards": 193,
+                  "real_traces": 1305,
+                  "synthetic_traces": 540,
+                  "total_traces": 1845,
               },
               "benchmark_44745_real_measured.json": {
-                  "target": 44745, "nonempty": 44745, "bytes": 104440590,
-                  "success": 228, "total": 369,
+                  "target": 44745,
+                  "nonempty": 44745,
+                  "bytes": 104440590,
+                  "success": 228,
+                  "total": 369,
               },
               "benchmark_169745_real_measured.json": {
-                  "target": 169745, "nonempty": 169745, "bytes": 213008990,
-                  "success": 354, "total": 369,
+                  "target": 169745,
+                  "nonempty": 169745,
+                  "bytes": 213008990,
+                  "success": 354,
+                  "total": 369,
               },
               "benchmark_412972_real_measured.json": {
-                  "target": 412972, "nonempty": 412972, "bytes": 791094565,
-                  "success": 366, "total": 369, "before": 282717, "after": 412972,
+                  "target": 412972,
+                  "nonempty": 412972,
+                  "bytes": 791094565,
+                  "success": 366,
+                  "total": 369,
+                  "before": 282717,
+                  "after": 412972,
               },
               "benchmark_500002_real_measured.json": {
-                  "target": 500002, "nonempty": 500002, "bytes": 1147108255,
-                  "success": 367, "total": 369, "real_count": 71067, "total_count": 71607,
+                  "target": 500002,
+                  "nonempty": 500002,
+                  "bytes": 1147108255,
+                  "success": 367,
+                  "total": 369,
+                  "real_count": 71067,
+                  "total_count": 71607,
               },
           }
+
           loaded = {}
+
           for name, identity in EXPECTED.items():
-              path = Path("proof") / name
-              payload = path.read_bytes()
+              payload = (Path("proof") / name).read_bytes()
+
               if len(payload) != identity["bytes"]:
-                  raise SystemExit(f"Historical proof size changed: {name}")
-              if hashlib.sha256(payload).hexdigest() != identity["sha256"]:
-                  raise SystemExit(f"Historical proof SHA-256 changed: {name}")
+                  raise SystemExit(
+                      "Historical proof size mismatch: " + name
+                  )
+
+              observed_hash = hashlib.sha256(payload).hexdigest()
+              if observed_hash != identity["sha256"]:
+                  raise SystemExit(
+                      "Historical proof SHA-256 mismatch: " + name
+                  )
+
               report = json.loads(payload.decode("utf-8"))
               if not isinstance(report, dict):
-                  raise SystemExit(f"Proof root is not an object: {name}")
+                  raise SystemExit("Invalid proof root: " + name)
+
               for key, expected in RUN_FIELDS[name].items():
                   value = report.get(key)
                   if type(value) not in (int, float) or value != expected:
-                      raise SystemExit(f"Unexpected {name}:{key}: {value!r}")
+                      raise SystemExit(
+                          f"Unexpected {name}:{key}: {value!r}"
+                      )
+
               if report.get("coherence") != "1.0 UNIFIED":
-                  raise SystemExit(f"Unexpected coherence label: {name}")
+                  raise SystemExit(
+                      "Unexpected coherence label: " + name
+                  )
+
               loaded[name] = report
-              print(f"OK {name}: {len(payload)} bytes; SHA-256 matched")
-          for path in sorted(Path("proof").rglob("*.json")):
+              print(
+                  "OK " + name +
+                  ": identity and recorded fields matched"
+              )
+
+          for path in Path("proof").rglob("*.json"):
               json.loads(path.read_text(encoding="utf-8"))
-          v23 = loaded["benchmark_169745_real_measured.json"]
-          v24 = loaded["benchmark_412972_real_measured.json"]
-          v25 = loaded["benchmark_500002_real_measured.json"]
-          if (v23["real_count"], v24["real_count"], v25["real_count"]) != (361, 366, 71067):
-              raise SystemExit("Historical schema values unexpectedly changed")
-          for earlier_name, later_name, ids in [
-              ("benchmark_44745_real_measured.json", "benchmark_169745_real_measured.json", (7, 9)),
-              ("benchmark_169745_real_measured.json", "benchmark_412972_real_measured.json", (1,)),
-          ]:
-              earlier = {x["task_id"]: x for x in loaded[earlier_name]["sample_results"]}
-              later = {x["task_id"]: x for x in loaded[later_name]["sample_results"]}
-              for task in ids:
+
+          historical_real_counts = tuple(
+              loaded[name]["real_count"]
+              for name in (
+                  "benchmark_169745_real_measured.json",
+                  "benchmark_412972_real_measured.json",
+                  "benchmark_500002_real_measured.json",
+              )
+          )
+          if historical_real_counts != (361, 366, 71067):
+              raise SystemExit(
+                  "Historical real_count schema values changed"
+              )
+
+          comparisons = [
+              (
+                  "benchmark_44745_real_measured.json",
+                  "benchmark_169745_real_measured.json",
+                  (7, 9),
+              ),
+              (
+                  "benchmark_169745_real_measured.json",
+                  "benchmark_412972_real_measured.json",
+                  (1,),
+              ),
+          ]
+
+          for before, after, task_ids in comparisons:
+              earlier = {
+                  item["task_id"]: item
+                  for item in loaded[before]["sample_results"]
+              }
+              later = {
+                  item["task_id"]: item
+                  for item in loaded[after]["sample_results"]
+              }
+
+              for task in task_ids:
                   if earlier[task]["hash"] != later[task]["hash"]:
-                      raise SystemExit("Historical sample hash changed")
+                      raise SystemExit(
+                          "Historical sample hash changed"
+                      )
                   if earlier[task]["experts"] != later[task]["experts"]:
-                      raise SystemExit("Historical expert assignment changed")
-                  if earlier[task]["success"] is not False or later[task]["success"] is not True:
-                      raise SystemExit("Historical sample transition changed")
-          print("Proof inventory and recorded fields OK; benchmark was NOT replayed")
+                      raise SystemExit(
+                          "Historical expert assignment changed"
+                      )
+                  if (
+                      earlier[task]["success"] is not False
+                      or later[task]["success"] is not True
+                  ):
+                      raise SystemExit(
+                          "Historical sample transition changed"
+                      )
+
+          print(
+              "Historical evidence checked; "
+              "benchmark NOT replayed"
+          )
           PY
 
-      - name: Run inert fixture tests for verification and conversion
+      - name: Run inert verification and conversion tests
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -186,16 +290,30 @@ jobs:
           REPO = Path.cwd()
           VERIFY = REPO / "scripts/verify.py"
           CONVERT = REPO / "scripts/convert_to_jsonl.py"
-          PROOF = json.loads((REPO / "proof/benchmark_500002_real_measured.json").read_text(encoding="utf-8"))
+
+          PROOF = json.loads(
+              (
+                  REPO
+                  / "proof/benchmark_500002_real_measured.json"
+              ).read_text(encoding="utf-8")
+          )
+
           ANNOTATION = (
-              "reasoning holds Mixed_PowerBI_1 + pattern_learn + generate = master Mixed_PowerBI_1"
-              " | keep this pipe coherence 1.0 UNIFIED result_success when true"
+              "reasoning holds Mixed_PowerBI_1 "
+              "+ pattern_learn + generate = master Mixed_PowerBI_1"
+              " | keep this pipe coherence 1.0 UNIFIED "
+              "result_success when true"
           )
+
           LINE = (
-              '[STRIPPED CI fixture]|<html><body><div class="real" id="Mixed_PowerBI_1">'
-              'Synthetic fixture</div></body></html>|action_type("A+B")|'
-              + ANNOTATION + "\n"
+              '[STRIPPED CI fixture]|'
+              '<html><body><div class="real" id="Mixed_PowerBI_1">'
+              'Synthetic fixture</div></body></html>|'
+              'action_type("A+B")|'
+              + ANNOTATION
+              + "\n"
           )
+
           PAYLOAD = LINE.encode("utf-8") * 3
 
 
@@ -203,241 +321,616 @@ jobs:
               def setUp(self):
                   self.temporary = tempfile.TemporaryDirectory()
                   self.addCleanup(self.temporary.cleanup)
+
                   self.root = Path(self.temporary.name)
                   self.raw = self.root / "b.yoihen"
                   self.archive = self.root / "b.yoihen.gz"
+
                   (self.root / "proof").mkdir()
                   self.set_fixture(PAYLOAD, 3)
 
               def set_fixture(self, payload, lines):
-                  self.archive.write_bytes(gzip.compress(payload, mtime=0))
-                  # Synthetic fixture metadata; not a newly measured V25 release.
+                  self.archive.write_bytes(
+                      gzip.compress(payload, mtime=0)
+                  )
+
+                  # Synthetic test metadata, not a new V25 measurement.
                   fixture = copy.deepcopy(PROOF)
-                  fixture.update(target=lines, nonempty=lines, bytes=len(payload))
-                  (self.root / "proof/benchmark_500002_real_measured.json").write_text(
-                      json.dumps(fixture), encoding="utf-8")
+                  fixture.update(
+                      target=lines,
+                      nonempty=lines,
+                      bytes=len(payload),
+                  )
+
+                  (
+                      self.root
+                      / "proof/benchmark_500002_real_measured.json"
+                  ).write_text(
+                      json.dumps(fixture),
+                      encoding="utf-8",
+                  )
 
               def run_script(self, script, args, succeeds=True):
                   result = subprocess.run(
-                      [sys.executable, str(script), *map(str, args)],
-                      capture_output=True, text=True, timeout=45,
+                      [
+                          sys.executable,
+                          str(script),
+                          *map(str, args),
+                      ],
+                      capture_output=True,
+                      text=True,
+                      timeout=45,
                   )
-                  message = (result.stdout + "\n" + result.stderr)[-6000:]
+
+                  message = (
+                      result.stdout + "\n" + result.stderr
+                  )[-6000:]
+
                   if succeeds:
-                      self.assertEqual(result.returncode, 0, message)
+                      self.assertEqual(
+                          result.returncode, 0, message
+                      )
                   else:
-                      self.assertNotEqual(result.returncode, 0, message)
+                      self.assertNotEqual(
+                          result.returncode, 0, message
+                      )
+
                   return result
 
-              def verify_args(self, payload=PAYLOAD, lines=3, four_fields=3):
-                  return ["--root", self.root, "--expected-raw-bytes", len(payload),
-                          "--expected-gz-bytes", self.archive.stat().st_size,
-                          "--expected-lines", lines,
-                          "--expected-four-field-records", four_fields]
+              def verify_args(
+                  self,
+                  payload=PAYLOAD,
+                  lines=3,
+                  four_fields=3,
+                  with_gzip=True,
+              ):
+                  result = [
+                      "--root", self.root,
+                      "--expected-raw-bytes", len(payload),
+                      "--expected-lines", lines,
+                      "--expected-four-field-records", four_fields,
+                  ]
 
-              def verify_args_without_archive(self):
-                  return ["--root", self.root, "--expected-raw-bytes", len(PAYLOAD),
-                          "--expected-lines", 3, "--expected-four-field-records", 3]
+                  if with_gzip:
+                      result += [
+                          "--expected-gz-bytes",
+                          self.archive.stat().st_size,
+                      ]
+
+                  return result
 
               def convert_args(self, output, source=None):
-                  return ["--input", source or self.raw, "--output-dir", output]
+                  return [
+                      "--input", source or self.raw,
+                      "--output-dir", output,
+                  ]
 
               def test_help(self):
                   self.run_script(VERIFY, ["--help"])
                   self.run_script(CONVERT, ["--help"])
 
               def test_verify_retains_new_raw_and_checks_proof(self):
-                  report = self.root / "verification.json"
-                  self.run_script(VERIFY, self.verify_args() + ["--require-proof", "--report", report])
-                  self.assertEqual(self.raw.read_bytes(), PAYLOAD)
-                  data = json.loads(report.read_text())
-                  self.assertTrue(data["passed"])
-                  self.assertEqual(data["raw"]["sha256"], hashlib.sha256(PAYLOAD).hexdigest())
-                  self.assertEqual(data["raw"]["four_nonempty_fields"], 3)
-                  self.assertEqual(data["raw"]["hit_lines"], 0)
+                  path = self.root / "report.json"
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args()
+                      + ["--require-proof", "--report", path],
+                  )
+
+                  report = json.loads(path.read_text())
+                  self.assertTrue(report["passed"])
+                  self.assertEqual(
+                      self.raw.read_bytes(), PAYLOAD
+                  )
+                  self.assertEqual(
+                      report["raw"]["sha256"],
+                      hashlib.sha256(PAYLOAD).hexdigest(),
+                  )
+                  self.assertEqual(
+                      report["raw"]["four_nonempty_fields"], 3
+                  )
+                  self.assertEqual(
+                      report["raw"]["hit_lines"], 0
+                  )
 
               def test_verify_preserves_existing_raw(self):
                   self.raw.write_bytes(PAYLOAD)
-                  self.run_script(VERIFY, self.verify_args() + ["--discard-raw"])
-                  self.assertEqual(self.raw.read_bytes(), PAYLOAD)
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args() + ["--discard-raw"],
+                  )
+
+                  self.assertEqual(
+                      self.raw.read_bytes(), PAYLOAD
+                  )
 
               def test_verify_raw_only(self):
                   self.raw.write_bytes(PAYLOAD)
                   self.archive.unlink()
-                  self.run_script(VERIFY, self.verify_args_without_archive() + ["--check-only"])
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(with_gzip=False)
+                      + ["--check-only"],
+                  )
 
               def test_verify_rejects_mismatched_raw(self):
-                  self.raw.write_bytes(PAYLOAD.replace(b"A+B", b"A+C"))
-                  self.run_script(VERIFY, self.verify_args(), succeeds=False)
-                  self.assertEqual(self.raw.read_bytes(), PAYLOAD.replace(b"A+B", b"A+C"))
+                  changed = PAYLOAD.replace(
+                      b"A+B", b"A+C"
+                  )
+                  self.raw.write_bytes(changed)
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(),
+                      succeeds=False,
+                  )
+
+                  self.assertEqual(
+                      self.raw.read_bytes(), changed
+                  )
 
               def test_verify_rejects_corrupt_gzip(self):
-                  broken = bytearray(self.archive.read_bytes())
+                  broken = bytearray(
+                      self.archive.read_bytes()
+                  )
                   broken[-8] ^= 1
                   self.archive.write_bytes(broken)
-                  self.run_script(VERIFY, self.verify_args(), succeeds=False)
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(),
+                      succeeds=False,
+                  )
+
                   self.assertFalse(self.raw.exists())
 
               def test_verify_accepts_mixed_trace_and_hit_lines(self):
-                  payload = PAYLOAD + b"hit first\nhit second\n"
+                  payload = (
+                      PAYLOAD + b"hit first\nhit second\n"
+                  )
                   self.set_fixture(payload, 5)
-                  report = self.root / "mixed.json"
-                  self.run_script(VERIFY, self.verify_args(payload, 5, 3) + ["--report", report])
-                  data = json.loads(report.read_text())
-                  self.assertTrue(data["passed"])
-                  self.assertEqual(data["raw"]["total_lines"], 5)
-                  self.assertEqual(data["raw"]["four_nonempty_fields"], 3)
-                  self.assertEqual(data["raw"]["hit_lines"], 2)
-                  self.assertEqual(data["raw"]["invalid_records"], 0)
-                  self.assertTrue(data["checks"]["framing_utf8"])
-                  self.assertEqual(self.raw.read_bytes(), payload)
+                  path = self.root / "mixed.json"
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 5, 3)
+                      + ["--report", path],
+                  )
+
+                  report = json.loads(path.read_text())
+                  self.assertTrue(report["passed"])
+                  self.assertEqual(
+                      report["raw"]["total_lines"], 5
+                  )
+                  self.assertEqual(
+                      report["raw"]["four_nonempty_fields"], 3
+                  )
+                  self.assertEqual(
+                      report["raw"]["hit_lines"], 2
+                  )
+                  self.assertEqual(
+                      report["raw"]["invalid_records"], 0
+                  )
+                  self.assertTrue(
+                      report["checks"]["framing_utf8"]
+                  )
+                  self.assertEqual(
+                      self.raw.read_bytes(), payload
+                  )
 
               def test_verify_rejects_wrong_trace_hit_split(self):
                   payload = PAYLOAD + b"hit\n"
                   self.set_fixture(payload, 4)
-                  report = self.root / "wrong-split.json"
-                  self.run_script(VERIFY, self.verify_args(payload, 4, 4) + ["--report", report],
-                                  succeeds=False)
-                  data = json.loads(report.read_text())
-                  self.assertFalse(data["checks"]["four_field_record_count"])
-                  self.assertFalse(data["checks"]["hit_line_count"])
+                  path = self.root / "wrong-split.json"
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 4, 4)
+                      + ["--report", path],
+                      succeeds=False,
+                  )
+
+                  report = json.loads(path.read_text())
+                  self.assertFalse(
+                      report["checks"]["four_field_record_count"]
+                  )
+                  self.assertFalse(
+                      report["checks"]["hit_line_count"]
+                  )
                   self.assertFalse(self.raw.exists())
 
               def test_verify_accepts_internal_carriage_return(self):
-                  payload = LINE.replace("keep this pipe", "keep\rthis pipe").encode("utf-8")
+                  payload = LINE.replace(
+                      "keep this pipe",
+                      "keep\rthis pipe",
+                  ).encode("utf-8")
+
                   self.set_fixture(payload, 1)
-                  report = self.root / "internal-cr.json"
-                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) + ["--report", report])
-                  data = json.loads(report.read_text())
-                  self.assertTrue(data["passed"])
-                  self.assertEqual(data["raw"]["invalid_records"], 0)
-                  self.assertEqual(self.raw.read_bytes(), payload)
+                  path = self.root / "cr.json"
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 1, 1)
+                      + ["--report", path],
+                  )
+
+                  self.assertTrue(
+                      json.loads(path.read_text())["passed"]
+                  )
+                  self.assertEqual(
+                      self.raw.read_bytes(), payload
+                  )
 
               def test_verify_rejects_trailing_crlf(self):
-                  payload = LINE.rstrip("\n").encode("utf-8") + b"\r\n"
+                  payload = (
+                      LINE.rstrip("\n").encode("utf-8")
+                      + b"\r\n"
+                  )
                   self.set_fixture(payload, 1)
-                  report = self.root / "crlf.json"
-                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) + ["--report", report],
-                                  succeeds=False)
-                  data = json.loads(report.read_text())
-                  self.assertIn("crlf", data["raw"]["issue_examples"][0]["issues"])
+                  path = self.root / "crlf.json"
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 1, 1)
+                      + ["--report", path],
+                      succeeds=False,
+                  )
+
+                  issues = json.loads(path.read_text())[
+                      "raw"
+                  ]["issue_examples"][0]["issues"]
+
+                  self.assertIn("crlf", issues)
                   self.assertFalse(self.raw.exists())
 
               def test_verify_accepts_exact_record_limit_plus_lf(self):
                   ceiling = 1024 * 1024
                   prefix = b"a|b|c|"
-                  record = prefix + b"x" * (ceiling - len(prefix))
-                  self.assertEqual(len(record), ceiling)
+                  record = (
+                      prefix
+                      + b"x" * (ceiling - len(prefix))
+                  )
                   payload = record + b"\n"
+
                   self.set_fixture(payload, 1)
-                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) +
-                                  ["--max-record-bytes", ceiling])
-                  self.assertEqual(self.raw.read_bytes(), payload)
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 1, 1)
+                      + ["--max-record-bytes", ceiling],
+                  )
+
+                  self.assertEqual(
+                      self.raw.read_bytes(), payload
+                  )
 
               def test_verify_rejects_one_byte_over_record_limit(self):
                   ceiling = 1024 * 1024
                   prefix = b"a|b|c|"
-                  payload = prefix + b"x" * (ceiling + 1 - len(prefix)) + b"\n"
+                  payload = (
+                      prefix
+                      + b"x" * (ceiling + 1 - len(prefix))
+                      + b"\n"
+                  )
+
                   self.set_fixture(payload, 1)
-                  self.run_script(VERIFY, self.verify_args(payload, 1, 1) +
-                                  ["--max-record-bytes", ceiling], succeeds=False)
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 1, 1)
+                      + ["--max-record-bytes", ceiling],
+                      succeeds=False,
+                  )
+
                   self.assertFalse(self.raw.exists())
 
               def test_verify_still_rejects_malformed_pipe_records(self):
                   payload = b"hit\na|b\n"
                   self.set_fixture(payload, 2)
-                  report = self.root / "malformed.json"
-                  self.run_script(VERIFY, self.verify_args(payload, 2, 1) + ["--report", report],
-                                  succeeds=False)
-                  data = json.loads(report.read_text())
-                  self.assertFalse(data["checks"]["framing_utf8"])
-                  self.assertEqual(data["raw"]["hit_lines"], 1)
-                  self.assertEqual(data["raw"]["invalid_records"], 1)
+                  path = self.root / "malformed.json"
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 2, 1)
+                      + ["--report", path],
+                      succeeds=False,
+                  )
+
+                  report = json.loads(path.read_text())
+                  self.assertFalse(
+                      report["checks"]["framing_utf8"]
+                  )
+                  self.assertEqual(
+                      report["raw"]["hit_lines"], 1
+                  )
+                  self.assertEqual(
+                      report["raw"]["invalid_records"], 1
+                  )
 
               def test_verify_checks_utf8_on_hit_lines(self):
                   payload = b"hit_\xff\n"
                   self.set_fixture(payload, 1)
-                  report = self.root / "bad-hit.json"
-                  self.run_script(VERIFY, self.verify_args(payload, 1, 0) + ["--report", report],
-                                  succeeds=False)
-                  data = json.loads(report.read_text())
-                  self.assertEqual(data["raw"]["hit_lines"], 1)
-                  self.assertEqual(data["raw"]["utf8_errors"], 1)
-                  self.assertFalse(data["checks"]["framing_utf8"])
+                  path = self.root / "utf8.json"
+
+                  self.run_script(
+                      VERIFY,
+                      self.verify_args(payload, 1, 0)
+                      + ["--report", path],
+                      succeeds=False,
+                  )
+
+                  report = json.loads(path.read_text())
+                  self.assertEqual(
+                      report["raw"]["hit_lines"], 1
+                  )
+                  self.assertEqual(
+                      report["raw"]["utf8_errors"], 1
+                  )
+                  self.assertFalse(
+                      report["checks"]["framing_utf8"]
+                  )
 
               def test_conversion_preserves_fields_and_reports_actual_sample_count(self):
                   self.raw.write_bytes(PAYLOAD)
                   output = self.root / "converted"
-                  self.run_script(CONVERT, self.convert_args(output) + ["--hash-input"])
-                  rows = [json.loads(x) for x in (output / "b.yoihen.jsonl").read_text().splitlines()]
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(output)
+                      + ["--hash-input"],
+                  )
+
+                  rows = [
+                      json.loads(line)
+                      for line in (
+                          output / "b.yoihen.jsonl"
+                      ).read_text().splitlines()
+                  ]
+
                   self.assertEqual(len(rows), 3)
-                  self.assertEqual(rows[0]["topic"], "Mixed_PowerBI_1")
-                  self.assertEqual(rows[0]["action"], 'action_type("A+B")')
-                  self.assertEqual(rows[0]["reasoning"], ANNOTATION)
-                  self.assertEqual(rows[0]["vision_status"], "stripped")
-                  self.assertFalse(rows[0]["evaluation"]["available"])
-                  report = json.loads((output / "b.yoihen.conversion_report.json").read_text())
-                  self.assertEqual(report["counts"]["sample_written"], 3)
+                  self.assertEqual(
+                      rows[0]["topic"], "Mixed_PowerBI_1"
+                  )
+                  self.assertEqual(
+                      rows[0]["action"],
+                      'action_type("A+B")',
+                  )
+                  self.assertEqual(
+                      rows[0]["reasoning"], ANNOTATION
+                  )
+                  self.assertEqual(
+                      rows[0]["vision_status"], "stripped"
+                  )
+                  self.assertFalse(
+                      rows[0]["evaluation"]["available"]
+                  )
+
+                  report = json.loads(
+                      (
+                          output
+                          / "b.yoihen.conversion_report.json"
+                      ).read_text()
+                  )
+                  self.assertEqual(
+                      report["counts"]["sample_written"], 3
+                  )
+
                   for item in report["outputs"].values():
-                      actual = hashlib.sha256((output / item["filename"]).read_bytes()).hexdigest()
-                      self.assertEqual(actual, item["sha256"])
-                  before = (output / "b.yoihen.jsonl").read_bytes()
-                  self.run_script(CONVERT, self.convert_args(output), succeeds=False)
-                  self.assertEqual((output / "b.yoihen.jsonl").read_bytes(), before)
+                      actual = hashlib.sha256(
+                          (
+                              output / item["filename"]
+                          ).read_bytes()
+                      ).hexdigest()
+                      self.assertEqual(
+                          actual, item["sha256"]
+                      )
+
+                  before = (
+                      output / "b.yoihen.jsonl"
+                  ).read_bytes()
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(output),
+                      succeeds=False,
+                  )
+
+                  self.assertEqual(
+                      (
+                          output / "b.yoihen.jsonl"
+                      ).read_bytes(),
+                      before,
+                  )
 
               def test_sample_only_honors_explicit_limit(self):
-                  self.raw.write_bytes(LINE.encode() * 150)
+                  self.raw.write_bytes(
+                      LINE.encode("utf-8") * 150
+                  )
                   output = self.root / "sample"
-                  self.run_script(CONVERT, self.convert_args(output) + ["--sample-only", "--limit", 120])
-                  self.assertEqual(len((output / "b.yoihen.sample.jsonl").read_text().splitlines()), 120)
-                  self.assertFalse((output / "b.yoihen.jsonl").exists())
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(output)
+                      + [
+                          "--sample-only",
+                          "--limit", 120,
+                      ],
+                  )
+
+                  self.assertEqual(
+                      len(
+                          (
+                              output
+                              / "b.yoihen.sample.jsonl"
+                          ).read_text().splitlines()
+                      ),
+                      120,
+                  )
+                  self.assertFalse(
+                      (output / "b.yoihen.jsonl").exists()
+                  )
 
               def test_strict_failure_and_explicit_exclusion(self):
-                  self.raw.write_bytes(b"bad\xff|record\n" + PAYLOAD)
+                  self.raw.write_bytes(
+                      b"bad\xff|record\n" + PAYLOAD
+                  )
                   strict = self.root / "strict"
-                  self.run_script(CONVERT, self.convert_args(strict), succeeds=False)
-                  self.assertFalse((strict / "b.yoihen.jsonl").exists())
-                  skipped = self.root / "skipped"
-                  self.run_script(CONVERT, self.convert_args(skipped) + ["--skip-invalid"])
-                  report = json.loads((skipped / "b.yoihen.conversion_report.json").read_text())
-                  self.assertEqual(report["counts"]["rejected"], 1)
-                  rows = [json.loads(x) for x in (skipped / "b.yoihen.jsonl").read_text().splitlines()]
-                  self.assertEqual([row["source_line"] for row in rows], [2, 3, 4])
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(strict),
+                      succeeds=False,
+                  )
+
+                  self.assertFalse(
+                      (strict / "b.yoihen.jsonl").exists()
+                  )
+
+                  output = self.root / "skipped"
+
+                  # Converter-only exclusion test.
+                  # The actual dataset verifier never uses this flag.
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(output)
+                      + ["--skip-invalid"],
+                  )
+
+                  report = json.loads(
+                      (
+                          output
+                          / "b.yoihen.conversion_report.json"
+                      ).read_text()
+                  )
+                  self.assertEqual(
+                      report["counts"]["rejected"], 1
+                  )
+
+                  rows = [
+                      json.loads(line)
+                      for line in (
+                          output / "b.yoihen.jsonl"
+                      ).read_text().splitlines()
+                  ]
+                  self.assertEqual(
+                      [row["source_line"] for row in rows],
+                      [2, 3, 4],
+                  )
 
               def test_gzip_conversion(self):
                   output = self.root / "gzip-converted"
-                  self.run_script(CONVERT, self.convert_args(output, self.archive))
-                  self.assertEqual(len((output / "b.yoihen.jsonl").read_text().splitlines()), 3)
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(
+                          output, self.archive
+                      ),
+                  )
+
+                  self.assertEqual(
+                      len(
+                          (
+                              output / "b.yoihen.jsonl"
+                          ).read_text().splitlines()
+                      ),
+                      3,
+                  )
 
               def test_actual_v25_objects_keep_legacy_vision_and_mixed_case(self):
-                  objects = PROOF["sample_results"] + PROOF["failed_tasks"]
-                  with self.raw.open("w", encoding="utf-8", newline="\n") as destination:
+                  objects = (
+                      PROOF["sample_results"]
+                      + PROOF["failed_tasks"]
+                  )
+
+                  with self.raw.open(
+                      "w",
+                      encoding="utf-8",
+                      newline="\n",
+                  ) as output:
                       for obj in objects:
-                          destination.write("|".join(obj[key] for key in (
-                              "screenshot_base64", "dom", "action", "reasoning")) + "\n")
-                  output = self.root / "proof-samples"
-                  self.run_script(CONVERT, self.convert_args(output))
-                  rows = [json.loads(x) for x in (output / "b.yoihen.jsonl").read_text().splitlines()]
+                          output.write(
+                              "|".join(
+                                  obj[key]
+                                  for key in (
+                                      "screenshot_base64",
+                                      "dom",
+                                      "action",
+                                      "reasoning",
+                                  )
+                              )
+                              + "\n"
+                          )
+
+                  destination = self.root / "proof-samples"
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(destination),
+                  )
+
+                  rows = [
+                      json.loads(line)
+                      for line in (
+                          destination
+                          / "b.yoihen.jsonl"
+                      ).read_text().splitlines()
+                  ]
+
                   self.assertEqual(len(rows), 7)
+
                   for obj, row in zip(objects, rows):
-                      self.assertEqual(row["topic"], obj["task_name"])
-                      self.assertEqual(row["action"], obj["action"])
-                      self.assertEqual(row["reasoning"], obj["reasoning"])
-                      self.assertEqual(row["vision_status"], "legacy_opaque")
-                      self.assertFalse(row["evaluation"]["available"])
+                      self.assertEqual(
+                          row["topic"], obj["task_name"]
+                      )
+                      self.assertEqual(
+                          row["action"], obj["action"]
+                      )
+                      self.assertEqual(
+                          row["reasoning"], obj["reasoning"]
+                      )
+                      self.assertEqual(
+                          row["vision_status"],
+                          "legacy_opaque",
+                      )
+                      self.assertFalse(
+                          row["evaluation"]["available"]
+                      )
 
               def test_resource_ceiling_and_missing_input_fail(self):
                   self.raw.write_bytes(PAYLOAD)
-                  self.run_script(CONVERT, self.convert_args(self.root / "bounded") +
-                                  ["--max-record-bytes", 10, "--skip-invalid"], succeeds=False)
-                  self.run_script(CONVERT, self.convert_args(self.root / "missing-output",
-                                  self.root / "missing.yoihen"), succeeds=False)
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(
+                          self.root / "bounded"
+                      )
+                      + [
+                          "--max-record-bytes", 10,
+                          "--skip-invalid",
+                      ],
+                      succeeds=False,
+                  )
+
+                  self.run_script(
+                      CONVERT,
+                      self.convert_args(
+                          self.root / "missing-output",
+                          self.root / "missing.yoihen",
+                      ),
+                      succeeds=False,
+                  )
 
 
-          unittest.main(argv=["ci-script-tests"], verbosity=2)
+          unittest.main(
+              argv=["ci-script-tests"],
+              verbosity=2,
+          )
           PY
 
-      - name: Write job summary
+      - name: Write fixture summary
         if: always()
         env:
           RESULT: ${{ job.status }}
@@ -445,24 +938,34 @@ jobs:
           python - <<'PY'
           import os
           from pathlib import Path
-          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as out:
-              out.write("## b.yoihen CI\n\n")
-              out.write("Job status: " + os.environ["RESULT"] + "\n\n")
-              out.write("Scope: repository structure, Python syntax, historical proof identity, "
-                        "and inert tooling fixtures, including mixed hit/trace records, "
-                        "internal CR handling, and record-size boundaries.\n\n")
-              out.write("A green result is NOT a replay of the 369-task benchmark, "
-                        "a full dataset audit, a training run, or a self-replication test.\n")
+
+          with Path(
+              os.environ["GITHUB_STEP_SUMMARY"]
+          ).open("a", encoding="utf-8") as output:
+              output.write("## Fixture checks\n\n")
+              output.write(
+                  "Job status: "
+                  + os.environ["RESULT"]
+                  + "\n\n"
+              )
+              output.write(
+                  "Scope: repository structure, Python syntax, "
+                  "historical proofs, and inert fixtures. "
+                  "Actual archive verification is a separate job.\n"
+              )
           PY
 
   dataset-verification:
-    name: Manual / local dataset consistency
+    name: Actual V25 dataset / strict verification
     needs: ci
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_dataset }}
+    if: >-
+      ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main')
+          || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
     steps:
-      - name: Check out repository
+      - name: Check out committed files
         uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 1
@@ -474,44 +977,207 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Require dataset already present and run verifier
+      - name: Require the committed dataset archive
         run: |
+          git ls-files --error-unmatch -- b.yoihen.gz
+
           python - <<'PY'
           import os
           from pathlib import Path
-          import json
-          import subprocess
-          import sys
-          root = Path.cwd()
-          raw = root / "b.yoihen"
-          archive = root / "b.yoihen.gz"
-          if not raw.is_file() and not archive.is_file():
+
+          archive = (
+              Path(os.environ["GITHUB_WORKSPACE"])
+              / "b.yoihen.gz"
+          )
+
+          if not archive.is_file():
               raise SystemExit(
-                  "Manual dataset verification requested, but neither b.yoihen nor "
-                  "b.yoihen.gz is present. No release URL or download is assumed."
+                  "Missing committed archive: b.yoihen.gz"
               )
-          report_path = Path(os.environ["RUNNER_TEMP"]) / "yoihen-dataset-report.json"
-          command = [
-              sys.executable, "scripts/verify.py", "--root", str(root),
-              "--require-proof", "--report", str(report_path),
-              "--expected-raw-bytes", "1147108255",
-              "--expected-gz-bytes", "19785162",
-              "--expected-lines", "500002",
-              "--expected-four-field-records", "348722",
-          ]
-          command.append("--check-only" if raw.is_file() else "--keep-raw")
-          result = subprocess.run(command, timeout=1500)
-          if report_path.is_file():
-              report = json.loads(report_path.read_text(encoding="utf-8"))
-              observed = report.get("raw", {})
-              with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as out:
-                  out.write("## Actual V25 dataset verification\n\n")
-                  out.write("Verifier exit code: " + str(result.returncode) + "\n\n")
-                  out.write("Expected: 500002 total lines; 348722 four-field records; "
-                            "151280 no-pipe hit lines.\n\n")
-                  for key in ("total_lines", "four_nonempty_fields", "hit_lines",
-                              "invalid_records", "bytes", "sha256"):
-                      out.write(key + ": " + str(observed.get(key)) + "\n\n")
-          if result.returncode:
-              raise SystemExit(result.returncode)
+
+          observed = archive.stat().st_size
+          expected = 19_785_162
+
+          if observed != expected:
+              raise SystemExit(
+                  f"Archive size mismatch: {observed} bytes; "
+                  f"expected {expected}. The committed file must "
+                  "be the actual archive, not an LFS pointer."
+              )
+
+          print(
+              f"Committed archive found: "
+              f"{archive.name}, {observed:,} bytes"
+          )
+          PY
+
+      - name: Run verify.py on the actual archive
+        run: |
+          python "$GITHUB_WORKSPACE/scripts/verify.py" \
+            --root "$GITHUB_WORKSPACE" \
+            --keep-raw \
+            --require-proof \
+            --expected-raw-bytes 1147108255 \
+            --expected-gz-bytes 19785162 \
+            --expected-lines 500002 \
+            --expected-four-field-records 348722 \
+            --report "$RUNNER_TEMP/yoihen-dataset-report.json"
+
+      - name: Assert exact actual-dataset results
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report_path = (
+              Path(os.environ["RUNNER_TEMP"])
+              / "yoihen-dataset-report.json"
+          )
+
+          if not report_path.is_file():
+              raise SystemExit(
+                  "FAIL: verifier report is missing; "
+                  "actual dataset is not verified"
+              )
+
+          report = json.loads(
+              report_path.read_text(encoding="utf-8")
+          )
+
+          if not isinstance(report, dict):
+              raise SystemExit(
+                  "FAIL: report must be a JSON object"
+              )
+
+          raw = report.get("raw")
+          archive = report.get("gzip")
+          checks = report.get("checks")
+
+          if not all(
+              isinstance(item, dict)
+              for item in (raw, archive, checks)
+          ):
+              raise SystemExit(
+                  "FAIL: report is missing "
+                  "raw/gzip/checks objects"
+              )
+
+          expected = {
+              "total_lines": 500_002,
+              "four_nonempty_fields": 348_722,
+              "hit_lines": 151_280,
+          }
+
+          failures = []
+
+          for key, required in expected.items():
+              value = raw.get(key)
+              if type(value) is not int or value != required:
+                  failures.append(
+                      f"{key}: got {value!r}; "
+                      f"expected {required}"
+                  )
+
+          if report.get("passed") is not True:
+              failures.append(
+                  "verifier did not report passed=true"
+              )
+
+          if not checks or any(
+              value is not True
+              for value in checks.values()
+          ):
+              failures.append(
+                  "one or more verifier checks did not pass"
+              )
+
+          if checks.get("framing_utf8") is not True:
+              failures.append(
+                  "framing_utf8 did not pass"
+              )
+
+          additional_counts = {
+              "non_empty": 500_002,
+              "invalid_records": 0,
+              "utf8_errors": 0,
+              "bytes": 1_147_108_255,
+          }
+
+          for key, required in additional_counts.items():
+              value = raw.get(key)
+              if type(value) is not int or value != required:
+                  failures.append(
+                      f"{key}: got {value!r}; "
+                      f"expected {required}"
+                  )
+
+          if (
+              archive.get("exists") is not True
+              or archive.get("bytes") != 19_785_162
+          ):
+              failures.append(
+                  "gzip archive is missing "
+                  "or has the wrong byte count"
+              )
+
+          with Path(
+              os.environ["GITHUB_STEP_SUMMARY"]
+          ).open("a", encoding="utf-8") as output:
+              output.write(
+                  "## Actual V25 archive verification\n\n"
+              )
+              output.write(
+                  "Result: "
+                  + ("FAIL" if failures else "PASS")
+                  + "\n\n"
+              )
+              output.write(
+                  "| Measurement | Observed | Required |\n"
+                  "| --- | ---: | ---: |\n"
+              )
+
+              for key, required in expected.items():
+                  output.write(
+                      f"| {key} | {raw.get(key)} "
+                      f"| {required} |\n"
+                  )
+
+              output.write(
+                  "\nRaw SHA-256: `"
+                  + str(raw.get("sha256"))
+                  + "`\n\n"
+              )
+              output.write(
+                  "Gzip SHA-256: `"
+                  + str(archive.get("sha256"))
+                  + "`\n\n"
+              )
+              output.write(
+                  "Scope: actual archive byte, framing, "
+                  "and count consistency; not benchmark replay, "
+                  "capture attestation, or training.\n"
+              )
+
+              if failures:
+                  output.write(
+                      "\nFailures:\n"
+                      + "\n".join(
+                          "- " + item
+                          for item in failures
+                      )
+                      + "\n"
+                  )
+
+          if failures:
+              raise SystemExit(
+                  "FAIL:\n" + "\n".join(failures)
+              )
+
+          print(
+              "PASS: 500002 total lines; "
+              "348722 four-field records; "
+              "151280 hit lines"
+          )
           PY
