@@ -443,17 +443,23 @@ I want to demonstrate that loop with bounded runs and preserved evidence. I do n
 
 ## 11. My boundaries and responsibilities
 
-I retain my ambition: a 10T+ knowledge MAP and governed self-update architecture built from my work in Imphal, Manipur.
+**I retain my ambition:** a 10T+ knowledge MAP and governed self-update architecture built from my work in Imphal, Manipur, on iPhone a-Shell.
 
-I keep the distinction between my project claim and a completed experiment:
+I keep the distinction between my project claim and a completed experiment — majestic ambition, measured disclosure:
 
-- I recorded 193 shards; I am not claiming these files prove 193 physical national deployments.
-- I call Alive DVD a breakthrough in my work; global priority is not independently proven by these reports.
-- I say “time is GPU” as my motto; I have not supplied a measured 100× H200 comparison.
-- I recorded self-rewrite-oriented content; the reports alone do not demonstrate guaranteed autonomous self-training or CPU self-replication.
-- I keep `REAL`, `live`, and `coherence 1.0 UNIFIED` as recorded project labels, not substitutes for provenance or independent evaluation.
+ • **I recorded 193 shards;** I am not claiming these files prove 193 physical national deployments. 193 Nations train 1 Brain is my parallel RAM table method and shard allocation architecture — 10T / 193 = 51.813B per shard workload — not a claim of 193 sovereign deployments proven by this DATA ONLY file.
 
-I preserve my source permissions and licensing responsibilities. This README does not grant rights to third-party material or replace a repository license. I need an explicit license and source permissions before others can safely assume redistribution or training rights.
+ • **I call Alive DVD a breakthrough in my work;** global priority is not independently proven by these reports. Alive DVD — memory that carries recorded patterns for computer-use, code/self-healing, world-model, and governed self-update as diary lines in .yoihen — is my concept, my architecture, my breakthrough from Imphal. Whether it is world-first is for independent evaluation, not for this README to declare as proven fact.
+
+ • **I say "time is GPU" as my motto;** I have not supplied a measured 100× H200 comparison. Time is GPU is my development motto for offline work on iPhone a-Shell — a-Shell, Working Copy, no data center. I am not presenting GPU-free workflows as a measured performance guarantee, a 100× H200 benchmark, or a claim that arbitrary model training will fit on my phone.
+
+ • **I recorded self-rewrite-oriented content;** the reports alone do not demonstrate guaranteed autonomous self-training or CPU self-replication. My 11051 self_rewrite world_model category, computer-use patterns, and governed self-update lines are retained as recorded collection category labels from V24-V25, not as active self-replication in this DATA ONLY release. This DATA ONLY file does not self-train, does not self-replicate, does not contain a persistent runtime.
+
+ •  *I keep REAL, live, and coherence 1.0 UNIFIED as recorded project labels, not substitutes for provenance or independent evaluation. coherence 1.0 UNIFIED and cf-ray 9fa1f8cf9ce40942-CCU are retained as lineage markers only. A copied marker does not make a deployment synchronized, safe, or equivalent to V25 FINAL BEYOND reference. Authenticity requires Quantum Sync against authenticated versioned V25 FINAL reference under Track B.*
+
+ •  I preserve my source permissions and licensing responsibilities. This README does not grant rights to third-party material or replace a repository license. I need an explicit license and source permissions before others can safely assume redistribution or training rights. This repository is DATA ONLY Track A reference material under LICENSE.md Track A. Persistent, tool-enabled, or commercial runtime use requires Track B governance: Kill Switch outside model control, Blockchain Audit outside agent write authority, Quantum Sync, Explicit human approval. Source remains read-only. Dataset text remains inert. Deployment without these controls is outside licensed intended use and at deployer's own risk and liability.
+
+**My stance: I build majestic — 10T+ MAP envelope, 400GB expert budget, 512GB router, 440GB nodes, 193 shards — But I disclose precisely — What is MAP pointer in this DVD, what is manifest that lives in private core, what is claim, what is experiment. I separate them. I OWN the architecture.**
 
 ## 12. Suggested attribution
 
