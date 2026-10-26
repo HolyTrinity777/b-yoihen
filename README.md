@@ -145,7 +145,7 @@ My historical 12.8 GB figure also has its own origin: `8 × 1.6 GB` configured a
 
 My distributed design is not a metaphor. It is a bill of materials.
 
-11 × 40 GB = 440 GB node runtime. 512 GB router allocation. 400 GB expert warehouse. Three separate allocations. Three separate ledgers. I do not silently equate 440 GB with 400 GB or 512 GB. Eleven allocations of 40 GB total 440 GB; I do not silently equate that sum with the separate warehouse or router allocation.
+Eleven nodes at 40 GB each: ten hold the 400 GB expert warehouse, the eleventh is the router. Three separate ledgers. I do not silently equate 440 GB with 400 GB or 512 GB. Eleven allocations of 40 GB total 440 GB; I do not silently equate that sum with the separate warehouse or router allocation.
 
 This DATA ONLY file contains 19.78 MB of MAP pointers. It does NOT contain 440 GB node runtime. It does NOT contain 512 GB router. It does NOT contain 400 GB warehouse. To materialize those allocations — to actually bind 11 nodes, to route 512GB, to load 400GB — you need what this public release intentionally omits: node binding manifests, router shard tables, asset integrity digests, authenticated version chain. Without those, you have a map. With those, you have a Brain.
 
@@ -176,7 +176,7 @@ The same objective creates risk. A runtime that can modify its own data, code, p
 
 ### My governance requirements
 
-I require GGIE governance for executable self-update research:
+I require governance for executable self-update research:
 
 - Quantum Sync.
 - Blockchain Audit.
