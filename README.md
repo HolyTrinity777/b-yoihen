@@ -31,7 +31,7 @@ My repository also contains documentation and run reports. "Two dataset artifact
 
 ## 3. My five-run evidence history
 
-I keep my earlier reports because they show the progression of my work, not just the final V25 headline.
+I keep my earlier reports because they show the progression of my work, not just the final V25 headline. These reports are records of my results and configurations, not a substitute for independently replaying 
 
 | Run | Records in my report | Raw bytes in my report | Recorded result / status |
 | --- | ---: | ---: | --- |
@@ -40,6 +40,8 @@ I keep my earlier reports because they show the progression of my work, not just
 | V23 | `169745` | `213008990` | `354/369` — approximately `95.93%` |
 | V24 | `412972` | `791094565` | `366/369` — approximately `99.19%` |
 | V25 | `500002` | `1147108255` | `367/369` — approximately `99.46%` |
+
+All raw byte counts are measured from my decoded .yoihen records, not gz size. Gz size for V25 release is 19,785,162 bytes (19.78 MB / 18.87 MiB). See scripts/build_manifest.py + MANIFEST.json.
 
 ### What I recorded in V21
 
@@ -68,17 +70,19 @@ I also recorded this configuration string:
 400GB config 250*1.6GB=400GB, 8*1.6=12.8GB active 49B 3.125%
 ```
 
-My V21 report names a benchmark command and a task file. I preserve that context, but I do not turn its expected-score field into an invented success count.
+I preserve this string as originally recorded. My V21 report names a benchmark command and a task file. I preserve that context, but I do not turn its expected-score field into an invented success count. See Section 4 for my current definition of 250 storage budget vs 256 routing slots.
 
 ### What I added beyond the early diary
 
-- In V23, I recorded `25000` code topics with `CODE_DIFF`, `PYTEST`, `AST`, and `self_healing` in my collection summary.
-- In V24, I already recorded the `11051 self_rewrite world_model beyond_asi principle_806861` category. It was not newly invented by the V25 wording.
-- In V25, I retained that self-rewrite category and recorded expanded reasoning and tool-use content, with `17406` additional `REAL` topics and `87030` additional records.
+- In V23, I recorded 25000 code topics with CODE_DIFF, PYTEST, AST, and self_healing in my collection summary. These are recorded topic labels, not active execution in this DATA ONLY file.
+- In V24, I already recorded the 11051 self_rewrite world_model beyond_asi principle_806861 category. It was not newly invented by the V25 wording. Retained as a recorded collection category label from V24, not as active self-replication in this DATA ONLY release.
+- In V25, I retained that self-rewrite category and recorded expanded reasoning and tool-use content, with 17406 additional REAL topics and 87030 additional records compared to V24. Topics labeled REAL in my V25 report: 71067 / 71607, approximately 99.25%.
 
 My V22–V24 sample reports also preserve matching hashes and expert lists for the ten disclosed sample IDs. I recorded tasks 7 and 9 changing from unsuccessful/non-REAL to successful/REAL in V23, and task 1 changing from unsuccessful to successful in V24.
 
 I treat these as continuity in my recorded evidence. I still need the runner, task definitions, environment, and execution logs for a fully reproducible external evaluation.
+
+*Verification note*: b.yoihen + b.yoihen.gz are verified by scripts/build_manifest.py which creates MANIFEST.json + SHA256SUMS. not_verified in manifest includes publisher authentication, full image decode, action execution, REAL provenance, benchmark reproduction, and self-replication. Source remains read-only in this DATA ONLY release.
 
 ## 4. My 10T+ MAP architecture
 
