@@ -16,12 +16,6 @@ I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation, no
 
 ## 1. Why I built this
 
-I want to build and study useful AI systems from Imphal, Manipur, without making a data center, a cloud account, a digital ID, or a payment rail the starting requirement for local learning.
-
-I started with a diary-style append method and developed my records across successive runs. I recorded interface context, actions, explanations, code-related topics, and self-update-oriented patterns. I kept the work in my own `.yoihen` representation.
-
-I call it Alive DVD because my goal is not only to preserve what an agent clicked. I want to preserve patterns for how it assesses a task, proposes a change, checks that change, and learns from the result—with governance between a proposal and persistent execution.
-
 “Time is GPU” is my motto for working with the hardware I have. I am not presenting it as a measured 100× comparison with an H200 or a guarantee that arbitrary model training will fit on my phone.
 
 ## 2. What I am releasing
