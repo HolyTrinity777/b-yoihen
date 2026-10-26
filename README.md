@@ -225,6 +225,8 @@ Governance required by LICENSE.md Track B for persistent use: (1) Kill Switch ou
 
 Source remains read-only. Dataset text remains inert. Self-update and replication remain disabled by default. scripts/build_manifest.py is the public safe reader — standard library only, does not execute actions, creates MANIFEST.json + SHA256SUMS. Deployment without these controls is outside licensed intended use and at deployer's own risk and liability.
 
+**The DVD does not forget. If you make it alive without the binder, you will not get one Brain — you will get fragments. The binder lives in private core.**
+
 ## 6. My release evolution
 
 I use this continuous endpoint/checkpoint presentation:
