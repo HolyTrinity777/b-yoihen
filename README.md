@@ -20,7 +20,7 @@ I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation, no
 
 ## 2. What I am releasing
 
-I am releasing DATA ONLY:
+**I am releasing DATA ONLY:**
 
  •  b.yoihen: my raw line-oriented memory / MAP representation.
  •  b.yoihen.gz: the compressed representation of the same intended dataset.
@@ -82,7 +82,7 @@ My V22–V24 sample reports also preserve matching hashes and expert lists for t
 
 I treat these as continuity in my recorded evidence. I still need the runner, task definitions, environment, and execution logs for a fully reproducible external evaluation.
 
-*Verification note*: b.yoihen + b.yoihen.gz are verified by scripts/build_manifest.py which creates MANIFEST.json + SHA256SUMS. not_verified in manifest includes publisher authentication, full image decode, action execution, REAL provenance, benchmark reproduction, and self-replication. Source remains read-only in this DATA ONLY release.
+**Verification note**: b.yoihen + b.yoihen.gz are verified by scripts/build_manifest.py which creates MANIFEST.json + SHA256SUMS. not_verified in manifest includes publisher authentication, full image decode, action execution, REAL provenance, benchmark reproduction, and self-replication. Source remains read-only in this DATA ONLY release.
 
 ## 4. My 10T+ MAP architecture
 
