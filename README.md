@@ -602,7 +602,7 @@ I keep the distinction between my project claim and a completed experiment — m
 
  •  I preserve my source permissions and licensing responsibilities. This README does not grant rights to third-party material. My corpus annotations, reasoning text and documentation are licensed under Creative Commons Attribution 4.0 International, and my published code is under the MIT License. The scope, the third-party exclusions and the requested attribution wording are in NOTICE.md. Source remains read-only and dataset text remains inert. The governance in section 5.1 is what I recommend for any persistent, tool-enabled runtime, and it is guidance rather than a condition of either licence.
 
-**My stance: I build majestic — 10T+ MAP envelope, 400GB expert budget, 512GB router, 440GB nodes, 193 shards — But I disclose precisely — What is MAP pointer in this DVD, what is manifest that lives in private core, what is claim, what is experiment. I separate them. I OWN the architecture.**
+**My stance: I build majestic (10T+ MAP envelope, 250 expert slots across ten 40GB nodes, 400GB expert budget, an eleventh router node, 193 shards) but I disclose precisely: what is the MAP pointer in this DVD, what is the manifest that lives in private core, what is claim, what is experiment. I separate them. I OWN the architecture.**
 
 ## 12. Suggested attribution
 
