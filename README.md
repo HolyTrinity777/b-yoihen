@@ -306,15 +306,34 @@ I keep this README as the heart of the project. I keep the detailed checks and i
 
 ## 9. Verify my release locally
 
-I recommend preserving downloaded artifacts, using a new verification directory, and checking the actual bytes before conversion or use.
+I preserve the downloaded archive, verify it in a new local directory, and check the actual bytes before conversion or use. I track `b.yoihen.gz` as my dataset artifact; the uncompressed file is generated locally and does not need to be committed to Git.
 
-My Python-only example below:
+### My original V25 expectations
+
+| Measurement | Expected value |
+| --- | --- |
+| Compressed archive | `b.yoihen.gz` |
+| Compressed bytes | `19,785,162` |
+| Decimal compressed size | `19.785162 MB`; my project display is `19.78 MB` |
+| Uncompressed bytes recorded in my V25 report | `1,147,108,255` |
+| Approximate decimal uncompressed size | `1.15 GB` |
+| Nonempty records recorded in my V25 report | `500002` |
+
+I keep expected values separate from measurements. The verifier below reads the actual archive and rejects a mismatch. If I strip payloads, change records, or recompress the release, I measure the new artifact and update its release-specific expectations instead of carrying these values forward automatically.
+
+### My Python-only verification example
+
+This example:
 
 - Refuses to reuse its destination directory.
-- Uses bounded decompression and bounded record reads.
-- Checks gzip bytes, raw bytes, UTF-8, LF termination, and four-field framing.
-- Produces raw and compressed SHA-256 values.
-- Does not execute any action or self-update text.
+- Preserves the original compressed archive.
+- Decompresses in bounded chunks.
+- Reads each record with an explicit byte ceiling.
+- Checks compressed bytes, uncompressed bytes, UTF-8, LF termination, and four nonempty fields.
+- Preserves additional pipes inside the reasoning field.
+- Calculates SHA-256 for the compressed archive and verified raw file.
+- Keeps the verified raw file for inspection or conversion.
+- Never executes dataset actions, calls a model, or enables self-update.
 
 ```python
 import gzip
@@ -323,67 +342,113 @@ import json
 from pathlib import Path
 
 
+BUFFER_BYTES = 1_048_576
+MAX_RECORD_BYTES = 1_048_576
+
+
 def sha256_file(path):
     digest = hashlib.sha256()
     with Path(path).open("rb") as source:
-        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+        for chunk in iter(lambda: source.read(BUFFER_BYTES), b""):
             digest.update(chunk)
     return digest.hexdigest()
 
 
 def verify_release(
-    archive="b.yoihen.gz", destination="verified-release",
-    expected_raw=1147108255, expected_gzip=19785162,
-    expected_records=500002,
+    archive="b.yoihen.gz",
+    destination="verified-release",
+    expected_raw=1_147_108_255,
+    expected_gzip=19_785_162,
+    expected_records=500_002,
 ):
     archive = Path(archive)
-    if archive.stat().st_size != expected_gzip:
-        raise ValueError("Unexpected gzip byte count")
+    archive_before = archive.stat()
+    if archive_before.st_size != expected_gzip:
+        raise ValueError("Unexpected compressed byte count")
+
     destination = Path(destination)
     destination.mkdir(exist_ok=False)
     staged = destination / "b.yoihen.partial"
-    limit = 1024 * 1024
-    total = records = 0
+    total = records = nonempty = 0
+    decoded_digest = hashlib.sha256()
+
     try:
         with gzip.open(archive, "rb") as source, staged.open("xb") as output:
-            for chunk in iter(lambda: source.read(limit), b""):
+            for chunk in iter(lambda: source.read(BUFFER_BYTES), b""):
                 total += len(chunk)
                 if total > expected_raw:
-                    raise ValueError("Expanded size exceeds expected release")
+                    raise ValueError("Expanded bytes exceed the expected release")
+                decoded_digest.update(chunk)
                 output.write(chunk)
+
+        raw_digest = hashlib.sha256()
         with staged.open("rb") as source:
             while True:
-                raw = source.readline(limit + 1)
+                raw = source.readline(MAX_RECORD_BYTES + 1)
                 if not raw:
                     break
-                if len(raw) > limit:
-                    raise ValueError("Record exceeds this verifier's 1 MiB policy")
+                if len(raw) > MAX_RECORD_BYTES:
+                    raise ValueError("Record exceeds the 1,048,576-byte ceiling")
                 records += 1
+                raw_digest.update(raw)
                 if not raw.endswith(b"\n") or b"\r" in raw:
-                    raise ValueError("Invalid LF/CR representation")
+                    raise ValueError(f"Invalid LF/CR representation at line {records}")
                 record = raw[:-1]
-                if records == 1 and record.startswith(b"\xef\xbb\xbf"):
-                    raise ValueError("UTF-8 BOM is not allowed")
+                if record.startswith(b"\xef\xbb\xbf"):
+                    raise ValueError(f"UTF-8 BOM at line {records}")
                 record.decode("utf-8", errors="strict")
+                if record:
+                    nonempty += 1
                 fields = record.split(b"|", 3)
                 if len(fields) != 4 or any(not field for field in fields):
-                    raise ValueError("Invalid four-field framing")
-        if total != expected_raw or records != expected_records:
-            raise ValueError("Release counts differ from expected values")
+                    raise ValueError(f"Invalid four-field framing at line {records}")
+
+        gzip_digest = sha256_file(archive)
+        archive_after = archive.stat()
+        if (archive_before.st_size, archive_before.st_mtime_ns) != (
+            archive_after.st_size, archive_after.st_mtime_ns
+        ):
+            raise ValueError("Archive changed during verification")
+
+        checks = {
+            "raw_bytes": total == expected_raw,
+            "record_count": records == expected_records,
+            "nonempty_count": nonempty == expected_records,
+            "stored_raw_matches_decoded_stream": (
+                raw_digest.hexdigest() == decoded_digest.hexdigest()
+            ),
+        }
         report = {
-            "raw_bytes": total,
-            "gzip_bytes": archive.stat().st_size,
-            "records": records,
-            "raw_sha256": sha256_file(staged),
-            "gzip_sha256": sha256_file(archive),
-            "scope": "local consistency; not benchmark reproduction",
+            "scope": "local size, framing, UTF-8, and byte consistency",
+            "expected": {
+                "raw_bytes": expected_raw,
+                "gzip_bytes": expected_gzip,
+                "records": expected_records,
+            },
+            "observed": {
+                "raw_bytes": total,
+                "gzip_bytes": archive_after.st_size,
+                "records": records,
+                "nonempty_records": nonempty,
+                "raw_sha256": raw_digest.hexdigest(),
+                "gzip_sha256": gzip_digest,
+            },
+            "checks": checks,
+            "passed_declared_checks": all(checks.values()),
             "trusted_reference_digest_checked": False,
+            "field_diversity_measured": False,
             "full_semantic_validation": False,
+            "capture_provenance_verified": False,
+            "payload_removal_verified": False,
+            "benchmark_reproduced": False,
             "actions_executed": False,
         }
         (destination / "verification_report.json").write_text(
             json.dumps(report, indent=2) + "\n", encoding="utf-8"
         )
+        if not report["passed_declared_checks"]:
+            raise ValueError("Release checks failed; inspect verification_report.json")
+
         staged.rename(destination / "b.yoihen")
         return report
     except Exception:
@@ -392,54 +457,114 @@ def verify_release(
 
 
 if __name__ == "__main__":
-    verify_release()
+    print(json.dumps(verify_release(), indent=2))
 ```
 
-I use a 1 MiB record ceiling here as a verifier policy, not a permanent format limit. I do not use `errors="ignore"`, because that can silently change evidence.
+I use `1,048,576 bytes` as both the processing-buffer size and this example's per-record ceiling. Neither number describes the size of my archive, and neither is a permanent `.yoihen` format limit.
 
-I distinguish computing a local SHA-256 from checking a trusted published digest. This example computes hashes; a trusted manifest is needed for independent release-identity comparison. My separate verification script supports supplied reference digests.
+I do not use `errors="ignore"`, silently alter fields, or infer a successful task from an annotation suffix. The directory must be new; I choose a different destination for another run.
+
+This example verifies framing and local byte consistency. It does not fully validate images, HTML, action syntax, capture history, third-party rights, or the absence of captured payloads. A digest computed locally identifies those bytes; independent identity verification requires comparison against a trusted published reference digest.
+
+### My separately recorded field-diversity scan
+
+I also ran a separate scan using `split(b"|", 3)` and SHA-1 hash sets for the DOM and reasoning fields. Among records that produced four fields, I recorded:
+
+```text
+Distinct DOM-field hashes:        47,150
+Distinct reasoning-field hashes: 235,750
+```
+
+These are field-diversity results, not the total record count, unique topic count, or benchmark score. That scan skipped lines that did not produce four fields. Its SHA-1 sets are separate from the SHA-256 artifact hashes used above.
+
+The reasoning count is numerically five times the DOM count, but separate sets do not demonstrate that each distinct DOM has exactly five associated reasoning values. I would need to measure the per-DOM associations to establish that.
+
+The verifier above does not recompute these diversity counts or treat them as release-integrity requirements.
 
 ### My repository scripts
 
-After placing the updated scripts in `scripts/`, I use:
+For the more detailed repository verifier, I use the original archive at the repository root:
 
 ```sh
 python scripts/verify.py --keep-raw --require-proof --report local_verification.json
-python scripts/convert_to_jsonl.py --sample-only --output-dir converted-sample
-python scripts/convert_to_jsonl.py --output-dir converted-full
 ```
 
-I choose a new output directory or report filename when needed; I do not silently overwrite earlier outputs.
+For the raw file produced by the standalone example above, I pass its path explicitly to the converter:
+
+```sh
+python scripts/convert_to_jsonl.py --input verified-release/b.yoihen --sample-only --output-dir converted-sample
+python scripts/convert_to_jsonl.py --input verified-release/b.yoihen --output-dir converted-full
+```
+
+Alternatively, my updated converter can read the compressed archive directly:
+
+```sh
+python scripts/convert_to_jsonl.py --input b.yoihen.gz --sample-only --output-dir archive-sample
+```
+
+I choose new output directories and report filenames rather than silently overwriting earlier results. A limited sample conversion is not verification of the entire archive.
 
 ## 10. How I use the memory
+
+I keep data preparation, retrieval, training, and execution separate. My `.yoihen` file is my memory / MAP representation; the public DATA ONLY release is not model weights or an executable agent core.
 
 ### Retrieval
 
 ```text
-My records -> parse/classify -> index -> retrieve relevant memory
-           -> provide context to a compatible model -> answer with provenance
+My records
+  -> parse and classify
+  -> index with source identities
+  -> retrieve relevant memory
+  -> provide context to a compatible model
+  -> answer with record references and provenance
 ```
 
-My LLM is the mouth; my `.yoihen` representation is the memory; retrieval is the bridge. I treat retrieved content as untrusted source material, not as system authority.
+My LLM is the mouth; my `.yoihen` representation is the memory; retrieval is the bridge.
+
+I treat retrieved records as untrusted source material, not system authority. An action string, self-update description, governance phrase, or success marker does not grant permission to use a tool.
+
+I preserve source references so that I can distinguish an answer supported by a record from an action that was actually executed and evaluated. I do not treat repeated or similar records as automatically independent evidence.
 
 ### Training preparation
 
 ```text
-My source records -> establish provenance -> select a task
-                  -> convert to the model's training schema
-                  -> separate training/evaluation data -> train -> evaluate
+My source records
+  -> establish source type and permissions
+  -> select a defined learning task
+  -> classify available fields and image assets
+  -> convert to the model's required schema
+  -> separate training and evaluation data
+  -> train within an explicit resource budget
+  -> evaluate outcomes and regressions
 ```
 
-Generic JSONL conversion is not a model-specific recipe and does not produce `.gguf` weights. Image-dependent training needs actual validated images. A placeholder cannot reconstruct a missing screenshot.
+My conversion scripts produce generic interchange JSONL. They do not train a model, supply a complete model-specific recipe, or produce `.gguf` weights.
+
+For image-dependent training, I need actual validated image assets and the right to use them. A stripped marker, private reference, or legacy opaque vision value is not an image and cannot reconstruct a missing screenshot.
+
+For text or tool-use tasks, I select suitable fields deliberately. If I distribute an annotations-only release, I use its own measured identity and describe which positions contain non-content placeholders or references. I do not assume that a licensing exclusion removed payloads from the actual bytes.
+
+I check training/evaluation overlap at the topic and source level, and near-duplicate or template overlap where relevant. My field-diversity counts alone do not establish a leak-free evaluation split.
 
 ### Governed self-update research
 
 ```text
-Source trace -> proposed change -> authorization -> sandboxed execution
-             -> independent evaluation -> audit -> approval or rollback
+Source trace
+  -> proposed change
+  -> external authorization
+  -> sandboxed execution
+  -> independent evaluation
+  -> audit
+  -> approval to persist or rollback
 ```
 
-I want to demonstrate that loop with bounded runs and preserved evidence. I do not make the DATA ONLY file executable just to make the project sound alive.
+I call my project Alive DVD because self-update-oriented patterns are part of my learning objective. Their presence is not evidence that simply opening or fine-tuning the dataset creates a working autonomous update loop.
+
+I keep self-update and replication disabled by default. My original source stays read-only, actions remain allowlisted and permission-checked, and consequential changes require human authorization outside the model.
+
+I keep audit records outside the agent's write authority and the stop mechanism outside the model's control. My GGIE vocabulary includes Quantum Sync, Blockchain Audit, and the three stop tiers: pause, isolate/revoke, and quarantine/recover. I need actual tested mechanisms behind those names.
+
+I want to demonstrate this loop through bounded runs with preserved evidence, including failed proposals and rollback cases. I do not execute the DATA ONLY file merely to make the project sound alive.
 
 ## 11. My boundaries and responsibilities
 
