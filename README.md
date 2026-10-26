@@ -319,6 +319,7 @@ GitHub Actions verified my committed V25 archive: 500,002 total lines, comprisin
 | UTF-8 errors | 0 |
 | Compressed bytes | 19,785,162 |
 | Uncompressed bytes | 1,147,108,255 |
+| gzip SHA-256 | aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 |
 
 This verifies the archive's byte counts, line classification, and framing/UTF-8 consistency. It does not independently attest capture provenance, establish payload removal, or reproduce my benchmark.
 
