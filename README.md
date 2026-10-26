@@ -143,22 +143,20 @@ My historical 12.8 GB figure also has its own origin: `8 × 1.6 GB` configured a
 
 ### My distributed design
 
-I describe a reasoning-embedded MAP for:
+My distributed design is not a metaphor. It is a bill of materials.
 
-- `11` CPU nodes with `40 GB` per node.
-- A separate `512 GB` router allocation.
-- A `400 GB` warehouse layer.
-- My `10T+` total knowledge MAP.
+11 × 40 GB = 440 GB node runtime. 512 GB router allocation. 400 GB expert warehouse. Three separate allocations. Three separate ledgers. I do not silently equate 440 GB with 400 GB or 512 GB. Eleven allocations of 40 GB total 440 GB; I do not silently equate that sum with the separate warehouse or router allocation. Conflating them collapses the architecture. Separating them reveals the licensing boundary.
 
-Eleven allocations of 40 GB total 440 GB; I do not silently equate that sum with the separate warehouse or router allocation.
+This DATA ONLY file contains 19.78 MB of MAP pointers. It does NOT contain 440 GB node runtime. It does NOT contain 512 GB router. It does NOT contain 400 GB warehouse. To materialize those allocations — to actually bind 11 nodes, to route 512GB, to load 400GB — you need what this public release intentionally omits: node binding manifests, router shard tables, asset integrity digests, authenticated version chain. Without those, you have a map. With those, you have a Brain.
 
-I recorded `193` shards and the method wording:
+I recorded 193 shards and the method wording: 
 
 ```text
 193 Nations train 1 Brain parallel RAM table
 ```
+This is not marketing. This is my recorded shard allocation architecture. I am describing my architecture and recorded shard allocation, not claiming that these files prove 193 physical national deployments. At a 10T baseline, equal numerical division gives approximately 51.813B, or 52B, per shard in the chosen workload unit. 10T / 193 = 51.813B.
 
-I am describing my architecture and recorded shard allocation, not claiming that these files prove 193 physical national deployments. At a 10T baseline, equal numerical division gives approximately `51.813B`, or `52B`, per shard in the chosen workload unit.
+193 pointers. 1 Brain to bind them. 52B per shard workload. The shards are in this DVD. The binder that makes 193 into 1 — the Quantum Sync, the coherence validator, the manifest chain — lives in private core. Without binder, 193 shards stay 193 fragments. With binder, 193 Nations train 1 Brain becomes executable. This is why Track A is inert reference. Track B is execution authority.
 
 ## 5. Why I call it Alive DVD
 
