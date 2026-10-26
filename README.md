@@ -22,40 +22,12 @@ I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation, no
 
 I am releasing DATA ONLY:
 
-- `b.yoihen`: my raw line-oriented memory / MAP representation.
-- `b.yoihen.gz`: the compressed representation of the same intended dataset.
+ •  b.yoihen: my raw line-oriented memory / MAP representation.
+ •  b.yoihen.gz: the compressed representation of the same intended dataset.
 
 I am not including model weights, an inference server, an executable agent core, the complete router implementation, the external warehouse, or the separate 512 GB router allocation in these two dataset artifacts.
 
-My repository also contains documentation and run reports. “Two dataset artifacts” does not mean I have only two files in the repository.
-
-| My V25 release inventory | Value |
-| --- | --- |
-| Nonempty records I recorded in my proof | `500002` |
-| Raw bytes I recorded | `1,147,108,255` |
-| Gzip bytes I specify for the release | `19,785,162` |
-| Topics labeled `REAL` in my V25 report | `71067 / 71607` |
-| Calculated `REAL` topic proportion | Approximately `99.25%` |
-| Benchmark outcome I recorded | `367 / 369` |
-| Calculated completion rate | Approximately `99.46%` |
-| Historical release label I retain | `99.5%+ BEYOND` |
-| Self-rewrite collection category I retain | `11051` |
-
-I keep my historical release label separate from the exact fraction: `367/369` is approximately `99.457995%`. My proof reports are records of my results and configurations, not a substitute for independently replaying the full benchmark.
-
-### My compressed-size convention
-
-```text
-19785162 bytes
-= 19.785162 MB decimal
-≈ 18.868600845 MiB binary
-
-My project display: 19.78 MB / 18.87 MiB
-Calculated reduction: 98.275214...%
-My reduction display: 98.27%
-```
-
-I use truncation for the two-decimal MB and reduction displays. I show MiB alongside decimal MB, not instead of it.
+My repository also contains documentation and run reports. "Two dataset artifacts" does not mean I have only two files in the repository.
 
 ## 3. My five-run evidence history
 
