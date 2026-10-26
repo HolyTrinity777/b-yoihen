@@ -306,7 +306,25 @@ I keep this README as the heart of the project. I keep the detailed checks and i
 
 ## 9. Verify my release locally
 
-I preserve the downloaded archive, verify it in a new local directory, and check the actual bytes before conversion or use. I track `b.yoihen.gz` as my dataset artifact; the uncompressed file is generated locally and does not need to be committed to Git.
+### My GitHub Actions verification result
+
+GitHub Actions verified my committed V25 archive: 500,002 total lines, comprising 348,722 four-field records and 151,280 no-pipe hit lines, with zero framing/UTF-8 failures and exact compressed and uncompressed byte counts.
+
+| Measurement | Verified value |
+| --- | ---: |
+| Total lines | 500,002 |
+| Four-field records | 348,722 |
+| No-pipe hit lines | 151,280 |
+| Invalid records under the verifier's checks | 0 |
+| UTF-8 errors | 0 |
+| Compressed bytes | 19,785,162 |
+| Uncompressed bytes | 1,147,108,255 |
+
+This verifies the archive's byte counts, line classification, and framing/UTF-8 consistency. It does not independently attest capture provenance, establish payload removal, or reproduce my benchmark.
+
+### Reproduce the verification locally
+
+I preserve the downloaded archive, verify it in a new local directory, and check the actual bytes before conversion or use.
 
 ### My original V25 expectations
 
