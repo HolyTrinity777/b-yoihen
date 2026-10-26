@@ -102,15 +102,11 @@ My V21 file explicitly records a configured expert-storage budget of 250 × 1.6 
 My DATA ONLY file is a DVD that carries MAPS, not the territory. It can carry mappings, references, and plans for 400GB experts, 512GB router, 11×40GB nodes, 14T raw warehouse — WITHOUT containing a single weight, a single image, a single GPU. This is by design. This is Alive DVD.
 To make those mappings independently resolvable — to actually load 400GB, to route 250 experts, to train 10T+ — you need what is NOT in this public file: asset/expert manifests, stable identifiers, units, integrity digests, SHA256 chains, shard-to-node bindings. Not narrative labels. Not README tables. MANIFESTS. Those manifests live in my private core. Without them, this DVD points to a warehouse you cannot enter. With them, 193 Nations train 1 Brain becomes executable. This is why DATA ONLY is Track A and core is Track B.
 
-My sparse-activation denominators
+### My sparse-activation denominators
 
 My intended routing design is majestic and precise: EIGHT ACTIVE EXPERTS PER TOKEN. Always. My V21 configuration records EIGHT active allocations out of 250-expert storage budget. My historical 3.125% label is 8 / 256 routing slots — the routing denominator — NOT 8 / 250. I keep 3.125% and 3.2% SEPARATE. 8 / 256 = 3.125% is ROUTING. 8 / 250 = 3.2% is STORAGE BUDGET. 49B / 1.633T = 3.0006% is ACTIVE VS DEDUPED PARAMS. 49B / 10T = 0.49% is ACTIVE VS MAP ENVELOPE. Four different fractions, four different meanings. I do not conflate bytes, tokens, parameters, and MAP capacity. You do, you lose the architecture. I separate them, I OWN the architecture.
 
 My DATA ONLY file can carry mappings, references, and plans without containing all of the weights, images, or infrastructure they describe. To make those mappings independently resolvable, I need asset/expert manifests, stable identifiers, units, and integrity digests—not only narrative labels.
-
-### My sparse-activation denominators
-
-My intended routing design selects eight active experts per token. My V21 configuration records eight active allocations and a 250-expert storage configuration. I use the historical `3.125%` label with a 256-slot routing denominator—not as the fraction eight out of 250.
 
 ```text
 Configured storage budget: 250 × 1.6 GB = 400 GB
