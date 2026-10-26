@@ -41,7 +41,7 @@ I keep my earlier reports because they show the progression of my work, not just
 | V24 | `412972` | `791094565` | `366/369` — approximately `99.19%` |
 | V25 | `500002` | `1147108255` | `367/369` — approximately `99.46%` |
 
-All raw byte counts are measured from my decoded .yoihen records, not gz size. Gz size for V25 release is 19,785,162 bytes (19.78 MB / 18.87 MiB). See scripts/build_manifest.py + MANIFEST.json.
+I distinguish the uncompressed  .yoihen  byte count from the compressed  .gz  size. My V25 archive is 19,785,162 bytes, equal to 19.785162 MB decimal; I display it as 19.78 MB using truncation. My V25 report records 1,147,108,255 uncompressed bytes, approximately 1.15 GB. I use  scripts/build_manifest.py  to measure the actual archive and its decompressed byte stream; the generated  MANIFEST.json  separates expected values from observed measurements.
 
 ### What I recorded in V21
 
