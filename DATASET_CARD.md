@@ -8,21 +8,22 @@ I am Yoihenba Sougaijam. I developed my collection workflow on iPhone a-Shell in
 
 I call my project Alive DVD. My positioning is “Own Ollama that can train any Brain 10T+.” My distributed `.yoihen` artifact is a memory / MAP representation, not model weights or a complete agent runtime.
 
-I intend the records for studying computer-use context, tool-use descriptions, retrieval, code/self-healing patterns, and governed self-update objectives. The presence of those patterns is not evidence that a model trained on them has autonomously improved or replicated.
+These records are intended for studying computer-use context, tool-use descriptions, retrieval, code and self-healing patterns, and governed self-update objectives. The presence of those patterns is not evidence that a model trained on them has autonomously improved or replicated.
 
-| Item | Current description |
+| Item | Description |
 | --- | --- |
-| Release identifier | V25 500002 BEYOND — DATA ONLY |
-| Canonical record | ` vision_ref|DOM|action|reasoning` |
-| Reported nonempty records | 500002 |
-| Raw bytes recorded in V25 proof | 1147108255 |
-| Gzip bytes specified for release | 19785162 |
-| V25 reported topic ratio | 71067 labeled REAL / 71607 total |
-| V25 reported benchmark fraction | 367 / 369 |
-| Licence | Restricted source-available dual-track terms in `LICENSE.md` |
+| Release identifier | V25, data only |
+| Canonical record | `vision_ref|DOM|action|reasoning` |
+| Lines in archive | 500,002, of which 348,722 are four-field records and 151,280 are hit lines with no field separator |
+| Raw bytes | 1,147,108,255, verified against the committed archive |
+| Gzip bytes | 19,785,162, verified against the committed archive |
+| Topic ratio | 71,067 of 71,607 labeled REAL, 99.24%. REAL is assigned by the scoring pass rather than fixed at capture |
+| Benchmark fraction | 367 of 369, 99.46%, as recorded in the run report |
+| Licence | Corpus and documentation CC BY 4.0 in LICENSE.md, published code MIT in LICENSE-CODE.md, scope set out in NOTICE.md and excluding third-party captures |
 
-These are release-report values. `MANIFEST.json`, generated from the actual dataset bytes, is a separate measurement artifact and must identify what its generator actually checked.
+The final paragraph:
 
+These are release values, and where a verification run measured them against the committed archive the table says so. `MANIFEST.json` is generated from the actual dataset bytes and is a separate measurement artifact; it identifies what its generator actually checked.
 ## 2. Composition and field meaning
 
 - Vision: a validated image, explicit stripped marker, or legacy opaque representation, depending on the record.
