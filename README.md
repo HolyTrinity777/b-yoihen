@@ -410,48 +410,36 @@ V25: 17406 × 5 = 87030 written lines
 
 For the full archive, `500002 / 71607 ≈ 6.98` is physical lines per reported topic and includes hit lines. For the four-field population, `348722 / 71607 ≈ 4.87` is only an arithmetic ratio against that report denominator. Neither substitutes for an actual topic-to-record inventory.
 
-## 7. My mixed-line format
+## 7. My line format
 
-My archive has two physical line classes—not 500002 four-field records.
+My archive has two physical line classes, and my verifier counts them separately.
 
 ### Four-field records: 348,722 lines
 
-```text
 vision_ref|DOM|action|reasoning
-```
-
-I use `vision_ref` as the logical name of the first position. Older reports and tooling may call it `screenshot_base64`. Its actual bytes can be an explicit reference, a stripped marker, a legacy opaque value, or image data that requires validation. The field name alone proves none of those classifications.
-
-My framing rules are:
 
 - UTF-8 with LF termination.
-- Four nonempty fields for pipe-containing records.
-- The first three pipes are structural separators.
-- Additional pipes belong to reasoning.
-- Case-sensitive topic IDs.
-- Embedded carriage returns may occur in content; trailing CRLF is rejected by my current LF profile.
+- Four nonempty fields.
+- The first three pipes are structural separators; additional pipes belong to reasoning.
+- Case-sensitive topic IDs, including names such as PowerBI and KiCad.
 
-```python
-vision_ref, dom, action, reasoning = record.split("|", 3)
-```
+vision, dom, action, reasoning = record.split("|", 3)
 
-I call the third position `action`, not `click`: typing, scrolling, hotkeys, sequences, and update-oriented descriptions are also part of the design.
+I call the third field action, not click, because I record more than clicks: typing, scrolling, hotkeys, action sequences, and self-update-oriented notation are also part of the design.
 
 ### No-pipe hit lines: 151,280 lines
 
-My verifier classifies a line without a pipe as a hit line. It is not a malformed four-field record merely because it has no separator.
+A line with no pipe character is a hit line, not a malformed record. My verifier classifies it as its own class and still applies the UTF-8, nonempty, line-ending and byte-limit checks to it.
 
-That parser label is not a completed task, a successful retrieval, a unique topic, or a new memory by itself. Hit lines still undergo UTF-8, nonempty, line-ending, and byte-limit checks.
+That parser label is not a completed task, a successful retrieval, a unique topic, or a new memory by itself.
 
-A malformed pipe-containing line is not silently relabeled a hit.
+A pipe-containing line that fails the four-field check is never silently relabelled as a hit line. It is an invalid record.
 
-### Field values are not validity certificates
+### What the field values do not certify
 
-I do not certify a screenshot from a PNG-like prefix. My seven report-derived sample vision values fail strict standard-base64 validation and are preserved as legacy opaque content; that does not classify the entire archive.
+I preserve vision values as validated images, stripped placeholders, or legacy opaque content according to what is actually available. A PNG-like prefix is not a screenshot-validity guarantee.
 
-I do not infer task completion from `result_success when true`. The two V25 failure objects retain that suffix while reporting `success: false` and `edge case not in training`.
-
-A mixed-line consumer must preserve, separately process, or explicitly account for hit lines. It must not silently discard them and claim complete conversion.
+I do not infer task completion from result_success when true. My V25 failed-task objects retain that annotation suffix while their structured success fields are false.
 
 ## 8. My proof files, provenance, and documentation
 
