@@ -5,12 +5,12 @@
 My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
 My project positioning is:
-> ‪I built  b.yoihen —my Alive DVD: a 500,002-line memory/MAP representation.
+**I built  b.yoihen —my Alive DVD: a 500,002-line memory/MAP representation.
 Ollama + an unchanged checkpoint = frozen model weights.
  b.yoihen  + a compatible  .gguf  brain + my core +  llama.cpp  = a setup designed to retain experience and grow its offline memory.
 The  .gguf  supplies the brain.  b.yoihen  carries the memory. My core governs the update loop.
 Day 1 ≠ Day 100.
-Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience—not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
+Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience—not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.**
 
 My project concept is Alive DVD: a replaceable model brain, persistent local memory, and a governed path from experience to the next useful decision.
 
