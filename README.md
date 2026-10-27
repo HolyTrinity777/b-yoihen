@@ -297,39 +297,79 @@ I call Alive DVD a breakthrough in my work because I want the update process its
 
 ### 5.1 Why governance is not optional — My warning
 
-A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when the model is not changing its own weights. Wrong memories can accumulate. Bad changes can persist. A retrieved instruction can be mistaken for authority. An uncontrolled loop can repeat an error at scale.
+I built Alive DVD to support self-update—not merely to preserve browser clicks. My recorded self-rewrite and world-model patterns are learning material for a system that can assess its state, propose a change, and, through a separately authorized runtime, apply that change to working memory, code, or configuration.
 
-A `.gguf` file does not enforce an independent kill switch. A copied `coherence 1.0 UNIFIED` marker does not synchronize systems or make them safe. `cf-ray 9fa1f8cf9ce40942-CCU` is a lineage marker here, not an authentication or synchronization protocol.
+That is the **capability** I am warning about. The public DATA ONLY archive remains inert. Connecting it to a compatible model and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes.
 
-My GGIE governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. The mechanisms must do real work:
+I do not confuse the ability to make a change with proof that the change is correct, beneficial, or authorized. Memory updates, runtime/code updates, and model-weight updates are different operations. Each needs its own permissions, evaluation, and recovery path.
 
-- A stop path outside the model's control.
-- Audit records outside the agent's write authority.
-- Authenticated, versioned references rather than trust in a repeated label.
-- Approval tied to the actual tool, target, arguments, and permitted operation.
-- Resource and iteration limits, with review before persistence.
+A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its model weights remain unchanged. Wrong memories can accumulate. Bad changes can persist. A retrieved instruction can be mistaken for authority. An uncontrolled loop can repeat an error across files, sessions, or workers.
 
-My safe defaults are:
+My warning is not that every download automatically evolves. My warning is that enabling a persistent update loop without independent controls can turn one mistake into repeated, lasting system changes.
+
+#### My markers are not my enforcement mechanisms
+
+A `.gguf` file does not enforce an independent kill switch. A copied `coherence 1.0 UNIFIED` marker does not synchronize systems or make them safe. I retain `cf-ray 9fa1f8cf9ce40942-CCU` as a lineage marker—not as an authentication credential or synchronization protocol.
+
+My GGIE governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. Those names must correspond to mechanisms that do real work:
+
+- A stop path outside the model’s control.
+- Tool and filesystem permissions enforced outside model-generated text.
+- Audit records outside the agent’s write authority.
+- Authenticated, versioned references rather than trust in repeated labels.
+- Approval bound to the actual tool, target, arguments, and permitted operation.
+- Fresh approval when the proposed operation changes.
+- Resource, worker, time, and iteration limits.
+- Independent evaluation before persistent changes are accepted.
+- Reviewed checkpoints and a tested recovery path.
+
+A model-generated `approved=true` is not my authorization. A successful write is not my evaluation. An appended record is not automatically a verified memory.
+
+#### My safe defaults
 
 ```text
 Self-update: disabled
 Replication: disabled
 Published source artifacts: read-only
+Personal working memory: separate, access-controlled, and versioned
 Action execution during ingestion/retrieval: forbidden
 Dataset text passed to eval/exec: forbidden
 Tools: allowlisted, typed, permission-checked
-Persistent consequential changes: reviewed before approval
+Consequential operations: explicitly authorized
+Persistent changes: evaluated and reviewed before acceptance
+Audit records: outside agent write authority
+Stop mechanism: outside model control
 ```
+
+I keep my published V25 release immutable. A personalized runtime writes to a separate authorized working store; it does not silently alter the published artifact while retaining its old identity or checksum.
+
+#### My three stop tiers
 
 | Stop tier | My intended control |
 | --- | --- |
-| Pause | Stop new jobs and append requests |
-| Isolate / revoke | Terminate workers and revoke write/network authority |
-| Quarantine / recover | Preserve evidence, isolate generated artifacts, and restore a reviewed checkpoint |
+| Pause | Stop accepting new jobs, update proposals, and append requests. |
+| Isolate / revoke | Terminate affected workers and revoke their write, credential, and network authority. |
+| Quarantine / recover | Preserve evidence, isolate generated artifacts, and restore a reviewed checkpoint after assessing the cause. |
 
-I do not use deleting source evidence or wiping devices as the default stop mechanism.
+I do not use deleting source evidence or wiping devices as the default stop mechanism. I preserve enough evidence to understand what happened, what was authorized, what changed, and what must be corrected.
 
-My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. It is safety guidance, not an extra restriction on the CC BY 4.0 or MIT licence grants.
+#### My boundary for persistent operation
+
+Before I enable a self-update experiment, I want a traceable sequence:
+
+```text
+Identified source state
+    → scoped proposal
+    → external authorization
+    → isolated execution
+    → independent evaluation
+    → audit
+    → approve persistence or roll back
+```
+
+If the change fails evaluation, exceeds its authorization, or cannot be traced to its source, I do not promote it into trusted persistent state.
+
+My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance—not an additional restriction on the CC BY 4.0 or MIT licence grants.
 
 I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do.
 
