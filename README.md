@@ -480,9 +480,21 @@ This README is the heart of my project. Those documents carry the detailed bound
 
 ## 9. Verify my actual release
 
-### My GitHub Actions result
+### My GitHub Actions verification result
 
 GitHub Actions verified my committed V25 archive: 500,002 total lines, comprising 348,722 four-field records and 151,280 no-pipe hit lines, with zero framing/UTF-8 failures and exact compressed and uncompressed byte counts.
+
+| Measurement | Verified value |
+| --- | ---: |
+| Total physical lines | `500,002` |
+| Four-nonempty-field records | `348,722` |
+| No-pipe hit lines | `151,280` |
+| Invalid records under the verifier's checks | `0` |
+| UTF-8 errors | `0` |
+| Compressed bytes | `19,785,162` |
+| Uncompressed bytes | `1,147,108,255` |
+
+My compressed archive is `19.785162 MB` decimal; my project display is `19.78 MB` by truncation. The raw representation is approximately `1.15 GB` decimal.
 
 My published gzip SHA-256 is:
 
@@ -490,15 +502,179 @@ My published gzip SHA-256 is:
 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 ```
 
-The job is `Actual V25 dataset / strict verification` in [ci.yml](.github/workflows/ci.yml). It runs on pushes to `main` and manual dispatch after the fixture checks pass.
+I check the actual-dataset job, not merely the fixture jobs. The workflow is [`.github/workflows/ci.yml`](.github/workflows/ci.yml). Its archive result is separate from capture provenance, payload removal, benchmark reproduction, or model training.
 
-A green fixture job is not enough: I check the actual-dataset job and its final assertions. The final step requires all three line counts, zero invalid/UTF-8 records, the exact byte counts, and the verifier's successful report.
+### Reproduce the checks locally
 
-### Reproduce my verification locally
+I preserve the downloaded archive and verify it in a new directory. The standalone Python example below is for my original V25 archive and its mixed-line profile.
 
-I use the repository verifier as the single implementation rather than maintaining a second inline verifier that can drift from the mixed-line format.
+It checks each line's byte ceiling, LF termination, nonempty content, BOM, and UTF-8 before classifying it. A no-pipe line increments `hit_lines`; only a pipe-containing line is split into four nonempty fields. Hit lines still contribute to total lines, byte counts, and SHA-256.
 
-From the repository root, with the original archive present:
+```python
+import gzip
+import hashlib
+import json
+from pathlib import Path
+
+BUFFER_BYTES = 1_048_576
+MAX_RECORD_BYTES = 1_048_576
+
+
+def sha256_file(path):
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as source:
+        for chunk in iter(lambda: source.read(BUFFER_BYTES), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def verify_release(
+    archive="b.yoihen.gz",
+    destination="verified-release",
+    expected_raw=1_147_108_255,
+    expected_gzip=19_785_162,
+    expected_lines=500_002,
+    expected_four_field=348_722,
+    expected_hit_lines=151_280,
+):
+    archive = Path(archive)
+    archive_before = archive.stat()
+    if archive_before.st_size != expected_gzip:
+        raise ValueError("Unexpected compressed byte count")
+
+    destination = Path(destination)
+    destination.mkdir(exist_ok=False)
+    staged = destination / "b.yoihen.partial"
+
+    total = lines = four_field = hit_lines = 0
+    decoded_digest = hashlib.sha256()
+
+    try:
+        with gzip.open(archive, "rb") as source, staged.open("xb") as output:
+            for chunk in iter(lambda: source.read(BUFFER_BYTES), b""):
+                total += len(chunk)
+                if total > expected_raw:
+                    raise ValueError("Expanded bytes exceed the expected release")
+                decoded_digest.update(chunk)
+                output.write(chunk)
+
+        raw_digest = hashlib.sha256()
+        with staged.open("rb") as source:
+            while True:
+                raw = source.readline(MAX_RECORD_BYTES + 2)
+                if not raw:
+                    break
+                if len(raw) > MAX_RECORD_BYTES + 1:
+                    raise ValueError(f"Record exceeds the ceiling at line {lines + 1}")
+                lines += 1
+                raw_digest.update(raw)
+                if not raw.endswith(b"\n") or raw.endswith(b"\r\n"):
+                    raise ValueError(f"Invalid line ending at line {lines}")
+                record = raw[:-1]
+                if not record:
+                    raise ValueError(f"Empty line at line {lines}")
+                if record.startswith(b"\xef\xbb\xbf"):
+                    raise ValueError(f"UTF-8 BOM at line {lines}")
+                record.decode("utf-8", errors="strict")
+
+                if b"|" not in record:
+                    hit_lines += 1
+                    continue
+
+                fields = record.split(b"|", 3)
+                if len(fields) != 4 or any(not field for field in fields):
+                    raise ValueError(f"Invalid four-field framing at line {lines}")
+                four_field += 1
+
+        gzip_digest = sha256_file(archive)
+        archive_after = archive.stat()
+        if (archive_before.st_size, archive_before.st_mtime_ns) != (
+            archive_after.st_size,
+            archive_after.st_mtime_ns,
+        ):
+            raise ValueError("Archive changed during verification")
+
+        checks = {
+            "raw_bytes": total == expected_raw,
+            "line_count": lines == expected_lines,
+            "four_field_records": four_field == expected_four_field,
+            "hit_lines": hit_lines == expected_hit_lines,
+            "line_classes_sum_to_total": four_field + hit_lines == lines,
+            "stored_raw_matches_decoded_stream": (
+                raw_digest.hexdigest() == decoded_digest.hexdigest()
+            ),
+        }
+        report = {
+            "scope": "local size, line class, framing, UTF-8, and byte consistency",
+            "expected": {
+                "raw_bytes": expected_raw,
+                "gzip_bytes": expected_gzip,
+                "lines": expected_lines,
+                "four_field_records": expected_four_field,
+                "hit_lines": expected_hit_lines,
+            },
+            "observed": {
+                "raw_bytes": total,
+                "gzip_bytes": archive_after.st_size,
+                "lines": lines,
+                "four_field_records": four_field,
+                "hit_lines": hit_lines,
+                "raw_sha256": raw_digest.hexdigest(),
+                "gzip_sha256": gzip_digest,
+            },
+            "checks": checks,
+            "passed_declared_checks": all(checks.values()),
+            "trusted_reference_digest_checked": False,
+            "field_diversity_measured": False,
+            "full_semantic_validation": False,
+            "capture_provenance_verified": False,
+            "payload_removal_verified": False,
+            "benchmark_reproduced": False,
+            "actions_executed": False,
+        }
+        (destination / "verification_report.json").write_text(
+            json.dumps(report, indent=2) + "\n", encoding="utf-8"
+        )
+        if not report["passed_declared_checks"]:
+            failed = ", ".join(name for name, passed in checks.items() if not passed)
+            raise ValueError("Release checks failed: " + failed)
+
+        staged.rename(destination / "b.yoihen")
+        return report
+
+    except Exception:
+        staged.unlink(missing_ok=True)
+        (destination / "verification_report.json").unlink(missing_ok=True)
+        try:
+            destination.rmdir()
+        except OSError:
+            pass
+        raise
+
+
+if __name__ == "__main__":
+    print(json.dumps(verify_release(), indent=2))
+```
+
+### What changed in this example
+
+- The pipe branch runs before four-field validation, so valid no-pipe hit lines are counted rather than rejected.
+- `expected_lines`, `expected_four_field`, and `expected_hit_lines` are separate arguments, alongside the exact byte expectations.
+- `line_classes_sum_to_total` checks that the two accepted line classes account for every physical line.
+- The bounded reader permits exactly `1,048,576` content bytes plus the terminating LF. This is a verifier policy, not the archive size or a permanent format limit.
+- Embedded carriage returns remain valid content; trailing CRLF is rejected by my LF profile.
+- A failed run removes its partial raw file and local report, then removes the newly created directory if it is empty. That permits a retry at the same destination after the failure is corrected.
+- An existing destination is refused before verification starts. It is not deleted. Cleanup is not recursive and does not remove unrelated files that would prevent the directory from being empty.
+
+On a failed count check, the exception identifies the failed checks because cleanup removes the temporary report. On success, I retain both `verified-release/b.yoihen` and `verified-release/verification_report.json`.
+
+I do not use `errors="ignore"`, silently repair input, or skip malformed pipe-containing records. A malformed line aborts the scan. I also do not infer task completion from a success suffix in annotation text.
+
+### Hash computation and reference comparison
+
+The standalone example computes raw and compressed SHA-256 values. It does not compare them with a trusted published digest, so its report correctly leaves `trusted_reference_digest_checked` set to `False`.
+
+For an explicit comparison with my published V25 archive digest, I use the updated repository verifier:
 
 ```sh
 python scripts/verify.py \
@@ -512,51 +688,26 @@ python scripts/verify.py \
   --report local_verification.json
 ```
 
-I choose a new report filename if it already exists. My verifier preserves an existing raw file and, when both forms are present, compares the decoded gzip payload with that raw file. Keeping raw data is the default; `--keep-raw` makes my intent explicit.
+I choose a new report filename if one already exists. The standalone example and the repository script have separate report schemas and cleanup policies; the example above is README code, not a replacement for the CLI implementation used by CI.
 
-To inspect an existing raw file without creating or deleting it:
-
-```sh
-python scripts/verify.py \
-  --check-only \
-  --require-proof \
-  --expected-lines 500002 \
-  --expected-four-field-records 348722 \
-  --report raw_check.json
-```
-
-The archive size and raw-byte expectations retain their V25 defaults. If the archive is also present, the verifier checks it too. A raw-only check without a trusted raw digest does not establish the same compressed-artifact identity as the pinned command above.
-
-My script uses bounded record reads. A record containing exactly `1,048,576` bytes plus LF fits the default ceiling; the LF is not charged against the record-content limit. That ceiling is a processing policy, not the archive size or a permanent format limit.
-
-I do not use `errors="ignore"`, silently repair bytes, or use `--skip-invalid` to make actual archive verification pass.
-
-### What hashes establish
-
-A computed SHA-256 identifies the bytes I measured. A comparison with my published digest establishes a match to that reference; it does not authenticate the publisher independently of how the reference was obtained.
-
-The command above checks my published archive reference. It does not prove capture history, safety, model quality, or third-party clearance. I do not invent a raw digest where one has not been published.
-
-### Manifest generation is a separate measurement
-
-`scripts/build_manifest.py` produces `MANIFEST.json` and `SHA256SUMS` for the input and checks implemented by that revision. I inspect its scope and measured fields rather than assuming that the presence of the files means the entire release was validated.
-
-A revision that still assumes four fields on every line must be updated for my mixed-line archive before I present it as a full-release validator. The same applies to converters and inspectors. Passing small four-field fixture tests is not enough.
-
-When I change or sanitize bytes, I generate a new release identity and measurements. I do not carry this archive's digest forward.
+A digest match establishes identity against the reference I obtained; it does not independently authenticate the publisher or attest a capture event. These checks also do not decode every image, validate action semantics, establish third-party clearance, certify payload absence, or replay the benchmark.
 
 ### My separately recorded field-diversity scan
 
-Using `split(b"|", 3)` and SHA-1 sets over the DOM and reasoning fields of four-field lines, I recorded:
+I recorded the following with a separate SHA-1-set scan of the DOM and reasoning fields in lines split into four fields:
 
 ```text
 Distinct DOM-field hashes:         47,150
 Distinct reasoning-field hashes:  235,750
 ```
 
-This is separate from the SHA-256 artifact verification above. The scan skipped non-four-field lines. It does not count complete-record duplicates, unique topics, semantic novelty, or evaluated successes.
+Those are field-level diversity counts, not total lines, unique topics, complete-record deduplication, or evaluated successes. The scan skipped lines that did not produce four fields. Separate sets do not establish five reasoning values associated with each DOM, even though their totals have a five-to-one ratio.
 
-`47150 × 5 = 235750` is a numerical relationship—not proof of five reasoning values attached to each DOM. A joint association measurement would be required.
+The verifier above does not recompute those diversity counts. Its SHA-256 values identify artifacts, not semantic uniqueness.
+
+### Changes to the released bytes
+
+If I strip payloads, change records, or recompress the dataset, I give the resulting release its own identity, measured byte counts, line-class counts, and hashes. I do not reuse the original V25 expectations or digest automatically. A generated `MANIFEST.json` establishes only the measurements and checks actually performed by its generator revision.
 
 ## 10. How I use the memory
 
