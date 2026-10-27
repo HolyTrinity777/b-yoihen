@@ -1,6 +1,6 @@
 # b.yoihen — Alive DVD — V25 500002 BEYOND — DATA ONLY
 
-> All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
+**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.**
 
 My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
