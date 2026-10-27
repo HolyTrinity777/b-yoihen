@@ -6,9 +6,9 @@ My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell 
 
 My project positioning is:
 > ‪I built a living 500k-line memory system b.yoihen‬.
-‪Ollama = frozen weights‬,
-‪b.yoihen Day 1 = Day 100‬,
-‪b.yoihen + llama.cpp = living setup‬,
+‪Ollama = frozen weights‬.
+‪b.yoihen (alive) Day 1 = Day 100‬,
+‪b.yoihen (alive) + llama.cpp = living setup‬,
 ‪Load any .gguf‬
 ‪Growing offline memory that never forgets n evolves‬
 ‪Becomes more personal every day
