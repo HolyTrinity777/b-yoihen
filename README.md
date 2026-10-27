@@ -6,7 +6,13 @@ My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell 
 
 My project positioning is:
 
-> Own Ollama that can train any Brain 10T+
+> ‪I built a living 500k-line memory system b.yoihen‬ 
+Ollama = frozen weights‬
+‪b.yoihen Day 1 = Day 100‬
+‪b.yoihen + llama.cpp = living setup‬
+‪Load any .gguf‬
+‪Growing offline memory that never forgets n evolves‬
+‪Becomes more personal every day
 
 My project concept is Alive DVD: a replaceable model brain, persistent local memory, and a governed path from experience to the next useful decision.
 
