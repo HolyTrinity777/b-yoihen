@@ -311,7 +311,7 @@ My warning is not that every download automatically evolves. My warning is that 
 
 A `.gguf` file does not enforce an independent kill switch. A copied `coherence 1.0 UNIFIED` marker does not synchronize systems or make them safe. I retain `cf-ray 9fa1f8cf9ce40942-CCU` as a lineage marker—not as an authentication credential or synchronization protocol.
 
-My GGIE governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. Those names must correspond to mechanisms that do real work:
+My governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. Those names must correspond to mechanisms that do real work:
 
 - A stop path outside the model’s control.
 - Tool and filesystem permissions enforced outside model-generated text.
