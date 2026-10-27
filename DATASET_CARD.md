@@ -13,7 +13,7 @@ I intend the records for studying computer-use context, tool-use descriptions, r
 | Item | Current description |
 | --- | --- |
 | Release identifier | V25 500002 BEYOND — DATA ONLY |
-| Canonical record | `screenshot_base64|DOM|action|reasoning` |
+| Canonical record | `vision_ref|DOM|action|reasoning` |
 | Reported nonempty records | 500002 |
 | Raw bytes recorded in V25 proof | 1147108255 |
 | Gzip bytes specified for release | 19785162 |
