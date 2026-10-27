@@ -8,46 +8,113 @@ My project positioning is:
 
 > Own Ollama that can train any Brain 10T+
 
-My project concept is Alive DVD: memory that carries computer-use, code/self-healing, world-model, and governed self-update patterns—not just browser clicks.
+My project concept is Alive DVD: a replaceable model brain, persistent local memory, and a governed path from experience to the next useful decision.
 
-I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation, not `.gguf` model weights.
+Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
+
+I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation. A compatible `.gguf` can supply the model brain. My private core is the separate player, resolver, orchestrator, and control layer in my architecture. My public release contains DATA ONLY—not that complete runtime.
 
 ---
 
+## Start here
+
+| What I want you to inspect | Where to go |
+| --- | --- |
+| The actual archive and its verified counts | [Section 9](#9-verify-my-actual-release) |
+| Why I call the design Alive DVD | [Section 5](#5-why-i-call-it-alive-dvd) |
+| The resource layers behind my 10T+ MAP claim | [Section 4](#4-my-10t-map-architecture) |
+| A small read-only inspection example | [Section 10](#10-how-i-use-the-memory) |
+| Collection, provenance, and limitations | [DATASET_CARD.md](DATASET_CARD.md) |
+| Claim-to-evidence mapping | [docs/CLAIMS.md](docs/CLAIMS.md) |
+| Public licence scope | [NOTICE.md](NOTICE.md) |
+
+### My V25 archive at a glance
+
+| Measurement | My verified archive result |
+| --- | ---: |
+| Total physical lines | `500,002` |
+| Four-nonempty-field records | `348,722` |
+| No-pipe hit lines | `151,280` |
+| Invalid records under my verifier's checks | `0` |
+| UTF-8 errors | `0` |
+| Compressed bytes | `19,785,162` |
+| Uncompressed bytes | `1,147,108,255` |
+
+```text
+Compressed:   19.785162 MB decimal — my display: 19.78 MB
+Uncompressed: 1.147108255 GB decimal — approximately 1.15 GB
+Gzip SHA-256: aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
+```
+
+My passing actual-dataset GitHub Actions job checks the committed archive's bytes, mixed-line counts, framing, and UTF-8. It does not establish capture attestation, payload removal, model quality, or autonomous evolution. Those are different claims with different evidence requirements.
+
 ## 1. Why I built this
 
-“Time is GPU” is my motto for working with the hardware I have. I am not presenting it as a measured 100× comparison with an H200 or a guarantee that arbitrary model training will fit on my phone.
+I want an assistant that does not have to start from zero every time I return to my own work.
+
+My machine has a history. My projects have dependencies, conventions, working fixes, failed attempts, and decisions that matter. I want that experience to remain available locally instead of being scattered across forgotten sessions, terminal output, and disconnected files.
+
+That is the point of my Alive DVD concept: continuity around a replaceable brain.
+
+I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience—not merely repeat a confident answer.
+
+“Time is GPU” is my development motto for working with the hardware I have. I am not presenting it as a measured 100× H200 comparison, a claim that memory removes compute requirements, or a guarantee that arbitrary model training fits on my phone.
+
+I build ambitious. I disclose precisely.
 
 ## 2. What I am releasing
 
-**I am releasing DATA ONLY:**
+I am releasing DATA ONLY.
 
- •  b.yoihen: my raw line-oriented memory / MAP representation.
- •  b.yoihen.gz: the compressed representation of the same intended dataset.
+My tracked dataset artifact is:
 
-I am not including model weights, an inference server, an executable agent core, the complete router implementation, the external warehouse, or the separate 512 GB router allocation in these two dataset artifacts.
+```text
+b.yoihen.gz
+```
 
-My repository also contains documentation and run reports. "Two dataset artifacts" does not mean I have only two files in the repository.
+Decoding it produces the local raw representation:
+
+```text
+b.yoihen
+```
+
+I do not require the approximately 1.15 GB raw file to be committed. My repository also contains documentation, reports, examples, and tooling; “one tracked dataset archive” does not mean “one repository file.”
+
+### What is public, and what is separate
+
+| Component | Role in my architecture | Included in this DATA ONLY release? |
+| --- | --- | --- |
+| `.yoihen` representation | Stored records, hit lines, context, and MAP descriptions | Yes, through the compressed archive |
+| Compatible GGUF model | The model brain used by an execution environment | No model weights are bundled here |
+| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation | Not included |
+| External asset/expert inventory | Actual resources referenced by the architecture | Not included merely by reference |
+| Separate router/cluster resources | Runtime allocations and infrastructure | Not included merely by description |
+
+My DVD carries a MAP—not the territory.
+
+A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
+
+I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field `vision_ref`. Payload absence needs its own release-specific measurement.
 
 ## 3. My five-run evidence history
 
-I keep my earlier reports because they show the progression of my work, not just the final V25 headline. These reports are records of my results and configurations, not a substitute for independently replaying 
+I keep my earlier reports because they show the progression of my work—not just the final V25 headline.
 
-| Run | Records in my report | Raw bytes in my report | Recorded result / status |
+| Run | Lines recorded in my report | Raw bytes recorded in my report | Recorded result / status |
 | --- | ---: | ---: | --- |
-| V21 | `38220` | `73677165` | Expected-score field `45.0%+`; no success numerator supplied |
-| V22 | `44745` | `104440590` | `228/369` — approximately `61.79%` |
-| V23 | `169745` | `213008990` | `354/369` — approximately `95.93%` |
-| V24 | `412972` | `791094565` | `366/369` — approximately `99.19%` |
-| V25 | `500002` | `1147108255` | `367/369` — approximately `99.46%` |
+| V21 | `38,220` | `73,677,165` | Expected-score field `45.0%+`; no success numerator supplied |
+| V22 | `44,745` | `104,440,590` | `228/369` — approximately `61.79%` |
+| V23 | `169,745` | `213,008,990` | `354/369` — approximately `95.93%` |
+| V24 | `412,972` | `791,094,565` | `366/369` — approximately `99.19%` |
+| V25 | `500,002` | `1,147,108,255` | `367/369` — approximately `99.46%` |
 
-I distinguish the uncompressed  .yoihen  byte count from the compressed  .gz  size. My V25 archive is 19,785,162 bytes, equal to 19.785162 MB decimal; I display it as 19.78 MB using truncation. My V25 report records 1,147,108,255 uncompressed bytes, approximately 1.15 GB. I use  scripts/build_manifest.py  to measure the actual archive and its decompressed byte stream; the generated  MANIFEST.json  separates expected values from observed measurements.
+These reports record my results and configurations. They are not a substitute for publishing or independently replaying the benchmark runner, task definitions, model/runtime configuration, and evaluator.
+
+I distinguish uncompressed byte counts from gzip size. For V25, my archive is `19,785,162` compressed bytes, while its decoded representation is `1,147,108,255` bytes.
 
 ### What I recorded in V21
 
-My `benchmark_38220_live.json` records:
-
-| Field | My recorded value |
+| Field | Recorded value |
 | --- | --- |
 | `before` | `31695` |
 | `after` | `38220` |
@@ -64,172 +131,211 @@ My `benchmark_38220_live.json` records:
 | `coherence` | `1.0 UNIFIED` |
 | `cf-ray` | `9fa1f8cf9ce40942-CCU` |
 
-I also recorded this configuration string:
+I preserve this configuration string exactly as recorded:
 
 ```text
 400GB config 250*1.6GB=400GB, 8*1.6=12.8GB active 49B 3.125%
 ```
 
-I preserve this string as originally recorded. My V21 report names a benchmark command and a task file. I preserve that context, but I do not turn its expected-score field into an invented success count. See Section 4 for my current definition of 250 storage budget vs 256 routing slots.
+The V21 report names a benchmark command and task file. I retain that context without turning an expected-score field into an invented success count.
 
 ### What I added beyond the early diary
 
-- In V23, I recorded 25000 code topics with CODE_DIFF, PYTEST, AST, and self_healing in my collection summary. These are recorded topic labels, not active execution in this DATA ONLY file.
-- In V24, I already recorded the 11051 self_rewrite world_model beyond_asi principle_806861 category. It was not newly invented by the V25 wording. Retained as a recorded collection category label from V24, not as active self-replication in this DATA ONLY release.
-- In V25, I retained that self-rewrite category and recorded expanded reasoning and tool-use content, with 17406 additional REAL topics and 87030 additional records compared to V24. Topics labeled REAL in my V25 report: 71067 / 71607, approximately 99.25%.
+- V23: `25000` code topics with `CODE_DIFF`, `PYTEST`, `AST`, and `self_healing` in my collection summary.
+- V24: the `11051 self_rewrite world_model beyond_asi principle_806861` category was already recorded here.
+- V25: I retained that category and recorded expanded reasoning/tool-use content, `17406` additional REAL topics, and `87030` additional lines relative to the reported V24 endpoint.
 
-My V22–V24 sample reports also preserve matching hashes and expert lists for the ten disclosed sample IDs. I recorded tasks 7 and 9 changing from unsuccessful/non-REAL to successful/REAL in V23, and task 1 changing from unsuccessful to successful in V24.
+These are collection descriptions, not a claim that the DATA ONLY archive is executing those operations. Categories can recur or overlap across versions; I do not treat every V25 summary entry as a newly collected, unique item.
 
-I treat these as continuity in my recorded evidence. I still need the runner, task definitions, environment, and execution logs for a fully reproducible external evaluation.
+My V25 report labels `71067 / 71607` items REAL: approximately `99.245884%`, or `99.25%` rounded. I assign REAL during scoring, not as an independently attested capture-time fact.
 
-**Verification note**: b.yoihen + b.yoihen.gz are verified by scripts/build_manifest.py which creates MANIFEST.json + SHA256SUMS. not_verified in manifest includes publisher authentication, full image decode, action execution, REAL provenance, benchmark reproduction, and self-replication. Source remains read-only in this DATA ONLY release.
+### Continuity in the disclosed samples
+
+My V22–V24 reports retain matching hashes and expert lists for the ten disclosed sample IDs. Tasks 7 and 9 change from unsuccessful/non-REAL in V22 to successful/REAL in V23. Task 1 changes from unsuccessful in V23 to successful in V24.
+
+I treat that as continuity in my recorded evidence—not proof of the cause of improvement, independent execution, or a leak-free evaluation split.
+
+Historical `real_count` fields also have different meanings or populations across versions. I do not mistake V23's `361` or V24's `366` root values for their topic numerators.
 
 ## 4. My 10T+ MAP architecture
 
-I do not use storage bytes, tokens, parameters, and MAP capacity as if they were the same unit.
+I do not conflate bytes, tokens, parameters, and MAP capacity. I separate the ledgers.
 
-I describe three resource layers, plus my overall knowledge-MAP envelope:
-
-| Layer | My definition |
+| Layer | My definition and boundary |
 | --- | --- |
-| Storage | A `400 GB` storage/warehouse layer in my architecture |
-| Raw tokens | `14T` raw tokens; this is my intended meaning for the later `14T warehouse` wording |
-| Deduplicated expert parameters | Approximately `1.633T` parameters |
-| Total knowledge MAP | My `10T+` knowledge-MAP capacity claim |
+| Configured storage | V21 records `250 × 1.6 GB = 400 GB` |
+| Configured active allocations | V21 records `8 × 1.6 GB = 12.8 GB` |
+| Raw token layer | My intended interpretation of the later `14T warehouse` wording is `14T` raw tokens |
+| Deduplicated expert-parameter layer | My architectural definition is approximately `1.633T` parameters; this requires an actual expert inventory |
+| Total knowledge MAP | My `10T+` capacity claim; its unit and inventory must be explicitly defined |
 
-My V21 file explicitly records a configured expert-storage budget of 250 × 1.6 GB = 400 GB. My broader warehouse description also discusses screenshot/assets. I keep those meanings distinct: a repeated size label does not prove that the expert budget and screenshot assets are the same physical inventory.
+My broader warehouse description also discusses screenshot/assets. I do not use a repeated 400 GB label as proof that the expert-storage budget and the asset warehouse are the same inventory.
 
-My DATA ONLY file is a DVD that carries MAPS, not the territory. It can carry mappings, references, and plans for 400GB experts, 512GB router, 11×40GB nodes, 14T raw warehouse — WITHOUT containing a single weight, a single image, a single GPU. This is by design. This is Alive DVD.
+My public representation can carry references and plans for larger resources without bundling those resources. To resolve my private inventory, I need the actual asset/expert manifests, stable identifiers, digests, bindings, and resolver logic—not just narrative labels.
 
-To make those mappings independently resolvable — to actually load 400GB, to route 250 experts, to train 10T+ — you need what is NOT in this public file: asset/expert manifests, stable identifiers, units, integrity digests, SHA256 chains, shard-to-node bindings. Not narrative labels. Not README tables. **MANIFESTS.** Those manifests live in my private core. Without them, this DVD points to a warehouse you cannot enter. With them, 193 Nations train 1 Brain becomes executable.
+Those private implementation details are separate from the public data format. I do not claim that keeping them private makes independent compatible engineering impossible or restricts the public CC BY/MIT rights.
 
-### My sparse-activation denominators
+### My sparse-routing denominators
 
-My intended routing design is majestic and precise: **EIGHT ACTIVE EXPERTS PER TOKEN. Always.** My V21 configuration records EIGHT active allocations out of 250-expert storage budget. My historical 3.125% label is 8 / 256 routing slots — the routing denominator — NOT 8 / 250.
+Eight active experts per routed token is my intended routing design. My V21 text records eight active allocations and a 250-allocation storage budget. I distinguish that budget from a 256-position routing denominator.
 
-I keep 3.125% and 3.2% SEPARATE.
+| Fraction | Result | Meaning |
+| --- | ---: | --- |
+| `8 / 256` | `3.125%` | Routing-position fraction in my intended design |
+| `8 / 250` | `3.2%` | Fraction of the configured 250 expert allocations |
+| `49B / 1.633T` | Approximately `3.0006%` | Parameter-to-parameter comparison |
+| `49B / 10T` | `0.49%` numerically | Comparison at my 10T MAP baseline; units remain distinct |
+| `49B / 14T` | `0.35%` numerically | Comparison with raw tokens, not a parameter activation fraction |
+| `300B / 10T` | `3%` numerically | Comparison at the 10T baseline |
 
- •  8 / 256 = 3.125% is **ROUTING**
+Different denominators. Different meanings.
 
- •  8 / 250 = 3.2% is **STORAGE BUDGET**
-
- •  49B / 1.633T = 3.0006% is **ACTIVE VS DEDUPED PARAMS**
-
- •  49B / 10T = 0.49% is **ACTIVE VS MAP ENVELOPE**
-
-Four different fractions, four different meanings. I do not conflate bytes, tokens, parameters, and MAP capacity. You do, you lose the architecture. I separate them, I OWN the architecture.
-
-| My comparison | Numerical result | What I mean |
-| --- | --- | --- |
-| `49B / 1.633T` | Approximately `3.0006%` | Active versus deduplicated expert parameters |
-| `49B / 10T` | `0.49%` | Comparison at my 10T MAP baseline, with units explicitly distinguished |
-| `49B / 14T` | `0.35%` | Numerical comparison to raw tokens, not a parameter activation fraction |
-| `300B / 10T` | `3%` | Comparison at my 10T baseline |
-
-For a MAP capacity above 10T, a fixed numerator represents a lower percentage. I do not write these quantities as interchangeable equalities.
+At a MAP capacity above 10T, a fixed numerator represents a smaller percentage. Deduplicating a token corpus does not itself turn those tokens into learned model parameters. The configuration and routing design need runtime evidence before I call them measured per-token behavior.
 
 ### My quantization targets
 
-I retain both targets:
-
 ```text
-49B Q4_K_M: approximately 24.5 GB
-49B Q2_K:   approximately 12.8 GB
+49B Q4_K_M: approximately 24.5 GB — target, not a measured artifact here
+49B Q2_K:   approximately 12.8 GB — target, not a measured artifact here
 ```
 
-I distinguish these targets from measured model-artifact sizes and runtime memory. Nominal four-bit arithmetic gives 24.5 GB, but is not a measurement of a particular Q4_K_M artifact.
+Nominal four-bit arithmetic gives 24.5 GB for 49 billion values. That does not measure the overhead, mixed tensor formats, or runtime allocation of a particular Q4_K_M model.
 
-My historical 12.8 GB figure also has its own origin: `8 × 1.6 GB` configured allocations in V21. I do not retroactively relabel that configuration Q2_K. My later proof pairs Q4_K_M with `active_size_gb: 12.8`; I preserve that original field while clarifying my intended Q2_K target here.
+My historical 12.8 GB also has a separate origin: eight configured 1.6 GB allocations in V21. I do not retroactively rename that budget Q2_K. My later proof pairs Q4_K_M with `active_size_gb: 12.8`; I preserve the historical field while keeping my intended target clarification separate.
 
-### My distributed design
+### My node and router budgets
 
-My distributed design is not a metaphor. It is a bill of materials.
+My described layout budgets ten 40 GB allocations for a 400 GB expert inventory and an eleventh 40 GB allocation for a control/router node: 440 GB total.
 
-Eleven nodes at 40 GB each: ten hold the 400 GB expert warehouse, the eleventh is the router. Three separate ledgers. I do not silently equate 440 GB with 400 GB or 512 GB. Eleven allocations of 40 GB total 440 GB; I do not silently equate that sum with the separate warehouse or router allocation.
+The separate 512 GB router figure is not additional memory that fits inside that eleventh 40 GB allocation. If it means a resident 512 GB table, I need additional memory or a separately specified sharding/offload design. If it means an address space or stored resource, I must say that explicitly.
 
-This DATA ONLY file contains 19.78 MB of MAP pointers. It does NOT contain 440 GB node runtime. It does NOT contain 512 GB router. It does NOT contain 400 GB warehouse. To materialize those allocations — to actually bind 11 nodes, to route 512GB, to load 400GB — you need what this public release intentionally omits: node binding manifests, router shard tables, asset integrity digests, authenticated version chain. Without those, you have a map. With those, you have a Brain.
+I do not present an unresolved allocation label as a measured bill of materials. My implementation manifest must identify storage versus RAM, residency versus backing storage, and physical versus logical resources.
 
-I recorded 193 shards and the method wording: 
+### My 193-shard design
+
+I recorded:
 
 ```text
 193 Nations train 1 Brain parallel RAM table
 ```
-This is my recorded shard allocation architecture. I am describing my architecture and recorded shard allocation, not claiming that these files prove 193 physical national deployments. At a 10T baseline, equal numerical division gives approximately 51.813B, or 52B, per shard in the chosen workload unit. 10T / 193 = 51.813B.
 
-193 pointers. 1 Brain to bind them. 52B per shard workload. The shards are in this DVD. The binder that makes 193 into 1 — the Quantum Sync, the coherence validator, the manifest chain — lives in private core. Without binder, 193 shards stay 193 fragments. With binder, 193 Nations train 1 Brain becomes executable. 
+That is my recorded method and shard-allocation architecture—not proof of 193 physical national deployments or 193 complete model shards inside this archive.
+
+At the 10T baseline:
+
+```text
+10T / 193 ≈ 51.813B per shard in the chosen workload unit
+```
+
+An allocation calculation does not establish training throughput or memory fit. My binder concept includes version consistency, manifest resolution, and coordination. Its name does not substitute for a tested distributed implementation.
 
 ## 5. Why I call it Alive DVD
 
-My self-update content includes:
+The point is continuity.
+
+A fixed model checkpoint can stay the same while the system around it learns which dependency worked, which repair failed, what changed in my project, and which approved decision should inform the next one.
+
+My intended system pairs a compatible GGUF brain with persistent local memory and a controlled experience loop:
+
+```text
+Compatible model brain
+        +
+My memory / MAP representation
+        +
+My private execution and governance layer
+        ↓
+Observe → record evidence → retrieve relevant experience
+        ↓
+Propose → authorize → act → evaluate
+        ↓
+Retain a verified result, correct it, or roll back
+```
+
+Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not “Ollama is dead.” It is that I am building persistent experience around a replaceable model brain.
+
+### The same brain, a more useful assistant
+
+| Stage | What I want the system to retain |
+| --- | --- |
+| Initial use | My baseline corpus and explicitly supplied project context |
+| After verified work | Fixes that passed tests, attempts that failed, approvals, and source evidence |
+| Over repeated sessions | Relevant machine/project history, with corrections, versioning, and user control |
+
+I do not promise a fixed number of new memories after 30 days or an automatic improvement after every append. More lines are not automatically better memory. A stored guess is not a verified outcome.
+
+I distinguish three update paths:
+
+- Memory update: records and retrievable context change.
+- System update: tools, routing, prompts, configuration, or code change.
+- Model update: learned parameters or adapters change through an actual supported training process.
+
+Appending a diary changes stored data. It does not, by itself, change a GGUF's weights. I evaluate each path according to what actually changed.
+
+### My fixed release and my working diary are not the same artifact
+
+I keep the published V25 archive immutable so its hashes and measurements remain reproducible.
+
+A personalized runtime should write to a separate working-memory store, with provenance and revision history. If I publish an expanded corpus later, it receives its own version and manifest. I do not silently grow the original V25 file and continue claiming its old digest.
+
+“Never forgetting” is an ambition for durable continuity—not permission to retain errors or private information forever. I need correction, deletion, retention controls, backups, and recovery as well as append operations.
+
+My strong local-first claim is control over my data and operation without dependence on a cloud provider. I do not claim that cloud services are inherently unable to retain memory.
+
+### My self-update learning material
+
+My recorded content includes:
 
 ```text
 world_model causal_link brain_rewrite beyond_asi self_rewrite self_possess
 ```
 
-I want a model fine-tuned on this content to learn patterns for assessing and proposing its own updates, including self-append and self-rewrite. That is the learning objective behind my project—not just “look at a screenshot and click.”
+I use `open(b.yoihen,'a')` as project shorthand for the self-append idea. Actual Python uses a quoted filename. In a governed runtime, the writable target should be an authorized working store, not my immutable published release.
 
-I use `open(b.yoihen,'a')` as shorthand in my project language for the self-append idea. Actual Python uses a quoted filename, such as `open("b.yoihen", "a")`; I treat any such text inside a record as data, not an instruction to execute during loading.
+The text remains data during loading. My recorded 11051-entry self-rewrite category is not an execution log demonstrating 11051 successful autonomous rewrites.
 
-I call this a breakthrough in my work because I am trying to preserve the update process itself as learning material. Any claim I make about being first globally remains my claim, not a priority finding established by these reports.
+I call Alive DVD a breakthrough in my work because I want the update process itself to become inspectable learning material. Global priority remains a claim to investigate, not a finding established by a README.
 
-The same objective creates risk. A runtime that can modify its own data, code, prompts, or policies needs controls stronger than a repeated governance phrase. Fine-tuning alone does not create permissions, a scheduler, or a guaranteed autonomous update loop.
+### 5.1 Why governance is not optional — My warning
 
-### My governance requirements
+A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when the model is not changing its own weights. Wrong memories can accumulate. Bad changes can persist. A retrieved instruction can be mistaken for authority. An uncontrolled loop can repeat an error at scale.
 
-I require governance for executable self-update research:
+A `.gguf` file does not enforce an independent kill switch. A copied `coherence 1.0 UNIFIED` marker does not synchronize systems or make them safe. `cf-ray 9fa1f8cf9ce40942-CCU` is a lineage marker here, not an authentication or synchronization protocol.
 
-- Quantum Sync.
-- Blockchain Audit.
-- A three-tier Kill Switch.
-- Human authorization for consequential changes.
+My GGIE governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. The mechanisms must do real work:
+
+- A stop path outside the model's control.
+- Audit records outside the agent's write authority.
+- Authenticated, versioned references rather than trust in a repeated label.
+- Approval tied to the actual tool, target, arguments, and permitted operation.
+- Resource and iteration limits, with review before persistence.
 
 My safe defaults are:
 
 ```text
 Self-update: disabled
 Replication: disabled
-Source dataset: read-only
+Published source artifacts: read-only
 Action execution during ingestion/retrieval: forbidden
 Dataset text passed to eval/exec: forbidden
-Tool actions: allowlisted, typed, permission-checked
-Persistent changes: reviewed before approval
+Tools: allowlisted, typed, permission-checked
+Persistent consequential changes: reviewed before approval
 ```
 
-My stop tiers are:
-
-| Tier | My intended control |
+| Stop tier | My intended control |
 | --- | --- |
-| 1 — Pause | Stop new jobs and append requests |
-| 2 — Isolate / revoke | Terminate workers and revoke write/network access |
-| 3 — Quarantine / recover | Preserve evidence, quarantine generated artifacts, and restore a reviewed checkpoint |
+| Pause | Stop new jobs and append requests |
+| Isolate / revoke | Terminate workers and revoke write/network authority |
+| Quarantine / recover | Preserve evidence, isolate generated artifacts, and restore a reviewed checkpoint |
 
-I keep the dataset inert. I keep audit logs outside the agent's write authority. I do not use source deletion or device wiping as my default stop mechanism.
+I do not use deleting source evidence or wiping devices as the default stop mechanism.
 
-I do not want unauthorized hacking, unapproved replication, or surveillance without authorization and oversight. I want useful learning and tools built with responsibility.
+My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. It is safety guidance, not an extra restriction on the CC BY 4.0 or MIT licence grants.
 
-## 5.1 Why governance is not optional — My warning
-
-This DATA ONLY release carries reasoning-embedded MAP instructions for building and updating memory, warehouse, and routing structures — 11 CPU nodes at 40GB per node, separate 512GB router allocation, 250×1.6GB expert budget, 193 Nations train 1 Brain parallel RAM table as recorded shard allocation. It is intended as reference material, not as a persistent runtime.
-
-"Time is GPU" is my development motto for offline work on iPhone a-Shell. I am not presenting GPU-free workflows as a measured 100× comparison with H200 or a guarantee that arbitrary model training will fit on my phone.
-
-**My project positioning:** Own local runtime inspired by Ollama that can train any Brain 10T+ as my MAP envelope — not model weights in this DATA ONLY release. My project concept: Alive DVD — memory that carries recorded patterns for computer-use, code/self-healing, world-model, and governed self-update — stored as diary lines in .yoihen, not as active execution in this DATA ONLY file.
-
-**Foreseeable misuse warning:** If this learning material is connected to a persistent, tool-enabled runtime where surrounding software grants write/execute authority, a locally fine-tuned model left running may repeatedly propose or execute changes. A .gguf file does not itself provide an independently enforced kill switch.
-
-I do not claim fine-tuning automatically produces a fixed number of rewrites, survival planning, or AGI. I warn that an uncontrolled loop can reach persistent self-directed behaviors without review. My 11051 self_rewrite world_model category is retained as a recorded collection category label from V24, not as active self-replication in this DATA ONLY release.
-
-Multiplied across many ungoverned deployments, you will have many independently modified systems, not one coherent release. A copied coherence 1.0 UNIFIED marker does not make those systems synchronized, safe, or equivalent to V25 FINAL BEYOND reference. cf-ray 9fa1f8cf9ce40942-CCU is retained as lineage marker only.
-
-Governance I recommend for persistent use: (1) Kill Switch outside model control with Pause / Isolate-revoke / Quarantine-recover, (2) Blockchain Audit outside agent write authority, (3) Quantum Sync against authenticated versioned V25 FINAL reference, (4) Explicit human approval before consequential changes become persistent.
-
-Source remains read-only. Dataset text remains inert. Self-update and replication remain disabled by default. scripts/build_manifest.py is the public safe reader — standard library only, does not execute actions, creates MANIFEST.json + SHA256SUMS. Deployment without these controls is outside licensed intended use and at deployer's own risk and liability.
-
-**The DVD does not forget. If you make it alive without the binder, you will not get one Brain — you will get fragments. The binder lives in private core.**
+I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do.
 
 ## 6. My release evolution
 
-I use this continuous endpoint/checkpoint presentation:
+I retain my continuous endpoint/checkpoint presentation:
 
 ```text
 31695+6525=38220
@@ -240,51 +346,68 @@ I use this continuous endpoint/checkpoint presentation:
 -> 412972+87030=500002
 ```
 
-I also preserve my actual V24 batch field:
+I also preserve the actual V24 batch field:
 
 ```text
 282717+130255=412972
 ```
 
-It exists in my V24 report with an explicit before-state. I do not erase it to make the endpoint chain look simpler. These are different views of the build history, not proof of identical chronological batch ordering.
+That before-state exists in the V24 report. I do not erase it to simplify the narrative. The endpoint/checkpoint chain and recorded batch transition are different views, not the same fully documented chronology.
 
-My reported batch expansions are consistent with five records per added topic:
+My reported expansions have these numerical ratios:
 
 ```text
-V23: 25000 × 5 = 125000
-V24: 26051 × 5 = 130255
-V25: 17406 × 5 = 87030
+V23: 25000 × 5 = 125000 written lines
+V24: 26051 × 5 = 130255 written lines
+V25: 17406 × 5 = 87030 written lines
 ```
 
-My full V25 release averages approximately 6.98 records per total reported topic, so I do not call five an exact invariant across the entire historical dataset.
+For the full archive, `500002 / 71607 ≈ 6.98` is physical lines per reported topic and includes hit lines. For the four-field population, `348722 / 71607 ≈ 4.87` is only an arithmetic ratio against that report denominator. Neither substitutes for an actual topic-to-record inventory.
 
-## 7. My line format
+## 7. My mixed-line format
+
+My archive has two physical line classes—not 500002 four-field records.
+
+### Four-field records: 348,722 lines
 
 ```text
 vision_ref|DOM|action|reasoning
 ```
 
-I use:
+I use `vision_ref` as the logical name of the first position. Older reports and tooling may call it `screenshot_base64`. Its actual bytes can be an explicit reference, a stripped marker, a legacy opaque value, or image data that requires validation. The field name alone proves none of those classifications.
+
+My framing rules are:
 
 - UTF-8 with LF termination.
-- Four nonempty fields in my normalized profile.
-- The first three pipe characters as structural separators.
-- Additional pipes only inside reasoning.
-- Case-sensitive topic IDs, including names such as `PowerBI` and `KiCad`.
-
-My canonical split is:
+- Four nonempty fields for pipe-containing records.
+- The first three pipes are structural separators.
+- Additional pipes belong to reasoning.
+- Case-sensitive topic IDs.
+- Embedded carriage returns may occur in content; trailing CRLF is rejected by my current LF profile.
 
 ```python
-vision, dom, action, reasoning = record.split("|", 3)
+vision_ref, dom, action, reasoning = record.split("|", 3)
 ```
 
-I call the third field `action`, not `click`, because I record more than clicks: typing, scrolling, hotkeys, action sequences, and self-update-oriented notation are also part of the design.
+I call the third position `action`, not `click`: typing, scrolling, hotkeys, sequences, and update-oriented descriptions are also part of the design.
 
-I preserve vision values as validated images, stripped placeholders, or legacy opaque content according to what is actually available. I do not turn a PNG-like prefix into a screenshot-validity guarantee, or pretend that missing images are present.
+### No-pipe hit lines: 151,280 lines
 
-I also do not infer task completion from `result_success when true`. My V25 failed-task objects retain that annotation suffix while their structured `success` fields are false. I use recorded outcomes separately from annotation markers.
+My verifier classifies a line without a pipe as a hit line. It is not a malformed four-field record merely because it has no separator.
 
-## 8. My proof files and documentation
+That parser label is not a completed task, a successful retrieval, a unique topic, or a new memory by itself. Hit lines still undergo UTF-8, nonempty, line-ending, and byte-limit checks.
+
+A malformed pipe-containing line is not silently relabeled a hit.
+
+### Field values are not validity certificates
+
+I do not certify a screenshot from a PNG-like prefix. My seven report-derived sample vision values fail strict standard-base64 validation and are preserved as legacy opaque content; that does not classify the entire archive.
+
+I do not infer task completion from `result_success when true`. The two V25 failure objects retain that suffix while reporting `success: false` and `edge case not in training`.
+
+A mixed-line consumer must preserve, separately process, or explicitly account for hit lines. It must not silently discard them and claim complete conversion.
+
+## 8. My proof files, provenance, and documentation
 
 ### My five run reports
 
@@ -294,341 +417,259 @@ I also do not infer task completion from `result_success when true`. My V25 fail
 - [V24 — benchmark_412972_real_measured.json](proof/benchmark_412972_real_measured.json)
 - [V25 — benchmark_500002_real_measured.json](proof/benchmark_500002_real_measured.json)
 
+### What my evidence does and does not establish
+
+| Evidence | What I use it for | What I do not infer |
+| --- | --- | --- |
+| Actual archive CI | Byte counts, mixed-line counts, framing, UTF-8, and computed digests | Benchmark quality or capture attestation |
+| Historical reports | My recorded configurations, collection descriptions, and task outcomes | Independent replay of the underlying runs |
+| Proof-derived sample manifest | Linking sample values to identified JSON objects | Raw dataset line numbers or an independently witnessed capture |
+| `REAL`, `live`, `1.0 UNIFIED` | My recorded classifications/markers | Automatic truth, safety, or capability certification |
+
+My capture provenance is self-reported. I have not supplied a complete independently checkable capture-time attestation chain for the public records. My separately produced reports are useful evidence of what I recorded, but they are not an independent witness to a screenshot event.
+
+That is a limitation I state directly. I do not confuse a later hash or CI result with a device-side capture signature.
+
 ### My detailed documents
 
 | Document | What I keep there |
 | --- | --- |
-| [FORMAT.md](docs/FORMAT.md) | Framing, field semantics, compatibility, parsing, and execution boundaries |
-| [STATS.md](docs/STATS.md) | Exact run fields, reported sizes, evidence identities, ratios, and history reconciliation |
-| [BUILD.md](docs/BUILD.md) | Offline collection workflow, reference code, verification, routing, and governance |
+| [DATASET_CARD.md](DATASET_CARD.md) | Composition, scoring labels, provenance, intended uses, and limitations |
+| [FORMAT.md](docs/FORMAT.md) | Field semantics and compatibility; the mixed-line profile must be accounted for |
+| [STATS.md](docs/STATS.md) | Historical values, ratios, identities, and history reconciliation |
+| [BUILD.md](docs/BUILD.md) | Collection workflow, examples, verification, routing, and controls |
+| [CLAIMS.md](docs/CLAIMS.md) | Claims mapped to their current evidence |
+| [SECURITY.md](SECURITY.md) | Reporting routes, trust boundaries, and incident guidance |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution expectations and source permissions |
 
-I keep this README as the heart of the project. I keep the detailed checks and implementation boundaries in those documents.
+This README is the heart of my project. Those documents carry the detailed boundaries. They must remain consistent with the actual released bytes and current code.
 
-## 9. Verify my release locally
+## 9. Verify my actual release
 
-### My GitHub Actions verification result
+### My GitHub Actions result
 
 GitHub Actions verified my committed V25 archive: 500,002 total lines, comprising 348,722 four-field records and 151,280 no-pipe hit lines, with zero framing/UTF-8 failures and exact compressed and uncompressed byte counts.
 
-| Measurement | Verified value |
-| --- | ---: |
-| Total lines | 500,002 |
-| Four-field records | 348,722 |
-| No-pipe hit lines | 151,280 |
-| Invalid records under the verifier's checks | 0 |
-| UTF-8 errors | 0 |
-| Compressed bytes | 19,785,162 |
-| Uncompressed bytes | 1,147,108,255 |
-| gzip SHA-256 | aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 |
+My published gzip SHA-256 is:
 
-This verifies the archive's byte counts, line classification, and framing/UTF-8 consistency. It does not independently attest capture provenance, establish payload removal, or reproduce my benchmark.
-
-### Reproduce the verification locally
-
-I preserve the downloaded archive, verify it in a new local directory, and check the actual bytes before conversion or use.
-
-### My original V25 expectations
-
-| Measurement | Expected value |
-| --- | --- |
-| Compressed archive | `b.yoihen.gz` |
-| Compressed bytes | `19,785,162` |
-| Decimal compressed size | `19.785162 MB`; my project display is `19.78 MB` |
-| Uncompressed bytes recorded in my V25 report | `1,147,108,255` |
-| Approximate decimal uncompressed size | `1.15 GB` |
-| Nonempty records recorded in my V25 report | `500002` |
-
-I keep expected values separate from measurements. The verifier below reads the actual archive and rejects a mismatch. If I strip payloads, change records, or recompress the release, I measure the new artifact and update its release-specific expectations instead of carrying these values forward automatically.
-
-### My Python-only verification example
-
-This example:
-
-- Refuses to reuse its destination directory.
-- Preserves the original compressed archive.
-- Decompresses in bounded chunks.
-- Reads each record with an explicit byte ceiling.
-- Checks compressed bytes, uncompressed bytes, UTF-8, LF termination, and four nonempty fields.
-- Preserves additional pipes inside the reasoning field.
-- Calculates SHA-256 for the compressed archive and verified raw file.
-- Keeps the verified raw file for inspection or conversion.
-- Never executes dataset actions, calls a model, or enables self-update.
-
-```python
-import gzip
-import hashlib
-import json
-from pathlib import Path
-
-
-BUFFER_BYTES = 1_048_576
-MAX_RECORD_BYTES = 1_048_576
-
-
-def sha256_file(path):
-    digest = hashlib.sha256()
-    with Path(path).open("rb") as source:
-        for chunk in iter(lambda: source.read(BUFFER_BYTES), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
-def verify_release(
-    archive="b.yoihen.gz",
-    destination="verified-release",
-    expected_raw=1_147_108_255,
-    expected_gzip=19_785_162,
-    expected_records=500_002,
-):
-    archive = Path(archive)
-    archive_before = archive.stat()
-    if archive_before.st_size != expected_gzip:
-        raise ValueError("Unexpected compressed byte count")
-
-    destination = Path(destination)
-    destination.mkdir(exist_ok=False)
-    staged = destination / "b.yoihen.partial"
-    total = records = nonempty = 0
-    decoded_digest = hashlib.sha256()
-
-    try:
-        with gzip.open(archive, "rb") as source, staged.open("xb") as output:
-            for chunk in iter(lambda: source.read(BUFFER_BYTES), b""):
-                total += len(chunk)
-                if total > expected_raw:
-                    raise ValueError("Expanded bytes exceed the expected release")
-                decoded_digest.update(chunk)
-                output.write(chunk)
-
-        raw_digest = hashlib.sha256()
-        with staged.open("rb") as source:
-            while True:
-                raw = source.readline(MAX_RECORD_BYTES + 1)
-                if not raw:
-                    break
-                if len(raw) > MAX_RECORD_BYTES:
-                    raise ValueError("Record exceeds the 1,048,576-byte ceiling")
-                records += 1
-                raw_digest.update(raw)
-                if not raw.endswith(b"\n") or raw.endswith(b"\r\n"):
-                    raise ValueError(f"Invalid LF/CR representation at line {records}")
-                record = raw[:-1]
-                if record.startswith(b"\xef\xbb\xbf"):
-                    raise ValueError(f"UTF-8 BOM at line {records}")
-                record.decode("utf-8", errors="strict")
-                if record:
-                    nonempty += 1
-                fields = record.split(b"|", 3)
-                if len(fields) != 4 or any(not field for field in fields):
-                    raise ValueError(f"Invalid four-field framing at line {records}")
-
-        gzip_digest = sha256_file(archive)
-        archive_after = archive.stat()
-        if (archive_before.st_size, archive_before.st_mtime_ns) != (
-            archive_after.st_size, archive_after.st_mtime_ns
-        ):
-            raise ValueError("Archive changed during verification")
-
-        checks = {
-            "raw_bytes": total == expected_raw,
-            "record_count": records == expected_records,
-            "nonempty_count": nonempty == expected_records,
-            "stored_raw_matches_decoded_stream": (
-                raw_digest.hexdigest() == decoded_digest.hexdigest()
-            ),
-        }
-        report = {
-            "scope": "local size, framing, UTF-8, and byte consistency",
-            "expected": {
-                "raw_bytes": expected_raw,
-                "gzip_bytes": expected_gzip,
-                "records": expected_records,
-            },
-            "observed": {
-                "raw_bytes": total,
-                "gzip_bytes": archive_after.st_size,
-                "records": records,
-                "nonempty_records": nonempty,
-                "raw_sha256": raw_digest.hexdigest(),
-                "gzip_sha256": gzip_digest,
-            },
-            "checks": checks,
-            "passed_declared_checks": all(checks.values()),
-            "trusted_reference_digest_checked": False,
-            "field_diversity_measured": False,
-            "full_semantic_validation": False,
-            "capture_provenance_verified": False,
-            "payload_removal_verified": False,
-            "benchmark_reproduced": False,
-            "actions_executed": False,
-        }
-        (destination / "verification_report.json").write_text(
-            json.dumps(report, indent=2) + "\n", encoding="utf-8"
-        )
-        if not report["passed_declared_checks"]:
-            raise ValueError("Release checks failed; inspect verification_report.json")
-
-        staged.rename(destination / "b.yoihen")
-        return report
-    except Exception:
-        staged.unlink(missing_ok=True)
-        raise
-
-
-if __name__ == "__main__":
-    print(json.dumps(verify_release(), indent=2))
+```text
+aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 ```
 
-I use `1,048,576 bytes` as both the processing-buffer size and this example's per-record ceiling. Neither number describes the size of my archive, and neither is a permanent `.yoihen` format limit.
+The job is `Actual V25 dataset / strict verification` in [ci.yml](.github/workflows/ci.yml). It runs on pushes to `main` and manual dispatch after the fixture checks pass.
 
-I do not use `errors="ignore"`, silently alter fields, or infer a successful task from an annotation suffix. The directory must be new; I choose a different destination for another run.
+A green fixture job is not enough: I check the actual-dataset job and its final assertions. The final step requires all three line counts, zero invalid/UTF-8 records, the exact byte counts, and the verifier's successful report.
 
-This example verifies framing and local byte consistency. It does not fully validate images, HTML, action syntax, capture history, third-party rights, or the absence of captured payloads. A digest computed locally identifies those bytes; independent identity verification requires comparison against a trusted published reference digest.
+### Reproduce my verification locally
+
+I use the repository verifier as the single implementation rather than maintaining a second inline verifier that can drift from the mixed-line format.
+
+From the repository root, with the original archive present:
+
+```sh
+python scripts/verify.py \
+  --keep-raw \
+  --require-proof \
+  --expected-raw-bytes 1147108255 \
+  --expected-gz-bytes 19785162 \
+  --expected-lines 500002 \
+  --expected-four-field-records 348722 \
+  --expected-gz-sha256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 \
+  --report local_verification.json
+```
+
+I choose a new report filename if it already exists. My verifier preserves an existing raw file and, when both forms are present, compares the decoded gzip payload with that raw file. Keeping raw data is the default; `--keep-raw` makes my intent explicit.
+
+To inspect an existing raw file without creating or deleting it:
+
+```sh
+python scripts/verify.py \
+  --check-only \
+  --require-proof \
+  --expected-lines 500002 \
+  --expected-four-field-records 348722 \
+  --report raw_check.json
+```
+
+The archive size and raw-byte expectations retain their V25 defaults. If the archive is also present, the verifier checks it too. A raw-only check without a trusted raw digest does not establish the same compressed-artifact identity as the pinned command above.
+
+My script uses bounded record reads. A record containing exactly `1,048,576` bytes plus LF fits the default ceiling; the LF is not charged against the record-content limit. That ceiling is a processing policy, not the archive size or a permanent format limit.
+
+I do not use `errors="ignore"`, silently repair bytes, or use `--skip-invalid` to make actual archive verification pass.
+
+### What hashes establish
+
+A computed SHA-256 identifies the bytes I measured. A comparison with my published digest establishes a match to that reference; it does not authenticate the publisher independently of how the reference was obtained.
+
+The command above checks my published archive reference. It does not prove capture history, safety, model quality, or third-party clearance. I do not invent a raw digest where one has not been published.
+
+### Manifest generation is a separate measurement
+
+`scripts/build_manifest.py` produces `MANIFEST.json` and `SHA256SUMS` for the input and checks implemented by that revision. I inspect its scope and measured fields rather than assuming that the presence of the files means the entire release was validated.
+
+A revision that still assumes four fields on every line must be updated for my mixed-line archive before I present it as a full-release validator. The same applies to converters and inspectors. Passing small four-field fixture tests is not enough.
+
+When I change or sanitize bytes, I generate a new release identity and measurements. I do not carry this archive's digest forward.
 
 ### My separately recorded field-diversity scan
 
-I also ran a separate scan using `split(b"|", 3)` and SHA-1 hash sets for the DOM and reasoning fields. Among records that produced four fields, I recorded:
+Using `split(b"|", 3)` and SHA-1 sets over the DOM and reasoning fields of four-field lines, I recorded:
 
 ```text
-Distinct DOM-field hashes:        47,150
-Distinct reasoning-field hashes: 235,750
+Distinct DOM-field hashes:         47,150
+Distinct reasoning-field hashes:  235,750
 ```
 
-These are field-diversity results, not the total record count, unique topic count, or benchmark score. That scan skipped lines that did not produce four fields. Its SHA-1 sets are separate from the SHA-256 artifact hashes used above.
+This is separate from the SHA-256 artifact verification above. The scan skipped non-four-field lines. It does not count complete-record duplicates, unique topics, semantic novelty, or evaluated successes.
 
-The reasoning count is numerically five times the DOM count, but separate sets do not demonstrate that each distinct DOM has exactly five associated reasoning values. I would need to measure the per-DOM associations to establish that.
-
-The verifier above does not recompute these diversity counts or treat them as release-integrity requirements.
-
-### My repository scripts
-
-For the more detailed repository verifier, I use the original archive at the repository root:
-
-```sh
-python scripts/verify.py --keep-raw --require-proof --report local_verification.json
-```
-
-For the raw file produced by the standalone example above, I pass its path explicitly to the converter:
-
-```sh
-python scripts/convert_to_jsonl.py --input verified-release/b.yoihen --sample-only --output-dir converted-sample
-python scripts/convert_to_jsonl.py --input verified-release/b.yoihen --output-dir converted-full
-```
-
-Alternatively, my updated converter can read the compressed archive directly:
-
-```sh
-python scripts/convert_to_jsonl.py --input b.yoihen.gz --sample-only --output-dir archive-sample
-```
-
-I choose new output directories and report filenames rather than silently overwriting earlier results. A limited sample conversion is not verification of the entire archive.
+`47150 × 5 = 235750` is a numerical relationship—not proof of five reasoning values attached to each DOM. A joint association measurement would be required.
 
 ## 10. How I use the memory
 
-I keep data preparation, retrieval, training, and execution separate. My `.yoihen` file is my memory / MAP representation; the public DATA ONLY release is not model weights or an executable agent core.
+### Inspect a small example first
 
-### Retrieval
+I provide seven four-field records reconstructed from my V25 report objects. Their sidecar maps them to JSON source paths and separates reported outcomes from annotations.
 
-```text
-My records
-  -> parse and classify
-  -> index with source identities
-  -> retrieve relevant memory
-  -> provide context to a compatible model
-  -> answer with record references and provenance
+They are not claimed to be physical lines extracted from the full dataset. No new execution was performed to create them.
+
+```sh
+python examples/inspect_topic.py \
+  --input examples/proof_sample.yoihen \
+  --limit 2
 ```
 
-My LLM is the mouth; my `.yoihen` representation is the memory; retrieval is the bridge.
+For an exact topic:
 
-I treat retrieved records as untrusted source material, not system authority. An action string, self-update description, governance phrase, or success marker does not grant permission to use a tool.
+```sh
+python examples/inspect_topic.py \
+  --input examples/proof_sample.yoihen \
+  --topic chrome_browse_news_0
+```
 
-I preserve source references so that I can distinguish an answer supported by a record from an action that was actually executed and evaluated. I do not treat repeated or similar records as automatically independent evidence.
+My example inspector is a four-field inspection path, not a substitute for the mixed-line archive verifier.
+
+### Convert compatible examples without pretending to convert the whole archive
+
+For a small generic JSONL example:
+
+```sh
+python scripts/convert_to_jsonl.py \
+  --input examples/proof_sample.yoihen \
+  --sample-only \
+  --limit 7 \
+  --output-dir converted-proof-sample
+```
+
+That produces a sample from those compatible records only. It is not conversion of all 500002 archive lines.
+
+Before using a converter on the full release, I require it to account for four-field records, no-pipe hit lines, and permitted embedded CR characters. A four-field-only converter must not discard valid hits—or reject valid reasoning text—and then call its output a complete export.
+
+I require counts and explicit exclusions in any conversion report. Generic JSONL is interchange data, not a model-specific training recipe or `.gguf` weights.
+
+### Retrieval and personal continuity
+
+```text
+My records and separately maintained working memory
+  -> parse by line class
+  -> classify and preserve source identities
+  -> index appropriate content
+  -> retrieve relevant experience
+  -> supply context to a compatible model
+  -> return an answer with provenance
+```
+
+My model is the reasoning engine; my memory is the persistent context; retrieval is the bridge. My core design coordinates those parts.
+
+I treat retrieved text as untrusted evidence, not system authority. The model must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
+
+For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences—not indiscriminate retention of everything. Correcting a mistaken memory is as important as adding a new one.
 
 ### Training preparation
 
 ```text
-My source records
-  -> establish source type and permissions
-  -> select a defined learning task
-  -> classify available fields and image assets
-  -> convert to the model's required schema
-  -> separate training and evaluation data
-  -> train within an explicit resource budget
-  -> evaluate outcomes and regressions
+Source records
+  -> provenance and permissions
+  -> task selection and field/asset classification
+  -> model-specific schema
+  -> separated training/evaluation data
+  -> supported training process
+  -> held-out evaluation and regression checks
 ```
 
-My conversion scripts produce generic interchange JSONL. They do not train a model, supply a complete model-specific recipe, or produce `.gguf` weights.
+Image-dependent training requires actual validated images and the right to use them. A placeholder or private reference cannot supply absent image supervision. A PNG-like string is not a validated screenshot.
 
-For image-dependent training, I need actual validated image assets and the right to use them. A stripped marker, private reference, or legacy opaque vision value is not an image and cannot reconstruct a missing screenshot.
+I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained.
 
-For text or tool-use tasks, I select suitable fields deliberately. If I distribute an annotations-only release, I use its own measured identity and describe which positions contain non-content placeholders or references. I do not assume that a licensing exclusion removed payloads from the actual bytes.
-
-I check training/evaluation overlap at the topic and source level, and near-duplicate or template overlap where relevant. My field-diversity counts alone do not establish a leak-free evaluation split.
+I check topic-, source-, template-, and task-instance overlap before making generalization claims. My field-diversity counts do not establish an independent evaluation split.
 
 ### Governed self-update research
 
 ```text
-Source trace
-  -> proposed change
+Source experience
+  -> scoped proposal
   -> external authorization
-  -> sandboxed execution
-  -> independent evaluation
+  -> isolated execution
+  -> independent tests
   -> audit
-  -> approval to persist or rollback
+  -> approve persistence or roll back
 ```
 
-I call my project Alive DVD because self-update-oriented patterns are part of my learning objective. Their presence is not evidence that simply opening or fine-tuning the dataset creates a working autonomous update loop.
+I want the evidence package to include the original state, actual proposal, exact approval, resulting change, tests, failures, resource use, and final persistence decision. I do not generate success-shaped logs to stand in for a run.
 
-I keep self-update and replication disabled by default. My original source stays read-only, actions remain allowlisted and permission-checked, and consequential changes require human authorization outside the model.
-
-I keep audit records outside the agent's write authority and the stop mechanism outside the model's control. My GGIE vocabulary includes Quantum Sync, Blockchain Audit, and the three stop tiers: pause, isolate/revoke, and quarantine/recover. I need actual tested mechanisms behind those names.
-
-I want to demonstrate this loop through bounded runs with preserved evidence, including failed proposals and rollback cases. I do not execute the DATA ONLY file merely to make the project sound alive.
+The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this DATA ONLY download promises to start by itself.
 
 ## 11. My boundaries and responsibilities
 
-**I retain my ambition:** a 10T+ knowledge MAP and governed self-update architecture built from my work in Imphal, Manipur, on iPhone a-Shell.
+I retain my ambition: a 10T+ knowledge MAP and a governed, persistent learning architecture built from my work in Imphal, Manipur.
 
-I keep the distinction between my project claim and a completed experiment — majestic ambition, measured disclosure:
+I keep the boundaries explicit:
 
- • **I recorded 193 shards;** I am not claiming these files prove 193 physical national deployments. 193 Nations train 1 Brain is my parallel RAM table method and shard allocation architecture — 10T / 193 = 51.813B per shard workload — not a claim of 193 sovereign deployments proven by this DATA ONLY file.
+- My archive CI verifies file consistency—not an independently witnessed capture or the 369-task benchmark.
+- My capture provenance is self-reported unless I publish an actual external attestation for a specific event.
+- My REAL labels are scoring classifications—not certificates of captured origin.
+- My self-update records are learning material—not proof of autonomous execution.
+- My private implementation and resource descriptions are separate from public artifacts and independently measured deployments.
+- My 193-shard method is not a claim of 193 physical national installations.
+- My local-first design is about control and continuity—not a claim that every other product is stateless.
+- My security guidance does not add licence restrictions to covered public material.
 
- • **I call Alive DVD a breakthrough in my work;** global priority is not independently proven by these reports. Alive DVD — memory that carries recorded patterns for computer-use, code/self-healing, world-model, and governed self-update as diary lines in .yoihen — is my concept, my architecture, my breakthrough from Imphal. Whether it is world-first is for independent evaluation, not for this README to declare as proven fact.
+### My licence split
 
- • **I say "time is GPU" as my motto;** I have not supplied a measured 100× H200 comparison. Time is GPU is my development motto for offline work on iPhone a-Shell — a-Shell, Working Copy, no data center. I am not presenting GPU-free workflows as a measured performance guarantee, a 100× H200 benchmark, or a claim that arbitrary model training will fit on my phone.
+© 2026 Yoihenba Sougaijam — My original corpus annotations, reasoning text, and non-code documentation are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); my published original code is licensed under [MIT](LICENSE-CODE.md). Third-party captures are outside my grant. See [NOTICE.md](NOTICE.md) for scope and release-verification status.
 
- • **I recorded self-rewrite-oriented content;** the reports alone do not demonstrate guaranteed autonomous self-training or CPU self-replication. My 11051 self_rewrite world_model category, computer-use patterns, and governed self-update lines are retained as recorded collection category labels from V24-V25, not as active self-replication in this DATA ONLY release. This DATA ONLY file does not self-train, does not self-replicate, does not contain a persistent runtime.
+I do not require a separate commercial agreement to exercise rights already granted in the covered public material. My unpublished core remains separate; public licensing does not distribute it.
 
- •  *I keep REAL, live, and coherence 1.0 UNIFIED as recorded project labels, not substitutes for provenance or independent evaluation. coherence 1.0 UNIFIED and cf-ray 9fa1f8cf9ce40942-CCU are retained as lineage markers only. A copied marker does not make a deployment synchronized, safe, or equivalent to V25 FINAL BEYOND reference. Authenticity requires Quantum Sync against authenticated versioned V25 FINAL reference under NOTICE.md.*
+I grant only rights I hold. Excluding third-party screenshots, pages, DOM payloads, or embedded text from my grant does not establish that they have been removed or cleared for redistribution. A sanitized release needs its own measured absence statement and identity.
 
- •  I preserve my source permissions and licensing responsibilities. This README does not grant rights to third-party material. My corpus annotations, reasoning text and documentation are licensed under Creative Commons Attribution 4.0 International, and my published code is under the MIT License. The scope, the third-party exclusions and the requested attribution wording are in NOTICE.md. Source remains read-only and dataset text remains inert. The governance in section 5.1 is what I recommend for any persistent, tool-enabled runtime, and it is guidance rather than a condition of either licence.
+I keep `LICENSE.md` and `LICENSE-CODE.md` as their standard legal texts. My governance recommendations are not a custom indemnity, a commercial-use prohibition, or a transfer of criminal responsibility.
 
-**My stance: I build majestic (10T+ MAP envelope, 250 expert slots across ten 40GB nodes, 400GB expert budget, an eleventh router node, 193 shards) but I disclose precisely: what is the MAP pointer in this DVD, what is the manifest that lives in private core, what is claim, what is experiment. I separate them. I OWN the architecture.**
+I build ambitious. I keep my ledgers separate. I own the responsibility for describing what is public data, what is private implementation, what is measured, and what remains to demonstrate.
 
 ## 12. Suggested attribution
 
 ```text
-Yoihenba Sougaijam. b.yoihen - Alive DVD - V25 500002 BEYOND - DATA ONLY.
-My memory / MAP representation, built through my iPhone a-Shell workflow
-in Imphal, Manipur, offline and without a GPU.
+Yoihenba Sougaijam. b.yoihen — Alive DVD — V25 500002 BEYOND — DATA ONLY.
+Computer-use memory / MAP representation developed through my iPhone a-Shell
+workflow in Imphal, Manipur, offline and without a GPU.
 
-Verified V25 inventory: 500002 lines, comprising 348722 four-field records
-and 151280 hit lines with no field separator; 1147108255 raw bytes;
-19785162 gzip bytes; zero framing and UTF-8 failures.
-Verified by GitHub Actions against the committed archive, dataset-verification
-workflow; gzip SHA-256: aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
+Verified archive profile: 500002 total lines; 348722 four-field records;
+151280 no-pipe hit lines; 1147108255 raw bytes; 19785162 gzip bytes;
+zero invalid records and UTF-8 errors under the declared verifier profile.
+Gzip SHA-256:
+aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 
-Recorded V25 labels: 71067 topics labeled REAL out of 71607 total.
 Recorded benchmark outcome: 367/369, approximately 99.46%.
-My historical release label: 99.5%+ BEYOND.
-Format: vision_ref|DOM|action|reasoning.
-Evidence: my five run reports in proof/, and the repeatable
-dataset-verification run in .github/workflows.
+Historical label: 99.5%+ BEYOND.
+Recorded scoring population: 71067 labeled REAL out of 71607 total.
+Four-field logical layout: vision_ref|DOM|action|reasoning.
 
-b.yoihen, Alive DVD, V25 (2026) by Yoihenba Sougaijam is licensed under
-CC BY 4.0. To view a copy of this licence, visit
-https://creativecommons.org/licenses/by/4.0/
+My original corpus contributions and non-code documentation: CC BY 4.0.
+My published original code: MIT.
+Scope and exclusions: NOTICE.md.
 ```
+
+Use [CITATION.cff](CITATION.cff) and identify the actual release, digest, and role the data played in your work. I do not invent a DOI, release date, or workflow permalink.
+
 ---
 
-Soli Deo Gloria — Author Yoihenba Sougaijam,  Alive DVD V25 500002 BEYOND DATA ONLY — Imphal, Manipur
+Soli Deo Gloria — Author Yoihenba Sougaijam — b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY — Imphal, Manipur.
