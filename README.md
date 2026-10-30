@@ -847,7 +847,7 @@ I provide seven four-field records reconstructed from my V25 report objects. The
 
 They are not claimed to be physical lines extracted from the full dataset. No new execution was performed to create them.
 
-```sh
+```bash
 python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --limit 2
@@ -855,19 +855,19 @@ python examples/inspect_topic.py \
 
 For an exact topic:
 
-```sh
+```bash
 python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --topic chrome_browse_news_0
 ```
 
-My example inspector is a four-field inspection path, not a substitute for the mixed-line archive verifier.
+My example inspector is a four-field inspection path, not a substitute for the mixed-line archive verifier. Verifier counts `500,002 = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 no-pipe hit lines`, 0 invalid, 0 UTF-8 errors, `19,785,162 gz / 1,147,108,255 raw`, SHA-256 `aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1`. Four-field inspector ignores hit lines.
 
 ### Convert compatible examples without pretending to convert the whole archive
 
 For a small generic JSONL example:
 
-```sh
+```bash
 python scripts/convert_to_jsonl.py \
   --input examples/proof_sample.yoihen \
   --sample-only \
@@ -875,116 +875,125 @@ python scripts/convert_to_jsonl.py \
   --output-dir converted-proof-sample
 ```
 
-That produces a sample from those compatible records only. It is not conversion of all 500002 archive lines.
+That produces a sample from those compatible records only. It is not conversion of all 500002 archive lines. 500002 lines = 348722 four-field + 151280 hit lines, four-field-only export discards 151280 valid hit lines if not counted.
 
-Before using a converter on the full release, I require it to account for four-field records, no-pipe hit lines, and permitted embedded CR characters. A four-field-only converter must not discard valid hits—or reject valid reasoning text—and then call its output a complete export.
+Before using a converter on the full release, I require it to account for four-field records, no-pipe hit lines, and permitted embedded CR characters. A four-field-only converter must not discard valid hits â or reject valid reasoning text `reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true` with pipes â and then call its output a complete export.
 
-I require counts and explicit exclusions in any conversion report. Generic JSONL is interchange data, not a model-specific training recipe or `.gguf` weights.
+I require counts and explicit exclusions in any conversion report:
+
+```
+Input: 500002 total = 348722 four-field + 151280 hit lines 0 invalid
+Output four-field JSONL: 348722 records
+Excluded: 151280 hit lines explicitly listed
+Embedded CR: counted separately
+```
+
+Generic JSONL is interchange data, not a model-specific training recipe or .gguf weights. `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 DMI_3_layers + 5000 tool_use` is collection description, not execution log.
 
 ### Retrieval and personal continuity
 
-```text
+```
 My records and separately maintained working memory
-  -> parse by line class
-  -> classify and preserve source identities
-  -> index appropriate content
-  -> retrieve relevant experience
-  -> supply context to a compatible model
-  -> return an answer with provenance
+  -> parse by line class â 348722 four-field vs 151280 hit lines vs 0 invalid
+  -> classify and preserve source identities â vision_ref any path, DOM arbitrary text, action typed, reasoning collection description
+  -> index appropriate content â table[256][256] topic->[expert_ids] O(1) RAM table not BM25, 193 shards 90.19 per_shard
+  -> retrieve relevant experience â Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain
+  -> supply context to a compatible model â .gguf supplies brain Qwen2-VL 7B example 12.8GB active 49B 3.125%
+  -> return an answer with provenance â result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
 
-My model is the reasoning engine; my memory is the persistent context; retrieval is the bridge. My core design coordinates those parts.
+My model is the reasoning engine; my memory is the persistent context; retrieval is the bridge. My core design coordinates those parts â `core/table_new.py` + reload private core not included in DATA ONLY release.
 
-I treat retrieved text as untrusted evidence, not system authority. The model must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
+I treat retrieved text as untrusted evidence, not system authority. The model must not promote a record into a tool permission or overwrite a policy because the record says it is approved. `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + `open(b.yoihen,'a')` + `self_rewrite core/table_new.py reload` are text records, not authorized execution during ingestion. `approved=true` model-generated is not authorization.
 
-For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences—not indiscriminate retention of everything. Correcting a mistaken memory is as important as adding a new one.
+For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences â not indiscriminate retention of everything. Correcting a mistaken memory is as important as adding a new one. V21 31695+6525=38220 -> V25 412972+87030=500002 shows continuity, but V25 extended tasks `42 chrome_bookmark_42 FALSE bookmark fetch failure timeout` + `317 PowerBI FALSE tool crash` show not every append is verified success â `10/12=83.33%` on 12 disclosed including new.
 
 ### Training preparation
 
-```text
-Source records
-  -> provenance and permissions
-  -> task selection and field/asset classification
-  -> model-specific schema
-  -> separated training/evaluation data
-  -> supported training process
-  -> held-out evaluation and regression checks
+```
+Source records â 500002 lines = 348722 four-field +151280 hit lines 1,147,108,255 raw / 19,785,162 gz
+  -> provenance and permissions â self-reported capture provenance, no complete independently checkable capture-time attestation chain, third-party captures outside CC BY 4.0 grant
+  -> task selection and field/asset classification â 11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use + 10000 docs + 5000 cve = 71067 REAL /71607=99.245884% assigned during scoring
+  -> model-specific schema â vision_ref|DOM|action|reasoning split first three pipes structural, additional pipes belong to reasoning, vision,dom,action,reasoning=record.split("|",3)
+  -> separated training/evaluation data â 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL, historical real_count fields different meanings V23 361 V24 366 not topic numerators
+  -> supported training process â own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts, 1.633T deduped expert-parameter layer requires actual expert inventory, 14T raw tokens vs 10T+ MAP different units
+  -> held-out evaluation and regression checks â queue_after 0 clean 0 pollution V25, but failed tasks retain result_success when true annotation while structured success FALSE
 ```
 
-Image-dependent training requires actual validated images and the right to use them. A placeholder or private reference cannot supply absent image supervision. A PNG-like string is not a validated screenshot.
+Image-dependent training requires actual validated images and the right to use them. A placeholder or private reference cannot supply absent image supervision. A PNG-like string is not a validated screenshot. `vision_ref` can be any path â validated images, stripped placeholders, legacy opaque content â PNG-like prefix not screenshot-validity guarantee.
 
-I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained.
+I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained. `500002 / 71607â6.98` physical lines per reported topic includes hit lines, `348722 / 71607â4.87` four-field ratio arithmetic, neither substitutes for actual topic-to-record inventory. `10T / 193â51.813B per shard` allocation calculation not training throughput or memory fit.
 
-I check topic-, source-, template-, and task-instance overlap before making generalization claims. My field-diversity counts do not establish an independent evaluation split.
+I check topic-, source-, template-, and task-instance overlap before making generalization claims. My field-diversity counts do not establish an independent evaluation split. Matching hashes and expert lists for ten disclosed sample IDs 0-9 across V22-V24 show continuity, not leak-free split.
 
 ### Governed self-update research
 
-```text
-Source experience
-  -> scoped proposal
-  -> external authorization
-  -> isolated execution
-  -> independent tests
-  -> audit
-  -> approve persistence or roll back
+```
+Source experience â 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 self_possess master generate + 10000 DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM
+  -> scoped proposal â self_rewrite vs self_update vs replication vs self_possess: self_rewrite rewrites table[256][256] via core/table_new.py reload, self_update Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226], replication 193 Nations train 1 Brain parallel RAM table 193 shards + own b.yoihen can train any Brain 10T+, self_possess 2406 master generate that can own b.yoihen
+  -> external authorization â outside model, bound to tool/target/args action_click 859,518 Enter ctrl+s core/table_new.py reload open(b.yoihen,'a'), fresh approval when operation changes
+  -> isolated execution â separate authorized working store, not immutable V25 release, 500002 lines hash preserved
+  -> independent tests â truth_balance governance_safety + principle_806861 + coherence fidelity F(rho_diary,rho_brain)=1.0 C_l1(rho) measured from density matrix not copied string
+  -> audit â outside agent write authority, Blockchain Audit, lineage marker cf-ray 9fa1f8cf9ce40942-CCU not auth
+  -> approve persistence or roll back â queue_after 0 clean 0 pollution only when Evaluate passes, if fails evaluation exceeds authorization cannot be traced to source do not promote
 ```
 
-I want the evidence package to include the original state, actual proposal, exact approval, resulting change, tests, failures, resource use, and final persistence decision. I do not generate success-shaped logs to stand in for a run.
+I want the evidence package to include the original state, actual proposal, exact approval, resulting change, tests, failures, resource use, and final persistence decision. I do not generate success-shaped logs to stand in for a run. `result_success when true` retained in reasoning field even when structured success FALSE for tasks 42 and 317 â model-generated approved=true is not authorization.
 
-The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this DATA ONLY download promises to start by itself.
+The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this DATA ONLY download promises to start by itself. DATA ONLY = 500002 lines archive, no .gguf weights, no private core, no 400GB experts, no router/cluster resources merely by description.
 
 ## 11. My boundaries and responsibilities
 
-I retain my ambition: a 10T+ knowledge MAP and a governed, persistent learning architecture built from my work in Imphal, Manipur.
+I retain my ambition: a 10T+ knowledge MAP and a governed, persistent learning architecture built from my work in Imphal, Manipur â 400GB config 250*1.6GB=400GB, 8*1.6=12.8GB active 49B 3.125%, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ capacity different denominators, 193 Nations train 1 Brain parallel RAM table method, 11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use collection.
 
 I keep the boundaries explicit:
 
-- My archive CI verifies file consistency—not an independently witnessed capture or the 369-task benchmark.
-- My capture provenance is self-reported unless I publish an actual external attestation for a specific event.
-- My REAL labels are scoring classifications—not certificates of captured origin.
-- My self-update records are learning material—not proof of autonomous execution.
-- My private implementation and resource descriptions are separate from public artifacts and independently measured deployments.
-- My 193-shard method is not a claim of 193 physical national installations.
-- My local-first design is about control and continuity—not a claim that every other product is stateless.
-- My security guidance does not add licence restrictions to covered public material.
+- My archive CI verifies file consistency â `500002 = 348722 four-field + 151280 hit lines, 19,785,162 gz / 1,147,108,255 raw, 0 invalid, 0 UTF-8 errors, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1` â not an independently witnessed capture or the 369-task benchmark. `367/369=99.46%` on 369 tasks in report, but `10/12=83.33%` on 12 disclosed including `42 FAIL + 317 FAIL` new tasks.
+- My capture provenance is self-reported unless I publish an actual external attestation for a specific event â PNG-like prefix not screenshot-validity guarantee, vision_ref any path, DOM arbitrary text.
+- My REAL labels are scoring classifications â `71067 / 71607 = 99.245884% REAL` assigned during scoring, not certificates of captured origin, `500002/71607â6.98` and `348722/71607â4.87` arithmetic ratios not inventory.
+- My self-update records are learning material â `11051 self_rewrite world_model beyond_asi principle_806861` + `2406 self_possess master generate` + `10000 reasoning chain_of_thought DMI_3_layers` + `5000 tool_use` = collection description `reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + [STRIPPED 78 bytes] coherence 1.0 UNIFIED result_success when true`, not proof of 11051 successful autonomous rewrites or 200 overnight 99.9% execution log.
+- My private implementation and resource descriptions are separate from public artifacts and independently measured deployments â `core/table_new.py` + reload, `table[256][256]` O(1) RAM table `~1MB static` not BM25, 400GB config 250*1.6GB, 12.8GB active 49B, 49B Q4_K_M 24.5GB target / Q2_K 12.8GB target, 10*40GB + 11th 40GB = 440GB total layout, 512GB router figure needs separate sharding/offload, 193 shards.
+- My 193-shard method is not a claim of 193 physical national installations â `193 Nations train 1 Brain parallel RAM table` method and shard-allocation architecture, V21 `1305/193=~6.76` per_shard, V25 `90.19` per_shard average hides skew, `10T / 193â51.813B per shard` allocation not throughput, `65536 buckets for 71607 tasks must collide`.
+- My local-first design is about control and continuity â `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `truth_balance` + `coherence 1.0 UNIFIED` + `principle_806861`, not a claim that every other product is stateless. Strong local-first claim is control over data and operation without dependence on cloud provider, not claim cloud services inherently unable to retain memory.
+- My security guidance does not add licence restrictions to covered public material â CC BY 4.0 and MIT grants remain, governance recommendations `Quantum Sync = coherence fidelity check F=1.0 C_l1(rho)`, `Blockchain Audit = audit outside write authority`, `Kill Switch = Pause/Isolate-revoke/Quarantine-recover` are safety guidance not licence restrictions.
 
 ### My licence split
 
-© 2026 Yoihenba Sougaijam — My original corpus annotations, reasoning text, and non-code documentation are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); my published original code is licensed under [MIT](LICENSE-CODE.md). Third-party captures are outside my grant. See [NOTICE.md](NOTICE.md) for scope and release-verification status.
+Â© 2026 Yoihenba Sougaijam â My original corpus annotations, reasoning text, and non-code documentation are licensed under CC BY 4.0; my published original code is licensed under MIT. Third-party captures are outside my grant. See NOTICE.md for scope and release-verification status.
 
-I do not require a separate commercial agreement to exercise rights already granted in the covered public material. My unpublished core remains separate; public licensing does not distribute it.
+I do not require a separate commercial agreement to exercise rights already granted in the covered public material. My unpublished core `core/table_new.py` + reload, resolver, orchestration, tool/runtime integration, governance implementation remains separate; public licensing does not distribute it. DATA ONLY = 500002 lines archive `b.yoihen.gz` -> `b.yoihen` 1.147GB raw / 19.78MB gz, no .gguf weights, no 400GB experts.
 
-I grant only rights I hold. Excluding third-party screenshots, pages, DOM payloads, or embedded text from my grant does not establish that they have been removed or cleared for redistribution. A sanitized release needs its own measured absence statement and identity.
+I grant only rights I hold. Excluding third-party screenshots, pages, DOM payloads, or embedded text from my grant does not establish that they have been removed or cleared for redistribution. A sanitized release needs its own measured absence statement and identity. I do not claim archive is image-free, capture-free, or sanitized simply because first field `vision_ref`. Payload absence needs release-specific measurement â vision_ref any path, DOM arbitrary text, PNG-like prefix not validity guarantee.
 
-I keep `LICENSE.md` and `LICENSE-CODE.md` as their standard legal texts. My governance recommendations are not a custom indemnity, a commercial-use prohibition, or a transfer of criminal responsibility.
+I keep LICENSE.md and LICENSE-CODE.md as their standard legal texts. My governance recommendations `Quantum Sync, Blockchain Audit, three-tier Kill Switch` mapped to mechanisms `coherence fidelity check, audit outside write authority, stop path outside model control, tool/filesystem permissions outside model-generated text, authenticated versioned references cf-ray 9fa1f8cf9ce40942-CCU lineage marker not auth, approval bound to tool/target/args action_click 859,518 Enter ctrl+s core/table_new.py reload open(b.yoihen,'a'), fresh approval when operation changes, resource/worker/time/iteration limits max size 500MB per diary max 1 replication per 24h max 200 rewrites check free disk <10GB abort, independent evaluation before persistent changes, reviewed checkpoints tested recovery path` are not a custom indemnity, a commercial-use prohibition, or a transfer of criminal responsibility. `action_click`, `Enter`, `ctrl+s`, `core/table_new.py reload`, `open(b.yoihen,'a')` are text records, not authorized execution during ingestion. Model-generated `approved=true` is not authorization.
 
-I build ambitious. I keep my ledgers separate. I own the responsibility for describing what is public data, what is private implementation, what is measured, and what remains to demonstrate.
+I build ambitious. I keep my ledgers separate. I own the responsibility for describing what is public data, what is private implementation, what is measured, and what remains to demonstrate â `400GB config 250*1.6GB=400GB 8*1.6=12.8GB active 49B 3.125%` config string not loaded expert, `10T+ MAP` capacity claim unit and inventory must be explicitly defined, `49B / 10T=0.49% 49B / 1.633Tâ3.0006% 8/256=3.125% vs 8/250=3.2%` different denominators different meanings, `11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use` collection not execution log, `result_success when true` annotation retained even when FALSE for tasks 42 and 317.
 
 ## 12. Suggested attribution
 
-```text
-Yoihenba Sougaijam. b.yoihen — Alive DVD — V25 500002 BEYOND — DATA ONLY.
+```
+Yoihenba Sougaijam. b.yoihen â Alive DVD â V25 500002 BEYOND â DATA ONLY.
 Computer-use memory / MAP representation developed through my iPhone a-Shell
 workflow in Imphal, Manipur, offline and without a GPU.
-
-Verified archive profile: 500002 total lines; 348722 four-field records;
-151280 no-pipe hit lines; 1147108255 raw bytes; 19785162 gzip bytes;
-zero invalid records and UTF-8 errors under the declared verifier profile.
-Gzip SHA-256:
-aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
-
-Recorded benchmark outcome: 367/369, approximately 99.46%.
-Historical label: 99.5%+ BEYOND.
-Recorded scoring population: 71067 labeled REAL out of 71607 total.
-Four-field logical layout: vision_ref|DOM|action|reasoning.
-
-My original corpus contributions and non-code documentation: CC BY 4.0.
-My published original code: MIT.
-Scope and exclusions: NOTICE.md.
 ```
 
-Use [CITATION.cff](CITATION.cff) and identify the actual release, digest, and role the data played in your work. I do not invent a DOI, release date, or workflow permalink.
+Verified archive profile: 500002 total lines; 348722 four-field records `vision_ref|DOM|action|reasoning`; 151280 no-pipe hit lines; 1147108255 raw bytes `1.147108255 GB decimal â approximately 1.15 GB`; 19785162 gzip bytes `19.785162 MB decimal â my display: 19.78 MB`; zero invalid records and UTF-8 errors under the declared verifier profile `vision,dom,action,reasoning=record.split("|",3)` first three pipes structural additional pipes belong to reasoning no-pipe hit lines separate class.
 
----
+```
+Gzip SHA-256:
+aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
+```
 
-Soli Deo Gloria — Author Yoihenba Sougaijam — b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY — Imphal, Manipur.
+Recorded benchmark outcome: 367/369, approximately 99.46% on 369 tasks in report. Disclosed extended tasks: 42 chrome_bookmark_42 FALSE bookmark fetch failure timeout + 317 PowerBI FALSE tool crash = 10/12 = 83.33% PASS on 12 disclosed including new. Historical label: 99.5%+ BEYOND. Recorded scoring population: 71067 labeled REAL out of 71607 total `99.245884%` assigned during scoring `500002/71607â6.98` physical lines per topic includes hit lines `348722/71607â4.87` four-field ratio arithmetic not inventory.
+
+Four-field logical layout: `vision_ref|DOM|action|reasoning`.
+
+Self-update learning material: `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM` collection description not execution log, text remains data during loading, `open(b.yoihen,'a')` shorthand actual quoted filename writable target authorized working store not immutable release, faster does not mean degrades faster because Evaluate + coherence 1.0 UNIFIED + truth_balance + principle_806861 V21 73MB 45% -> V25 1.147GB 367/369 99.46%.
+
+My original corpus contributions and non-code documentation: CC BY 4.0. My published original code: MIT. Scope and exclusions: NOTICE.md â DATA ONLY 500002 lines archive b.yoihen.gz -> b.yoihen, no .gguf weights, no private core core/table_new.py reload, no 400GB experts, no router/cluster resources merely by description, third-party captures outside grant, image-free capture-free sanitized not claimed simply because first field vision_ref.
+
+Use CITATION.cff and identify the actual release, digest, and role the data played in your work. I do not invent a DOI, release date, or workflow permalink.
+
+```
+Soli Deo Gloria â Author Yoihenba Sougaijam â b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY â Imphal, Manipur â 500002 lines = 348722 four-field +151280 hit lines 19,785,162 gz / 1,147,108,255 raw aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 367/369â99.46% on 369 tasks 71067/71607=99.245884% REAL 400GB config 250*1.6GB 8*1.6=12.8GB active 49B 3.125% 1.633T deduped 14T raw tokens 10T+ MAP 193 Nations train 1 Brain parallel RAM table method table[256][256] O(1) RAM
+```
