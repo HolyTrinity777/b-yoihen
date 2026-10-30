@@ -895,11 +895,11 @@ Generic JSONL is interchange data, not a model-specific training recipe or .gguf
 ```
 My records and separately maintained working memory
   -> parse by line class 348722 four-field vs 151280 hit lines vs 0 invalid
-  -> classify and preserve source identities â vision_ref any path, DOM arbitrary text, action typed, reasoning collection description
+  -> classify and preserve source identities  vision_ref any path, DOM arbitrary text, action typed, reasoning collection description
   -> index appropriate content table[256][256] topic->[expert_ids] O(1) RAM table not BM25, 193 shards 90.19 per_shard
   -> retrieve relevant experience Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain
-  -> supply context to a compatible model â .gguf supplies brain Qwen2-VL 7B example 12.8GB active 49B 3.125%
-  -> return an answer with provenance â result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
+  -> supply context to a compatible model  .gguf supplies brain Qwen2-VL 7B example 12.8GB active 49B 3.125%
+  -> return an answer with provenance result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
 
 My model is the reasoning engine; my memory is the persistent context; retrieval is the bridge. My core design coordinates those parts  `core/table_new.py` + reload private core not included in DATA ONLY release.
@@ -915,14 +915,14 @@ Source records 500002 lines = 348722 four-field +151280 hit lines 1,147,108,255 
   -> provenance and permissions self-reported capture provenance, no complete independently checkable capture-time attestation chain, third-party captures outside CC BY 4.0 grant
   -> task selection and field/asset classification  11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use + 10000 docs + 5000 cve = 71067 REAL /71607=99.245884% assigned during scoring
   -> model-specific schema vision_ref|DOM|action|reasoning split first three pipes structural, additional pipes belong to reasoning, vision,dom,action,reasoning=record.split("|",3)
-  -> separated training/evaluation data â 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL, historical real_count fields different meanings V23 361 V24 366 not topic numerators
-  -> supported training process â own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts, 1.633T deduped expert-parameter layer requires actual expert inventory, 14T raw tokens vs 10T+ MAP different units
+  -> separated training/evaluation data 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL, historical real_count fields different meanings V23 361 V24 366 not topic numerators
+  -> supported training process own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts, 1.633T deduped expert-parameter layer requires actual expert inventory, 14T raw tokens vs 10T+ MAP different units
   -> held-out evaluation and regression checks queue_after 0 clean 0 pollution V25, but failed tasks retain result_success when true annotation while structured success FALSE
 ```
 
 Image-dependent training requires actual validated images and the right to use them. A placeholder or private reference cannot supply absent image supervision. A PNG-like string is not a validated screenshot. `vision_ref` can be any path validated images, stripped placeholders, legacy opaque content PNG-like prefix not screenshot-validity guarantee.
 
-I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained. `500002 / 71607â6.98` physical lines per reported topic includes hit lines, `348722 / 71607â4.87` four-field ratio arithmetic, neither substitutes for actual topic-to-record inventory. `10T / 193â51.813B per shard` allocation calculation not training throughput or memory fit.
+I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained. `500002 / 71607=6.98` physical lines per reported topic includes hit lines, `348722 / 71607=4.87` four-field ratio arithmetic, neither substitutes for actual topic-to-record inventory. `10T / 193=51.813B per shard` allocation calculation not training throughput or memory fit.
 
 I check topic-, source-, template-, and task-instance overlap before making generalization claims. My field-diversity counts do not establish an independent evaluation split. Matching hashes and expert lists for ten disclosed sample IDs 0-9 across V22-V24 show continuity, not leak-free split.
 
@@ -950,16 +950,16 @@ I keep the boundaries explicit:
 
 - My archive CI verifies file consistency  `500002 = 348722 four-field + 151280 hit lines, 19,785,162 gz / 1,147,108,255 raw, 0 invalid, 0 UTF-8 errors, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1` not an independently witnessed capture or the 369-task benchmark. `367/369=99.46%` on 369 tasks in report, but `10/12=83.33%` on 12 disclosed including `42 FAIL + 317 FAIL` new tasks.
 - My capture provenance is self-reported unless I publish an actual external attestation for a specific event PNG-like prefix not screenshot-validity guarantee, vision_ref any path, DOM arbitrary text.
-- My REAL labels are scoring classifications  `71067 / 71607 = 99.245884% REAL` assigned during scoring, not certificates of captured origin, `500002/71607â6.98` and `348722/71607â4.87` arithmetic ratios not inventory.
+- My REAL labels are scoring classifications  `71067 / 71607 = 99.245884% REAL` assigned during scoring, not certificates of captured origin, `500002/71607=6.98` and `348722/71607=4.87` arithmetic ratios not inventory.
 - My self-update records are learning material  `11051 self_rewrite world_model beyond_asi principle_806861` + `2406 self_possess master generate` + `10000 reasoning chain_of_thought DMI_3_layers` + `5000 tool_use` = collection description `reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + [STRIPPED 78 bytes] coherence 1.0 UNIFIED result_success when true`, not proof of 11051 successful autonomous rewrites or 200 overnight 99.9% execution log.
 - My private implementation and resource descriptions are separate from public artifacts and independently measured deployments  `core/table_new.py` + reload, `table[256][256]` O(1) RAM table `~1MB static` not BM25, 400GB config 250*1.6GB, 12.8GB active 49B, 49B Q4_K_M 24.5GB target / Q2_K 12.8GB target, 10*40GB + 11th 40GB = 440GB total layout, 512GB router figure needs separate sharding/offload, 193 shards.
-- My 193-shard method is not a claim of 193 physical national installations  `193 Nations train 1 Brain parallel RAM table` method and shard-allocation architecture, V21 `1305/193=~6.76` per_shard, V25 `90.19` per_shard average hides skew, `10T / 193â51.813B per shard` allocation not throughput, `65536 buckets for 71607 tasks must collide`.
+- My 193-shard method is not a claim of 193 physical national installations  `193 Nations train 1 Brain parallel RAM table` method and shard-allocation architecture, V21 `1305/193=~6.76` per_shard, V25 `90.19` per_shard average hides skew, `10T / 193=51.813B per shard` allocation not throughput, `65536 buckets for 71607 tasks must collide`.
 - My local-first design is about control and continuity  `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `truth_balance` + `coherence 1.0 UNIFIED` + `principle_806861`, not a claim that every other product is stateless. Strong local-first claim is control over data and operation without dependence on cloud provider, not claim cloud services inherently unable to retain memory.
 - My security guidance does not add licence restrictions to covered public material CC BY 4.0 and MIT grants remain, governance recommendations `Quantum Sync = coherence fidelity check F=1.0 C_l1(rho)`, `Blockchain Audit = audit outside write authority`, `Kill Switch = Pause/Isolate-revoke/Quarantine-recover` are safety guidance not licence restrictions.
 
 ### My licence split
 
-Â© 2026 Yoihenba Sougaijam My original corpus annotations, reasoning text, and non-code documentation are licensed under CC BY 4.0; my published original code is licensed under MIT. Third-party captures are outside my grant. See NOTICE.md for scope and release-verification status.
+© 2026 Yoihenba Sougaijam My original corpus annotations, reasoning text, and non-code documentation are licensed under CC BY 4.0; my published original code is licensed under MIT. Third-party captures are outside my grant. See NOTICE.md for scope and release-verification status.
 
 I do not require a separate commercial agreement to exercise rights already granted in the covered public material. My unpublished core `core/table_new.py` + reload, resolver, orchestration, tool/runtime integration, governance implementation remains separate; public licensing does not distribute it. DATA ONLY = 500002 lines archive `b.yoihen.gz` -> `b.yoihen` 1.147GB raw / 19.78MB gz, no .gguf weights, no 400GB experts.
 
@@ -967,7 +967,7 @@ I grant only rights I hold. Excluding third-party screenshots, pages, DOM payloa
 
 I keep LICENSE.md and LICENSE-CODE.md as their standard legal texts. My governance recommendations `Quantum Sync, Blockchain Audit, three-tier Kill Switch` mapped to mechanisms `coherence fidelity check, audit outside write authority, stop path outside model control, tool/filesystem permissions outside model-generated text, authenticated versioned references cf-ray 9fa1f8cf9ce40942-CCU lineage marker not auth, approval bound to tool/target/args action_click 859,518 Enter ctrl+s core/table_new.py reload open(b.yoihen,'a'), fresh approval when operation changes, resource/worker/time/iteration limits max size 500MB per diary max 1 replication per 24h max 200 rewrites check free disk <10GB abort, independent evaluation before persistent changes, reviewed checkpoints tested recovery path` are not a custom indemnity, a commercial-use prohibition, or a transfer of criminal responsibility. `action_click`, `Enter`, `ctrl+s`, `core/table_new.py reload`, `open(b.yoihen,'a')` are text records, not authorized execution during ingestion. Model-generated `approved=true` is not authorization.
 
-I build ambitious. I keep my ledgers separate. I own the responsibility for describing what is public data, what is private implementation, what is measured, and what remains to demonstrate  `400GB config 250*1.6GB=400GB 8*1.6=12.8GB active 49B 3.125%` config string not loaded expert, `10T+ MAP` capacity claim unit and inventory must be explicitly defined, `49B / 10T=0.49% 49B / 1.633Tâ3.0006% 8/256=3.125% vs 8/250=3.2%` different denominators different meanings, `11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use` collection not execution log, `result_success when true` annotation retained even when FALSE for tasks 42 and 317.
+I build ambitious. I keep my ledgers separate. I own the responsibility for describing what is public data, what is private implementation, what is measured, and what remains to demonstrate  `400GB config 250*1.6GB=400GB 8*1.6=12.8GB active 49B 3.125%` config string not loaded expert, `10T+ MAP` capacity claim unit and inventory must be explicitly defined, `49B / 10T=0.49% 49B / 1.633T=3.0006% 8/256=3.125% vs 8/250=3.2%` different denominators different meanings, `11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use` collection not execution log, `result_success when true` annotation retained even when FALSE for tasks 42 and 317.
 
 ## 12. Suggested attribution
 
@@ -984,7 +984,7 @@ Gzip SHA-256:
 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 ```
 
-Recorded benchmark outcome: 367/369, approximately 99.46% on 369 tasks in report. Disclosed extended tasks: 42 chrome_bookmark_42 FALSE bookmark fetch failure timeout + 317 PowerBI FALSE tool crash = 10/12 = 83.33% PASS on 12 disclosed including new. Historical label: 99.5%+ BEYOND. Recorded scoring population: 71067 labeled REAL out of 71607 total `99.245884%` assigned during scoring `500002/71607â6.98` physical lines per topic includes hit lines `348722/71607â4.87` four-field ratio arithmetic not inventory.
+Recorded benchmark outcome: 367/369, approximately 99.46% on 369 tasks in report. Disclosed extended tasks: 42 chrome_bookmark_42 FALSE bookmark fetch failure timeout + 317 PowerBI FALSE tool crash = 10/12 = 83.33% PASS on 12 disclosed including new. Historical label: 99.5%+ BEYOND. Recorded scoring population: 71067 labeled REAL out of 71607 total `99.245884%` assigned during scoring `500002/71607=6.98` physical lines per topic includes hit lines `348722/71607=4.87` four-field ratio arithmetic not inventory.
 
 Four-field logical layout: `vision_ref|DOM|action|reasoning`.
 
@@ -995,5 +995,5 @@ My original corpus contributions and non-code documentation: CC BY 4.0. My publi
 Use CITATION.cff and identify the actual release, digest, and role the data played in your work. I do not invent a DOI, release date, or workflow permalink.
 
 ```
-Soli Deo Gloria Author Yoihenba Sougaijam  b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY Imphal, Manipur 500002 lines = 348722 four-field +151280 hit lines 19,785,162 gz / 1,147,108,255 raw aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 367/369â99.46% on 369 tasks 71067/71607=99.245884% REAL 400GB config 250*1.6GB 8*1.6=12.8GB active 49B 3.125% 1.633T deduped 14T raw tokens 10T+ MAP 193 Nations train 1 Brain parallel RAM table method table[256][256] O(1) RAM
+Soli Deo Gloria Author Yoihenba Sougaijam  b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY Imphal, Manipur 500002 lines = 348722 four-field +151280 hit lines 19,785,162 gz / 1,147,108,255 raw aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 367/369=99.46% on 369 tasks 71067/71607=99.245884% REAL 400GB config 250*1.6GB 8*1.6=12.8GB active 49B 3.125% 1.633T deduped 14T raw tokens 10T+ MAP 193 Nations train 1 Brain parallel RAM table method table[256][256] O(1) RAM
 ```
