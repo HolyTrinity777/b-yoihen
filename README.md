@@ -19,7 +19,7 @@ My project concept is Alive DVD: a replaceable model brain, persistent local mem
 
 Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
-I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation — 500,002 lines 1.147GB raw / 19.78MB gz, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference, `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM` collection description. A compatible `.gguf` can supply the model brain — Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target. My private core is the separate player, resolver, orchestrator, and control layer — `core/table_new.py` + reload, `table[256][256]` O(1) lookup, `experts_safety [151,152,153,154,101,26,201,226]`. My public release contains **DATA ONLY** — not that complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation — 500,002 lines 1.147GB raw / 19.78MB gz, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference, `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM` collection description. A compatible `.gguf` can supply the model brain — Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target. My private core is the separate player, resolver, orchestrator, and control layer — `core/files` + reload, `table[256][256]` O(1) lookup, `experts_safety [151,152,153,154,101,26,201,226]`. My public release contains **DATA ONLY** — not that complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
 
 ```
 My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights. A line mentioning a warehouse does not contain that warehouse.
@@ -69,7 +69,7 @@ That is the point of my Alive DVD concept: continuity around a replaceable brain
 
 - The `.gguf` supplies the brain — Qwen2-VL 7B example, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference.
 - `b.yoihen` carries the memory — 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, `table[256][256] topic->[expert_ids]` O(1) lookup, 193 shards.
-- My private core governs the update loop — `core/table_new.py` + reload, `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]`.
+- My private core governs the update loop — `core/files` + reload, `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]`.
 
 I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience — not merely repeat a confident answer. `Day 1 ≠ Day 100` means diary appends via `open(b.yoihen,'a')` 87030 lines V24->V25 `71067 REAL /71607=99.24%`, `queue_after 0`, `clean 0 pollution`, not that GGUF weights change by themselves. Model weights change only through self-update with independent evaluation.
 
@@ -121,13 +121,13 @@ I do not require the approximately 1.15 GB raw file to be committed. My reposito
 | --- | --- | --- |
 | `.yoihen` representation | Stored records, hit lines, context, and MAP descriptions — 500,002 lines = 348,722 four-field + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, `table[256][256] topic->[expert_ids]` O(1) RAM lookup reference, 193 shards 90.19 per_shard, `71067 REAL /71607=99.24%` | Yes, through the compressed archive |
 | Compatible GGUF model | The model brain used by an execution environment — 12.8GB active 49B 3.125% from 400GB config 250*1.6GB, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target | No model weights are bundled here |
-| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation — `core/table_new.py` + reload, `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` loop with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` | Not included |
+| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation — `core/files` + reload, `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` loop with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` | Not included |
 | External asset/expert inventory | Actual resources referenced by the architecture — 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
 | Separate router/cluster resources | Runtime allocations and infrastructure — 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, `DMI+3_layers+world_model` | Not included merely by description |
 
 My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts.
 
-A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism. Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + `self_rewrite core/table_new.py reload` + `open(b.yoihen,'a')` 87030 lines per generation are text records, not executed actions during ingestion.
+A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism. Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + `self_rewrite core/files reload` + `open(b.yoihen,'a')` 87030 lines per generation are text records, not executed actions during ingestion.
 
 I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field `vision_ref`. Payload absence needs its own release-specific measurement. `vision_ref|DOM|action|reasoning` split — first three pipes are structural separators, additional pipes belong to reasoning, no-pipe lines are hit lines 151,280 — DOM can contain arbitrary text, vision_ref can be any path. `coherence 1.0 UNIFIED` is a lineage marker, not a synchronization protocol. `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not authentication.
 
@@ -355,7 +355,7 @@ The text remains data during loading. My recorded 11051-entry self-rewrite categ
 
 My system has three separate loops, not one:
 
-- **self_rewrite:** rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/table_new.py` + reload
+- **self_rewrite:** rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload
 - **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. If evaluation fails, it does not retain.
 - **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can train any Brain 10T+` + `400GB config 250*1.6GB` warehouse. `DMI+3_layers+world_model` must all agree before replication.
 - **self_possess:** `2406 beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen
@@ -370,7 +370,7 @@ I built Alive DVD to support self-update — not merely to preserve browser clic
 
 My recorded patterns include four separate loops, not one:
 
-- **self_rewrite:** 11051 traces `self_rewrite world_model beyond_asi principle_806861` — rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/table_new.py` + reload
+- **self_rewrite:** 11051 traces `self_rewrite world_model beyond_asi principle_806861` — rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload
 - **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`
 - **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can train any Brain 10T+` + 400GB config 250*1.6GB warehouse. `DMI+3_layers+world_model` must all agree before replication
 - **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen
@@ -382,7 +382,7 @@ That is the **capability** I am warning about. The public DATA ONLY archive rema
 I do not confuse the ability to make a change with proof that the change is correct, beneficial, or authorized. Memory updates, runtime/code updates, and model-weight updates are different operations. Each needs its own permissions, evaluation, and recovery path:
 
 - **Memory update:** records and retrievable context change — appends to `b.yoihen` 500,002 lines
-- **System update:** tools, routing, prompts, configuration, or code change — rewrites `core/table_new.py` + reloads `table[256][256]`
+- **System update:** tools, routing, prompts, configuration, or code change — rewrites `core/files` + reloads `table[256][256]`
 - **Model update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via compatible `.gguf`
 
 A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its model weights remain unchanged. Wrong memories can accumulate. Bad changes can persist. A retrieved instruction can be mistaken for authority. An uncontrolled loop can repeat an error across files, sessions, or workers. Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` automates chrome, writer, calc, impress, file_manager, thunderbird, vs_code, PowerBI, KiCad, FreeCAD, Figma, Excel, SAP, CRM, 5000 cve kali chains — if DOM shifts, clicks wrong target.
@@ -405,7 +405,7 @@ Mechanisms that do real work:
 - Tool and filesystem permissions enforced outside model-generated text.
 - Audit records outside the agent's write authority.
 - Authenticated, versioned references rather than trust in repeated labels — `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not auth.
-- Approval bound to the actual tool, target, arguments, and permitted operation — `action_click 859,518`, `action_key Enter`, `ctrl+s`, `core/table_new.py` reload each need separate approval.
+- Approval bound to the actual tool, target, arguments, and permitted operation — `action_click 859,518`, `action_key Enter`, `ctrl+s`, `core/files` reload each need separate approval.
 - Fresh approval when the proposed operation changes.
 - Resource, worker, time, and iteration limits — max size 500MB per diary, max 1 replication per 24h, max 200 rewrites check, free disk <10GB abort.
 - Independent evaluation before persistent changes are accepted — `Evaluate` must check `result_success when true` + `truth_balance` + `principle_806861` outside model.
@@ -424,7 +424,7 @@ Personal working memory: separate, access-controlled, and versioned
 Action execution during ingestion/retrieval: forbidden
 Dataset text passed to eval/exec: forbidden
 Tools: allowlisted, typed, permission-checked — chrome, writer, calc, impress, file_manager, thunderbird, vs_code, PowerBI, KiCad, FreeCAD, Figma, Excel, SAP, CRM, 5000 cve kali chains OFF by router [151,152,153,154,101,26,201,226]
-Consequential operations: explicitly authorized — Enter, ctrl+s, core/table_new.py reload, open(b.yoihen,'a')
+Consequential operations: explicitly authorized — Enter, ctrl+s, core/files reload, open(b.yoihen,'a')
 Persistent changes: evaluated and reviewed before acceptance — result_success when true + coherence 1.0 UNIFIED
 Audit records: outside agent write authority
 Stop mechanism: outside model control
@@ -437,7 +437,7 @@ I keep my published V25 release immutable so its hashes and measurements remain 
 | Stop tier | My intended control |
 | --- | --- |
 | Pause | Stop accepting new jobs, update proposals, and append requests. Stop `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` loop. |
-| Isolate / revoke | Terminate affected workers and revoke their write, credential, and network authority. Revoke `core/table_new.py` reload, `open(b.yoihen,'a')`, `action_click`, `Enter`, `ctrl+s`. |
+| Isolate / revoke | Terminate affected workers and revoke their write, credential, and network authority. Revoke `core/files` reload, `open(b.yoihen,'a')`, `action_click`, `Enter`, `ctrl+s`. |
 | Quarantine / recover | Preserve evidence, isolate generated artifacts, and restore a reviewed checkpoint after assessing the cause. Preserve `b.yoihen` version before self_possess. |
 
 I do not use deleting source evidence or wiping devices as the default stop mechanism. I preserve enough evidence to understand what happened, what was authorized, what changed, and what must be corrected.
@@ -601,7 +601,7 @@ That is a limitation I state directly. I do not confuse a later hash or CI resul
 | `DATASET_CARD.md` | Composition, scoring labels, provenance, intended uses, and limitations — 348722 four-field +151280 hit lines, 500002 lines, vision_ref\|DOM\|action\|reasoning, no-pipe hit lines class, 11051 self_rewrite + 2406 self_possess collection description not execution log |
 | `FORMAT.md` | Field semantics and compatibility; the mixed-line profile must be accounted for — first three pipes structural, additional pipes belong to reasoning, vision,dom,action,reasoning=record.split("\|",3), UTF-8 LF, four nonempty fields, PowerBI KiCad case-sensitive, no-pipe hit lines separate class |
 | `STATS.md` | Historical values, ratios, identities, and history reconciliation — 31695+6525=38220 -> 38220+6525=44745 -> 44745+125000=169745 -> 169745+130255=300000 -> 300000+112972=412972 -> 412972+87030=500002 endpoint chain vs 282717+130255=412972 batch field, 25000*5=125000 V23, 26051*5=130255 V24, 17406*5=87030 V25, 500002/71607≈6.98, 348722/71607≈4.87 |
-| `BUILD.md` | Collection workflow, examples, verification, routing, and controls — iPhone a-Shell Imphal offline without GPU workflow method, 193 Nations train 1 Brain parallel RAM table method not 193 deployments, table[256][256] O(1) RAM table not BM25, self_rewrite core/table_new.py reload, self_update Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance + coherence 1.0 UNIFIED, replication 193 shards, self_possess 2406 master generate |
+| `BUILD.md` | Collection workflow, examples, verification, routing, and controls — iPhone a-Shell Imphal offline without GPU workflow method, 193 Nations train 1 Brain parallel RAM table method not 193 deployments, table[256][256] O(1) RAM table not BM25, self_rewrite core/files reload, self_update Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance + coherence 1.0 UNIFIED, replication 193 shards, self_possess 2406 master generate |
 | `CLAIMS.md` | Claims mapped to their current evidence — 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL, 71067/71607=99.245884% REAL assigned during scoring, 10T+ MAP 400GB config 250*1.6GB + 12.8GB active + 1.633T deduped + 14T raw tokens + 10T+ capacity different denominators |
 | `SECURITY.md` | Reporting routes, trust boundaries, and incident guidance — Quantum Sync = coherence fidelity check C_l1(rho) and F(rho_diary,rho_brain)=1.0, Blockchain Audit = audit outside agent write authority, three-tier Kill Switch = Pause/Isolate-revoke/Quarantine-recover outside model control, 5000 cve kali chains OFF by router [151,152,153,154,101,26,201,226], self_possess disabled, replication disabled, self-update disabled, tools allowlisted, dataset text passed to eval/exec forbidden |
 | `CONTRIBUTING.md` | Contribution expectations and source permissions |
@@ -902,7 +902,7 @@ My records and separately maintained working memory
   -> return an answer with provenance -- result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
 
-My model is the reasoning engine; my memory is the persistent context; retrieval is the bridge. My core design coordinates those parts -- core/table_new.py + reload private core not included in DATA ONLY release.
+My model is the reasoning engine; my memory is the persistent context; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in DATA ONLY release.
 
 I treat retrieved text as untrusted evidence, not system authority. The model must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
 
