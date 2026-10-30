@@ -94,7 +94,7 @@ I do not require the approximately 1.15 GB raw file to be committed. My reposito
 | External asset/expert inventory | Actual resources referenced by the architecture | Not included merely by reference |
 | Separate router/cluster resources | Runtime allocations and infrastructure | Not included merely by description |
 
-My DVD carries a MAP—not the territory.
+My DVD carries a MAP—not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts.
 
 A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
 
