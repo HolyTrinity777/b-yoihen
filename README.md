@@ -72,33 +72,59 @@ I am releasing DATA ONLY.
 
 My tracked dataset artifact is:
 
-```text
+```
 b.yoihen.gz
 ```
 
 Decoding it produces the local raw representation:
 
-```text
+```
 b.yoihen
 ```
 
-I do not require the approximately 1.15 GB raw file to be committed. My repository also contains documentation, reports, examples, and tooling; “one tracked dataset archive” does not mean “one repository file.”
+My V25 archive at a glance:
+
+| Measurement | My verified archive result |
+| --- | --- |
+| Total physical lines | `500,002` |
+| Four-nonempty-field records | `348,722` = `vision_ref|DOM|action|reasoning` |
+| No-pipe hit lines | `151,280` |
+| Invalid records under my verifier's checks | `0` |
+| UTF-8 errors | `0` |
+| Compressed bytes | `19,785,162` = 19.785162 MB decimal — my display: 19.78 MB |
+| Uncompressed bytes | `1,147,108,255` = 1.147108255 GB decimal — approximately 1.15 GB |
+| Gzip SHA-256 | Computed from committed bytes, verified by CI |
+
+```
+Compressed:   19.785162 MB decimal — my display: 19.78 MB
+Uncompressed: 1.147108255 GB decimal — approximately 1.15 GB
+```
+
+I do not require the approximately 1.15 GB raw file to be committed. My repository also contains documentation, reports, examples, and tooling; "one tracked dataset archive" does not mean "one repository file."
 
 ### What is public, and what is separate
 
 | Component | Role in my architecture | Included in this DATA ONLY release? |
 | --- | --- | --- |
-| `.yoihen` representation | Stored records, hit lines, context, and MAP descriptions | Yes, through the compressed archive |
-| Compatible GGUF model | The model brain used by an execution environment | No model weights are bundled here |
-| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation | Not included |
-| External asset/expert inventory | Actual resources referenced by the architecture | Not included merely by reference |
-| Separate router/cluster resources | Runtime allocations and infrastructure | Not included merely by description |
+| `.yoihen` representation | Stored records, hit lines, context, and MAP descriptions — 500,002 lines = 348,722 four-field + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, `table[256][256] topic->[expert_ids]` O(1) RAM lookup reference, 193 shards 90.19 per_shard, `71067 REAL /71607=99.24%` | Yes, through the compressed archive |
+| Compatible GGUF model | The model brain used by an execution environment — 12.8GB active 49B 3.125% from 400GB config 250*1.6GB, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target | No model weights are bundled here |
+| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation — `core/table_new.py` + reload, `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` loop with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` | Not included |
+| External asset/expert inventory | Actual resources referenced by the architecture — 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
+| Separate router/cluster resources | Runtime allocations and infrastructure — 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, `DMI+3_layers+world_model` | Not included merely by description |
 
-My DVD carries a MAP—not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts.
+My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts.
 
-A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
+A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism. Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + `self_rewrite core/table_new.py reload` + `open(b.yoihen,'a')` 87030 lines per generation are text records, not executed actions during ingestion.
 
-I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field `vision_ref`. Payload absence needs its own release-specific measurement.
+I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field `vision_ref`. Payload absence needs its own release-specific measurement. `vision_ref|DOM|action|reasoning` split — first three pipes are structural separators, additional pipes belong to reasoning, no-pipe lines are hit lines 151,280 — DOM can contain arbitrary text, vision_ref can be any path. `coherence 1.0 UNIFIED` is a lineage marker, not a synchronization protocol. `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not authentication.
+
+My recorded content includes:
+
+```
+11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
+```
+
+Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_possess = master generate — three separate loops, not one.
 
 ## 3. My five-run evidence history
 
