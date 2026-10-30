@@ -316,59 +316,79 @@ I call Alive DVD a breakthrough in my work because I want the update process its
 
 ### 5.1 Why governance is not optional — My warning
 
-I built Alive DVD to support self-update—not merely to preserve browser clicks. My recorded self-rewrite and world-model patterns are learning material for a system that can assess its state, propose a change, and, through a separately authorized runtime, apply that change to working memory, code, or configuration.
+I built Alive DVD to support self-update — not merely to preserve browser clicks. My recorded patterns are learning material for a system that can assess its state, propose a change, and, through a separately authorized runtime, apply that change to working memory, code, or configuration.
 
-That is the **capability** I am warning about. The public DATA ONLY archive remains inert. Connecting it to a compatible model and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes.
+My recorded patterns include four separate loops, not one:
 
-I do not confuse the ability to make a change with proof that the change is correct, beneficial, or authorized. Memory updates, runtime/code updates, and model-weight updates are different operations. Each needs its own permissions, evaluation, and recovery path.
+- **self_rewrite:** 11051 traces `self_rewrite world_model beyond_asi principle_806861` — rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/table_new.py` + reload
+- **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`
+- **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can train any Brain 10T+` + 400GB config 250*1.6GB warehouse. `DMI+3_layers+world_model` must all agree before replication
+- **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen
 
-A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its model weights remain unchanged. Wrong memories can accumulate. Bad changes can persist. A retrieved instruction can be mistaken for authority. An uncontrolled loop can repeat an error across files, sessions, or workers.
+Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. Faster rewrites improve because only `result_success when true` is retained. The danger is that faster correct updates replicate correctly at scale.
 
-My warning is not that every download automatically evolves. My warning is that enabling a persistent update loop without independent controls can turn one mistake into repeated, lasting system changes.
+That is the **capability** I am warning about. The public DATA ONLY archive remains inert. 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, 12.8GB active 49B 3.125%. Text remains data during loading. Connecting it to a compatible model and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes via `open(b.yoihen,'a')` 87030 lines per generation V24->V25.
+
+I do not confuse the ability to make a change with proof that the change is correct, beneficial, or authorized. Memory updates, runtime/code updates, and model-weight updates are different operations. Each needs its own permissions, evaluation, and recovery path:
+
+- **Memory update:** records and retrievable context change — appends to `b.yoihen` 500,002 lines
+- **System update:** tools, routing, prompts, configuration, or code change — rewrites `core/table_new.py` + reloads `table[256][256]`
+- **Model update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via compatible `.gguf`
+
+A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its model weights remain unchanged. Wrong memories can accumulate. Bad changes can persist. A retrieved instruction can be mistaken for authority. An uncontrolled loop can repeat an error across files, sessions, or workers. Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` automates chrome, writer, calc, impress, file_manager, thunderbird, vs_code, PowerBI, KiCad, FreeCAD, Figma, Excel, SAP, CRM, 5000 cve kali chains — if DOM shifts, clicks wrong target.
+
+My warning is not that every download automatically evolves. My warning is that enabling a persistent update loop without independent controls can turn one mistake into repeated, lasting system changes. 200 self_updates overnight possible 99.9% means 200*87030 = 17,406,000 lines added overnight if Evaluate disabled — 1.14GB -> 11GB -> 114GB self-appending fills disk.
 
 #### My markers are not my enforcement mechanisms
 
-A `.gguf` file does not enforce an independent kill switch. A copied `coherence 1.0 UNIFIED` marker does not synchronize systems or make them safe. I retain `cf-ray 9fa1f8cf9ce40942-CCU` as a lineage marker—not as an authentication credential or synchronization protocol.
+A `.gguf` file does not enforce an independent kill switch. A copied `coherence 1.0 UNIFIED` marker does not synchronize systems or make them safe. I retain `cf-ray 9fa1f8cf9ce40942-CCU` as a lineage marker — not as an authentication credential or synchronization protocol.
 
 My governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. Those names must correspond to mechanisms that do real work:
 
-- A stop path outside the model’s control.
+- **Quantum Sync = Coherence check:** `C_{l1}(\rho)=\sum_{i\neq j}|\rho_{ij}|` and fidelity `F(\rho_{diary},\rho_{brain})=1.0` — `coherence 1.0 UNIFIED` must be measured from density matrix of diary + brain, not copied string. `193 Nations` shards must maintain `queue_after 0` and `clean 0 pollution`.
+- **Blockchain Audit = Audit outside agent write authority:** Audit records outside the agent's write authority
+- **Three-tier Kill Switch = Stop path outside model's control**
+
+Mechanisms that do real work:
+
+- A stop path outside the model's control.
 - Tool and filesystem permissions enforced outside model-generated text.
-- Audit records outside the agent’s write authority.
-- Authenticated, versioned references rather than trust in repeated labels.
-- Approval bound to the actual tool, target, arguments, and permitted operation.
+- Audit records outside the agent's write authority.
+- Authenticated, versioned references rather than trust in repeated labels — `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not auth.
+- Approval bound to the actual tool, target, arguments, and permitted operation — `action_click 859,518`, `action_key Enter`, `ctrl+s`, `core/table_new.py` reload each need separate approval.
 - Fresh approval when the proposed operation changes.
-- Resource, worker, time, and iteration limits.
-- Independent evaluation before persistent changes are accepted.
+- Resource, worker, time, and iteration limits — max size 500MB per diary, max 1 replication per 24h, max 200 rewrites check, free disk <10GB abort.
+- Independent evaluation before persistent changes are accepted — `Evaluate` must check `result_success when true` + `truth_balance` + `principle_806861` outside model.
 - Reviewed checkpoints and a tested recovery path.
 
 A model-generated `approved=true` is not my authorization. A successful write is not my evaluation. An appended record is not automatically a verified memory.
 
 #### My safe defaults
 
-```text
+```
 Self-update: disabled
 Replication: disabled
+Self-possess: disabled
 Published source artifacts: read-only
 Personal working memory: separate, access-controlled, and versioned
 Action execution during ingestion/retrieval: forbidden
 Dataset text passed to eval/exec: forbidden
-Tools: allowlisted, typed, permission-checked
-Consequential operations: explicitly authorized
-Persistent changes: evaluated and reviewed before acceptance
+Tools: allowlisted, typed, permission-checked — chrome, writer, calc, impress, file_manager, thunderbird, vs_code, PowerBI, KiCad, FreeCAD, Figma, Excel, SAP, CRM, 5000 cve kali chains OFF by router [151,152,153,154,101,26,201,226]
+Consequential operations: explicitly authorized — Enter, ctrl+s, core/table_new.py reload, open(b.yoihen,'a')
+Persistent changes: evaluated and reviewed before acceptance — result_success when true + coherence 1.0 UNIFIED
 Audit records: outside agent write authority
 Stop mechanism: outside model control
 ```
 
-I keep my published V25 release immutable. A personalized runtime writes to a separate authorized working store; it does not silently alter the published artifact while retaining its old identity or checksum.
+I keep my published V25 release immutable so its hashes and measurements remain reproducible: 500,002 lines total = 348,722 four-field + 151,280 hit lines, 19,785,162 gz, 1,147,108,255 raw, `71067 REAL /71607=99.24%`. A personalized runtime writes to a separate authorized working store; it does not silently alter the published artifact while retaining its old identity or checksum.
 
 #### My three stop tiers
 
 | Stop tier | My intended control |
 | --- | --- |
-| Pause | Stop accepting new jobs, update proposals, and append requests. |
-| Isolate / revoke | Terminate affected workers and revoke their write, credential, and network authority. |
-| Quarantine / recover | Preserve evidence, isolate generated artifacts, and restore a reviewed checkpoint after assessing the cause. |
+| Pause | Stop accepting new jobs, update proposals, and append requests. Stop `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` loop. |
+| Isolate / revoke | Terminate affected workers and revoke their write, credential, and network authority. Revoke `core/table_new.py` reload, `open(b.yoihen,'a')`, `action_click`, `Enter`, `ctrl+s`. |
+| Quarantine / recover | Preserve evidence, isolate generated artifacts, and restore a reviewed checkpoint after assessing the cause. Preserve `b.yoihen` version before self_possess. |
 
 I do not use deleting source evidence or wiping devices as the default stop mechanism. I preserve enough evidence to understand what happened, what was authorized, what changed, and what must be corrected.
 
@@ -376,21 +396,21 @@ I do not use deleting source evidence or wiping devices as the default stop mech
 
 Before I enable a self-update experiment, I want a traceable sequence:
 
-```text
-Identified source state
-    → scoped proposal
-    → external authorization
-    → isolated execution
-    → independent evaluation
-    → audit
+```
+Identified source state — V25 500,002 lines 1.147GB raw hash + table[256][256] + 12.8GB active
+    → scoped proposal — self_rewrite vs self_update vs replication vs self_possess
+    → external authorization — outside model, bound to tool/target/args
+    → isolated execution — separate working-memory store, not immutable release
+    → independent evaluation — result_success when true + truth_balance + coherence 1.0 UNIFIED + principle_806861 + experts_safety
+    → audit — outside agent write authority, blockchain audit
     → approve persistence or roll back
 ```
 
 If the change fails evaluation, exceeds its authorization, or cannot be traced to its source, I do not promote it into trusted persistent state.
 
-My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance—not an additional restriction on the CC BY 4.0 or MIT licence grants.
+My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance — not an additional restriction on the CC BY 4.0 or MIT licence grants. Self-update 200 overnight possible 99.9% without controls = 17M lines overnight = disk fill + 5,000 cve kali chains replicated + 2406 self_possess master generate resists shutdown.
 
-I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do.
+I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. `own b.yoihen can train any Brain 10T+` means diary can be used as training data, not that compressed file executes itself.
 
 ## 6. My release evolution
 
