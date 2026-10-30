@@ -4,19 +4,26 @@
 
 My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
-**My project positioning is:
-I built  b.yoihen —my Alive DVD: a 500,002-line memory/MAP representation.
-Ollama + an unchanged checkpoint = frozen model weights.
- b.yoihen  + a compatible  .gguf  brain +  llama.cpp  = a setup designed to retain experience and grow its offline memory.
-The  .gguf  supplies the brain.  b.yoihen  carries the memory. My core governs the update loop.
-Day 1 ≠ Day 100.
-Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience—not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.**
+### My project positioning is:
 
-My project concept is Alive DVD: a replaceable model brain, persistent local memory, and a governed path from experience to the next useful decision.
+I built **b.yoihen** — my Alive DVD: a 500,002-line container format for recorded computer-use traces — `348,722` four-field `vision_ref|DOM|action|reasoning` + `151,280` hit lines, `1,147,108,255` raw / `19,785,162` gz, `table[256][256] topic->[expert_ids]` O(1) RAM lookup reference, 193 shards 90.19 per_shard.
+
+- Ollama + an unchanged checkpoint = frozen model weights.
+- **b.yoihen + a compatible .gguf brain + llama.cpp = a setup designed to retain experience and grow its offline memory.**
+- The `.gguf` supplies the brain. `b.yoihen` carries the memory. My private core governs the update loop.
+- Day 1 ≠ Day 100 means diary appends via `open(b.yoihen,'a')` 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with `result_success when true` check.
+
+**Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience — not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.**
+
+My project concept is Alive DVD: a replaceable model brain, persistent local memory, and a governed path from experience to the next useful decision — `Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back`.
 
 Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
-I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation. A compatible `.gguf` can supply the model brain. My private core is the separate player, resolver, orchestrator, and control layer in my architecture. My public release contains DATA ONLY—not that complete runtime.
+I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation — 500,002 lines 1.147GB raw / 19.78MB gz, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference, `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM` collection description. A compatible `.gguf` can supply the model brain — Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target. My private core is the separate player, resolver, orchestrator, and control layer — `core/table_new.py` + reload, `table[256][256]` O(1) lookup, `experts_safety [151,152,153,154,101,26,201,226]`. My public release contains **DATA ONLY** — not that complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+
+```
+My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights. A line mentioning a warehouse does not contain that warehouse.
+```
 
 ---
 
@@ -24,33 +31,33 @@ I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation. A 
 
 | What I want you to inspect | Where to go |
 | --- | --- |
-| The actual archive and its verified counts | [Section 9](#9-verify-my-actual-release) |
-| Why I call the design Alive DVD | [Section 5](#5-why-i-call-it-alive-dvd) |
-| The resource layers behind my 10T+ MAP claim | [Section 4](#4-my-10t-map-architecture) |
-| A small read-only inspection example | [Section 10](#10-how-i-use-the-memory) |
-| Collection, provenance, and limitations | [DATASET_CARD.md](DATASET_CARD.md) |
-| Claim-to-evidence mapping | [docs/CLAIMS.md](docs/CLAIMS.md) |
-| Public licence scope | [NOTICE.md](NOTICE.md) |
+| The actual archive and its verified counts | Section 9 |
+| Why I call the design Alive DVD | Section 5 |
+| The resource layers behind my 10T+ MAP claim | Section 4 — 400GB config 250*1.6GB, 12.8GB active 49B 3.125%, 1.633T deduped, 14T raw tokens, 10T+ MAP |
+| A small read-only inspection example | Section 10 |
+| Collection, provenance, and limitations | DATASET_CARD.md |
+| Claim-to-evidence mapping | docs/CLAIMS.md |
+| Public licence scope | NOTICE.md |
 
 ### My V25 archive at a glance
 
 | Measurement | My verified archive result |
-| --- | ---: |
+| --- | --- |
 | Total physical lines | `500,002` |
-| Four-nonempty-field records | `348,722` |
+| Four-nonempty-field records | `348,722` = `vision_ref\|DOM\|action\|reasoning` |
 | No-pipe hit lines | `151,280` |
 | Invalid records under my verifier's checks | `0` |
 | UTF-8 errors | `0` |
 | Compressed bytes | `19,785,162` |
 | Uncompressed bytes | `1,147,108,255` |
 
-```text
+```
 Compressed:   19.785162 MB decimal — my display: 19.78 MB
 Uncompressed: 1.147108255 GB decimal — approximately 1.15 GB
 Gzip SHA-256: aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 ```
 
-My passing actual-dataset GitHub Actions job checks the committed archive's bytes, mixed-line counts, framing, and UTF-8. It does not establish capture attestation, payload removal, model quality, or autonomous evolution. Those are different claims with different evidence requirements.
+My passing actual-dataset GitHub Actions job checks the committed archive's bytes, mixed-line counts, framing, and UTF-8. It does not establish capture attestation, payload removal, model quality, or autonomous evolution. Those are different claims with different evidence requirements. `reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 coherence 1.0 UNIFIED result_success when true` is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate with truth_balance, replication = 193 shards parallel, self_possess = master generate — three separate loops.
 
 ## 1. Why I built this
 
