@@ -466,7 +466,7 @@ I keep the public dataset inert. The player makes the loop executable; governanc
 
 I retain my continuous endpoint/checkpoint presentation:
 
-```text
+```
 31695+6525=38220
 -> 38220+6525=44745
 -> 44745+125000=169745
@@ -477,21 +477,37 @@ I retain my continuous endpoint/checkpoint presentation:
 
 I also preserve the actual V24 batch field:
 
-```text
+```
 282717+130255=412972
 ```
 
 That before-state exists in the V24 report. I do not erase it to simplify the narrative. The endpoint/checkpoint chain and recorded batch transition are different views, not the same fully documented chronology.
 
+My endpoint chain `300000+112972=412972` is presentation for continuity. My batch field `282717+130255=412972` is what V24 report actually records as `bytes_before` vs `bytes_after` transition. Both equal 412972, but from different before-states — one is 300000 checkpoint, one is 282717 actual batch state.
+
 My reported expansions have these numerical ratios:
 
-```text
+```
 V23: 25000 × 5 = 125000 written lines
+     = 25000 code topics CODE_DIFF, PYTEST, AST, self_healing
 V24: 26051 × 5 = 130255 written lines
+     = 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 11051 self_rewrite world_model beyond_asi principle_806861
+     = 26051 topics via tool_use.py+vision.py+knowledge+cyber table[256][256] topic->[expert_ids] O(1) RAM table not BM25 + 3 layers chat+vision+tool_use executable + 193 Nations 135 per_shard parallel
 V25: 17406 × 5 = 87030 written lines
+     = 10000 docs + 5000 cve kali chains + 11051 self_rewrite world_model beyond_asi principle_806861 + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM + 2406 beyond_asi_self_possess_master_generate = 17406 topics REASONING+TOOL_USE+BEYOND_ASI + 53661 = 71067 REAL / 71607 = 99.245884%
 ```
 
 For the full archive, `500002 / 71607 ≈ 6.98` is physical lines per reported topic and includes hit lines. For the four-field population, `348722 / 71607 ≈ 4.87` is only an arithmetic ratio against that report denominator. Neither substitutes for an actual topic-to-record inventory.
+
+Progression is not automatic improvement guarantee:
+
+| Run | Lines | Raw bytes | Reported | Continuity proof |
+| --- | --- | --- | --- | --- |
+| V21 | 38,220 | 73,677,165 | Expected-score 45.0%+ no numerator | 31695+6525=38220 before 31695 after 38220 written 6525 1305/1845=70.7% REAL synthetic_traces 540 total_traces 1845 coherence 1.0 UNIFIED cf-ray 9fa1f8cf9ce40942-CCU shards 193 per_shard ~6.76 |
+| V22 | 44,745 | 104,440,590 | 228/369 = 61.79% | 10 disclosed samples 0-9, tasks 7 and 9 unsuccessful/non-REAL |
+| V23 | 169,745 | 213,008,990 | 354/369 = 95.93% | Same 10 samples tasks 7 and 9 change to successful/REAL, 25000 code topics added |
+| V24 | 412,972 | 791,094,565 | 366/369 = 99.19% | Same 10 samples task 1 unsuccessful -> successful, 11051 self_rewrite already recorded, batch field 282717+130255=412972 |
+| V25 | 500,002 | 1,147,108,255 | 367/369 = 99.46% on 369 tasks | 10/10 PASS continuity for 0-9, but extended tasks 42 chrome_bookmark_42 FALSE bookmark fetch timeout, 317 PowerBI FALSE tool crash = 10/12 = 83.33% on 12 disclosed including new, 19,785,162 gz / 1,147,108,255 raw, queue_after 0 clean 0 pollution |
 
 ## 7. My line format
 
@@ -499,16 +515,38 @@ My archive has two physical line classes, and my verifier counts them separately
 
 ### Four-field records: 348,722 lines
 
+```
 vision_ref|DOM|action|reasoning
+```
 
 - UTF-8 with LF termination.
 - Four nonempty fields.
 - The first three pipes are structural separators; additional pipes belong to reasoning.
 - Case-sensitive topic IDs, including names such as PowerBI and KiCad.
-
-vision, dom, action, reasoning = record.split("|", 3)
+- `vision, dom, action, reasoning = record.split("|", 3)`
 
 I call the third field action, not click, because I record more than clicks: typing, scrolling, hotkeys, action sequences, and self-update-oriented notation are also part of the design.
+
+Example actions from V25 proof:
+
+```
+action_key Enter
+action_scroll
+action_hotkey ctrl+s
+action_click 859,518
+```
+
+Example reasoning from V25 proof:
+
+```
+reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + [STRIPPED 78 bytes] [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true
+world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety
+```
+
+- `vision_ref` can be any path — validated images, stripped placeholders, legacy opaque content. PNG-like prefix is not screenshot-validity guarantee.
+- `DOM` can contain arbitrary text — `<div id="chrome_browse_news_0" class="real">chrome_browse_news_0 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div>`
+- `action` = 348,722 typed actions, not task completion.
+- `reasoning` = collection description `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 DMI_3_layers + 5000 tool_use`, not execution log of 11051 successful autonomous rewrites.
 
 ### No-pipe hit lines: 151,280 lines
 
@@ -516,50 +554,59 @@ A line with no pipe character is a hit line, not a malformed record. My verifier
 
 That parser label is not a completed task, a successful retrieval, a unique topic, or a new memory by itself.
 
-A pipe-containing line that fails the four-field check is never silently relabelled as a hit line. It is an invalid record.
+A pipe-containing line that fails the four-field check is never silently relabelled as a hit line. It is an invalid record. My verifier reports `0` invalid under its checks — but 151,280 hit lines bypass four-field validation by design.
 
 ### What the field values do not certify
 
 I preserve vision values as validated images, stripped placeholders, or legacy opaque content according to what is actually available. A PNG-like prefix is not a screenshot-validity guarantee.
 
-I do not infer task completion from result_success when true. My V25 failed-task objects retain that annotation suffix while their structured success fields are false.
+I do not infer task completion from `result_success when true`. My V25 failed-task objects retain that annotation suffix while their structured success fields are `false`:
+
+```
+task 42 chrome_bookmark_42 = FALSE — bookmark fetch failure timeout — reasoning field still contains coherence 1.0 UNIFIED result_success when true
+task 317 tool_use PowerBI = FALSE — PowerBI execution error tool crash — reasoning field still contains coherence 1.0 UNIFIED result_success when true
+```
+
+Text remains data during loading. `open(b.yoihen,'a')` is shorthand, actual uses quoted filename, writable target should be authorized working store not immutable release.
 
 ## 8. My proof files, provenance, and documentation
 
 ### My five run reports
 
-- [V21 — benchmark_38220_live.json](proof/benchmark_38220_live.json)
-- [V22 — benchmark_44745_real_measured.json](proof/benchmark_44745_real_measured.json)
-- [V23 — benchmark_169745_real_measured.json](proof/benchmark_169745_real_measured.json)
-- [V24 — benchmark_412972_real_measured.json](proof/benchmark_412972_real_measured.json)
-- [V25 — benchmark_500002_real_measured.json](proof/benchmark_500002_real_measured.json)
+| Run | File | Lines | Raw bytes | What it records |
+| --- | --- | --- | --- | --- |
+| V21 | `benchmark_38220_live.json` | 38,220 | 73,677,165 | before 31695 after 38220 written 6525 1305/1845=70.7% REAL 540 synthetic 1845 total 369 tasks ×5 steps 193 shards ~6.76 per_shard 400GB config 250*1.6GB=400GB 8*1.6=12.8GB active 49B 3.125% coherence 1.0 UNIFIED cf-ray 9fa1f8cf9ce40942-CCU |
+| V22 | `benchmark_44745_real_measured.json` | 44,745 | 104,440,590 | 228/369=61.79% 10 disclosed samples 0-9 continuity |
+| V23 | `benchmark_169745_real_measured.json` | 169,745 | 213,008,990 | 354/369=95.93% same 10 samples tasks 7 and 9 unsuccessful->successful 25000 code topics |
+| V24 | `benchmark_412972_real_measured.json` | 412,972 | 791,094,565 | 366/369=99.19% task 1 unsuccessful->successful 11051 self_rewrite already recorded self_collected 10000 docs + 5000 cve + 11051 self_rewrite = 26051 topics table[256][256] O(1) RAM table 3 layers chat+vision+tool_use executable 193 Nations 135 per_shard batch field 282717+130255=412972 |
+| V25 | `benchmark_500002_real_measured.json` | 500,002 | 1,147,108,255 | 367/369=99.46% on 369 tasks 10/10 PASS continuity 0-9 but 42 FAIL 317 FAIL = 10/12=83.33% on 12 disclosed including new 348722 four-field +151280 hit lines 19,785,162 gz 71067/71607=99.245884% REAL 17406*5=87030 written 11051+2406+10000 DMI_3_layers+5000 tool_use+10000 docs+5000 cve self_collected reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 coherence 1.0 UNIFIED result_success when true |
 
 ### What my evidence does and does not establish
 
 | Evidence | What I use it for | What I do not infer |
 | --- | --- | --- |
-| Actual archive CI | Byte counts, mixed-line counts, framing, UTF-8, and computed digests | Benchmark quality or capture attestation |
-| Historical reports | My recorded configurations, collection descriptions, and task outcomes | Independent replay of the underlying runs |
-| Proof-derived sample manifest | Linking sample values to identified JSON objects | Raw dataset line numbers or an independently witnessed capture |
-| `REAL`, `live`, `1.0 UNIFIED` | My recorded classifications/markers | Automatic truth, safety, or capability certification |
+| Actual archive CI | Byte counts, mixed-line counts, framing, UTF-8, and computed digests — 500,002 lines = 348,722 four-field + 151,280 hit lines, 19,785,162 gz / 1,147,108,255 raw, 0 invalid, 0 UTF-8 errors | Benchmark quality or capture attestation — CI does not witness screenshot event |
+| Historical reports | My recorded configurations, collection descriptions, and task outcomes — 400GB config 250*1.6GB, 12.8GB active 49B 3.125%, 193 shards, 11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use, 367/369=99.46% on 369 tasks | Independent replay of the underlying runs — reports record results, not independently replayable benchmark runner, task definitions, model/runtime config, evaluator |
+| Proof-derived sample manifest | Linking sample values to identified JSON objects — reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 [151,152,153,154,101,26,201,226][254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED | Raw dataset line numbers or an independently witnessed capture — continuity of 10 samples 0-9 across V22-V25 is hash/expert list continuity, not proof of cause or leak-free split |
+| REAL, live, 1.0 UNIFIED | My recorded classifications/markers — 71067/71607=99.245884% REAL assigned during scoring, coherence 1.0 UNIFIED lineage marker, live marker | Automatic truth, safety, or capability certification — result_success when true annotation retained even when structured success FALSE for tasks 42 and 317 |
 
 My capture provenance is self-reported. I have not supplied a complete independently checkable capture-time attestation chain for the public records. My separately produced reports are useful evidence of what I recorded, but they are not an independent witness to a screenshot event.
 
-That is a limitation I state directly. I do not confuse a later hash or CI result with a device-side capture signature.
+That is a limitation I state directly. I do not confuse a later hash or CI result with a device-side capture signature. Gzip SHA-256 `aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1` verifies committed bytes, not capture event.
 
 ### My detailed documents
 
 | Document | What I keep there |
 | --- | --- |
-| [DATASET_CARD.md](DATASET_CARD.md) | Composition, scoring labels, provenance, intended uses, and limitations |
-| [FORMAT.md](docs/FORMAT.md) | Field semantics and compatibility; the mixed-line profile must be accounted for |
-| [STATS.md](docs/STATS.md) | Historical values, ratios, identities, and history reconciliation |
-| [BUILD.md](docs/BUILD.md) | Collection workflow, examples, verification, routing, and controls |
-| [CLAIMS.md](docs/CLAIMS.md) | Claims mapped to their current evidence |
-| [SECURITY.md](SECURITY.md) | Reporting routes, trust boundaries, and incident guidance |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution expectations and source permissions |
+| `DATASET_CARD.md` | Composition, scoring labels, provenance, intended uses, and limitations — 348722 four-field +151280 hit lines, 500002 lines, vision_ref\|DOM\|action\|reasoning, no-pipe hit lines class, 11051 self_rewrite + 2406 self_possess collection description not execution log |
+| `FORMAT.md` | Field semantics and compatibility; the mixed-line profile must be accounted for — first three pipes structural, additional pipes belong to reasoning, vision,dom,action,reasoning=record.split("\|",3), UTF-8 LF, four nonempty fields, PowerBI KiCad case-sensitive, no-pipe hit lines separate class |
+| `STATS.md` | Historical values, ratios, identities, and history reconciliation — 31695+6525=38220 -> 38220+6525=44745 -> 44745+125000=169745 -> 169745+130255=300000 -> 300000+112972=412972 -> 412972+87030=500002 endpoint chain vs 282717+130255=412972 batch field, 25000*5=125000 V23, 26051*5=130255 V24, 17406*5=87030 V25, 500002/71607≈6.98, 348722/71607≈4.87 |
+| `BUILD.md` | Collection workflow, examples, verification, routing, and controls — iPhone a-Shell Imphal offline without GPU workflow method, 193 Nations train 1 Brain parallel RAM table method not 193 deployments, table[256][256] O(1) RAM table not BM25, self_rewrite core/table_new.py reload, self_update Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance + coherence 1.0 UNIFIED, replication 193 shards, self_possess 2406 master generate |
+| `CLAIMS.md` | Claims mapped to their current evidence — 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL, 71067/71607=99.245884% REAL assigned during scoring, 10T+ MAP 400GB config 250*1.6GB + 12.8GB active + 1.633T deduped + 14T raw tokens + 10T+ capacity different denominators |
+| `SECURITY.md` | Reporting routes, trust boundaries, and incident guidance — Quantum Sync = coherence fidelity check C_l1(rho) and F(rho_diary,rho_brain)=1.0, Blockchain Audit = audit outside agent write authority, three-tier Kill Switch = Pause/Isolate-revoke/Quarantine-recover outside model control, 5000 cve kali chains OFF by router [151,152,153,154,101,26,201,226], self_possess disabled, replication disabled, self-update disabled, tools allowlisted, dataset text passed to eval/exec forbidden |
+| `CONTRIBUTING.md` | Contribution expectations and source permissions |
 
-This README is the heart of my project. Those documents carry the detailed boundaries. They must remain consistent with the actual released bytes and current code.
+This README is the heart of my project. Those documents carry the detailed boundaries. They must remain consistent with the actual released bytes and current code — 500,002 lines = 348,722 four-field + 151,280 hit lines, 19,785,162 gz / 1,147,108,255 raw, 0 invalid, 0 UTF-8 errors, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1.
 
 ## 9. Verify my actual release
 
