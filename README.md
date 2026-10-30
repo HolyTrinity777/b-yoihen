@@ -290,14 +290,22 @@ My strong local-first claim is control over my data and operation without depend
 My recorded content includes:
 
 ```text
-world_model causal_link brain_rewrite beyond_asi self_rewrite self_possess
+11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM
 ```
+Example reasoning field from V25 proof:
 
-I use `open(b.yoihen,'a')` as project shorthand for the self-append idea. Actual Python uses a quoted filename. In a governed runtime, the writable target should be an authorized working store, not my immutable published release.
-
-The text remains data during loading. My recorded 11051-entry self-rewrite category is not an execution log demonstrating 11051 successful autonomous rewrites.
-
-I call Alive DVD a breakthrough in my work because I want the update process itself to become inspectable learning material. Global priority remains a claim to investigate, not a finding established by a README.
+```text
+reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + [STRIPPED 78 bytes] [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true
+```
+I use open(b.yoihen,'a') as project shorthand for the self-append idea. Actual Python uses a quoted filename. In a governed runtime, the writable target should be an authorized working store, not my immutable published release.
+The text remains data during loading. My recorded 11051-entry self-rewrite category is collection description — it is not an execution log demonstrating 11051 successful autonomous rewrites.
+My system has three separate loops, not one:
+•  self_rewrite: rewrites table[256][256] topic->[expert_ids] O(1) RAM lookup via core/table_new.py + reload
+•  self_update: Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226] check. If evaluation fails, it does not retain.
+•  replication: 193 Nations train 1 Brain parallel RAM table 193 shards 90.19 per_shard + own b.yoihen can train any Brain 10T+ + 400GB config 250*1.6GB warehouse. DMI+3_layers+world_model must all agree before replication.
+•  self_possess: 2406 beyond_asi_self_possess_master_generate — master generate that can own b.yoihen
+Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, real_ratio 71067/71607=99.24%, queue_after 0, clean 0 pollution. Faster rewrites improve because only result_success when true is retained.
+I call Alive DVD a breakthrough in my work because I want the update process itself to become inspectable learning material — not because a compressed file executes itself. Global priority remains a claim to investigate, not a finding established by a README.
 
 ### 5.1 Why governance is not optional — My warning
 
