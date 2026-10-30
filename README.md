@@ -102,19 +102,24 @@ I do not claim that the archive is image-free, capture-free, or sanitized simply
 
 ## 3. My five-run evidence history
 
-I keep my earlier reports because they show the progression of my work—not just the final V25 headline.
+I keep my earlier reports because they show the progression of my work — not just the final V25 headline.
 
 | Run | Lines recorded in my report | Raw bytes recorded in my report | Recorded result / status |
-| --- | ---: | ---: | --- |
-| V21 | `38,220` | `73,677,165` | Expected-score field `45.0%+`; no success numerator supplied |
-| V22 | `44,745` | `104,440,590` | `228/369` — approximately `61.79%` |
-| V23 | `169,745` | `213,008,990` | `354/369` — approximately `95.93%` |
-| V24 | `412,972` | `791,094,565` | `366/369` — approximately `99.19%` |
-| V25 | `500,002` | `1,147,108,255` | `367/369` — approximately `99.46%` |
+| --- | --- | --- | --- |
+| V21 | 38,220 | 73,677,165 | Expected-score field 45.0%+; no success numerator supplied |
+| V22 | 44,745 | 104,440,590 | 228/369 — approximately 61.79% |
+| V23 | 169,745 | 213,008,990 | 354/369 — approximately 95.93% |
+| V24 | 412,972 | 791,094,565 | 366/369 — approximately 99.19% |
+| V25 | 500,002 | 1,147,108,255 | 367/369 — approximately 99.46% |
 
 These reports record my results and configurations. They are not a substitute for publishing or independently replaying the benchmark runner, task definitions, model/runtime configuration, and evaluator.
 
-I distinguish uncompressed byte counts from gzip size. For V25, my archive is `19,785,162` compressed bytes, while its decoded representation is `1,147,108,255` bytes.
+On disclosed samples including extended tasks:
+- V22–V24 retain matching hashes and expert lists for ten disclosed sample IDs 0-9 — 10/10 PASS continuity V25
+- Extended tasks added in V25: 42 `chrome_bookmark_42` = FALSE bookmark fetch failure timeout, 317 `tool_use PowerBI` = FALSE PowerBI execution error tool crash
+- Overall disclosed 12 tasks = 10/12 = 83.33% PASS when including new tasks, not 99.46%. 367/369 = 99.46% is on 369 tasks in report denominator.
+
+I distinguish uncompressed byte counts from gzip size. For V25, my archive is `19,785,162` compressed bytes (19.785162 MB decimal — my display: 19.78 MB), while its decoded representation is `1,147,108,255` bytes (1.147108255 GB decimal — approximately 1.15 GB).
 
 ### What I recorded in V21
 
@@ -137,7 +142,7 @@ I distinguish uncompressed byte counts from gzip size. For V25, my archive is `1
 
 I preserve this configuration string exactly as recorded:
 
-```text
+```
 400GB config 250*1.6GB=400GB, 8*1.6=12.8GB active 49B 3.125%
 ```
 
@@ -145,19 +150,25 @@ The V21 report names a benchmark command and task file. I retain that context wi
 
 ### What I added beyond the early diary
 
-- V23: `25000` code topics with `CODE_DIFF`, `PYTEST`, `AST`, and `self_healing` in my collection summary.
-- V24: the `11051 self_rewrite world_model beyond_asi principle_806861` category was already recorded here.
-- V25: I retained that category and recorded expanded reasoning/tool-use content, `17406` additional REAL topics, and `87030` additional lines relative to the reported V24 endpoint.
+- V23: `25000` code topics with `CODE_DIFF`, `PYTEST`, `AST`, and `self_healing` in my collection summary. 25000 × 5 = 125000 written lines.
+- V24: the `11051 self_rewrite world_model beyond_asi principle_806861` category was already recorded here. 26051 × 5 = 130255 written lines. Self_collected: `10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 11051 self_rewrite world_model beyond_asi principle_806861` = 26051 topics via tool_use.py+vision.py+knowledge+cyber.
+- V25: I retained that category and recorded expanded reasoning/tool-use content, `17406` additional REAL topics, and `87030` additional lines relative to the reported V24 endpoint. 17406 × 5 = 87030 written lines. Self_collected: `10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 11051 self_rewrite world_model beyond_asi principle_806861 + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM + 2406 beyond_asi_self_possess_master_generate = 17406 topics REASONING+TOOL_USE+BEYOND_ASI + 53661 = 71067 REAL`. `282717+130255=412972` actual V24 batch field before-state exists in V24 report.
 
 These are collection descriptions, not a claim that the DATA ONLY archive is executing those operations. Categories can recur or overlap across versions; I do not treat every V25 summary entry as a newly collected, unique item.
 
-My V25 report labels `71067 / 71607` items REAL: approximately `99.245884%`, or `99.25%` rounded. I assign REAL during scoring, not as an independently attested capture-time fact.
+My V25 report labels `71067 / 71607` items REAL: approximately `99.245884%`, or `99.25%` rounded. I assign REAL during scoring, not as an independently attested capture-time fact. `500002 / 71607 ≈ 6.98` is physical lines per reported topic and includes hit lines. For the four-field population, `348722 / 71607 ≈ 4.87` is only an arithmetic ratio against that report denominator. Neither substitutes for an actual topic-to-record inventory.
 
 ### Continuity in the disclosed samples
 
 My V22–V24 reports retain matching hashes and expert lists for the ten disclosed sample IDs. Tasks 7 and 9 change from unsuccessful/non-REAL in V22 to successful/REAL in V23. Task 1 changes from unsuccessful in V23 to successful in V24.
 
-I treat that as continuity in my recorded evidence—not proof of the cause of improvement, independent execution, or a leak-free evaluation split.
+Example reasoning field retained across V22-V25:
+
+```
+reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + [STRIPPED 78 bytes] [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true
+```
+
+I treat that as continuity in my recorded evidence — not proof of the cause of improvement, independent execution, or a leak-free evaluation split.
 
 Historical `real_count` fields also have different meanings or populations across versions. I do not mistake V23's `361` or V24's `366` root values for their topic numerators.
 
@@ -170,21 +181,21 @@ I do not conflate bytes, tokens, parameters, and MAP capacity. I separate the le
 | Configured storage | V21 records `250 × 1.6 GB = 400 GB` |
 | Configured active allocations | V21 records `8 × 1.6 GB = 12.8 GB` |
 | Raw token layer | My intended interpretation of the later `14T warehouse` wording is `14T` raw tokens |
-| Deduplicated expert-parameter layer | My architectural definition is approximately `1.633T` parameters; this requires an actual expert inventory |
-| Total knowledge MAP | My `10T+` capacity claim; its unit and inventory must be explicitly defined |
+| Deduplicated expert-parameter layer | My architectural definition is approximately `1.633T` parameters; this requires an actual expert inventory — `49B / 1.633T ≈ 3.0006%` |
+| Total knowledge MAP | My `10T+` capacity claim; its unit and inventory must be explicitly defined — `49B / 10T = 0.49% numerically`, `300B / 10T = 3% numerically`, `10T / 193 ≈ 51.813B per shard` |
 
-My broader warehouse description also discusses screenshot/assets. I do not use a repeated 400 GB label as proof that the expert-storage budget and the asset warehouse are the same inventory.
+My broader warehouse description also discusses screenshot/assets. I do not use a repeated 400 GB label as proof that the expert-storage budget and the asset warehouse are the same inventory. A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert.
 
-My public representation can carry references and plans for larger resources without bundling those resources. To resolve my private inventory, I need the actual asset/expert manifests, stable identifiers, digests, bindings, and resolver logic—not just narrative labels.
+My public representation can carry references and plans for larger resources without bundling those resources. To resolve my private inventory, I need the actual asset/expert manifests, stable identifiers, digests, bindings, and resolver logic — not just narrative labels.
 
 Those private implementation details are separate from the public data format. I do not claim that keeping them private makes independent compatible engineering impossible or restricts the public CC BY/MIT rights.
 
 ### My sparse-routing denominators
 
-Eight active experts per routed token is my intended routing design. My V21 text records eight active allocations and a 250-allocation storage budget. I distinguish that budget from a 256-position routing denominator.
+Eight active experts per routed token is my intended routing design. My V21 text records eight active allocations and a 250-allocation storage budget. I distinguish that budget from a 256-position routing denominator. Router structure verified `256x256 ~1MB static` `table[256][256] topic->[expert_ids]` O(1) RAM table not BM25.
 
 | Fraction | Result | Meaning |
-| --- | ---: | --- |
+| --- | --- | --- |
 | `8 / 256` | `3.125%` | Routing-position fraction in my intended design |
 | `8 / 250` | `3.2%` | Fraction of the configured 250 expert allocations |
 | `49B / 1.633T` | Approximately `3.0006%` | Parameter-to-parameter comparison |
@@ -198,7 +209,7 @@ At a MAP capacity above 10T, a fixed numerator represents a smaller percentage. 
 
 ### My quantization targets
 
-```text
+```
 49B Q4_K_M: approximately 24.5 GB — target, not a measured artifact here
 49B Q2_K:   approximately 12.8 GB — target, not a measured artifact here
 ```
@@ -213,25 +224,25 @@ My described layout budgets ten 40 GB allocations for a 400 GB expert inventory 
 
 The separate 512 GB router figure is not additional memory that fits inside that eleventh 40 GB allocation. If it means a resident 512 GB table, I need additional memory or a separately specified sharding/offload design. If it means an address space or stored resource, I must say that explicitly.
 
-I do not present an unresolved allocation label as a measured bill of materials. My implementation manifest must identify storage versus RAM, residency versus backing storage, and physical versus logical resources.
+I do not present an unresolved allocation label as a measured bill of materials. My implementation manifest must identify storage versus RAM, residency versus backing storage, and physical versus logical resources. Active 12.8GB 49B = 3.125% from 400GB config 250*1.6GB is target, not measured bill of materials here.
 
 ### My 193-shard design
 
 I recorded:
 
-```text
+```
 193 Nations train 1 Brain parallel RAM table
 ```
 
-That is my recorded method and shard-allocation architecture—not proof of 193 physical national deployments or 193 complete model shards inside this archive.
+That is my recorded method and shard-allocation architecture — not proof of 193 physical national deployments or 193 complete model shards inside this archive. My V21 reports `per_shard 1305/193=~6.76`, V25 reports `90.19 per_shard` average — average hides skew, some shards overloaded.
 
 At the 10T baseline:
 
-```text
+```
 10T / 193 ≈ 51.813B per shard in the chosen workload unit
 ```
 
-An allocation calculation does not establish training throughput or memory fit. My binder concept includes version consistency, manifest resolution, and coordination. Its name does not substitute for a tested distributed implementation.
+An allocation calculation does not establish training throughput or memory fit. My binder concept includes version consistency, manifest resolution, and coordination. Its name does not substitute for a tested distributed implementation. `table[256][256]=65536` buckets for `71607` tasks must collide — two unrelated topics can hash to same expert_ids.
 
 ## 5. Why I call it Alive DVD
 
