@@ -15,6 +15,8 @@ I built **b.yoihen** — my Alive DVD: a 500,002-line container format for recor
 
 **Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience — not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.**
 
+**My design goal is personal Data Sovereignty: your memory stays on your machine, offline, under your control.**
+
 My project concept is Alive DVD: a replaceable model brain, persistent local memory, and a governed path from experience to the next useful decision — `Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back`.
 
 Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
