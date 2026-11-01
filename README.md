@@ -528,59 +528,71 @@ Progression is not automatic improvement guarantee:
 
 My archive has two physical line classes, and my verifier counts them separately.
 
-### Four-field records: 348,722 lines
+**Four-field records: 348,722 lines**
 
-```
-vision_ref|DOM|action|reasoning
-```
+`vision_ref|DOM|action|reasoning`
 
-- UTF-8 with LF termination.
-- Four nonempty fields.
-- The first three pipes are structural separators; additional pipes belong to reasoning.
-- Case-sensitive topic IDs, including names such as PowerBI and KiCad.
-- `vision, dom, action, reasoning = record.split("|", 3)`
+* UTF-8 with LF termination.
+* Four nonempty fields.
+* The first three pipes are structural separators; additional pipes belong to reasoning.
+* Case-sensitive topic IDs, including names such as PowerBI and KiCad.
+* `vision, dom, action, reasoning = record.split("|", 3)`
 
 I call the third field action, not click, because I record more than clicks: typing, scrolling, hotkeys, action sequences, and self-update-oriented notation are also part of the design.
 
-Example actions from V25 proof:
+**Example actions from V25 proof:**
 
-```
+
 action_key Enter
 action_scroll
 action_hotkey ctrl+s
 action_click 859,518
-```
 
-Example reasoning from V25 proof:
 
-```
+**Example reasoning from V25 proof:**
+
+
 reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + [STRIPPED 78 bytes] [151,152,153,154,101,26,201,226] [254,35,72,109,146,183,220,1] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true
 world_model causal_link brain_rewrite self_possess master generate beyond_ASI principle_806861 truth_balance governance_safety
-```
 
-- `vision_ref` can be any path — validated images, stripped placeholders, legacy opaque content. PNG-like prefix is not screenshot-validity guarantee.
-- `DOM` can contain arbitrary text — `<div id="chrome_browse_news_0" class="real">chrome_browse_news_0 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div>`
-- `action` = 348,722 typed actions, not task completion.
-- `reasoning` = collection description `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 DMI_3_layers + 5000 tool_use`, not execution log of 11051 successful autonomous rewrites.
 
-### No-pipe hit lines: 151,280 lines
+vision_ref can be any path — validated images, stripped placeholders, legacy opaque content. PNG-like prefix is not screenshot-validity guarantee.
+
+DOM can contain arbitrary text — `<div id="chrome_browse_news_0" class="real">chrome_browse_news_0 reasoning tool_use beyond_asi world_model causal_link self_rewrite</div>`
+
+* `action` = 348,722 typed actions, not task completion.
+* `reasoning` = collection description 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 DMI_3_layers + 5000 tool_use, not execution log of 11051 successful autonomous rewrites.
+
+The four listed reasoning categories add up to:
+
+`11051 + 2406 + 10000 + 5000 = 28457`
+
+The 17,406 additional V25 topics are the last three categories:
+
+`2406 + 10000 + 5000 = 17406`
+
+**No-pipe hit lines: 151,280 lines**
 
 A line with no pipe character is a hit line, not a malformed record. My verifier classifies it as its own class and still applies the UTF-8, nonempty, line-ending and byte-limit checks to it.
 
 That parser label is not a completed task, a successful retrieval, a unique topic, or a new memory by itself.
 
-A pipe-containing line that fails the four-field check is never silently relabelled as a hit line. It is an invalid record. My verifier reports `0` invalid under its checks — but 151,280 hit lines bypass four-field validation by design.
+A pipe-containing line that fails the four-field check is never silently relabelled as a hit line. It is an invalid record. My verifier reports 0 invalid under its checks — but 151,280 hit lines bypass four-field validation by design.
+
+The physical line total is:
+
+`348722 + 151280 = 500002`
 
 ### What the field values do not certify
 
 I preserve vision values as validated images, stripped placeholders, or legacy opaque content according to what is actually available. A PNG-like prefix is not a screenshot-validity guarantee.
 
-I do not infer task completion from `result_success when true`. My V25 failed-task objects retain that annotation suffix while their structured success fields are `false`:
+I do not infer task completion from `result_success when true`. My V25 failed-task objects retain that annotation suffix while their structured success fields are false:
 
-```
+
 task 42 chrome_bookmark_42 = FALSE — bookmark fetch failure timeout — reasoning field still contains coherence 1.0 UNIFIED result_success when true
 task 317 tool_use PowerBI = FALSE — PowerBI execution error tool crash — reasoning field still contains coherence 1.0 UNIFIED result_success when true
-```
+
 
 Text remains data during loading. `open(b.yoihen,'a')` is shorthand, actual uses quoted filename, writable target should be authorized working store not immutable release.
 
