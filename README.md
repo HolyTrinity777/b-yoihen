@@ -73,7 +73,7 @@ That is the point of my Alive DVD concept: continuity around a replaceable brain
 **What it is**
 
 * The .gguf supplies the brain — Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf — DATA ONLY DVD is inert by design — GGUF is separate brain, hash to be provided from laptop in V26.
-* b.yoihen carries the memory — 500,002 lines = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1, table[256][256] topic->[expert_ids] O(1) lookup, 193 shards 90.19 per_shard_fixed = 17406/193.
+* b.yoihen carries the memory — 500,002 lines = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1, table[256][256] topic->[expert_ids] O(1) lookup, 193 shards 90.19 additional per_shard (17406/193)
 * My private core governs the update loop — core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226].
 
 I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience — not merely repeat a confident answer.
