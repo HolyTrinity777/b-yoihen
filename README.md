@@ -61,7 +61,7 @@ Gzip SHA-256: aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 
 My passing actual-dataset GitHub Actions job checks the committed archive's bytes, mixed-line counts, framing, and UTF-8. It does not establish capture attestation, payload removal, model quality, or autonomous evolution. Those are different claims with different evidence requirements. `reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 coherence 1.0 UNIFIED result_success when true` is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate with truth_balance, replication = 193 shards parallel, self_possess = master generate — three separate loops.
 
-1. Why I built this
+## 1. Why I built this
 
 I want an assistant that does not have to start from zero every time I return to my own work.
 
@@ -69,17 +69,23 @@ My machine has a history. My projects have dependencies, conventions, working fi
 
 That is the point of my Alive DVD concept: continuity around a replaceable brain — Compatible model brain + My memory / MAP representation + My private execution and governance layer = Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result.
 
-* The .gguf supplies the brain — Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference.
-* b.yoihen carries the memory — 500,002 lines = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) lookup, 193 shards.
+**What it is**
+
+* The .gguf supplies the brain — Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf — DATA ONLY DVD is inert by design — GGUF is separate brain, hash to be provided from laptop in V26.
+* b.yoihen carries the memory — 500,002 lines = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1, table[256][256] topic->[expert_ids] O(1) lookup, 193 shards 90.19 per_shard_fixed = 17406/193.
 * My private core governs the update loop — core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226].
 
-I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience — not merely repeat a confident answer. Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF weights change by themselves. Model weights change only through self-update with independent evaluation.
+I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience — not merely repeat a confident answer.
 
-My self-update learning material is four separate loops, not one: 11051 self_rewrite world_model beyond_asi principle_806861 rewrites table, self_update evaluates with result_success when true, replication 193 Nations train 1 Brain parallel RAM table + own b.yoihen can train any Brain 10T+, self_possess 2406 beyond_asi_self_possess_master_generate. Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen — V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46% improves, only success retained.
+Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF weights change by themselves. Model weights change only through self-update with independent evaluation.
 
-“Time is GPU” is my development motto for working with the hardware I have. I am not presenting it as a measured 100× H200 comparison, a claim that memory removes compute requirements, or a guarantee that arbitrary model training fits on my phone. I built my collection workflow on iPhone a-Shell in Imphal, offline and without a GPU — workflow method, not proof that 400GB config or 10T+ MAP training fits on phone.
+Calculation breakdown 
 
-I build ambitious. I disclose precisely — A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
+* 348722 + 151280 = 500002 total lines.
+* 71067 / 71607 = 99.245884% ≈ 99.25% REAL.
+* 17406 / 193 ≈ 90.19 topics per shard.
+* 17406 × 5 = 87030 V24→V25 additional lines.
+* 12.8 / 400 = 3.2% of the stated 400GB configuration.
 
 ## 2. What I am releasing
 
