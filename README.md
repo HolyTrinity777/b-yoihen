@@ -136,25 +136,29 @@ I do not require the approximately 1.15 GB raw file to be committed. My reposito
 
 My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts.
 
-A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism. Example: action_click 859,518 + action_key Enter + action_hotkey ctrl+s + self_rewrite core/files reload + open(b.yoihen,'a') 87030 lines per generation are text records, not executed actions during ingestion.
+A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
 
-I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field vision_ref. Payload absence needs its own release-specific measurement. vision_ref|DOM|action|reasoning split — first three pipes are structural separators, additional pipes belong to reasoning, no-pipe lines are hit lines 151,280 — DOM can contain arbitrary text, vision_ref can be any path. coherence 1.0 UNIFIED is a lineage marker, not a synchronization protocol. cf-ray 9fa1f8cf9ce40942-CCU is lineage marker, not authentication.
+Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + `self_rewrite core/files reload` + `open(b.yoihen,'a')` 87030 lines per generation are text records, not executed actions during ingestion.
+
+I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field `vision_ref`. Payload absence needs its own release-specific measurement.
+
+`vision_ref|DOM|action|reasoning` split — first three pipes are structural separators, additional pipes belong to reasoning, no-pipe lines are hit lines 151,280 — DOM can contain arbitrary text, vision_ref can be any path.
+
+`coherence 1.0 UNIFIED` is a lineage marker, not a synchronization protocol. `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not authentication.
 
 My recorded content includes:
 
 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
 
-Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate checks result_success when true, replication = coherence-checked, self_rewrite = table[256][256] O(1) lookup, self_possess = master generate — four separate loops, not one.
+Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites.
+
+Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_rewrite = table[256][256] O(1) lookup, self_possess = master generate — four separate loops, not one.
 
 I preserve this configuration string exactly as recorded:
 
 400GB config 250*1.6GB=400GB, 8*1.6=12.8GB active 49B 3.125%
 
 For the stated 400GB denominator, 12.8/400 = 3.2%. The recorded 3.125% corresponds to a 409.6GB denominator, not 400GB. I retain the original configuration string above as recorded evidence.
-
-A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism. Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + `self_rewrite core/files reload` + `open(b.yoihen,'a')` 87030 lines per generation are text records, not executed actions during ingestion.
-
-I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field `vision_ref`. Payload absence needs its own release-specific measurement. `vision_ref|DOM|action|reasoning` split — first three pipes are structural separators, additional pipes belong to reasoning, no-pipe lines are hit lines 151,280 — DOM can contain arbitrary text, vision_ref can be any path. `coherence 1.0 UNIFIED` is a lineage marker, not a synchronization protocol. `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not authentication.
 
 My recorded content includes:
 
