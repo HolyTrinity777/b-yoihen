@@ -368,7 +368,7 @@ I use `open(b.yoihen,'a')` as project shorthand for the self-append idea. Actual
 
 The text remains data during loading. My recorded 11051-entry self-rewrite category is collection description — it is not an execution log demonstrating 11051 successful autonomous rewrites.
 
-My system has three separate loops, not one:
+My system has four separate loops, not one:
 
 - **self_rewrite:** rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload
 - **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. If evaluation fails, it does not retain.
