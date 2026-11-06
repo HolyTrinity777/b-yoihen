@@ -52,17 +52,17 @@ Source: Live endpoint, `200`, `5.87s`, ``
 }
 ```
 
-*What this establishes:*
+**What this establishes:**
 - File lived at iPhone `Documents/b.yoihen`, not a desktop path.
 - V24 state: 412,972 lines, 791,094,565 bytes.
 - `three_layers: true`, `queue_after: 0`, `clean: "0 pollution"`, `live: true`.
 - `live_nonempty` == `nonempty` and `live_bytes` == `bytes`. The live file and the counted file are the same file in this log.
 
-*What this does NOT establish:*
+**What this does NOT establish:**
 - It does not prove capture attestation for the public archive.
 - It does not prove benchmark replay. See README Section 8.
 
-*Cross-checks against README:*
+**Cross-checks against README:**
 - V24 in README: 412,972 lines / 791,094,565 bytes / 366/369 = 99.19%.
 - Log says `99.2% success 366 total 369`. Same result, rounded in log.
 - `real_ratio` in this log is `53661 / 54201 = 99.0%`.
@@ -72,11 +72,11 @@ Source: Live endpoint, `200`, `5.87s`, ``
 
 ---
 
-2. Live Clicks — Executed True, Not Synthetic Diary
+## 2. Live Clicks — Executed True, Not Synthetic Diary
 
 Two separate live clicks. Same V22 state. Different coordinates. Different timestamps. Both `executed: true`.
 
-2.1 Click 1 — action_click(500,500)
+**2.1 Click 1 — action_click(500,500)**
 
 Source: Live endpoint, `200`, `2.38s`, ``
 ```json
@@ -98,7 +98,7 @@ Source: Live endpoint, `200`, `2.38s`, ``
  "timestamp": 1792953228.81503
 }
 ```
-2.2 Click 2 — action_click(859,518)
+**2.2 Click 2 — action_click(859,518)**
 
 Source: Live endpoint, `200`, `2.16s`, ``
 ```json
@@ -131,7 +131,7 @@ They are not dataset reasoning text.
 
 ---
 
-3. Live V24 Expansion — EXECUTED LIVE
+**3. Live V24 Expansion — EXECUTED LIVE**
 
 Source: Live endpoint, `200`, `34.75s`, ``
 ```json
@@ -158,7 +158,7 @@ Source: Live endpoint, `200`, `34.75s`, ``
  "real_ratio": "53661 REAL /54201 total=99.0% EVERYTHING"
 }
 ```
-3.1 Arithmetic, verified
+**3.1 Arithmetic, verified**
 
 - `282717 + 130255 = 412972` — matches `before` + `written` = `after`.
 - `483386040 -> 791094565` — bytes_before to bytes_after.
@@ -167,7 +167,7 @@ Source: Live endpoint, `200`, `34.75s`, ``
 - `26051 / 193 = ∼134.98` — matches `per_shard` string in log.
 - `130255` matches V24 written lines in README: `26051 x 5 = 130255`.
 
-3.2 The two views, kept separate
+**3.2 The two views, kept separate**
 
 I preserve both, as in README Section 6. I do not erase one to simplify the narrative.
 
@@ -179,7 +179,7 @@ Endpoint / checkpoint chain view	`169745 + 130255 = 300000`	Checkpoint presentat
 `after: 412972` is the actual batch state.
 They are different. Both are preserved.
 
-3.3 Method, verbatim from log
+**3.3 Method, verbatim from log**
 
 - `method: "193 Nations train 1 Brain parallel RAM table not requests.get - EXECUTED LIVE"`
 - `time: "2 hours ->15 seconds parallel"`
@@ -191,19 +191,19 @@ This is a method claim recorded in the log. It is not a claim of 193 physical na
 
 ---
 
-4. Why This Carries Over to Similar Tasks, Not Just Exact Ones
+**4. Why This Carries Over to Similar Tasks, Not Just Exact Ones**
 
-Router in log:
+**Router in log:**
 `table topic->[expert_ids] O(1) hash -> active 49B 3% lives`
 
 Similar tasks share the same bucket. Same `expert_ids`. Same active 49B.
 
 Fix for one helps similar. That is why V22 -> V23, Task 7 and 9 both flipped `false -> true` when I only added 25k code topics. I did not fix the tasks individually. I fixed the bucket they live in.
 
-Side effect avoidance in log:
+**Side effect avoidance in log:**
 `via router [151,152,153,154,101,26,201,226] not BM25`
 
-In README Section 4, I also state the limit:
+**In README Section 4, I also state the limit:**
 `table = 65536 buckets for 71607 tasks must collide` — two unrelated topics can hash to the same `expert_ids`.
 Collision is how this memory generalizes. Collision is also why governance is required.
 
@@ -211,7 +211,7 @@ If it is a totally new domain with no similar hash, first time it records, secon
 
 ---
 
-5. Boundaries — Read This Before You Replicate
+**5. Boundaries — Read This Before You Replicate**
 
 1. This file logs execution on my phone with my private core. It does not turn the public DATA ONLY archive into an executable.
 2. `cf-ray 9fa1f8cf9ce40942-CCU` is a lineage marker in these logs, not an authentication credential or synchronization protocol.
