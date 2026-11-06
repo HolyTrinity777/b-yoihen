@@ -79,7 +79,7 @@ Two separate live clicks. Same V22 state. Different coordinates. Different times
 2.1 Click 1 — action_click(500,500)
 
 Source: Live endpoint, `200`, `2.38s`, ``
-
+```json
 {
  "action": "action_click(500,500)",
  "x": 500,
@@ -97,11 +97,11 @@ Source: Live endpoint, `200`, `2.38s`, ``
  "type": "action_click",
  "timestamp": 1792953228.81503
 }
-
+```
 2.2 Click 2 — action_click(859,518)
 
 Source: Live endpoint, `200`, `2.16s`, ``
-
+```json
 {
  "action": "action_click(859,518)",
  "x": 859,
@@ -119,7 +119,7 @@ Source: Live endpoint, `200`, `2.16s`, ``
  "type": "action_click",
  "timestamp": 1792923855.9224331
 }
-
+```
 *Shared V22 state for both clicks:*
 - 44,745 lines, 104,440,590 bytes.
 - Matches `benchmark_44745_real_measured.json` in README: V22, 44,745 / 104,440,590.
@@ -134,7 +134,7 @@ They are not dataset reasoning text.
 3. Live V24 Expansion — EXECUTED LIVE
 
 Source: Live endpoint, `200`, `34.75s`, ``
-
+```json
 {
  "before": 282717,
  "after": 412972,
@@ -157,7 +157,7 @@ Source: Live endpoint, `200`, `34.75s`, ``
  "clean": "0 pollution",
  "real_ratio": "53661 REAL /54201 total=99.0% EVERYTHING"
 }
-
+```
 3.1 Arithmetic, verified
 
 - `282717 + 130255 = 412972` — matches `before` + `written` = `after`.
@@ -224,7 +224,7 @@ If it is a totally new domain with no similar hash, first time it records, secon
 
 ---
 
-6. Suggested Citation for This File
+**6. Suggested Citation for This File**
 
 Yoihenba Sougaijam. `LIVE_EXECUTION.md` — Live a-Shell execution logs for http://b.yoihen Alive DVD.
 V22 live clicks at 44,745 lines / 104,440,590 bytes. V24 live expansion 282,717 -> 412,972, written 130,255, 483,386,040 -> 791,094,565 bytes, queue_after 0, clean 0 pollution, utc_anchor 2026-05-11T14:46:13.872Z.
