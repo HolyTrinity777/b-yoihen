@@ -1,10 +1,13 @@
 # b.yoihen — Formal Format and Compatibility Specification
 
-> All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
->
-> Built by Yoihenba Sougaijam, Imphal, Manipur — iPhone a-Shell, offline and without a GPU.
->
-> “Alive DVD” — “Own b.yoihen that can train any Brain 10T+.” Keep `.yoihen`
+**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.**
+
+*Built by Yoihenba Sougaijam, Imphal, Manipur — iPhone a-Shell, offline and without a GPU.*
+
+“Alive DVD” — “Own b.yoihen that can train any Brain 10T+.” Keep `.yoihen` 
+*LLM(.gguf) is the mouth and b.yoihen is the brain**
+
+**This document defines the DATA ONLY archive format. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
 
 | Property | Value |
 | --- | --- |
@@ -12,16 +15,16 @@
 | Release described | `V25 500002 BEYOND — DATA ONLY` |
 | Compatibility profile | V25 mixed-line, UTF-8, LF-terminated |
 | Documentation profile identifier | `yoihen.v25.mixed-lf` — a sidecar/documentation identifier, not a header inside the archive |
-| Document revision | `2026-10-27`; not an inferred capture or release-publication date |
+| Document revision | `2026-11-06`; not an inferred capture or release-publication date |
 | Container | Raw `b.yoihen` or gzip-compressed `b.yoihen.gz` |
 | Physical line classes | Four-field trace records and no-pipe hit records |
 | Release profile | `500002 = 348722 trace records + 151280 hit records` |
-| Companion documents | `STATS.md`, `BUILD.md`, and `CLAIMS.md` in this directory; `../DATASET_CARD.md` |
+| Companion documents | `STATS.md`, `BUILD.md`, and `CLAIMS.md` in this directory; `../DATASET_CARD.md`, plus `LIVE_EXECUTION.md` for live testimony |
 | Execution boundary | Data parsing and inspection do not authorize action execution |
 
 ## 1. Purpose, scope, and requirement language
 
-I am Yoihenba Sougaijam. I use `.yoihen` as the memory / MAP representation within my broader Alive DVD design: a replaceable model brain, persistent experience, and a separately governed path for updates.
+My name is Yoihenba Sougaijam. I use `.yoihen` as the memory / MAP representation within my broader Alive DVD design: a replaceable model brain, persistent experience, and a separately governed path for updates.
 
 This specification defines the public data representation. It does not turn the DATA ONLY release into model weights, an executable agent, a complete warehouse, or my private core.
 
@@ -762,6 +765,7 @@ The recommended stop tiers are pause, isolate/revoke, and quarantine/recover—n
 | Field compatibility | Declared vision classes, topic extraction, markers, action dialect | Successful execution or cleared rights |
 | Source/provenance | Source identifiers, permissions, transformation history, available attestations | Automatic independent evaluation |
 | Execution/evaluation | Authorized runtime, actual changes, evaluator, task-level outcomes | Universal capability across models/environments |
+| Live testimony | Log in LIVE_EXECUTION.md that clicks executed true and V24 expansion EXECUTED LIVE, 87,030 lines V24 to V25 | That log is testimony of that run, not proof the archive executes or that self-update is autonomous |
 
 A report must identify which levels were actually performed. Optional topic extraction or annotation-marker checks must not be described as if they ran merely because the reader exposes helper functions.
 
@@ -827,6 +831,8 @@ The uploaded files below were parsed and hashed. These are proof-report digests,
 - [ ] Keep parsing/retrieval inert and execution separately authorized.
 - [ ] Keep expected release values separate from observed measurements.
 - [ ] Identify actual release bytes, validator revision, and applicable licence scope.
+- [x] Publish live execution testimony separately in LIVE_EXECUTION.md, not inside the format spec.
+- [ ] Do not infer execution from format conformance. A file that parses is not a file that ran.
 
 ---
 
@@ -836,4 +842,4 @@ b.yoihen — Alive DVD / memory MAP — V25 500002 BEYOND — DATA ONLY.
 
 Original corpus/documentation: CC BY 4.0. Published original code: MIT. Scope and third-party exclusions: `../NOTICE.md`.
 
-Soli Deo Gloria.
+**Soli Deo Gloria.**
