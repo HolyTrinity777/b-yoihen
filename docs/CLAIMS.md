@@ -19,19 +19,22 @@ One category does not automatically imply the next.
 
 | Claim | Present source | Current boundary / next evidence |
 | --- | --- | --- |
-| V25 reports 500002 records and 1147108255 raw bytes | `proof/benchmark_500002_real_measured.json` | Run the manifest generator against the actual archive |
-| Gzip release size is 19785162 bytes | My release specification | Measure the local archive and publish its digest |
-| V25 records 367/369 completion | V25 aggregate fields | Publish runner, task IDs, environment, evaluator, and per-task results |
+| V25 archive is 500,002 physical lines | Actual V25 dataset GitHub Actions strict verification | Verified: 348,722 four-field records + 151,280 no-pipe hit lines = 500,002 |
+| V25 raw bytes are 1,147,108,255 | Actual V25 dataset GitHub Actions strict verification | Verified against committed archive decoded contents, UTF-8 errors 0 |
+| V25 gzip bytes are 19,785,162 | Actual V25 dataset GitHub Actions strict verification | Verified against committed archive, SHA-256 published in README Section 9 |
+| V25 records 367/369 completion | V25 aggregate fields | Publish runner, task IDs, environment, evaluator, and per-task results. Archive CI does not replay this benchmark |
 | Earlier runs show an evaluation progression | V22–V25 reports | Separate report continuity from independent benchmark reproduction |
-| V23 includes code/self-healing content | V23 `self_collected` | Inspect source topics and demonstrate a bounded code-repair experiment |
-| V24 already includes 11051 self-rewrite/world-model entries | V24 `self_collected`, retained in V25 | Identify corresponding dataset records; do not assume all are new in V25 |
-| My V21 configuration uses eight 1.6 GB active allocations | V21 `moe.warehouse` | Measure actual artifacts and resident runtime allocations |
+| V23 includes code/self-healing content | V23 self_collected | Inspect source topics and demonstrate a bounded code-repair experiment |
+| V24 already includes 11051 self-rewrite/world-model entries | V24 self_collected, retained in V25 | Identify corresponding dataset records; do not assume all are new in V25 |
+| Clicks executed true on my phone | [LIVE_EXECUTION.md](LIVE_EXECUTION.md) live log | That log is testimony of that run, not proof the archive executes |
+| V24 expansion EXECUTED LIVE, V24 to V25 | [LIVE_EXECUTION.md](LIVE_EXECUTION.md) live log + V25 archive counts | Archive counts verify the result, live log verifies it ran |
+| My V21 configuration uses eight 1.6 GB active allocations | V21 moe.warehouse | Measure actual artifacts and resident runtime allocations |
 | My intended routing uses eight active positions | Configuration and architectural clarification | Separate 8/250 = 3.2% from 8/256 = 3.125%; supply the actual routing implementation |
 | My architecture records 193 shards | V21 and later method/discovery fields | Do not claim 193 physical national deployments from those fields |
 | My total knowledge MAP is 10T+ | My architecture/positioning | Define the unit, inventory, coverage, and verification method |
 | My model can execute a governed self-update | Learning objective / architecture | Provide an actual proposal-to-approval-to-change-to-evaluation experiment |
 | My architecture can self-replicate across 11 CPU nodes | My design claim | Demonstrate a bounded multi-node run with actual resource measurements |
-
+| This is first globally | My novelty claim | Define the contribution and conduct a related-work/priority analysis |
 
 ## 3. What the supplied sample proves
 
