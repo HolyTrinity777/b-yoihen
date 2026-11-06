@@ -1,5 +1,5 @@
 # b.yoihen — Offline Build, Evidence, and Governed Update Guide
-** All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.** 
+**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.** 
 
 *Built by Yoihenba Sougaijam — iPhone a-Shell, Imphal, offline and without a GPU, as described by the author.*
 
