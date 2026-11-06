@@ -50,6 +50,7 @@ Source: Live endpoint, `200`, `5.87s`, ``
  "cf-ray": "9fa1f8cf9ce40942-CCU",
  "utc_anchor": "2026-05-11T14:46:13.872Z"
 }
+```
 
 *What this establishes:*
 - File lived at iPhone `Documents/b.yoihen`, not a desktop path.
