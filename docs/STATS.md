@@ -1,12 +1,10 @@
 # b.yoihen — Release Statistics and Longitudinal Evidence
 
-> All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
+**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.**
 
-I am Yoihenba Sougaijam. I developed my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
+My name is Yoihenba Sougaijam. I developed my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
-My project concept is Alive DVD. My positioning is “Own Ollama that can train any Brain 10T+.” I keep `.yoihen` as my memory / MAP representation, separate from a compatible GGUF brain and my private core.
-
-This document is my numerical ledger: what my current archive checks establish, what my historical reports record, what I calculated, and what remains an architectural claim or separate experiment.
+**This document is my numerical ledger for the DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
 
 | Property | Value |
 | --- | --- |
@@ -16,8 +14,8 @@ This document is my numerical ledger: what my current archive checks establish, 
 | Local decoded representation | `b.yoihen` |
 | Historical evidence | Five identified JSON run reports, V21–V25 |
 | Current format population | Four-field records plus no-pipe hit lines |
-| Document revision | `27 October 2026`; not an inferred archive publication or capture date |
-| Companion documents | `FORMAT.md`, `BUILD.md`, `CLAIMS.md`, and root `DATASET_CARD.md` |
+| Document revision | `6 November 2026`; not an inferred archive publication or capture date |
+| Companion documents | `FORMAT.md`, `BUILD.md`, `CLAIMS.md`, and root `DATASET_CARD.md`, plus `LIVE_EXECUTION.md` for live testimony |
 
 ## 1. My current V25 archive — verified mixed-line profile
 
@@ -472,6 +470,7 @@ I keep the downloaded archive unchanged. Verification may create a local raw fil
 | My disclosed sample lineage | Stable V22–V24 sample routing identities and specific reported transitions | Causal explanation, leakage exclusion, full-suite evaluation |
 | My field-diversity scan | Reported DOM/reasoning hash-set counts under its method | Unique topics, semantic diversity, full-record deduplication |
 | My architecture | Intended routing, memory/MAP, orchestration, and governance design | Actual model inventories, runtime scale, measured training, and self-replication |
+| My live execution log | That clicks executed true and V24 expansion EXECUTED LIVE on my phone, 87,030 lines V24 to V25 | That log is testimony of that run, not proof the archive executes or that self-update is autonomous |
 
 My capture provenance is self-reported unless I publish a specific independent attestation. An externally run archive check is useful, but it does not witness a past capture event.
 
@@ -481,6 +480,7 @@ I retain my ambition and my project identity. I do not turn global priority, arb
 
 My corpus and non-code documentation are under CC BY 4.0 within `NOTICE.md`'s scope; my published original code is under MIT in `LICENSE-CODE.md`. Neither public licence is subject to an added commercial Track B requirement. Third-party content remains outside rights I cannot grant, and a licence exclusion is not a payload-removal certificate.
 
+Live testimony for clicks and expansion is in LIVE_EXECUTION.md. It does not change these two failure fields.
 ---
 
 Soli Deo Gloria — Yoihenba Sougaijam — b.yoihen Alive DVD — V25 500002 BEYOND DATA ONLY — Imphal, Manipur.
