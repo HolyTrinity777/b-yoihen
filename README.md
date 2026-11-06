@@ -662,6 +662,8 @@ This README is the heart of my project. Those documents carry the detailed bound
 
 ### My GitHub Actions verification result
 
+**For live execution logs - clicks executed true, V24 expansion EXECUTED LIVE, iPhone path proof - see [LIVE_EXECUTION.md](LIVE_EXECUTION.md). That file is testimony, this README is the verifiable archive.**
+
 GitHub Actions verified my committed V25 archive: 500,002 total lines, comprising 348,722 four-field records and 151,280 no-pipe hit lines, with zero framing/UTF-8 failures and exact compressed and uncompressed byte counts.
 
 | Measurement | Verified value |
