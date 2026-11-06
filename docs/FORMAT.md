@@ -831,9 +831,8 @@ The uploaded files below were parsed and hashed. These are proof-report digests,
 - [ ] Keep parsing/retrieval inert and execution separately authorized.
 - [ ] Keep expected release values separate from observed measurements.
 - [ ] Identify actual release bytes, validator revision, and applicable licence scope.
-- [x] Publish live execution testimony separately in LIVE_EXECUTION.md, not inside the format spec.
+- ✅ **Publish live execution testimony separately in LIVE_EXECUTION.md, not inside the format spec.**
 - [ ] Do not infer execution from format conformance. A file that parses is not a file that ran.
-
 ---
 
 Author: Yoihenba Sougaijam — Imphal, Manipur.
