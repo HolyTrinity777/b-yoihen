@@ -2,7 +2,9 @@
 ** All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.** 
 
 *Built by Yoihenba Sougaijam — iPhone a-Shell, Imphal, offline and without a GPU, as described by the author.*
+
 “Alive DVD” — “Own b.yoihen that can train any Brain 10T+.” **"LLM(.gguf) IS THE MOUTH b.yoihen IS THE BRAIN"**
+
 **This guide is about the DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
 
 | Property | Value |
