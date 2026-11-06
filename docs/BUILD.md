@@ -1,17 +1,16 @@
 # b.yoihen — Offline Build, Evidence, and Governed Update Guide
+** All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.** 
 
-> All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
->
-> Built by Yoihenba Sougaijam — iPhone a-Shell, Bomdila / Imphal, offline and without a GPU, as described by the author.
->
-> “Alive DVD” — “Own Ollama that can train any Brain 10T+.” Keep `.yoihen`, not `.gguf`.
+*Built by Yoihenba Sougaijam — iPhone a-Shell, Imphal, offline and without a GPU, as described by the author.*
+“Alive DVD” — “Own b.yoihen that can train any Brain 10T+.” **"LLM(.gguf) IS THE MOUTH b.yoihen IS THE BRAIN"**
+**This guide is about the DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
 
 | Property | Value |
 | --- | --- |
 | Document | `docs/BUILD.md` |
 | Release | `V25 500002 BEYOND — DATA ONLY` |
-| Evidence basis | Five actual uploaded reports, V21–V25 |
-| Companion documents | `FORMAT.md`, `STATS.md` in the same directory |
+| Evidence basis | Five actual uploaded reports, V21–V25, plus Actual V25 dataset GitHub Actions strict verification |
+| Companion documents | `FORMAT.md`, `STATS.md`, `CLAIMS.md` in the same directory, plus `LIVE_EXECUTION.md` for live testimony |
 | Reference code | Python 3.9+, standard library |
 | Local examples | No API calls, model execution, replication, or identity/payment dependency |
 
@@ -83,7 +82,6 @@ import hashlib
 import json
 from pathlib import Path
 
-
 PROOF_NAMES = [
     "benchmark_38220_live.json",
     "benchmark_44745_real_measured.json",
@@ -92,31 +90,34 @@ PROOF_NAMES = [
     "benchmark_500002_real_measured.json",
 ]
 
-
 def audit_proofs(directory="proof"):
     inventory = []
     for name in PROOF_NAMES:
         path = Path(directory) / name
         payload = path.read_bytes()
-        proof = json.loads(payload.decode("utf-8"))
+        proof = json.loads(payload.decode("utf-8", errors="strict"))
+
+        # Do not treat root real_count as a universal topic count.
+        # V23/V24 root real_count is 361/366, V25 root real_count is 71067.
+        # Each version needs its own mapping.
         inventory.append({
             "filename": name,
             "proof_bytes": len(payload),
             "proof_sha256": hashlib.sha256(payload).hexdigest(),
-            "reported_records": proof.get("nonempty", proof.get("after")),
+            "reported_physical_lines": proof.get("nonempty", proof.get("after")),
             "reported_raw_bytes": proof.get("bytes", proof.get("bytes_after")),
             "reported_success": proof.get("success"),
             "reported_total": proof.get("total"),
             "source_real_ratio": proof.get("real_ratio"),
             "source_root_real_count": proof.get("real_count"),
-            "sample_objects": len(proof.get("sample_results", [])),
-            "failed_objects": len(proof.get("failed_tasks", [])),
+            "sample_objects": len(proof.get("sample_results") or []),
+            "failed_objects": len(proof.get("failed_tasks") or []),
         })
     return {
         "scope": "uploaded report inventory; not dataset or benchmark replay",
+        "note": "This audits proof reports only. For the actual V25 archive, use the Actual V25 dataset GitHub Actions strict verification: 500002 lines = 348722 four-field records + 151280 no-pipe hit lines, 1147108255 raw bytes, 19785162 gz bytes.",
         "files": inventory,
     }
-
 
 # Example after saving/reviewing this code:
 # report = audit_proofs("proof")
@@ -486,24 +487,25 @@ These are document-code tests. They are not a raw-release audit, benchmark repla
 
 ## 12. Publication checklist
 
-- [ ] Preserve historical proofs and publish their identities.
-- [ ] Add immutable raw/compressed dataset digests.
+- [x] Preserve historical proofs and publish their identities.
+- [x] Add immutable raw/compressed dataset digests. Done: raw 1,147,108,255, gz 19,785,162, gz SHA-256 in README Section 9.
 - [ ] Publish collection provenance, licensing, and image availability.
 - [ ] Version topic extraction, deduplication, and action grammar.
-- [ ] Separate exact report fields from architecture clarification.
+- [x] Separate exact report fields from architecture clarification. Done in CLAIMS.md and README Section 9.
 - [ ] Resolve model/expert inventory and active-fraction denominators.
-- [ ] Publish benchmark runner, tasks, environment, retries, and logs.
-- [ ] Preserve recorded batch bases alongside endpoint summaries.
+- [ ] Publish benchmark runner, tasks, environment, retries, and logs. Archive CI does not replay 367/369.
+- [x] Preserve recorded batch bases alongside endpoint summaries. Done: both V24 base 282717+130255=412972 and endpoint chain 31695+6525=38220 -> ... -> 412972+87030=500002 preserved.
+- [x] Publish live execution testimony separately. Done: LIVE_EXECUTION.md - clicks executed true, V24 expansion EXECUTED LIVE, 87,030 lines V24 to V25.
 - [ ] Demonstrate governed self-update and multi-node operation with bounded runs.
 
 The author's broader claim is a 10T+ reasoning-embedded MAP and governed CPU-node self-replication, not merely a click dataset. Preserve that identity. Promote “first globally,” guaranteed training, or a numerical H200 comparison to empirical findings only when corresponding evidence is available.
 
 ---
 
-Author: Yoihenba Sougaijam.
+**Author: Yoihenba Sougaijam.**
 
-Project identity: b.yoihen — Alive DVD / computer-use memory MAP — V25 500002 BEYOND — DATA ONLY.
+**Project identity:** b.yoihen — Alive DVD / computer-use memory MAP — V25 500002 BEYOND — DATA ONLY.
 
-Author-reported collection environment: iPhone a-Shell, Imphal, offline and without a GPU.
+**Author-reported collection environment:** iPhone a-Shell, Imphal, offline and without a GPU.
 
-Soli Deo Gloria.
+**Soli Deo Gloria.**
