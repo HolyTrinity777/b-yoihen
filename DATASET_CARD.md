@@ -1,6 +1,8 @@
 # Dataset Card — b.yoihen V25
 
-> All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
+**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.**
+
+*This card describes the DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.*
 
 I am Yoihenba Sougaijam. I developed my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
