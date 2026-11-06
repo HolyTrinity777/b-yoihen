@@ -1,6 +1,8 @@
 # Claims and Evidence — b.yoihen
 
-I keep my README in my own voice. I use this document to connect technical claims to their actual evidence and identify what would strengthen them.
+**This document connects archive claims to archive evidence. Live execution claims are connected separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
+
+*I keep my README in my own voice. I use this document to connect technical claims to their actual evidence and identify what would strengthen them.*
 
 ## 1. Evidence categories
 
@@ -9,6 +11,7 @@ I keep my README in my own voice. I use this document to connect technical claim
 - Demonstrated: supported by an execution package with inputs, actions, outcomes, and environment.
 - Reproduced independently: obtained by a separate reviewer using the stated protocol.
 - Architecture / positioning: my intended design or project claim, not an execution result by itself.
+- Live testimony: a log in LIVE_EXECUTION.md of what actually ran on my phone, with device, command, and output. It proves that run happened, not that the archive file itself executes.
 
 One category does not automatically imply the next.
 
@@ -28,7 +31,7 @@ One category does not automatically imply the next.
 | My total knowledge MAP is 10T+ | My architecture/positioning | Define the unit, inventory, coverage, and verification method |
 | My model can execute a governed self-update | Learning objective / architecture | Provide an actual proposal-to-approval-to-change-to-evaluation experiment |
 | My architecture can self-replicate across 11 CPU nodes | My design claim | Demonstrate a bounded multi-node run with actual resource measurements |
-| This is first globally | My novelty claim | Define the contribution and conduct a related-work/priority analysis |
+
 
 ## 3. What the supplied sample proves
 
