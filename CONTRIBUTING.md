@@ -1,21 +1,32 @@
-# Contributing to b-yoihen
+# Contributing to b.yoihen
 
-I welcome careful code fixes, data corrections, reproducibility work, and documented improvements to b.yoihen. I am Yoihenba Sougaijam, maintaining this project from Imphal, Manipur.
+**I welcome careful code fixes, data corrections, reproducibility work, and documented improvements to b.yoihen. I am Yoihenba Sougaijam, maintaining this project from Imphal, Manipur.**
+
+## 0. Read this first - two files, two jobs
+
+This repo has two different kinds of files. Do not confuse them.
+
+README.md is the verifiable archive. DATA ONLY and inert. V25, 500,002 lines, 348,722 four-field records + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz. It does not execute itself.
+
+LIVE_EXECUTION.md is testimony. What actually ran on my phone. Clicks executed true, V24 expansion EXECUTED LIVE, iPhone path proof. It is a log of what happened, not a proof that the archive file itself runs.
+
+If your contribution is about the archive, evidence goes in README.md and in a verifier.
+If your contribution is about something that ran, evidence goes in LIVE_EXECUTION.md with logs, not in README.md as a claim about the archive.
 
 ## 1. Start with the applicable terms
 
-Read `LICENSE.md`, `SECURITY.md`, and `docs/FORMAT.md`. Public availability is not an unrestricted licence. This guide does not grant commercial rights or override third-party terms.
+Read LICENSE.md, SECURITY.md, and docs/FORMAT.md. Public availability is not an unrestricted licence. This guide does not grant commercial rights or override third-party terms.
 
-For security-sensitive issues, use the private route described in `SECURITY.md`. Do not put credentials, personal data, or a working exploit in a public issue or pull request.
+For security-sensitive issues, use the private route described in SECURITY.md. Do not put credentials, personal data, or a working exploit in a public issue or pull request.
 
 ## 2. Good contributions
 
-- Reproducible parser, converter, and verifier bug fixes.
-- Bounded-memory handling and no-overwrite protections.
-- Tests using clearly identified synthetic fixtures.
-- Corrections linked to exact source fields or records.
-- Provenance, licensing, privacy, and data-quality improvements.
-- Measured experiments with complete inputs and failure reporting.
+Reproducible parser, converter, and verifier bug fixes.
+Bounded-memory handling and no-overwrite protections.
+Tests using clearly identified synthetic fixtures.
+Corrections linked to exact source fields or records.
+Provenance, licensing, privacy, and data-quality improvements.
+Measured experiments with complete inputs and failure reporting.
 
 ## 3. Evidence required for a data change
 
@@ -25,17 +36,18 @@ Do not fabricate screenshots, success results, approvals, task histories, or ben
 
 Historical proof reports are immutable evidence inputs. Propose an explicitly identified new revision instead of silently reformatting or overwriting the old bytes.
 
+For a live execution claim, you must provide: what device, what command, what input, what log output, and what result. A claim like "it ran" without a log goes in neither README.md nor LIVE_EXECUTION.md.
+
 ## 4. Code boundaries
 
-- Use the standard library unless a dependency is genuinely required and documented.
-- Preserve fields exactly; split at the first three pipes.
-- Preserve topic-ID case.
-- Fail clearly on malformed input; do not use `errors="ignore"`.
-- Bound record reads, decompression, and resource consumption.
-- Refuse to overwrite or delete files not created by the current operation.
-- Keep dataset text inert. No `eval`, `exec`, shell execution, uncontrolled replication, or automatic self-update.
-- Do not infer evaluation success from annotation suffixes.
-
+Use the standard library unless a dependency is genuinely required and documented.
+Preserve fields exactly; split at the first three pipes.
+Preserve topic-ID case.
+Fail clearly on malformed input; do not use errors="ignore".
+Bound record reads, decompression, and resource consumption.
+Refuse to overwrite or delete files not created by the current operation.
+Keep dataset text inert. No eval, exec, shell execution, uncontrolled replication, or automatic self-update.
+Do not infer evaluation success from annotation suffixes.
 Include a minimal fixture, expected behavior, actual behavior, and a regression test with a code fix. State which tests you actually ran. CI is not a substitute for evidence of an unrelated capability claim.
 
 ## 5. Contribution rights
@@ -48,15 +60,15 @@ Do not submit material you cannot authorize under the intended arrangement. Ordi
 
 ## 6. Pull-request checklist
 
-- [ ] I identified the problem and affected files.
-- [ ] I provided a minimal, non-sensitive reproduction where appropriate.
-- [ ] I described source provenance and applicable permissions.
-- [ ] I did not alter historical proof bytes without an explicit revision plan.
-- [ ] I preserved inert ingestion and no-overwrite behavior.
-- [ ] I included tests and stated which ones I ran.
-- [ ] I documented actual measurements separately from expectations.
-- [ ] I stated the proposed inbound licence/permissions for code or data.
+ I identified the problem and affected files.
+ I provided a minimal, non-sensitive reproduction where appropriate.
+ I described source provenance and applicable permissions.
+ I did not alter historical proof bytes without an explicit revision plan.
+ I preserved inert ingestion and no-overwrite behavior.
+ I included tests and stated which ones I ran.
+ I documented actual measurements separately from expectations.
+ I stated the proposed inbound licence/permissions for code or data.
+ I kept archive claims in README.md and live execution claims in LIVE_EXECUTION.md, with logs for the live claims.
+ I may request revisions or decline a change that weakens safety, obscures evidence, or has unclear rights. A proposal is not permission to test third-party systems or deploy autonomous code against real resources.
 
-I may request revisions or decline a change that weakens safety, obscures evidence, or has unclear rights. A proposal is not permission to test third-party systems or deploy autonomous code against real resources.
-
-Soli Deo Gloria â Yoihenba Sougaijam â Imphal, Manipur.
+**Soli Deo Gloria** — Yoihenba Sougaijam — Imphal, Manipur.
