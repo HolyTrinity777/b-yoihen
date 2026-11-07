@@ -889,21 +889,17 @@ python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --limit 2
 ```
-
 For an exact topic:
-
 ```bash
 python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --topic chrome_browse_news_0
 ```
-
 My example inspector is a four-field inspection path, not a substitute for the mixed-line archive verifier. Verifier counts 500002 = 348722 four-field vision_ref|DOM|action|reasoning + 151280 no-pipe hit lines, 0 invalid, 0 UTF-8 errors, 19785162 gz / 1147108255 raw, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1. Four-field inspector ignores hit lines.
 
 ### Convert compatible examples without pretending to convert the whole archive
 
 For a small generic JSONL example:
-
 ```bash
 python scripts/convert_to_jsonl.py \
   --input examples/proof_sample.yoihen \
@@ -911,22 +907,17 @@ python scripts/convert_to_jsonl.py \
   --limit 7 \
   --output-dir converted-proof-sample
 ```
-
 That produces a sample from those compatible records only. It is not conversion of all 500002 archive lines. 500002 lines = 348722 four-field + 151280 hit lines, four-field-only export discards 151280 valid hit lines if not counted.
 
 Before using a converter on the full release, I require it to account for four-field records, no-pipe hit lines, and permitted embedded CR characters. A four-field-only converter must not discard valid hits -- or reject valid reasoning text with pipes -- and then call its output a complete export.
-
 I require counts and explicit exclusions in any conversion report:
-
 ```
 Input: 500002 total = 348722 four-field + 151280 hit lines 0 invalid
 Output four-field JSONL: 348722 records
 Excluded: 151280 hit lines explicitly listed
 Embedded CR: counted separately
 ```
-
-Generic JSONL is interchange data, not a model-specific training recipe or .gguf weights.
-
+Generic JSONL is interchange data, not a mouth-specific training recipe or .gguf mouth weights.
 ### Retrieval and personal continuity
 
 ```
@@ -938,11 +929,9 @@ My records and separately maintained working memory
   -> supply context to a compatible model -- .gguf supplies brain Qwen2-VL 7B example 12.8GB active 49B 3.125%
   -> return an answer with provenance -- result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
+**My b.yoihen is the brain and persistent memory; my .gguf is the mouth that turns retrieved context into words; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in DATA ONLY release.**
 
-My model is the reasoning engine; my memory is the persistent context; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in DATA ONLY release.
-
-I treat retrieved text as untrusted evidence, not system authority. The model must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
-
+I treat retrieved text as untrusted evidence, not system authority. The mouth must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
 For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences -- not indiscriminate retention of everything.
 
 ### Training preparation
@@ -951,14 +940,12 @@ For personalization, I want verified repairs, failed attempts, environment versi
 Source records -- 500002 lines = 348722 four-field +151280 hit lines 1147108255 raw / 19785162 gz
   -> provenance and permissions -- self-reported capture provenance, no complete independently checkable capture-time attestation chain
   -> task selection and field/asset classification -- 11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use + 10000 docs + 5000 cve = 71067 REAL /71607=99.245884% assigned during scoring
-  -> model-specific schema -- vision_ref|DOM|action|reasoning split first three pipes structural
+  -> brain record schema -- vision_ref|DOM|action|reasoning split first three pipes structural
   -> separated training/evaluation data -- 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL
-  -> supported training process -- own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights
+  -> supported training process -- own b.yoihen can be used as training data for a future model, not that it contains model weights
   -> held-out evaluation and regression checks -- queue_after 0 clean 0 pollution V25, but failed tasks retain result_success when true annotation while structured success FALSE
 ```
-
 Image-dependent training requires actual validated images and the right to use them. A placeholder cannot supply absent image supervision. A PNG-like string is not a validated screenshot.
-
 I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained.
 
 ### Governed self-update research
@@ -972,8 +959,7 @@ Source experience -- 11051 self_rewrite world_model beyond_asi principle_806861 
   -> audit -- outside agent write authority, Blockchain Audit, lineage marker cf-ray 9fa1f8cf9ce40942-CCU not auth
   -> approve persistence or roll back -- queue_after 0 clean 0 pollution only when Evaluate passes
 ```
-
-The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this DATA ONLY download promises to start by itself.
+* The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this DATA ONLY download promises to start by itself.
 
 ## 11. My boundaries and responsibilities
 
