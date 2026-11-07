@@ -8,18 +8,19 @@ My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell 
 
 ### My project positioning is:
 
-I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded computer-use traces, 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 per_shard.
+I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded computer-use traces, 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 per_shard. In this, RAM is King, not GPU.
 
 **Ollama + an unchanged checkpoint = frozen mouth weights.**
 
-**b.yoihen DVD holds brain diary + .gguf mouth inside it + llama.cpp (RUNNER) = a setup designed to retain experience and grow its offline memory.**
-* The .gguf is the mouth. b.yoihen is the brain / memory. My private core governs the update loop.
+**b.yoihen brain-memory diary, host, uses .gguf mouth inside it, via llama.cpp runner. Unlike Ollama where Ollama uses GGUF, diary uses GGUF.**
+
+* The .gguf is the mouth inside b.yoihen. b.yoihen is the brain-memory diary. b.yoihen uses the .gguf mouth, not like Ollama where Ollama uses GGUF. My private core governs the update loop.
 * Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with result_success when true check.
 * Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
 
 **My design goal is personal Data Sovereignty:** your memory stays on your machine, offline, under your control.
 
-**My project concept is Alive DVD:** a replaceable mouth, persistent local brain / memory, and a governed path from experience to the next useful decision, Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back.
+**My project concept is Alive DVD:** a mouth inside the diary, persistent brain-memory diary, and a governed path from experience to the next useful decision, Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back.
 
 * Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
