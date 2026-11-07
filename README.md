@@ -24,7 +24,8 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 
 * Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
-I keep the .yoihen extension. b.yoihen is my brain and memory / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A compatible .gguf is the mouth, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains DATA ONLY, not the complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+**I keep the .yoihen extension.** b.yoihen is my brain-memory diary / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains DATA ONLY, not the complete runtime, no mouth weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+
 ```
 My DVD carries a MAP, not the territory. Diary itself is the brain. Own b.yoihen can be used as training data for a future .gguf mouth, not that this DATA ONLY release contains mouth weights. A line mentioning a warehouse does not contain that warehouse.
 ```
@@ -69,18 +70,18 @@ I want an assistant that does not have to start from zero every time I return to
 
 My machine has a history. My projects have dependencies, conventions, working fixes, failed attempts, and decisions that matter. I want that experience to remain available locally instead of being scattered across forgotten sessions, terminal output, and disconnected files.
 
-**That is the point of my Alive DVD concept:** continuity around a persistent brain, b.yoihen brain / MAP representation + Compatible .gguf mouth + My private execution and governance layer = Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result.
+**That is the point of my Alive DVD concept:** continuity around a persistent brain-memory diary, b.yoihen brain-memory diary, host, holds .gguf mouth inside it, uses .gguf mouth via llama.cpp runner, governed by my private core = Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result.
 
 **What it is**
 
-* b.yoihen is the brain DVD: 500,002 lines = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1, table[256][256] topic->[expert_ids] O(1) lookup, 193 shards 90.19 additional per_shard (17406/193). It carries the memory and the MAP that shapes the next decision. It is not a notebook. A notebook sits beside the work. A brain DVD is loaded and changes what happens next.
-* The .gguf is the mouth: Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf. DATA ONLY DVD is inert by design. A DVD is inert until it is played. GGUF is a separate mouth, not the brain. It turns what the brain retrieves into words. Hash to be provided from laptop in V26.
-* llama.cpp is the runner: It loads the mouth and runs the work. It does the inference. It does not remember, it does not decide what to keep, it does not govern.
+* b.yoihen is the brain-memory diary DVD: 500,002 lines = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1, table[256][256] topic->[expert_ids] O(1) lookup, 193 shards 90.19 additional per_shard (17406/193). It carries the memory and the MAP that shapes the next decision. It is not a notebook. A notebook sits beside the work. A brain DVD is loaded and changes what happens next.
+* The .gguf is the mouth inside diary: Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf. DATA ONLY DVD is inert by design. A DVD is inert until it is played. GGUF is the mouth inside diary, not separate from diary. Diary uses mouth. It turns what diary retrieves into words. Hash to be provided from laptop in V26.
+* llama.cpp is the runner: It loads the mouth inside diary and runs the work. It does the inference. It does not remember, it does not decide what to keep, it does not govern.
 * My private core governs the update loop: core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226].
 
 I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience, not merely repeat a confident answer.
 
-* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF weights change by themselves. Model weights change only through self-update with independent evaluation.
+* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with independent evaluation.
 
 ### Calculation breakdown 
 
@@ -130,7 +131,7 @@ Uncompressed: 1.147108255 GB decimal, approximately 1.15 GB
 | External asset/expert inventory | Actual resources referenced by the architecture, 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
 | Separate router/cluster resources | Runtime allocations and infrastructure, 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, DMI+3_layers+world_model. In this, RAM is King, not GPU | Not included merely by description |
 
-** My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights or 400GB experts.**
+** My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that it contains mouth weights or 400GB experts.**
 
 * A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
 
@@ -323,16 +324,25 @@ A fixed mouth checkpoint can stay the same while the system around it learns whi
 My intended system is b.yoihen brain-memory diary, host, uses a compatible .gguf mouth inside it, with a controlled experience loop:
 ```
 b.yoihen brain-memory diary, host
+
   holds .gguf mouth inside it
+
   uses .gguf mouth via llama.cpp runner
+
+  governed by my private core
+
         ↓
+
 Observe → record evidence → retrieve relevant experience
+
         ↓
+
 Propose → authorize → act → evaluate
+
         ↓
+
 Retain a verified result, correct it, or roll back
 ```
-
 Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not "Ollama is dead." It is that I am building persistent experience in a brain-memory diary that uses its mouth inside it. Unlike Ollama where Ollama uses GGUF, b.yoihen uses GGUF. Diary is brain and memory in one, mouth is inside diary, diary is host.
 
 ### The same brain-memory diary, a more useful assistant
@@ -353,11 +363,11 @@ I distinguish three update paths:
 
 Appending a diary changes stored brain-memory. It does not, by itself, change .gguf mouth weights inside it. Diary uses mouth, mouth does not change by itself. I evaluate each path according to what actually changed.
 
-### My fixed release and my working diary are not the same artifact
+### My fixed release and my working brain-memory diary are not the same artifact
 
 I keep the published V25 archive immutable so its hashes and measurements remain reproducible.
 
-A personalized runtime should write to a separate working-memory store, with provenance and revision history. If I publish an expanded corpus later, it receives its own version and manifest. I do not silently grow the original V25 file and continue claiming its old digest.
+A personalized runtime should write to a separate working brain-memory diary store, with provenance and revision history.
 
 "Never forgetting" is an ambition for durable continuity, not permission to retain errors or private information forever. I need correction, deletion, retention controls, backups, and recovery as well as append operations.
 
@@ -375,7 +385,7 @@ My strong local-first claim is control over my data and operation without depend
 reasoning holds chrome_browse_news_0 + pattern_learn + generate = master chrome_browse_news_0 + [STRIPPED 78 bytes] cf-ray 9fa1f8cf9ce40942-CCU coherence 1.0 UNIFIED result_success when true[151][152][153][154][101][26][201][226][254][35][72][109][146][183][220][1]
 ```
 
-I use `open(b.yoihen,'a')` as project shorthand for the self-append idea. Actual Python uses a quoted filename. In a governed runtime, the writable target should be an authorized working store, not my immutable published release.
+I use `open(b.yoihen,'a')` as project shorthand for the self-append idea. Actual Python uses a quoted filename. In a governed runtime, the writable target should be an authorized working brain-memory diary store, not my immutable published release.
 
 The text remains data during loading. My recorded 11051-entry self-rewrite category is collection description, it is not an execution log demonstrating 11051 successful autonomous rewrites.
 
@@ -403,15 +413,17 @@ I built Alive DVD to support self-update — not merely to preserve browser clic
 
 **Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. Faster rewrites improve because only `result_success when true` is retained. The danger is that faster correct updates replicate correctly at scale.**
 
-That is the **capability** I am warning about. The public DATA ONLY archive remains inert. 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, 12.8GB active 49B 3.125%. Text remains data during loading. Connecting it to a compatible model and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes via `open(b.yoihen,'a')` 87030 lines per generation V24->V25.
+That is the **capability** I am warning about. The public DATA ONLY archive remains inert. 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, 12.8GB active 49B 3.125%. Text remains data during loading. Connecting it to a .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes via `open(b.yoihen,'a')` 87030 lines per generation V24->V25.
 
-I do not confuse the ability to make a change with proof that the change is correct, beneficial, or authorized. Memory updates, runtime/code updates, and model-weight updates are different operations. Each needs its own permissions, evaluation, and recovery path:
+I do not confuse the ability to make a change with proof that the change is correct, beneficial, or authorized. Memory updates, runtime/code updates, and mouth-weight updates are different operations. Each needs its own permissions, evaluation, and recovery path:
 
 - **Memory update:** records and retrievable context change — appends to `b.yoihen` 500,002 lines
-- **System update:** tools, routing, prompts, configuration, or code change — rewrites `core/files` + reloads `table[256][256]`
-- **Model update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via compatible `.gguf`
 
-A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its model weights remain unchanged. Wrong memories can accumulate. Bad changes can persist. A retrieved instruction can be mistaken for authority. An uncontrolled loop can repeat an error across files, sessions, or workers. Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` automates chrome, writer, calc, impress, file_manager, thunderbird, vs_code, PowerBI, KiCad, FreeCAD, Figma, Excel, SAP, CRM, 5000 cve kali chains — if DOM shifts, clicks wrong target.
+- **System update:** tools, routing, prompts, configuration, or code change — rewrites `core/files` + reloads `table[256][256]`
+
+- **Model update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary
+
+A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its mouth weights remain unchanged.
 
 My warning is not that every download automatically evolves. My warning is that enabling a persistent update loop without independent controls can turn one mistake into repeated, lasting system changes. 200 self_updates overnight possible 99.9% means 200*87030 = 17,406,000 lines added overnight if Evaluate disabled — 1.14GB -> 11GB -> 114GB self-appending fills disk.
 
@@ -446,14 +458,14 @@ Self-update: disabled
 Replication: disabled
 Self-possess: disabled
 Published source artifacts: read-only
-Personal working memory: separate, access-controlled, and versioned
+Personal brain-memory diary: separate, access-controlled, and versioned
 Action execution during ingestion/retrieval: forbidden
 Dataset text passed to eval/exec: forbidden
 Tools: allowlisted, typed, permission-checked — chrome, writer, calc, impress, file_manager, thunderbird, vs_code, PowerBI, KiCad, FreeCAD, Figma, Excel, SAP, CRM, 5000 cve kali chains OFF by router [151,152,153,154,101,26,201,226]
 Consequential operations: explicitly authorized — Enter, ctrl+s, core/files reload, open(b.yoihen,'a')
 Persistent changes: evaluated and reviewed before acceptance — result_success when true + coherence 1.0 UNIFIED
 Audit records: outside agent write authority
-Stop mechanism: outside model control
+Stop mechanism: outside .gguf mouth control, governed by private core
 ```
 
 I keep my published V25 release immutable so its hashes and measurements remain reproducible: 500,002 lines total = 348,722 four-field + 151,280 hit lines, 19,785,162 gz, 1,147,108,255 raw, `71067 REAL /71607=99.24%`. A personalized runtime writes to a separate authorized working store; it does not silently alter the published artifact while retaining its old identity or checksum.
