@@ -1,33 +1,30 @@
 # b.yoihen — Alive DVD — V25 500002 BEYOND — DATA ONLY
 
-**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.**
+**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit, Soli Deo Gloria.**
 
-**The archive below is DATA ONLY and inert. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
+**The archive below is DATA ONLY and inert. What actually ran on my phone is documented separately in LIVE_EXECUTION.md. Do not confuse the two.**
 
 My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
 ### My project positioning is:
 
-I built **b.yoihen** — my Alive DVD: a 500,002-line container format for recorded computer-use traces — `348,722` four-field `vision_ref|DOM|action|reasoning` + `151,280` hit lines, `1,147,108,255` raw / `19,785,162` gz, `table[256][256] topic->[expert_ids]` O(1) RAM lookup reference, 193 shards 90.19 per_shard.
+I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded computer-use traces, 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 per_shard.
 
-- Ollama + an unchanged checkpoint = frozen model weights.
-- **b.yoihen(BRAIN) + a compatible .gguf (LLM IS THE MOUTH) + llama.cpp = a setup designed to retain experience and grow its offline memory.**
-- The `.gguf` supplies the LLM MOUTH. `b.yoihen` carries the Brain/memory. My private core governs the update loop.
-- Day 1 ≠ Day 100 means diary appends via `open(b.yoihen,'a')` 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with `result_success when true` check.
+Ollama + an unchanged checkpoint = frozen model weights.
+b.yoihen (BRAIN) + a compatible .gguf (MOUTH) + llama.cpp (RUNNER) = a setup designed to retain experience and grow its offline memory.
+The .gguf is the mouth. b.yoihen is the brain / memory. My private core governs the update loop.
+Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with result_success when true check.
+Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
 
-**Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience — not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.**
+My design goal is personal Data Sovereignty: your memory stays on your machine, offline, under your control.
 
-**My design goal is personal Data Sovereignty: your memory stays on your machine, offline, under your control.**
-
-My project concept is Alive DVD: a replaceable model mouth, persistent local brain/memory, and a governed path from experience to the next useful decision — `Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back`.
+My project concept is Alive DVD: a replaceable mouth, persistent local brain / memory, and a governed path from experience to the next useful decision, Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back.
 
 Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
-I keep the `.yoihen` extension. `b.yoihen` is my brain and memory / MAP representation — 500,002 lines 1.147GB raw / 19.78MB gz, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference, `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM` collection description. A compatible `.gguf` can supply the model mouth — Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target. My private core is the separate player, resolver, orchestrator, and control layer — `core/files` + reload, `table[256][256]` O(1) lookup, `experts_safety [151,152,153,154,101,26,201,226]`. My public release contains **DATA ONLY** — not that complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+I keep the .yoihen extension. b.yoihen is my brain and memory / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A compatible .gguf is the mouth, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains DATA ONLY, not the complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
 
-```
-My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights. A line mentioning a warehouse does not contain that warehouse.
-```
+My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights. A line mentioning a warehouse does not contain that warehouse.
 
 ---
 
@@ -70,7 +67,7 @@ I want an assistant that does not have to start from zero every time I return to
 
 My machine has a history. My projects have dependencies, conventions, working fixes, failed attempts, and decisions that matter. I want that experience to remain available locally instead of being scattered across forgotten sessions, terminal output, and disconnected files.
 
-That is the point of my Alive DVD concept: continuity around a replaceable brain — Compatible model brain + My memory / MAP representation + My private execution and governance layer = Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result.
+That is the point of my Alive DVD concept: continuity around a persistent brain, b.yoihen brain / MAP representation + Compatible .gguf mouth + My private execution and governance layer = Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result.
 
 **What it is**
 
@@ -79,7 +76,7 @@ That is the point of my Alive DVD concept: continuity around a replaceable brain
 * llama.cpp is the runner: It loads the mouth and runs the work. It does the inference. It does not remember, it does not decide what to keep, it does not govern.
 * My private core governs the update loop: core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226].
 
-I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience — not merely repeat a confident answer.
+I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience, not merely repeat a confident answer.
 
 Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF weights change by themselves. Model weights change only through self-update with independent evaluation.
 
@@ -97,17 +94,11 @@ I am releasing DATA ONLY.
 
 My tracked dataset artifact is:
 
-```
-b.yoihen.gz
-```
+**b.yoihen.gz**
 
 Decoding it produces the local raw representation:
 
-```
-b.yoihen
-```
-
-My V25 archive at a glance:
+**My V25 archive at a glance:**
 
 | Measurement | My verified archive result |
 | --- | --- |
@@ -116,14 +107,12 @@ My V25 archive at a glance:
 | No-pipe hit lines | `151,280` |
 | Invalid records under my verifier's checks | `0` |
 | UTF-8 errors | `0` |
-| Compressed bytes | `19,785,162` = 19.785162 MB decimal — my display: 19.78 MB |
-| Uncompressed bytes | `1,147,108,255` = 1.147108255 GB decimal — approximately 1.15 GB |
+| Compressed bytes | `19,785,162` = 19.785162 MB decimal, my display: 19.78 MB |
+| Uncompressed bytes | `1,147,108,255` = 1.147108255 GB decimal, approximately 1.15 GB |
 | Gzip SHA-256 | Computed from committed bytes, verified by CI |
 
-```
-Compressed:   19.785162 MB decimal — my display: 19.78 MB
-Uncompressed: 1.147108255 GB decimal — approximately 1.15 GB
-```
+**Compressed:   19.785162 MB decimal, my display: 19.78 MB**
+**Uncompressed: 1.147108255 GB decimal, approximately 1.15 GB**
 
 I do not require the approximately 1.15 GB raw file to be committed. My repository also contains documentation, reports, examples, and tooling; "one tracked dataset archive" does not mean "one repository file."
 
@@ -131,13 +120,13 @@ I do not require the approximately 1.15 GB raw file to be committed. My reposito
 
 | Component | Role in my architecture | Included in this DATA ONLY release? |
 | --- | --- | --- |
-| .yoihen representation | Stored records, hit lines, context, and MAP descriptions — 500,002 lines = 348,722 four-field + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 additional per_shard (17406/193), 71067 REAL /71607=99.24% | Yes, through the compressed archive |
-| Compatible GGUF model | The model brain used by an execution environment — 12.8GB active 49B 3.2% from 400GB config 250*1.6GB, recorded 3.125% = 409.6GB denominator — Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target | No model weights are bundled here |
-| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation — core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain loop with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226] | Not included |
-| External asset/expert inventory | Actual resources referenced by the architecture — 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
-| Separate router/cluster resources | Runtime allocations and infrastructure — 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, DMI+3_layers+world_model | Not included merely by description |
+| .yoihen representation | Stored records, hit lines, context, and MAP descriptions, 500,002 lines = 348,722 four-field + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 additional per_shard (17406/193), 71067 REAL /71607=99.24% | Yes, through the compressed archive |
+| Compatible GGUF model | The mouth used by an execution environment, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB, recorded 3.125% = 409.6GB denominator, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target | No model weights are bundled here |
+| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation, core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain loop with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226] | Not included |
+| External asset/expert inventory | Actual resources referenced by the architecture, 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
+| Separate router/cluster resources | Runtime allocations and infrastructure, 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, DMI+3_layers+world_model | Not included merely by description |
 
-My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights or 400GB experts.
+My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights or 400GB experts.
 
 A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
 
@@ -145,17 +134,17 @@ Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + 
 
 I do not claim that the archive is image-free, capture-free, or sanitized simply because I call its first field `vision_ref`. Payload absence needs its own release-specific measurement.
 
-`vision_ref|DOM|action|reasoning` split — first three pipes are structural separators, additional pipes belong to reasoning, no-pipe lines are hit lines 151,280 — DOM can contain arbitrary text, vision_ref can be any path.
+`vision_ref|DOM|action|reasoning` split, first three pipes are structural separators, additional pipes belong to reasoning, no-pipe lines are hit lines 151,280, DOM can contain arbitrary text, vision_ref can be any path.
 
 `coherence 1.0 UNIFIED` is a lineage marker, not a synchronization protocol. `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not authentication.
 
-My recorded content includes:
+**My recorded content includes:**
 
 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
 
 Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites.
 
-Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_rewrite = table[256][256] O(1) lookup, self_possess = master generate — four separate loops, not one.
+Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_rewrite = table[256][256] O(1) lookup, self_possess = master generate, four separate loops, not one.
 
 I preserve this configuration string exactly as recorded:
 
@@ -163,13 +152,10 @@ I preserve this configuration string exactly as recorded:
 
 For the stated 400GB denominator, 12.8/400 = 3.2%. The recorded 3.125% corresponds to a 409.6GB denominator, not 400GB. I retain the original configuration string above as recorded evidence.
 
-My recorded content includes:
+**My recorded content includes:**
+* 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
 
-```
-11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
-```
-
-Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_possess = master generate — three separate loops, not one.
+Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_rewrite = table[256][256] O(1) lookup, self_possess = master generate, four separate loops, not one.
 
 ## 3. My five-run evidence history
 
