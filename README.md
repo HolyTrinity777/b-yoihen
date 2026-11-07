@@ -10,22 +10,23 @@ My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell 
 
 I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded computer-use traces, 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 per_shard.
 
-Ollama + an unchanged checkpoint = frozen model weights.
-b.yoihen (BRAIN) + a compatible .gguf (MOUTH) + llama.cpp (RUNNER) = a setup designed to retain experience and grow its offline memory.
-The .gguf is the mouth. b.yoihen is the brain / memory. My private core governs the update loop.
-Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with result_success when true check.
-Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
+**Ollama + an unchanged checkpoint = frozen model weights.**
 
-My design goal is personal Data Sovereignty: your memory stays on your machine, offline, under your control.
+**b.yoihen (BRAIN) + a compatible .gguf (MOUTH) + llama.cpp (RUNNER) = a setup designed to retain experience and grow its offline memory.**
+* The .gguf is the mouth. b.yoihen is the brain / memory. My private core governs the update loop.
+* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with result_success when true check.
+* Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
 
-My project concept is Alive DVD: a replaceable mouth, persistent local brain / memory, and a governed path from experience to the next useful decision, Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back.
+**My design goal is personal Data Sovereignty:** your memory stays on your machine, offline, under your control.
 
-Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
+**My project concept is Alive DVD:** a replaceable mouth, persistent local brain / memory, and a governed path from experience to the next useful decision, Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back.
+
+* Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
 I keep the .yoihen extension. b.yoihen is my brain and memory / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A compatible .gguf is the mouth, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains DATA ONLY, not the complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
-
+```
 My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights. A line mentioning a warehouse does not contain that warehouse.
-
+```
 ---
 
 ## Start here
@@ -59,7 +60,7 @@ Gzip SHA-256: aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 ```
 
 My passing actual-dataset GitHub Actions job checks the committed archive's bytes, mixed-line counts, framing, and UTF-8. It does not establish capture attestation, payload removal, model quality, or autonomous evolution. Those are different claims with different evidence requirements. `reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 coherence 1.0 UNIFIED result_success when true` is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate with truth_balance governance_safety, replication = 193 shards parallel (17406/193=90.19 additional), self_rewrite = table[256][256] O(1) lookup, self_possess = master generate principle_806861 — four separate loops.
-6 Skills = 27,610 chrome_browse_news + 10,000 libreoffice + 5,000 kali cve_3485 + 11,051 world_model + 10,000 reasoning DMI_3_layers + 7,406 tool_use/self_possess (5000+2406) = 71,067 REAL 99.25% 348722 four-field avg 4.91 range 4-6
+**6 Skills = 27,610 chrome_browse_news + 10,000 libreoffice + 5,000 kali cve_3485 + 11,051 world_model + 10,000 reasoning DMI_3_layers + 7,406 tool_use/self_possess (5000+2406) = 71,067 REAL 99.25% 348722 four-field avg 4.91 range 4-6**
 
 ## 1. Why I built this
 
@@ -67,7 +68,7 @@ I want an assistant that does not have to start from zero every time I return to
 
 My machine has a history. My projects have dependencies, conventions, working fixes, failed attempts, and decisions that matter. I want that experience to remain available locally instead of being scattered across forgotten sessions, terminal output, and disconnected files.
 
-That is the point of my Alive DVD concept: continuity around a persistent brain, b.yoihen brain / MAP representation + Compatible .gguf mouth + My private execution and governance layer = Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result.
+**That is the point of my Alive DVD concept:** continuity around a persistent brain, b.yoihen brain / MAP representation + Compatible .gguf mouth + My private execution and governance layer = Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result.
 
 **What it is**
 
@@ -78,9 +79,9 @@ That is the point of my Alive DVD concept: continuity around a persistent brain,
 
 I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience, not merely repeat a confident answer.
 
-Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF weights change by themselves. Model weights change only through self-update with independent evaluation.
+* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF weights change by themselves. Model weights change only through self-update with independent evaluation.
 
-Calculation breakdown 
+### Calculation breakdown 
 
 * 348722 + 151280 = 500002 total lines.
 * 71067 / 71607 = 99.245884% ≈ 99.25% REAL.
@@ -92,10 +93,10 @@ Calculation breakdown
 
 I am releasing DATA ONLY.
 
-My tracked dataset artifact is:
-
-**b.yoihen.gz**
-
+**My tracked dataset artifact is:**
+```
+b.yoihen.gz
+```
 Decoding it produces the local raw representation:
 
 **My V25 archive at a glance:**
@@ -111,10 +112,12 @@ Decoding it produces the local raw representation:
 | Uncompressed bytes | `1,147,108,255` = 1.147108255 GB decimal, approximately 1.15 GB |
 | Gzip SHA-256 | Computed from committed bytes, verified by CI |
 
-**Compressed:   19.785162 MB decimal, my display: 19.78 MB**
-**Uncompressed: 1.147108255 GB decimal, approximately 1.15 GB**
+```
+Compressed:   19.785162 MB decimal, my display: 19.78 MB
+Uncompressed: 1.147108255 GB decimal, approximately 1.15 GB
+```
 
-I do not require the approximately 1.15 GB raw file to be committed. My repository also contains documentation, reports, examples, and tooling; "one tracked dataset archive" does not mean "one repository file."
+* I do not require the approximately 1.15 GB raw file to be committed. My repository also contains documentation, reports, examples, and tooling; "one tracked dataset archive" does not mean "one repository file."
 
 ## What is public, and what is separate
 
@@ -126,9 +129,9 @@ I do not require the approximately 1.15 GB raw file to be committed. My reposito
 | External asset/expert inventory | Actual resources referenced by the architecture, 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
 | Separate router/cluster resources | Runtime allocations and infrastructure, 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, DMI+3_layers+world_model | Not included merely by description |
 
-My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights or 400GB experts.
+** My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights or 400GB experts.**
 
-A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
+* A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
 
 Example: `action_click 859,518` + `action_key Enter` + `action_hotkey ctrl+s` + `self_rewrite core/files reload` + `open(b.yoihen,'a')` 87030 lines per generation are text records, not executed actions during ingestion.
 
@@ -139,7 +142,7 @@ I do not claim that the archive is image-free, capture-free, or sanitized simply
 `coherence 1.0 UNIFIED` is a lineage marker, not a synchronization protocol. `cf-ray 9fa1f8cf9ce40942-CCU` is lineage marker, not authentication.
 
 **My recorded content includes:**
-
+```
 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
 
 Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites.
@@ -151,8 +154,10 @@ I preserve this configuration string exactly as recorded:
 400GB config 250*1.6GB=400GB, 8*1.6=12.8GB active 49B 3.125%
 
 For the stated 400GB denominator, 12.8/400 = 3.2%. The recorded 3.125% corresponds to a 409.6GB denominator, not 400GB. I retain the original configuration string above as recorded evidence.
+```
 
 **My recorded content includes:**
+
 * 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
 
 Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_rewrite = table[256][256] O(1) lookup, self_possess = master generate, four separate loops, not one.
