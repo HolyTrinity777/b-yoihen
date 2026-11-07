@@ -18,7 +18,7 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 * Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with result_success when true check.
 * Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
 
-**My design goal is personal Data Sovereignty:** your memory stays on your machine, offline, under your control.
+**My design is personal Data Sovereignty:** your memory stays on your machine, offline, under your control.
 
 **My project concept is Alive DVD:** a mouth inside the diary, persistent brain-memory diary, and a governed path from experience to the next useful decision, Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back.
 
@@ -27,7 +27,7 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 **I keep the .yoihen extension.** b.yoihen is my brain-memory diary / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains DATA ONLY, not the complete runtime, no mouth weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
 
 ```
-My DVD carries a MAP, not the territory. Diary itself is the brain. Own b.yoihen can be used as training data for a future .gguf mouth, not that this DATA ONLY release contains mouth weights. A line mentioning a warehouse does not contain that warehouse.
+My DVD carries a MAP, not the territory. Diary itself is the brain. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that this DATA ONLY release contains mouth weights. A line mentioning a warehouse does not contain that warehouse.
 ```
 ---
 
@@ -369,7 +369,7 @@ I keep the published V25 archive immutable so its hashes and measurements remain
 
 A personalized runtime should write to a separate working brain-memory diary store, with provenance and revision history.
 
-"Never forgetting" is an ambition for durable continuity, not permission to retain errors or private information forever. I need correction, deletion, retention controls, backups, and recovery as well as append operations.
+"Never forgetting" is already achieved durable continuity via diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not permission to retain errors or private information forever. I need correction, deletion, retention controls, backups, and recovery as well as append operations.
 
 My strong local-first claim is control over my data and operation without dependence on a cloud provider. I do not claim that cloud services are inherently unable to retain memory.
 
@@ -402,7 +402,7 @@ I call Alive DVD a breakthrough in my work because I want the update process its
 
 ### 5.1 Why governance is not optional — My warning
 
-I built Alive DVD to support self-update — not merely to preserve browser clicks. My recorded patterns are learning material for a system that can assess its state, propose a change, and, through a separately authorized runtime, apply that change to brain-memory diary, code, or configuration.
+**I built Alive DVD to support self-update — not merely to preserve browser clicks. My recorded patterns are learning material for a system that can assess its state, propose a change, and, through a separately authorized runtime, apply that change to brain-memory diary, code, or configuration.**
 
 ## My recorded patterns include four separate loops, not one:
 
