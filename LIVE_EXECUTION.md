@@ -1,3 +1,4 @@
+
 # LIVE_EXECUTION.md — What Actually Ran
 
 ## 0. What this file is, and what it is not
@@ -19,11 +20,12 @@ Do not confuse the two:
 - Archive = data you can verify.
 - Phone + private core + authorization = execution that was logged.
 
-Original screenshots are retained privately by the author as personal evidence.
+**Original screenshots are retained privately by the author as personal evidence.
 Only transcribed log values are published here. Application UUID is redacted.
 Screenrecordings retained privately by the author for:
 /brain/train/fast/parallel, /brain/benchmark, /brain/tool_use, /brain/chat
-Available on reasonable request, UUID redacted on sharing.
+Available on reasonable request, UUID redacted on sharing.**
+
 ---
 
 ## 1. Device and Path Proof — V24 State
