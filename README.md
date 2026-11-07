@@ -12,7 +12,7 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 
 **Ollama + an unchanged checkpoint = frozen mouth weights.**
 
-**b.yoihen (BRAIN) + a compatible .gguf (MOUTH) + llama.cpp (RUNNER) = a setup designed to retain experience and grow its offline memory.**
+**b.yoihen DVD holds brain diary + .gguf mouth inside it + llama.cpp (RUNNER) = a setup designed to retain experience and grow its offline memory.**
 * The .gguf is the mouth. b.yoihen is the brain / memory. My private core governs the update loop.
 * Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with result_success when true check.
 * Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
