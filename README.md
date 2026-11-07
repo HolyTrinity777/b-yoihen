@@ -488,7 +488,7 @@ If the change fails evaluation, exceeds its authorization, or cannot be traced t
 
 My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance — not an additional restriction on the CC BY 4.0 or MIT licence grants. Self-update 200 overnight possible 99.9% without controls = 17M lines overnight = disk fill + 5,000 cve kali chains replicated + 2406 self_possess master generate resists shutdown.
 
-I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. `own b.yoihen can train any Brain 10T+` means diary can be used as training data, not that compressed file executes itself.
+I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. `Own b.yoihen can be used as training data for a future model means a diary can be used as training data` 
 
 ## 6. My release evolution
 
@@ -931,7 +931,7 @@ My records and separately maintained working memory
   -> classify and preserve source identities -- vision_ref any path, DOM arbitrary text, action typed, reasoning collection description
   -> index appropriate content -- table[256][256] topic->[expert_ids] O(1) RAM table not BM25, 193 shards 90.19 per_shard
   -> retrieve relevant experience -- Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain
-  -> supply context to a compatible model -- .gguf supplies brain Qwen2-VL 7B example 12.8GB active 49B 3.125%
+  -> supply context from b.yoihen brain to a compatible mouth -- .gguf is the mouth, Qwen2-VL 7B example 12.8GB active 49B 3.125%
   -> return an answer with provenance -- result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
 **My b.yoihen is the brain and persistent memory; my .gguf is the mouth that turns retrieved context into words; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in DATA ONLY release.**
@@ -958,7 +958,7 @@ I distinguish data volume from parameters and inference speed from training thro
 ```
 Source experience -- 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 self_possess master generate + 10000 DMI_3_layers + 5000 tool_use
   -> scoped proposal -- self_rewrite vs self_update vs replication vs self_possess
-  -> external authorization -- outside model, bound to tool/target/args
+  -> external authorization -- outside mouth, bound to tool/target/args
   -> isolated execution -- separate authorized working store, not immutable V25 release
   -> independent tests -- truth_balance + principle_806861 + coherence fidelity F=1.0
   -> audit -- outside agent write authority, Blockchain Audit, lineage marker cf-ray 9fa1f8cf9ce40942-CCU not auth
