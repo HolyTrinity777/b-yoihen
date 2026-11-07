@@ -12,18 +12,18 @@ I built **b.yoihen** — my Alive DVD: a 500,002-line container format for recor
 
 - Ollama + an unchanged checkpoint = frozen model weights.
 - **b.yoihen(BRAIN) + a compatible .gguf (LLM IS THE MOUTH) + llama.cpp = a setup designed to retain experience and grow its offline memory.**
-- The `.gguf` supplies the brain. `b.yoihen` carries the memory. My private core governs the update loop.
+- The `.gguf` supplies the LLM MOUTH. `b.yoihen` carries the Brain/memory. My private core governs the update loop.
 - Day 1 ≠ Day 100 means diary appends via `open(b.yoihen,'a')` 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with `result_success when true` check.
 
 **Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience — not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.**
 
 **My design goal is personal Data Sovereignty: your memory stays on your machine, offline, under your control.**
 
-My project concept is Alive DVD: a replaceable model brain, persistent local memory, and a governed path from experience to the next useful decision — `Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back`.
+My project concept is Alive DVD: a replaceable model mouth, persistent local brain/memory, and a governed path from experience to the next useful decision — `Observe → record evidence → retrieve relevant experience → Propose → authorize → act → evaluate → Retain a verified result, correct it, or roll back`.
 
 Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
-I keep the `.yoihen` extension. `b.yoihen` is my memory / MAP representation — 500,002 lines 1.147GB raw / 19.78MB gz, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference, `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM` collection description. A compatible `.gguf` can supply the model brain — Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target. My private core is the separate player, resolver, orchestrator, and control layer — `core/files` + reload, `table[256][256]` O(1) lookup, `experts_safety [151,152,153,154,101,26,201,226]`. My public release contains **DATA ONLY** — not that complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+I keep the `.yoihen` extension. `b.yoihen` is my brain and memory / MAP representation — 500,002 lines 1.147GB raw / 19.78MB gz, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference, `11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM` collection description. A compatible `.gguf` can supply the model mouth — Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target. My private core is the separate player, resolver, orchestrator, and control layer — `core/files` + reload, `table[256][256]` O(1) lookup, `experts_safety [151,152,153,154,101,26,201,226]`. My public release contains **DATA ONLY** — not that complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
 
 ```
 My DVD carries a MAP — not the territory. Own b.yoihen can train any Brain 10T+ means diary can be used as training data for compatible GGUF, not that it contains model weights. A line mentioning a warehouse does not contain that warehouse.
@@ -328,7 +328,7 @@ The point is continuity.
 
 A fixed model checkpoint can stay the same while the system around it learns which dependency worked, which repair failed, what changed in my project, and which approved decision should inform the next one.
 
-My intended system pairs a compatible GGUF brain with persistent local memory and a controlled experience loop:
+My intended system pairs a compatible GGUF mouth with persistent local brain/memory and a controlled experience loop:
 
 ```
 Compatible model brain
@@ -344,7 +344,7 @@ Propose → authorize → act → evaluate
 Retain a verified result, correct it, or roll back
 ```
 
-Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not "Ollama is dead." It is that I am building persistent experience around a replaceable model brain.
+Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not "Ollama is dead." It is that I am building persistent experience around a replaceable mouth.
 
 ### The same brain, a more useful assistant
 
