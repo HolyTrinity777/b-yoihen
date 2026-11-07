@@ -11,7 +11,7 @@ My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell 
 I built **b.yoihen** — my Alive DVD: a 500,002-line container format for recorded computer-use traces — `348,722` four-field `vision_ref|DOM|action|reasoning` + `151,280` hit lines, `1,147,108,255` raw / `19,785,162` gz, `table[256][256] topic->[expert_ids]` O(1) RAM lookup reference, 193 shards 90.19 per_shard.
 
 - Ollama + an unchanged checkpoint = frozen model weights.
-- **b.yoihen + a compatible .gguf brain + llama.cpp = a setup designed to retain experience and grow its offline memory.**
+- **b.yoihen(BRAIN) + a compatible .gguf (LLM IS THE MOUTH) + llama.cpp = a setup designed to retain experience and grow its offline memory.**
 - The `.gguf` supplies the brain. `b.yoihen` carries the memory. My private core governs the update loop.
 - Day 1 ≠ Day 100 means diary appends via `open(b.yoihen,'a')` 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with `result_success when true` check.
 
