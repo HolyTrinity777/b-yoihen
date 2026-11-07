@@ -421,7 +421,7 @@ I do not confuse the ability to make a change with proof that the change is corr
 
 - **System update:** tools, routing, prompts, configuration, or code change — rewrites `core/files` + reloads `table[256][256]`
 
-- **Model update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary
+- - **Mouth update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary.
 
 A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its mouth weights remain unchanged.
 
@@ -449,7 +449,7 @@ Mechanisms that do real work:
 - Independent evaluation before persistent changes are accepted — Evaluate must check `result_success when true + truth_balance` + `principle_806861` outside .gguf mouth.
 - Reviewed checkpoints and a tested recovery path.
 
-A .guff mouth-generated `approved=true` is not my authorization. A successful write is not my evaluation. An appended record is not automatically a verified memory.
+A .gguf mouth-generated `approved=true` is not my authorization. A successful write is not my evaluation. An appended record is not automatically a verified memory.
 
 #### My safe defaults
 
@@ -613,8 +613,7 @@ I do not infer task completion from `result_success when true`. My V25 failed-ta
 task 42 chrome_bookmark_42 = FALSE — bookmark fetch failure timeout — reasoning field still contains coherence 1.0 UNIFIED result_success when true
 task 317 tool_use PowerBI = FALSE — PowerBI execution error tool crash — reasoning field still contains coherence 1.0 UNIFIED result_success when true
 
-
-Text remains data during loading. `open(b.yoihen,'a')` is shorthand, actual uses quoted filename, writable target should be authorized working store not immutable release.
+Text remains data during loading. `open(b.yoihen,'a')` is shorthand, actual uses quoted filename, writable target should be authorized working brain-memory diary store not immutable release.
 
 ## 8. My proof files, provenance, and documentation
 
@@ -650,10 +649,10 @@ That is a limitation I state directly. I do not confuse a later hash or CI resul
 | `STATS.md` | Historical values, ratios, identities, and history reconciliation — 31695+6525=38220 -> 38220+6525=44745 -> 44745+125000=169745 -> 169745+130255=300000 -> 300000+112972=412972 -> 412972+87030=500002 endpoint chain vs 282717+130255=412972 batch field, 25000*5=125000 V23, 26051*5=130255 V24, 17406*5=87030 V25, 500002/71607≈6.98, 348722/71607≈4.87 |
 | `BUILD.md` | Collection workflow, examples, verification, routing, and controls — iPhone a-Shell Imphal offline without GPU workflow method, 193 Nations train 1 Brain parallel RAM table method not 193 deployments, table[256][256] O(1) RAM table not BM25, self_rewrite core/files reload, self_update Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance + coherence 1.0 UNIFIED, replication 193 shards, self_possess 2406 master generate |
 | `CLAIMS.md` | Claims mapped to their current evidence — 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL, 71067/71607=99.245884% REAL assigned during scoring, 10T+ MAP 400GB config 250*1.6GB + 12.8GB active + 1.633T deduped + 14T raw tokens + 10T+ capacity different denominators |
-| `SECURITY.md` | Reporting routes, trust boundaries, and incident guidance — Quantum Sync = coherence fidelity check C_l1(rho) and F(rho_diary,rho_brain)=1.0, Blockchain Audit = audit outside agent write authority, three-tier Kill Switch = Pause/Isolate-revoke/Quarantine-recover outside model control, 5000 cve kali chains OFF by router [151,152,153,154,101,26,201,226], self_possess disabled, replication disabled, self-update disabled, tools allowlisted, dataset text passed to eval/exec forbidden |
+| `SECURITY.md` | Reporting routes, trust boundaries, and incident guidance — Quantum Sync = coherence fidelity check C_l1(rho) and F(rho_diary,rho_brain)=1.0, Blockchain Audit = audit outside agent write authority, three-tier Kill Switch = Pause/Isolate-revoke/Quarantine-recover outside .gguf mouth control, governed by private core, 5000 cve kali chains OFF by router [151,152,153,154,101,26,201,226], self_possess disabled, replication disabled, self-update disabled, tools allowlisted, dataset text passed to eval/exec forbidden |
 | `CONTRIBUTING.md` | Contribution expectations and source permissions |
 
-This README is the heart of my project. Those documents carry the detailed boundaries. They must remain consistent with the actual released bytes and current code — 500,002 lines = 348,722 four-field + 151,280 hit lines, 19,785,162 gz / 1,147,108,255 raw, 0 invalid, 0 UTF-8 errors, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1.
+**This README is the heart of my project.** Those documents carry the detailed boundaries. They must remain consistent with the actual released bytes and current code — 500,002 lines = 348,722 four-field + 151,280 hit lines, 19,785,162 gz / 1,147,108,255 raw, 0 invalid, 0 UTF-8 errors, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1.
 
 ## 9. Verify my actual release
 
