@@ -21,7 +21,9 @@ Do not confuse the two:
 
 Original screenshots are retained privately by the author as personal evidence.
 Only transcribed log values are published here. Application UUID is redacted.
-
+Screenrecordings retained privately by the author for:
+/brain/train/fast/parallel, /brain/benchmark, /brain/tool_use, /brain/chat
+Available on reasonable request, UUID redacted on sharing.
 ---
 
 ## 1. Device and Path Proof — V24 State
