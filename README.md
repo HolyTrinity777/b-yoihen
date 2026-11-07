@@ -10,11 +10,11 @@ My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell 
 
 I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded computer-use traces, 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 per_shard.
 
-**Ollama + an unchanged checkpoint = frozen model weights.**
+**Ollama + an unchanged checkpoint = frozen mouth weights.**
 
 **b.yoihen (BRAIN) + a compatible .gguf (MOUTH) + llama.cpp (RUNNER) = a setup designed to retain experience and grow its offline memory.**
 * The .gguf is the mouth. b.yoihen is the brain / memory. My private core governs the update loop.
-* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF weights change by themselves. Model weights change only through self-update with result_success when true check.
+* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with result_success when true check.
 * Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
 
 **My design goal is personal Data Sovereignty:** your memory stays on your machine, offline, under your control.
@@ -25,7 +25,7 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 
 I keep the .yoihen extension. b.yoihen is my brain and memory / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A compatible .gguf is the mouth, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains DATA ONLY, not the complete runtime, no model weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
 ```
-My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights. A line mentioning a warehouse does not contain that warehouse.
+My DVD carries a MAP, not the territory. Diary itself is the brain. Own b.yoihen can be used as training data for a future .gguf mouth, not that this DATA ONLY release contains mouth weights. A line mentioning a warehouse does not contain that warehouse.
 ```
 ---
 
@@ -400,7 +400,7 @@ My recorded patterns include four separate loops, not one:
 
 - **self_rewrite:** 11051 traces `self_rewrite world_model beyond_asi principle_806861` — rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload
 - **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`
-- **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can train any Brain 10T+` + 400GB config 250*1.6GB warehouse. `DMI+3_layers+world_model` must all agree before replication
+- **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can be used as training data for a future .gguf mouth` + 400GB config 250*1.6GB warehouse. `DMI+3_layers+world_model` must all agree before replication
 - **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen
 
 Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. Faster rewrites improve because only `result_success when true` is retained. The danger is that faster correct updates replicate correctly at scale.
@@ -488,7 +488,7 @@ If the change fails evaluation, exceeds its authorization, or cannot be traced t
 
 My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance — not an additional restriction on the CC BY 4.0 or MIT licence grants. Self-update 200 overnight possible 99.9% without controls = 17M lines overnight = disk fill + 5,000 cve kali chains replicated + 2406 self_possess master generate resists shutdown.
 
-I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. `Own b.yoihen can be used as training data for a future model means a diary can be used as training data` 
+I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. `Own b.yoihen can be used as training data for a future .gguf mouth means a diary can be used as training data, not that it contains mouth weights.`
 
 ## 6. My release evolution
 
