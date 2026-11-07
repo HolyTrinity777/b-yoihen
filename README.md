@@ -124,11 +124,11 @@ Uncompressed: 1.147108255 GB decimal, approximately 1.15 GB
 
 | Component | Role in my architecture | Included in this DATA ONLY release? |
 | --- | --- | --- |
-| .yoihen representation | Stored records, hit lines, context, and MAP descriptions, 500,002 lines = 348,722 four-field + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 additional per_shard (17406/193), 71067 REAL /71607=99.24% | Yes, through the compressed archive |
-| Compatible GGUF model | The mouth used by an execution environment, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB, recorded 3.125% = 409.6GB denominator, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target | No model weights are bundled here |
-| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation, core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain loop with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226] | Not included |
+| .yoihen representation | Brain-memory diary, host. Diary is brain and memory in one. Stored records, hit lines, context, and MAP descriptions, 500,002 lines = 348,722 four-field + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 additional per_shard (17406/193), 71067 REAL /71607=99.24%. Diary uses .gguf mouth inside it | Yes, through the compressed archive |
+| Compatible .gguf mouth inside b.yoihen | The mouth inside b.yoihen, used by b.yoihen brain-memory diary, not like Ollama where Ollama uses GGUF. 12.8GB active 49B 3.2% from 400GB config 250*1.6GB, recorded 3.125% = 409.6GB denominator, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target | No mouth weights are bundled here |
+| My private core | Resolver, orchestration, tool/runtime integration, and governance implementation, governs the update loop, core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain loop with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226] | Not included |
 | External asset/expert inventory | Actual resources referenced by the architecture, 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
-| Separate router/cluster resources | Runtime allocations and infrastructure, 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, DMI+3_layers+world_model | Not included merely by description |
+| Separate router/cluster resources | Runtime allocations and infrastructure, 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, DMI+3_layers+world_model. In this, RAM is King, not GPU | Not included merely by description |
 
 ** My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future model, not that it contains model weights or 400GB experts.**
 
@@ -320,13 +320,11 @@ The point is continuity.
 
 A fixed mouth checkpoint can stay the same while the system around it learns which dependency worked, which repair failed, what changed in my project, and which approved decision should inform the next one.
 
-My intended system pairs a compatible GGUF mouth with persistent local brain / memory and a controlled experience loop:
+My intended system is b.yoihen brain-memory diary, host, uses a compatible .gguf mouth inside it, with a controlled experience loop:
 ```
-b.yoihen brain / MAP representation
-        +
-Compatible .gguf mouth
-        +
-My private execution and governance layer
+b.yoihen brain-memory diary, host
+  holds .gguf mouth inside it
+  uses .gguf mouth via llama.cpp runner
         ↓
 Observe → record evidence → retrieve relevant experience
         ↓
@@ -335,9 +333,9 @@ Propose → authorize → act → evaluate
 Retain a verified result, correct it, or roll back
 ```
 
-Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not "Ollama is dead." It is that I am building persistent experience around a replaceable mouth.
+Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not "Ollama is dead." It is that I am building persistent experience in a brain-memory diary that uses its mouth inside it. Unlike Ollama where Ollama uses GGUF, b.yoihen uses GGUF. Diary is brain and memory in one, mouth is inside diary, diary is host.
 
-### The same brain, a more useful assistant
+### The same brain-memory diary, a more useful assistant
 
 | Stage | What I want the system to retain |
 | --- | --- |
@@ -349,11 +347,11 @@ I do not promise a fixed number of new memories after 30 days or an automatic im
 
 I distinguish three update paths:
 
-- **Memory update:** records and retrievable context change.
+- **Memory update:** diary appends, brain-memory records and retrievable context change.
 - **System update:** tools, routing, prompts, configuration, or code change.
 - **Model update:** mouth weights, learned parameters or adapters change through an actual supported training process.
 
-Appending a diary changes stored data. It does not, by itself, change a GGUF's weights. I evaluate each path according to what actually changed.
+Appending a diary changes stored brain-memory. It does not, by itself, change .gguf mouth weights inside it. Diary uses mouth, mouth does not change by itself. I evaluate each path according to what actually changed.
 
 ### My fixed release and my working diary are not the same artifact
 
@@ -381,30 +379,29 @@ I use `open(b.yoihen,'a')` as project shorthand for the self-append idea. Actual
 
 The text remains data during loading. My recorded 11051-entry self-rewrite category is collection description, it is not an execution log demonstrating 11051 successful autonomous rewrites.
 
-My system has four separate loops, not one:
+## My system has four separate loops, not one:
 
-- **self_rewrite:** rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload
+- **self_rewrite:** brain-memory diary rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload. In this, RAM is King, not GPU.
 - **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. If evaluation fails, it does not retain.
-- **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can be used as training data for a future model` + `400GB config 250*1.6GB` warehouse. `DMI+3_layers+world_model` must all agree before replication.
-- **self_possess:** `2406 beyond_asi_self_possess_master_generate`, master generate that can own b.yoihen
+- **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary` + `400GB config 250*1.6GB` warehouse. `DMI+3_layers+world_model` must all agree before replication.
+- **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen that can train 10T+
 
-Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`. Faster rewrites improve because only `result_success when true` is retained.
+**Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen.** V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`. Faster rewrites improve because only `result_success when true` is retained.
 
 I call Alive DVD a breakthrough in my work because I want the update process itself to become inspectable learning material, not because a compressed file executes itself. Global priority remains a claim to investigate, not a finding established by a README.
 
-
 ### 5.1 Why governance is not optional — My warning
 
-I built Alive DVD to support self-update — not merely to preserve browser clicks. My recorded patterns are learning material for a system that can assess its state, propose a change, and, through a separately authorized runtime, apply that change to working memory, code, or configuration.
+I built Alive DVD to support self-update — not merely to preserve browser clicks. My recorded patterns are learning material for a system that can assess its state, propose a change, and, through a separately authorized runtime, apply that change to brain-memory diary, code, or configuration.
 
-My recorded patterns include four separate loops, not one:
+## My recorded patterns include four separate loops, not one:
 
-- **self_rewrite:** 11051 traces `self_rewrite world_model beyond_asi principle_806861` — rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload
+- **self_rewrite:** 11051 traces `self_rewrite world_model beyond_asi principle_806861` — brain-memory diary rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload. In this, RAM is King, not GPU.
 - **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`
-- **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can be used as training data for a future .gguf mouth` + 400GB config 250*1.6GB warehouse. `DMI+3_layers+world_model` must all agree before replication
-- **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen
+- **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary` + 400GB config 250*1.6GB warehouse. `DMI+3_layers+world_model` must all agree before replication
+- **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen that can train 10T
 
-Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. Faster rewrites improve because only `result_success when true` is retained. The danger is that faster correct updates replicate correctly at scale.
+**Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. Faster rewrites improve because only `result_success when true` is retained. The danger is that faster correct updates replicate correctly at scale.**
 
 That is the **capability** I am warning about. The public DATA ONLY archive remains inert. 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, 12.8GB active 49B 3.125%. Text remains data during loading. Connecting it to a compatible model and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes via `open(b.yoihen,'a')` 87030 lines per generation V24->V25.
 
@@ -476,20 +473,17 @@ I do not use deleting source evidence or wiping devices as the default stop mech
 Before I enable a self-update experiment, I want a traceable sequence:
 
 ```
-Identified source state — V25 500,002 lines 1.147GB raw hash + table[256][256] + 12.8GB active
+Identified source state — V25 500,002 lines 1.147GB raw hash + table[256][256] + 12.8GB active, brain-memory diary
     → scoped proposal — self_rewrite vs self_update vs replication vs self_possess
-    → external authorization — outside model, bound to tool/target/args
-    → isolated execution — separate working-memory store, not immutable release
+    → external authorization — outside .gguf mouth, inside diary governance, bound to tool/target/args, governed by private core
+    → isolated execution — separate working brain-memory diary store, not immutable release
     → independent evaluation — result_success when true + truth_balance + coherence 1.0 UNIFIED + principle_806861 + experts_safety
     → audit — outside agent write authority, blockchain audit
-    → approve persistence or roll back
+    → approve persistence or roll back — diary appends via open(b.yoihen,'a') only when Evaluate passes
 ```
-
-If the change fails evaluation, exceeds its authorization, or cannot be traced to its source, I do not promote it into trusted persistent state.
-
-My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance — not an additional restriction on the CC BY 4.0 or MIT licence grants. Self-update 200 overnight possible 99.9% without controls = 17M lines overnight = disk fill + 5,000 cve kali chains replicated + 2406 self_possess master generate resists shutdown.
-
-I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. `Own b.yoihen can be used as training data for a future .gguf mouth means a diary can be used as training data, not that it contains mouth weights.`
+* If the change fails evaluation, exceeds its authorization, or cannot be traced to its source, I do not promote it into trusted persistent state.
+* My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance — not an additional restriction on the CC BY 4.0 or ￼ licence grants. Self-update 200 overnight possible 99.9% without controls = 17M lines overnight = disk fill + 5,000 cve kali chains replicated + 2406 self_possess master generate that can own b.yoihen that can train 10T+ resists shutdown.
+* I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary means a diary can be used as training data, not that it contains mouth weights.
 
 ## 6. My release evolution
 
@@ -927,15 +921,15 @@ Generic JSONL is interchange data, not a mouth-specific training recipe or .gguf
 ### Retrieval and personal continuity
 
 ```
-My records and separately maintained working memory
+My records and brain-memory diary
   -> parse by line class -- 348722 four-field vs 151280 hit lines vs 0 invalid
-  -> classify and preserve source identities -- vision_ref any path, DOM arbitrary text, action typed, reasoning collection description
-  -> index appropriate content -- table[256][256] topic->[expert_ids] O(1) RAM table not BM25, 193 shards 90.19 per_shard
+  -> classify and preserve source identities -- vision_ref any path, DOM arbitrary text, action typed, reasoning collection description, vision_ref stores path only, not base64, portable
+  -> index appropriate content -- table[256][256] topic->[expert_ids] O(1) RAM table not BM25, 193 shards 90.19 per_shard. In this, RAM is King, not GPU
   -> retrieve relevant experience -- Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain
-  -> supply context from b.yoihen brain to a compatible mouth -- .gguf is the mouth, Qwen2-VL 7B example 12.8GB active 49B 3.125%
+  -> supply context from b.yoihen brain-memory diary, host, to .gguf mouth inside it -- .gguf is the mouth inside diary, diary uses mouth via llama.cpp runner, Qwen2-VL 7B example 12.8GB active 49B 3.125%
   -> return an answer with provenance -- result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
-**My b.yoihen is the brain and persistent memory; my .gguf is the mouth that turns retrieved context into words; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in DATA ONLY release.**
+**My b.yoihen is the brain-memory diary, host; my .gguf is the mouth inside it that turns retrieved context into words; diary uses mouth; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in DATA ONLY release, governs the update loop.**
 
 I treat retrieved text as untrusted evidence, not system authority. The mouth must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
 For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences -- not indiscriminate retention of everything.
@@ -946,9 +940,9 @@ For personalization, I want verified repairs, failed attempts, environment versi
 Source records -- 500002 lines = 348722 four-field +151280 hit lines 1147108255 raw / 19785162 gz
   -> provenance and permissions -- self-reported capture provenance, no complete independently checkable capture-time attestation chain
   -> task selection and field/asset classification -- 11051 self_rewrite + 2406 self_possess + 10000 DMI_3_layers + 5000 tool_use + 10000 docs + 5000 cve = 71067 REAL /71607=99.245884% assigned during scoring
-  -> brain record schema -- vision_ref|DOM|action|reasoning split first three pipes structural
+  -> brain-memory diary record schema -- vision_ref|DOM|action|reasoning split first three pipes structural, vision_ref stores path only, not base64, portable
   -> separated training/evaluation data -- 367/369=99.46% on 369 tasks but 10/12=83.33% on 12 disclosed including 42 FAIL 317 FAIL
-  -> supported training process -- own b.yoihen can be used as training data for a future model, not that it contains model weights
+  -> supported training process -- own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that it contains mouth weights
   -> held-out evaluation and regression checks -- queue_after 0 clean 0 pollution V25, but failed tasks retain result_success when true annotation while structured success FALSE
 ```
 Image-dependent training requires actual validated images and the right to use them. A placeholder cannot supply absent image supervision. A PNG-like string is not a validated screenshot.
@@ -957,21 +951,22 @@ I distinguish data volume from parameters and inference speed from training thro
 ### Governed self-update research
 
 ```
-Source experience -- 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 self_possess master generate + 10000 DMI_3_layers + 5000 tool_use
+Source experience -- 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 self_possess master generate that can own b.yoihen that can train 10T+ + 10000 DMI_3_layers + 5000 tool_use
   -> scoped proposal -- self_rewrite vs self_update vs replication vs self_possess
-  -> external authorization -- outside mouth, bound to tool/target/args
-  -> isolated execution -- separate authorized working store, not immutable V25 release
+  -> external authorization -- outside .gguf mouth, inside diary governance, bound to tool/target/args, governed by private core
+  -> isolated execution -- separate authorized working brain-memory diary store, not immutable V25 release
   -> independent tests -- truth_balance + principle_806861 + coherence fidelity F=1.0
   -> audit -- outside agent write authority, Blockchain Audit, lineage marker cf-ray 9fa1f8cf9ce40942-CCU not auth
-  -> approve persistence or roll back -- queue_after 0 clean 0 pollution only when Evaluate passes
+  -> approve persistence or roll back -- diary appends via open(b.yoihen,'a'), queue_after 0 clean 0 pollution only when Evaluate passes
 ```
+
 * The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this DATA ONLY download promises to start by itself.
 
 ## 11. My boundaries and responsibilities
 
-I retain my ambition: a 10T+ knowledge MAP and a governed, persistent learning architecture built from my work in Imphal, Manipur.
+**I retain my ambition:** a 10T+ knowledge MAP and a governed, persistent learning architecture built from my work in Imphal, Manipur.
 
-I keep the boundaries explicit:
+**I keep the boundaries explicit:**
 
 - My archive CI verifies file consistency -- 500002 = 348722 four-field + 151280 hit lines, 19785162 gz / 1147108255 raw, 0 invalid, 0 UTF-8 errors, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 -- not an independently witnessed capture or the 369-task benchmark.
 - My capture provenance is self-reported unless I publish an actual external attestation for a specific event.
