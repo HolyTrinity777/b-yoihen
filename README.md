@@ -131,7 +131,7 @@ Uncompressed: 1.147108255 GB decimal, approximately 1.15 GB
 | External asset/expert inventory | Actual resources referenced by the architecture, 400GB config 250*1.6GB warehouse, 1.633T deduped expert-parameter layer, 14T raw token layer, 10T+ MAP capacity, 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM, screenshot/assets warehouse | Not included merely by reference |
 | Separate router/cluster resources | Runtime allocations and infrastructure, 10*40GB expert inventory + 11th 40GB control/router node = 440GB total layout, 512GB router figure, 193 Nations train 1 Brain parallel RAM table, DMI+3_layers+world_model. In this, RAM is King, not GPU | Not included merely by description |
 
-** My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that it contains mouth weights or 400GB experts.**
+**My DVD carries a MAP, not the territory. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that it contains mouth weights or 400GB experts.**
 
 * A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert. A recorded action does not authorize its execution. A governance label does not implement a stop mechanism.
 
