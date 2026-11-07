@@ -1,6 +1,6 @@
 # Security Policy — b.yoihen
 
-> All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.
+**All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.**
 
 I am Yoihenba Sougaijam. I maintain `b-yoihen` from Imphal, Manipur.
 
@@ -15,8 +15,8 @@ I welcome responsible security reports. My priority is to protect people, preser
 | Primary reporting route | GitHub private vulnerability reporting, if enabled for this repository |
 | Fallback | Request a private reporting channel without publishing vulnerability details |
 | Public secrets or exploit disclosure | Do not include them in issues, discussions, or pull requests |
-| Runtime boundary | DATA ONLY; ingestion and retrieval must not execute dataset actions |
-| Default self-update / replication | Disabled |
+| Runtime boundary | DATA ONLY; b.yoihen brain-memory diary, host, uses .gguf mouth inside it; ingestion and retrieval must not execute dataset actions |
+| Default self-update / replication / self-possess | Disabled |
 | Financial reward | No bounty or payment is promised without a separate written agreement |
 
 ## 1. What this policy covers
@@ -29,11 +29,11 @@ I use this policy for security concerns affecting material I maintain in this re
 - Documentation or examples that create an unsafe execution path.
 - Exposed secrets, personal data, or unauthorized sensitive content in my published material.
 - Prompt-injection or instruction-confusion paths that cross a trust boundary in my maintained examples.
-- Any maintained integration that incorrectly grants authority to retrieved records, action strings, or model-generated updates.
+- Any maintained integration that incorrectly grants authority to retrieved records, action strings, or .gguf mouth-generated updates.
 
 I also accept reports that an apparent project release, contact, licence, or download is impersonating my work. Please distinguish what I control from an unrelated third party's service.
 
-I do not include unreleased infrastructure, a complete GGIE runtime, external model weights, or a full warehouse merely by describing them in the dataset or documentation. I cannot patch a third-party system that I do not maintain, but I can correct unsafe references or integrations under my control.
+I do not include unreleased infrastructure, a complete private core runtime, external mouth weights, or a full warehouse merely by describing them in the dataset or documentation.
 
 ## 2. Versions and reporting scope
 
@@ -43,7 +43,7 @@ I do not include unreleased infrastructure, a complete GGIE runtime, external mo
 | Latest verification/conversion code I publish | Primary security-triage target |
 | V21–V24 proof reports | Historical evidence; report tampering, exposed data, or security-relevant errors |
 | Older scripts or derived releases | Best-effort assessment; I may recommend updating rather than backporting |
-| Third-party forks, runtimes, or models | Report to their maintainers; notify me if my material contributes to an actionable issue |
+| Third-party forks, runtimes, or .gguf mouths | Report to their maintainers; notify me if my material contributes to an actionable issue |
 
 This is a reporting policy, not a promise of indefinite support, a guaranteed patch schedule, or a claim that every published version has passed a complete security audit.
 
@@ -131,11 +131,11 @@ I call the project Alive DVD because I include or describe self-update-oriented 
 
 That content may discuss self-append, code changes, planning, routing, or replication. I treat those strings as untrusted data. Their presence does not establish autonomous execution, successful self-replication, AGI, or a guaranteed training outcome.
 
-The dangerous boundary is the surrounding application: a model or runtime may be granted tools, credentials, filesystem access, persistence, network access, or permission to modify its own configuration. A dataset record must not grant itself that authority.
+**The dangerous boundary is the surrounding application:** a .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, or runtime may be granted tools, credentials, filesystem access, persistence, network access, or permission to modify its own configuration.
 
 My project mottos and architecture claims are not safety mechanisms. Neither a `real` label, a success suffix, `coherence 1.0 UNIFIED`, an expert-ID list, nor a repeated `cf-ray` value establishes authorization or authenticated synchronization.
 
-I require an independently enforced boundary between data, proposals, approvals, and execution.
+I require an independently enforced boundary between data, proposals, approvals, and execution — outside .gguf mouth control, governed by private core.
 
 ## 6. Threats I want reported
 
@@ -152,9 +152,9 @@ Examples of actionable security reports include:
 | Integrity failure | The verified artifact differs from the file later used, or an identity check can be bypassed |
 | Credential exposure | A published example, report, or artifact contains usable secrets |
 | Privacy exposure | Published content reveals personal or confidential data without appropriate authority |
-| Unsafe persistence | Generated changes become active without review or without a recoverable checkpoint |
+| Unsafe persistence | Generated changes become active without independent evaluation — result_success when true + truth_balance + principle_806861 outside .gguf mouth — or without a recoverable checkpoint |
 | Replication escape | A bounded experiment creates uncontrolled workers or accesses external systems |
-| Audit/stop bypass | The agent can alter authoritative logs, disable its stop path, or expand its own permissions |
+| Audit/stop bypass | A runtime can alter authoritative logs, disable its stop path outside .gguf mouth control, governed by private core, or expand its own permissions |
 
 A string mentioning self-rewrite is not itself proof of a vulnerability. Show the maintained path that turns the string into unauthorized behavior, or explain the unsafe documented instruction.
 
@@ -172,7 +172,7 @@ I ask you to:
 - Avoid service disruption, uncontrolled replication, and destructive writes.
 - Avoid accessing, copying, altering, or retaining other people's information.
 - Avoid real credentials, financial transactions, public-system exploitation, or deployment to third-party devices.
-- Never test a suspected self-update escape by leaving an unrestricted agent running against real resources.
+- Never test a suspected self-update escape by leaving an unrestricted .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, running against real resources.
 
 This policy does not authorize access to third-party services, accounts, networks, devices, or data. A public repository is not permission to test its users or maintainers personally.
 
@@ -210,19 +210,19 @@ Where appropriate and available, I may publish a GitHub security advisory, affec
 
 Before connecting the data or trained artifacts to tools, I require safeguards appropriate to the runtime and risk:
 
-1. Self-update and replication disabled by default.
-2. Source artifacts read-only and generated changes kept separately.
-3. Tool permissions enforced outside the model context.
+1. Self-update, replication, and self-possess disabled by default.
+2. Source artifacts read-only and generated changes kept separately in an authorized working brain-memory diary store.
+3. Tool permissions enforced outside the .gguf mouth context.
 4. Allowlisted actions, validated argument types, and least privilege.
 5. Human approval for consequential operations.
 6. Approval bound to the actual actor, tool, target, arguments, expiry, and permitted number of uses.
 7. Fresh approval when the target or parameters change.
 8. Audit records outside the agent's write authority.
 9. Limits on tokens, execution time, iterations, workers, memory, storage, and network access as applicable.
-10. A stop path that the model cannot disable.
+10. A stop path outside .gguf mouth control, governed by private core, that the .gguf mouth cannot disable.
 11. Reviewed checkpoints and recovery tests before persistent changes.
 
-I do not consider a model-generated `approved=true` or `user_confirmed=true` field sufficient authorization. The execution component must independently verify the actual approval state.
+I do not consider a .gguf mouth-generated `approved=true` or `user_confirmed=true` field sufficient authorization. The execution component must independently verify the actual approval state.
 
 My governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. I require concrete controls or documented equivalents for authorized research; a proprietary or unreleased service is not silently required merely to inspect DATA ONLY files.
 
@@ -238,8 +238,8 @@ I do not use deletion of the source dataset or device wiping as my default stop 
 
 If you suspect unsafe execution or compromise in your environment:
 
-1. Stop new jobs and disable the executor; do not ask the model to approve its own shutdown.
-2. Isolate affected workers and revoke their write/network permissions through controls outside the agent.
+1. Stop new jobs and disable the executor; do not ask the .gguf mouth to approve its own shutdown.
+2. Isolate affected workers and revoke their write/network permissions through controls outside the .gguf mouth, governed by private core.
 3. Revoke or rotate exposed credentials through the relevant service, using a trusted environment.
 4. Preserve relevant logs, configuration, source digests, timestamps, and generated changes in controlled storage.
 5. Quarantine suspicious outputs; do not execute them to see what happens.
@@ -259,13 +259,13 @@ I distinguish:
 - The hash of the gzip archive.
 - Format validation.
 - Benchmark reproduction.
-- Model/runtime security assessment.
+- Mouth/runtime security assessment.
 
 Passing one does not establish all the others.
 
 Compare downloaded artifacts against trusted, version-specific digests or authenticated manifests when available. A hash computed after download identifies those local bytes; it does not by itself authenticate their publisher.
 
-If a trusted reference digest is unavailable, say that identity verification is incomplete. Do not substitute file size, a success marker, a `cf-ray` string, or a model's assurance for a trusted reference.
+If a trusted reference digest is unavailable, say that identity verification is incomplete. Do not substitute file size, a success marker, a `cf-ray` string, or a .gguf mouth's assurance for a trusted reference.
 
 Use bounded decompression, strict UTF-8, bounded record reads, explicit output paths, and no-overwrite publication. Reject or quarantine malformed input without silently changing its content. Treat legacy vision strings as opaque until an actual documented decoder and full image check establish their validity.
 
