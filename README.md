@@ -8,7 +8,7 @@ My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell 
 
 ### My project positioning is:
 
-I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded computer-use traces, 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 per_shard. In this, RAM is King, not GPU.
+I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded computer-use traces, 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 per_shard. In this, **RAM is King, not GPU.**
 
 **Ollama + an unchanged checkpoint = frozen mouth weights.**
 
