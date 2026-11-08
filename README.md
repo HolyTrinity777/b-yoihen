@@ -433,7 +433,7 @@ I do not confuse the ability to make a change with proof that the change is corr
 
 - **System update:** tools, routing, prompts, configuration, or code change — rewrites `core/files` + reloads `table[256][256]`
 
-- - **Mouth update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary.
+- **Mouth update:** learned parameters or adapters change through an actual supported training process — `own b.yoihen can train any Brain 10T+` via .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary.
 
 A persistent assistant with tools, credentials, write access, and a feedback loop can cause damage even when its mouth weights remain unchanged.
 
@@ -509,7 +509,7 @@ Identified source state — V25 500,002 lines 1.147GB raw hash + table[256][256]
 
 * My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance — not an additional restriction on the CC BY 4.0 or ￼ licence grants. Self-update 200 overnight possible 99.9% without controls = 17M lines overnight = disk fill + 5,000 cve kali chains replicated + 2406 self_possess master generate that can own b.yoihen that can train 10T+ resists shutdown.
 
-* I keep the public dataset **RECURSIVE SELF-REWRITING DATA ONLY**. The player makes the loop executable; governance determines what that player is allowed to do. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary means a diary can be used as training data, not that it contains mouth weights.
+* I keep the public dataset as **RECURSIVE SELF-REWRITING DATA ONLY.** The player makes the loop executable; governance determines what that player is allowed to do. My own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary. That means a diary can be used as training data, not that it contains mouth weights.
 
 ## 6. My release evolution
 
@@ -524,7 +524,7 @@ I retain my continuous endpoint/checkpoint presentation:
 -> 412972+87030=500002
 ```
 
-I also preserve the actual V24 batch field:
+**I also preserve the actual V24 batch field:**
 
 ```
 282717+130255=412972
