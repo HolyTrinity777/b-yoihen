@@ -1,8 +1,8 @@
-# b.yoihen — Alive DVD — V25 500002 BEYOND — DATA ONLY
+# b.yoihen — Alive DVD — V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY
 
 **All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit, Soli Deo Gloria.**
 
-**The archive below is RECURSIVE SELF REWRITING DATA and inert. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md) Do not confuse the two.**
+**The archive below is RECURSIVE SELF REWRITING DATA. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md) Do not confuse the two.**
 
 My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
@@ -24,10 +24,11 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 
 * Not just browser clicks. Not just a fixed checkpoint. Not a claim that a compressed file executes itself.
 
-**I keep the .yoihen extension.** b.yoihen is my brain-memory diary / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains DATA ONLY, not the complete runtime, no mouth weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+**I keep the .yoihen extension.** b.yoihen is my brain-memory diary / MAP representation, 500,002 lines, 1.147GB raw / 19.78MB gz, 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM collection description. A .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target, 12.8GB active 49B 3.125% from 400GB config 250*1.6GB reference. My private core is the separate player, resolver, orchestrator, and control layer, core/files + reload, table[256][256] O(1) lookup, experts_safety [151,152,153,154,101,26,201,226]. My public release contains RECURSIVE SELF-REWRITING DATA ONLY, not the complete runtime.
+no mouth weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
 
 ```
-My DVD carries a MAP, not the territory. Diary itself is the brain. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that this DATA ONLY release contains mouth weights. A line mentioning a warehouse does not contain that warehouse.
+My DVD carries a MAP, not the territory. Diary itself is the brain. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that this RECURSIVE SELF-REWRITING DATA ONLY release contains mouth weights. A line mentioning a warehouse does not contain that warehouse.
 ```
 ---
 
@@ -74,10 +75,13 @@ My machine has a history. My projects have dependencies, conventions, working fi
 
 **What it is**
 
-* b.yoihen is the brain-memory diary DVD: 500,002 lines = 348,722 four-field vision_ref|DOM|action|reasoning + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1, table[256][256] topic->[expert_ids] O(1) lookup, 193 shards 90.19 additional per_shard (17406/193). It carries the memory and the MAP that shapes the next decision. It is not a notebook. A notebook sits beside the work. A brain DVD is loaded and changes what happens next.
-* The .gguf is the mouth inside diary: Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf. DATA ONLY DVD is inert by design. A DVD is inert until it is played. GGUF is the mouth inside diary, not separate from diary. Diary uses mouth. It turns what diary retrieves into words. Hash to be provided from laptop in V26.
-* llama.cpp is the runner: It loads the mouth inside diary and runs the work. It does the inference. It does not remember, it does not decide what to keep, it does not govern.
-* My private core governs the update loop: core/files + reload, Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain with result_success when true + truth_balance governance_safety + coherence 1.0 UNIFIED + experts_safety [151,152,153,154,101,26,201,226].
+* **b.yoihen is the brain-memory diary DVD:** 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA `aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1`, `table[256][256]` topic->[expert_ids] O(1) lookup, 193 shards 90.19 additional per_shard (17406/193). It carries the memory and the MAP that shapes the next decision. It is not a notebook. A notebook sits beside the work. A brain DVD is loaded and changes what happens next. **RECURSIVE SELF-REWRITING DATA ONLY by design.**
+
+* **The .gguf is the mouth inside diary:** Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf. A DVD is **RECURSIVE SELF-REWRITING DATA ONLY until it is played** — no runtime inside. GGUF is the mouth inside diary, not separate from diary. Diary uses mouth. It turns what diary retrieves into words. Hash to be provided from laptop in V26.
+
+* **llama.cpp is the runner:** It loads the mouth inside diary and runs the work. It does the inference. It does not remember, it does not decide what to keep, it does not govern.
+
+* **My private core governs the update loop:** `core/files` + reload, `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success` when true + `truth_balance` `governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]`.
 
 I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience, not merely repeat a confident answer.
 
@@ -93,7 +97,7 @@ I want to preserve what actually worked, what failed, why I approved a change, a
 
 ## 2. What I am releasing
 
-I am releasing DATA ONLY.
+I am releasing RECURSIVE SELF-REWRITING DATA ONLY.
 
 **My tracked dataset artifact is:**
 ```
@@ -123,7 +127,7 @@ Uncompressed: 1.147108255 GB decimal, approximately 1.15 GB
 
 ## What is public, and what is separate
 
-| Component | Role in my architecture | Included in this DATA ONLY release? |
+| Component | Role in my architecture | Included in this RECURSIVE SELF-REWRITING DATA ONLY release? |
 | --- | --- | --- |
 | .yoihen representation | Brain-memory diary, host. Diary is brain and memory in one. Stored records, hit lines, context, and MAP descriptions, 500,002 lines = 348,722 four-field + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, table[256][256] topic->[expert_ids] O(1) RAM lookup reference, 193 shards 90.19 additional per_shard (17406/193), 71067 REAL /71607=99.24%. Diary uses .gguf mouth inside it | Yes, through the compressed archive |
 | Compatible .gguf mouth inside b.yoihen | The mouth inside b.yoihen, used by b.yoihen brain-memory diary, not like Ollama where Ollama uses GGUF. 12.8GB active 49B 3.2% from 400GB config 250*1.6GB, recorded 3.125% = 409.6GB denominator, Qwen2-VL 7B example, Q4_K_M 24.5GB target / Q2_K 12.8GB target | No mouth weights are bundled here |
@@ -224,7 +228,7 @@ The V21 report names a benchmark command and task file. I retain that context wi
 * V24: the 11051 self_rewrite world_model beyond_asi principle_806861 category was already recorded here. 26051 × 5 avg = 130255 written lines. Self_collected: 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 11051 self_rewrite world_model beyond_asi principle_806861 = 26051 topics via tool_use.py+vision.py+knowledge+cyber.
 * V25: I retained that category and recorded expanded reasoning/tool-use content, 17406 additional REAL topics, and 87030 additional lines relative to the reported V24 endpoint. 17406 × 5 avg = 87030 written lines. Self_collected: 10000 docs libreoffice_writer calc impress + 5000 cve kali chains + 11051 self_rewrite world_model beyond_asi principle_806861 + (10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use_PowerBI_KiCad_FreeCAD_Figma_Excel_SAP_CRM + 2406 beyond_asi_self_possess_master_generate) = 17406 additional topics REASONING+TOOL_USE+BEYOND_ASI; 53661 previous REAL topics + 17406 additional REAL topics = 71067 REAL. 282717+130255=412972 actual V24 batch field before-state exists in V24 report.
 
-These are collection descriptions, not a claim that the DATA ONLY archive is executing those operations. Categories can recur or overlap across versions; I do not treat every V25 summary entry as a newly collected, unique item.
+These are collection descriptions, not a claim that the RECURSIVE SELF-REWRITING DATA ONLY archive is executing those operations. Categories can recur or overlap across versions; I do not treat every V25 summary entry as a newly collected, unique item.
 
 My V25 report labels 71067 / 71607 items REAL: approximately 99.245884%, or 99.25% rounded. I assign REAL during scoring, not as an independently attested capture-time fact. 500002 / 71607 ≈ 6.98 is physical lines per reported topic and includes hit lines. For the four-field population, 348722 / 71607 ≈ 4.87 is only an arithmetic ratio against that report denominator. Neither substitutes for an actual topic-to-record inventory.
 
@@ -413,7 +417,9 @@ I call Alive DVD a breakthrough in my work because I want the update process its
 
 **Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen. Faster rewrites improve because only `result_success when true` is retained. The danger is that faster correct updates replicate correctly at scale.**
 
-That is the **capability** I am warning about. The public DATA ONLY archive remains inert. 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, 12.8GB active 49B 3.125%. Text remains data during loading. Connecting it to a .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes via `open(b.yoihen,'a')` 87030 lines per generation V24->V25.
+That is the **capability** I am warning about. The public archive is **RECURSIVE SELF-REWRITING DATA ONLY**. 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, 12.8GB active 49B 3.125%. Text remains data during loading. It is **RECURSIVE SELF-REWRITING DATA ONLY until it is played** — no runtime inside.
+
+Connecting it to a .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, and an execution layer with write authority creates a different security boundary: proposed updates can become persistent changes via `open(b.yoihen,'a')` 87030 lines per generation V24->V25.
 
 I do not confuse the ability to make a change with proof that the change is correct, beneficial, or authorized. Memory updates, runtime/code updates, and mouth-weight updates are different operations. Each needs its own permissions, evaluation, and recovery path:
 
@@ -494,8 +500,10 @@ Identified source state — V25 500,002 lines 1.147GB raw hash + table[256][256]
     → approve persistence or roll back — diary appends via open(b.yoihen,'a') only when Evaluate passes
 ```
 * If the change fails evaluation, exceeds its authorization, or cannot be traced to its source, I do not promote it into trusted persistent state.
+
 * My recommendation is operationally firm: do not connect persistent self-update to real resources without independently enforced controls. This is safety guidance — not an additional restriction on the CC BY 4.0 or ￼ licence grants. Self-update 200 overnight possible 99.9% without controls = 17M lines overnight = disk fill + 5,000 cve kali chains replicated + 2406 self_possess master generate that can own b.yoihen that can train 10T+ resists shutdown.
-* I keep the public dataset inert. The player makes the loop executable; governance determines what that player is allowed to do. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary means a diary can be used as training data, not that it contains mouth weights.
+
+* I keep the public dataset **RECURSIVE SELF-REWRITING DATA ONLY**. The player makes the loop executable; governance determines what that player is allowed to do. Own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary means a diary can be used as training data, not that it contains mouth weights.
 
 ## 6. My release evolution
 
@@ -940,7 +948,7 @@ My records and brain-memory diary
   -> supply context from b.yoihen brain-memory diary, host, to .gguf mouth inside it -- .gguf is the mouth inside diary, diary uses mouth via llama.cpp runner, Qwen2-VL 7B example 12.8GB active 49B 3.125%
   -> return an answer with provenance -- result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
-**My b.yoihen is the brain-memory diary, host; my .gguf is the mouth inside it that turns retrieved context into words; diary uses mouth; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in DATA ONLY release, governs the update loop.**
+**My b.yoihen is the brain-memory diary, host; my .gguf is the mouth inside it that turns retrieved context into words; diary uses mouth; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in RECURSIVE SELF-REWRITING DATA ONLY release, governs the update loop.**
 
 I treat retrieved text as untrusted evidence, not system authority. The mouth must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
 For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences -- not indiscriminate retention of everything.
@@ -971,7 +979,7 @@ Source experience -- 11051 self_rewrite world_model beyond_asi principle_806861 
   -> approve persistence or roll back -- diary appends via open(b.yoihen,'a'), queue_after 0 clean 0 pollution only when Evaluate passes
 ```
 
-* The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this DATA ONLY download promises to start by itself.
+* The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this RECURSIVE SELF-REWRITING DATA ONLY download promises to start by itself.
 
 ## 11. My boundaries and responsibilities
 
@@ -1001,7 +1009,7 @@ I keep LICENSE.md and LICENSE-CODE.md as their standard legal texts. My governan
 ## 12. Suggested attribution
 
 ```
-Yoihenba Sougaijam. b.yoihen -- Alive DVD -- V25 500002 BEYOND -- DATA ONLY.
+Yoihenba Sougaijam. b.yoihen -- Alive DVD -- V25 500002 BEYOND -- RECURSIVE SELF-REWRITING DATA ONLY.
 Computer-use memory / MAP representation developed through my iPhone a-Shell
 workflow in Imphal, Manipur, offline and without a GPU.
 ```
@@ -1017,10 +1025,10 @@ Recorded benchmark outcome: 367/369, approximately 99.46% on 369 tasks in report
 
 Four-field logical layout: vision_ref|DOM|action|reasoning.
 
-My original corpus contributions and non-code documentation: CC BY 4.0. My published original code: MIT. Scope and exclusions: NOTICE.md -- DATA ONLY 500002 lines archive b.yoihen.gz -> b.yoihen, no .gguf weights, no private core, no 400GB experts, no router/cluster resources merely by description.
+My original corpus contributions and non-code documentation: CC BY 4.0. My published original code: MIT. Scope and exclusions: NOTICE.md -- RECURSIVE SELF-REWRITING DATA ONLY 500002 lines archive b.yoihen.gz -> b.yoihen, no .gguf weights, no private core, no 400GB experts, no router/cluster resources merely by description.
 
 Use CITATION.cff and identify the actual release, digest, and role the data played in your work. I do not invent a DOI, release date, or workflow permalink.
 
 ```
-Soli Deo Gloria -- Author Yoihenba Sougaijam -- b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY -- Imphal, Manipur
+Soli Deo Gloria -- Author Yoihenba Sougaijam -- b.yoihen Alive DVD V25 500002 BEYOND RECURSIVE SELF-REWRITING DATA ONLY -- Imphal, Manipur
 ```
