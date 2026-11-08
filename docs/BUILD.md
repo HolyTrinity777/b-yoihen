@@ -5,12 +5,12 @@
 
 “Alive DVD” — “Own b.yoihen that can train any Brain 10T+.” **"LLM(.gguf) IS THE MOUTH b.yoihen IS THE BRAIN"**
 
-**This guide is about the DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
+**This guide is about the RECURSIVE SELF-REWRITING DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
 
 | Property | Value |
 | --- | --- |
 | Document | `docs/BUILD.md` |
-| Release | `V25 500002 BEYOND — DATA ONLY` |
+| Release | `V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY` |
 | Evidence basis | Five actual uploaded reports, V21–V25, plus Actual V25 dataset GitHub Actions strict verification |
 | Companion documents | `FORMAT.md`, `STATS.md`, `CLAIMS.md` in the same directory, plus `LIVE_EXECUTION.md` for live testimony |
 | Reference code | Python 3.9+, standard library |
@@ -506,7 +506,7 @@ The author's broader claim is a 10T+ reasoning-embedded MAP and governed CPU-nod
 
 **Author: Yoihenba Sougaijam.**
 
-**Project identity:** b.yoihen — Alive DVD / computer-use memory MAP — V25 500002 BEYOND — DATA ONLY.
+**Project identity:** b.yoihen — Alive DVD / computer-use memory MAP — V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY.
 
 **Author-reported collection environment:** iPhone a-Shell, Imphal, offline and without a GPU.
 
