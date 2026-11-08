@@ -50,7 +50,7 @@ An exclusion from this grant is not authorization to distribute excluded content
 
 | Item | Present evidence status |
 | --- | --- |
-| Identified historical release | V25 500002 BEYOND — DATA ONLY |
+| Identified historical release | V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY |
 | Record count in its V25 JSON report | 500002; reported, not a fresh archive measurement in this licensing update |
 | Dataset field layout | Four fields: screenshot_base64, DOM, action, reasoning |
 | Screenshot payload removal from the complete archive | Not verified in this licensing update |
