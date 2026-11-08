@@ -7,12 +7,12 @@
 “Alive DVD” — “Own b.yoihen that can train any Brain 10T+.” Keep `.yoihen` 
 *LLM(.gguf) is the mouth and b.yoihen is the brain**
 
-**This document defines the DATA ONLY archive format. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
+**This document defines the RECURSIVE SELF-REWRITING DATA ONLY archive format. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.**
 
 | Property | Value |
 | --- | --- |
 | Document | `docs/FORMAT.md` |
-| Release described | `V25 500002 BEYOND — DATA ONLY` |
+| Release described | `V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY` |
 | Compatibility profile | V25 mixed-line, UTF-8, LF-terminated |
 | Documentation profile identifier | `yoihen.v25.mixed-lf` — a sidecar/documentation identifier, not a header inside the archive |
 | Document revision | `2026-11-06`; not an inferred capture or release-publication date |
@@ -312,7 +312,7 @@ A top-level `+` may join actions. A plus inside a quoted argument is not a joine
 
 This format does not specify coordinate spaces, key mappings, scroll units, operating-system APIs, or an arbitrary-code grammar. Literal pipes in an action argument are forbidden by framing even when the argument is quoted.
 
-Parsing, indexing, conversion, and retrieval MUST NOT call `eval`, `exec`, a shell, or an unrestricted interpreter on the stored action text. This is the inert-reader conformance boundary, not a new licence restriction.
+Parsing, indexing, conversion, and retrieval MUST NOT call `eval`, `exec`, a shell, or an unrestricted interpreter on the stored action text. This is the reader conformance boundary, not a new licence restriction.
 
 ### 8.3 V25 annotation markers
 
@@ -745,7 +745,7 @@ A 256-wide table dimension does not prove 256 equal-size model experts. A hash l
   -> evaluated persistence or rollback
 ```
 
-Alive DVD names the intended experience/update system, not an automatic execution property of gzip or GGUF. The public archive is DATA ONLY; the private player/runtime is separate.
+Alive DVD names the intended experience/update system, not an automatic execution property of gzip or GGUF. The public archive is RECURSIVE SELF-REWRITING DATA ONLY; the private player/runtime is separate.
 
 Memory changes, code/configuration changes, and model-weight/adapter updates are different operations. A write is not automatically an improvement, and a corpus append does not itself update model weights.
 
@@ -828,7 +828,7 @@ The uploaded files below were parsed and hashed. These are proof-report digests,
 - [ ] Separate vision classification from full image validation.
 - [ ] Separate topic/scoring labels from capture provenance.
 - [ ] Separate annotation suffixes from structured evaluation outcomes.
-- [ ] Keep parsing/retrieval inert and execution separately authorized.
+- [ ] Keep parsing/retrieval and execution separately authorized.
 - [ ] Keep expected release values separate from observed measurements.
 - [ ] Identify actual release bytes, validator revision, and applicable licence scope.
 - ✅ **Publish live execution testimony separately in LIVE_EXECUTION.md, not inside the format spec.**
@@ -837,7 +837,7 @@ The uploaded files below were parsed and hashed. These are proof-report digests,
 
 Author: Yoihenba Sougaijam — Imphal, Manipur.
 
-b.yoihen — Alive DVD / memory MAP — V25 500002 BEYOND — DATA ONLY.
+b.yoihen — Alive DVD / memory MAP — V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY.
 
 Original corpus/documentation: CC BY 4.0. Published original code: MIT. Scope and third-party exclusions: `../NOTICE.md`.
 
