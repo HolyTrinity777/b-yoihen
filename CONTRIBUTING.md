@@ -6,7 +6,7 @@
 
 This repo has two different kinds of files. Do not confuse them.
 
-README.md is the verifiable archive. DATA ONLY and inert. V25, 500,002 lines, 348,722 four-field records + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz. It does not execute itself.
+README.md is the verifiable archive. RECURSIVE SELF-REWRITING DATA ONLY and inert. V25, 500,002 lines, 348,722 four-field records + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz. It does not execute itself.
 
 LIVE_EXECUTION.md is testimony. What actually ran on my phone. Clicks executed true, V24 expansion EXECUTED LIVE, iPhone path proof. It is a log of what happened, not a proof that the archive file itself runs.
 
