@@ -77,7 +77,7 @@ My machine has a history. My projects have dependencies, conventions, working fi
 
 * **b.yoihen is the brain-memory diary DVD:** 500,002 lines = 348,722 four-field `vision_ref|DOM|action|reasoning` + 151,280 hit lines, 1,147,108,255 raw / 19,785,162 gz, SHA `aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1`, `table[256][256]` topic->[expert_ids] O(1) lookup, 193 shards 90.19 additional per_shard (17406/193). It carries the memory and the MAP that shapes the next decision. It is not a notebook. A notebook sits beside the work. A brain DVD is loaded and changes what happens next. **RECURSIVE SELF-REWRITING DATA ONLY by design.**
 
-* **The .gguf is the mouth inside diary:** Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf. A DVD is **RECURSIVE SELF-REWRITING DATA ONLY until it is played** — no runtime inside. GGUF is the mouth inside diary, not separate from diary. Diary uses mouth. It turns what diary retrieves into words. Hash to be provided from laptop in V26.
+* **The .gguf is the mouth inside diary:** Qwen2-VL 7B example, 12.8GB active 49B 3.2% from 400GB config 250*1.6GB reference. a-Shell cannot load .gguf. A DVD is **RECURSIVE SELF-REWRITING DATA ONLY.**  — It is DATA ONLY until it is played — no runtime. GGUF is the mouth inside diary, not separate from diary. Diary uses mouth. It turns what diary retrieves into words. Hash to be provided from laptop in V26.
 
 * **llama.cpp is the runner:** It loads the mouth inside diary and runs the work. It does the inference. It does not remember, it does not decide what to keep, it does not govern.
 
@@ -85,7 +85,7 @@ My machine has a history. My projects have dependencies, conventions, working fi
 
 I want to preserve what actually worked, what failed, why I approved a change, and when an old answer stopped being correct. I want a future decision to benefit from an earlier verified experience, not merely repeat a confident answer.
 
-* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with independent evaluation.
+* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25 71067 REAL /71607=99.25%, queue_after 0, clean 0 pollution, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with result_success when true check.
 
 ### Calculation breakdown 
 
@@ -116,7 +116,7 @@ Decoding it produces the local raw representation:
 | UTF-8 errors | `0` |
 | Compressed bytes | `19,785,162` = 19.785162 MB decimal, my display: 19.78 MB |
 | Uncompressed bytes | `1,147,108,255` = 1.147108255 GB decimal, approximately 1.15 GB |
-| Gzip SHA-256 | Computed from committed bytes, verified by CI |
+| Gzip SHA-256 | aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1 |
 
 ```
 Compressed:   19.785162 MB decimal, my display: 19.78 MB
@@ -161,9 +161,6 @@ I preserve this configuration string exactly as recorded:
 
 For the stated 400GB denominator, 12.8/400 = 3.2%. The recorded 3.125% corresponds to a 409.6GB denominator, not 400GB. I retain the original configuration string above as recorded evidence.
 ```
-
-**My recorded content includes:**
-
 * 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 beyond_asi_self_possess_master_generate + 10000 reasoning chain_of_thought DMI_3_layers + 5000 tool_use
 
 Text remains data during loading. 11051-entry category is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate checks `result_success when true`, replication = coherence-checked, self_rewrite = table[256][256] O(1) lookup, self_possess = master generate, four separate loops, not one.
