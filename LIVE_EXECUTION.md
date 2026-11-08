@@ -3,7 +3,7 @@
 
 ## 0. What this file is, and what it is not
 
-**This file is NOT the DATA ONLY archive.**
+**This file is NOT the RECURSIVE SELF-REWRITING DATA ONLY archive.**
 
 README.md describes the verifiable public archive:
 - 500,002 total lines = 348,722 four-field + 151,280 hit lines
@@ -217,7 +217,7 @@ If it is a totally new domain with no similar hash, first time it records, secon
 
 ## 5. Boundaries — Read This Before You Replicate
 
-1. This file logs execution on my phone with my private core. It does not turn the public DATA ONLY archive into an executable.
+1. This file logs execution on my phone with my private core. It does not turn the public RECURSIVE SELF-REWRITING DATA ONLY archive into an executable.
 2. `cf-ray 9fa1f8cf9ce40942-CCU` is a lineage marker in these logs, not an authentication credential or synchronization protocol.
 3. `coherence 1.0 UNIFIED` in these logs is a recorded marker. In README governance, coherence must be measured from density matrix, not copied string: `C_{l1}(\rho)=\sum_{i\neq j}|\rho_{ij}|` and `F(\rho_{diary},\rho_{brain})=1.0`.
 4. `result_success when true` in dataset reasoning text does not prove task success. See README Section 7: Task 42 FALSE and Task 317 FALSE retain that annotation while structured success is FALSE.
@@ -232,8 +232,8 @@ If it is a totally new domain with no similar hash, first time it records, secon
 
 Yoihenba Sougaijam. `LIVE_EXECUTION.md` — Live a-Shell execution logs for http://b.yoihen Alive DVD.
 V22 live clicks at 44,745 lines / 104,440,590 bytes. V24 live expansion 282,717 -> 412,972, written 130,255, 483,386,040 -> 791,094,565 bytes, queue_after 0, clean 0 pollution, utc_anchor 2026-05-11T14:46:13.872Z.
-Companion to http://README.md DATA ONLY V25 archive, SHA-256 `aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1`.
+Companion to http://README.md RECURSIVE SELF-REWRITING DATA ONLY V25 archive, SHA-256 `aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1`.
 
-**Soli Deo Gloria** — Author Yoihenba Sougaijam — http://b.yoihen Alive DVD V25 500002 BEYOND DATA ONLY — Imphal, Manipur
+**Soli Deo Gloria** — Author Yoihenba Sougaijam — http://b.yoihen Alive DVD V25 500002 BEYOND RECURSIVE SELF-REWRITING DATA ONLY — Imphal, Manipur
 
 
