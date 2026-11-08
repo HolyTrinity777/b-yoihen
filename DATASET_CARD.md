@@ -2,17 +2,17 @@
 
 **All Glory and Praise to Most High Heavenly Father, Living God Yahushua and God Holy Spirit — Soli Deo Gloria.**
 
-*This card describes the DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.*
+*This card describes the RECURSIVE SELF-REWRITING DATA ONLY archive. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md). Do not confuse the two.*
 
 I am Yoihenba Sougaijam. I developed my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
 
-This card describes my V25 DATA ONLY archive, its mixed-line structure, its supporting reports, and the boundaries of what I have measured or demonstrated.
+This card describes my V25 RECURSIVE SELF-REWRITING DATA ONLY archive, its mixed-line structure, its supporting reports, and the boundaries of what I have measured or demonstrated.
 
 Document revision: 27 October 2026. This is the card's revision date, not an inferred capture date or archive publication date.
 
 ## 1. Identity, purpose, and release inventory
 
-I call my project Alive DVD. My positioning is “Own Ollama that can train any Brain 10T+.” My distributed `.yoihen` artifact is a memory / MAP representation, not model weights or a complete agent runtime.
+I call my project Alive DVD. My positioning is “Own b.yoihen that can train 10T+.” My distributed `.yoihen` artifact is a memory / MAP representation, not model weights or a complete agent runtime.
 
 I use the corpus to study computer-use context, tool-use descriptions, retrieval, code/self-healing patterns, and governed self-update objectives. Including those patterns does not establish that a model trained on them has autonomously improved, replicated, or acquired a particular capability.
 
@@ -20,7 +20,7 @@ I use the corpus to study computer-use context, tool-use descriptions, retrieval
 
 | Item | Value and meaning |
 | --- | --- |
-| Release identifier | `V25 500002 BEYOND — DATA ONLY` |
+| Release identifier | `V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY` |
 | Tracked dataset artifact | `b.yoihen.gz` |
 | Locally decoded representation | `b.yoihen`; it does not need to be committed to the repository |
 | Total physical lines | `500,002`, checked by my actual-dataset GitHub Actions job |
@@ -317,4 +317,4 @@ I distinguish a successful fixture test, a measured full-archive check, a proven
 
 ---
 
-Soli Deo Gloria — Yoihenba Sougaijam — b.yoihen Alive DVD — V25 DATA ONLY — Imphal, Manipur.
+Soli Deo Gloria — Yoihenba Sougaijam — b.yoihen Alive DVD — V25 RECURSIVE SELF-REWRITING DATA ONLY — Imphal, Manipur.
