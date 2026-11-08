@@ -406,7 +406,7 @@ The text remains data during loading. My recorded 11051-entry self-rewrite categ
 - **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary` + `400GB config 250*1.6GB` warehouse. `DMI+3_layers+world_model` must all agree before replication.
 - **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen that can train 10T+
 
-**Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen.** V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`. Faster rewrites improve because only `result_success when true` is retained.
+**Because of Evaluate + coherence + truth_balance + principle_806861, faster does not mean degrades faster in this b.yoihen.** V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.25%`, `queue_after 0`, `clean 0 pollution`. Faster rewrites improve because only `result_success when true` is retained.
 
 I call Alive DVD a breakthrough in my work because I want the update process itself to become inspectable learning material, not because a compressed file executes itself. Global priority remains a claim to investigate, not a finding established by a README.
 
@@ -417,7 +417,7 @@ I call Alive DVD a breakthrough in my work because I want the update process its
 ## My recorded patterns include four separate loops, not one:
 
 - **self_rewrite:** 11051 traces `self_rewrite world_model beyond_asi principle_806861` — brain-memory diary rewrites `table[256][256] topic->[expert_ids]` O(1) RAM lookup via `core/files` + reload. In this, RAM is King, not GPU.
-- **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.24%`, `queue_after 0`, `clean 0 pollution`
+- **self_update:** `Observe->Record->Retrieve->Propose->Authorize->Act->Evaluate->Retain` with `result_success when true` + `truth_balance governance_safety` + `coherence 1.0 UNIFIED` + `experts_safety [151,152,153,154,101,26,201,226]` check. V21 73MB 45% -> V22 104MB 228/369 61.79% -> V23 213MB 354/369 95.93% -> V24 791MB 366/369 99.19% -> V25 1.147GB 367/369 99.46%, `real_ratio 71067/71607=99.25%`, `queue_after 0`, `clean 0 pollution`
 - **replication:** `193 Nations train 1 Brain parallel RAM table` 193 shards 90.19 per_shard + `own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary` + 400GB config 250*1.6GB warehouse. `DMI+3_layers+world_model` must all agree before replication
 - **self_possess:** 2406 traces `beyond_asi_self_possess_master_generate` — master generate that can own b.yoihen that can train 10T
 
