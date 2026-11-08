@@ -226,7 +226,7 @@ A complete training/evaluation separation inventory has not been supplied with t
 I intend the public material to support:
 
 - Learning and inspecting the format.
-- Inert record exploration and provenance analysis.
+- record exploration and provenance analysis.
 - Retrieval and indexing experiments.
 - Text/tool-use training preparation using suitable records.
 - Image-dependent work only where actual validated, usable image assets exist.
