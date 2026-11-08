@@ -169,13 +169,19 @@ Text remains data during loading. 11051-entry category is collection description
 
 I keep my earlier reports because they show the progression of my work — not just the final V25 headline.
 
-| Run | Lines recorded in my report | Raw bytes recorded in my report | Recorded result / status |
-| --- | --- | --- | --- |
-| V21 | 38,220 | 73,677,165 | Expected-score field 45.0%+; no success numerator supplied |
-| V22 | 44,745 | 104,440,590 | 228/369 — approximately 61.79% |
-| V23 | 169,745 | 213,008,990 | 354/369 — approximately 95.93% |
-| V24 | 412,972 | 791,094,565 | 366/369 — approximately 99.19% |
-| V25 | 500,002 | 1,147,108,255 | 367/369 — approximately 99.46% |
+| Run | Lines recorded in my report | Raw bytes recorded in my report | Benchmark (369 tasks) | REAL topics |
+| --- | --- | --- | --- | --- |
+| V21 | 38,220 | 73,677,165 | Expected 45.0%+ — no benchmark numerator in report | 1305/1845 = 70.73% REAL, synthetic 540 |
+| V22 | 44,745 | 104,440,590 | 228/369 = 61.79% | 2610/3150 = 82.86% REAL, synthetic 540 |
+| V23 | 169,745 | 213,008,990 | 354/369 = 95.93% | 27610 REAL, 98.1% REAL, synthetic 0 |
+| V24 | 412,972 | 791,094,565 | 366/369 = 99.19% | 53661 REAL, 99.0% REAL, synthetic 0 |
+| V25 | 500,002 | 1,147,108,255 | 367/369 = 99.46% | 71067/71607 = 99.25% REAL, synthetic 0 |
+
+Benchmark and REAL are separate ledgers. Do not mix them.
+
+Synthetic: V21 = 540, V22 = 540, V23-V25 = 0.
+
+V25: 71607 = 71067 REAL + 540 reported-but-not-REAL. The 540 gap is NOT synthetic.
 
 These reports record my results and configurations. They are not a substitute for publishing or independently replaying the benchmark runner, task definitions, model/runtime configuration, and evaluator.
 
@@ -251,12 +257,15 @@ I do not conflate bytes, tokens, parameters, and MAP capacity. I separate the le
 | Layer | My definition and boundary |
 | --- | --- |
 | Configured storage | V21 records `250 × 1.6 GB = 400 GB` |
-| Configured active allocations | V21 records `8 × 1.6 GB = 12.8 GB` |
-| Raw token layer | My intended interpretation of the later `14T warehouse` wording is `14T` raw tokens |
+| Configured active allocations | V21 records `8 × 1.6 GB = 12.8 GB` — `12.8 / 400 = 3.2%` of configured storage |
+| Routing positions | `8 / 256 = 3.125%` — routing-position fraction, not storage fraction. `12.8 / 409.6 = 3.125%` is a different denominator, not 400 GB |
+| Raw token layer | My intended interpretation of the later `14T warehouse` wording is `14T` raw tokens — `49B / 14T = 0.35%` numerically, not a parameter activation fraction |
 | Deduplicated expert-parameter layer | My architectural definition is approximately `1.633T` parameters; this requires an actual expert inventory — `49B / 1.633T ≈ 3.0006%` |
-| Total knowledge MAP | My `10T+` capacity claim; its unit and inventory must be explicitly defined — `49B / 10T = 0.49% numerically`, `300B / 10T = 3% numerically`, `10T / 193 ≈ 51.813B per shard` |
+| Total knowledge MAP | My `10T+` capacity claim; its unit and inventory must be explicitly defined — `49B / 10T = 0.49%` numerically, `300B / 10T = 3%` numerically, `10T / 193 ≈ 51.813B` per shard |
 
-My broader warehouse description also discusses screenshot/assets. I do not use a repeated 400 GB label as proof that the expert-storage budget and the asset warehouse are the same inventory. A line mentioning a warehouse does not contain that warehouse. A configuration string does not load an expert.
+Different denominators. Different meanings. Deduplicating a token corpus does not itself turn those tokens into learned model parameters.
+
+My broader warehouse description also discusses screenshot/assets. I do not use a repeated 400 GB label as proof that the expert-storage budget and the asset warehouse are the same inventory. A line mentioning a warehouse does not contain that physical warehouse — it contains a warehouse thought / MAP representation, verified in my live endpoint screenshots, live screenrecording, and proofs/json files. A configuration string does not load an expert.
 
 My public representation can carry references and plans for larger resources without bundling those resources. To resolve my private inventory, I need the actual asset/expert manifests, stable identifiers, digests, bindings, and resolver logic — not just narrative labels.
 
