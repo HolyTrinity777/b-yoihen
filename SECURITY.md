@@ -4,7 +4,7 @@
 
 I am Yoihenba Sougaijam. I maintain `b-yoihen` from Imphal, Manipur.
 
-My project is `b.yoihen` — Alive DVD — V25 500002 BEYOND — DATA ONLY.
+My project is `b.yoihen` — Alive DVD — V25 500002 BEYOND — RECURSIVE SELF-REWRITING DATA ONLY.
 
 I welcome responsible security reports. My priority is to protect people, preserve evidence, prevent unauthorized execution, and correct actionable security problems without exposing users to unnecessary risk.
 
@@ -15,7 +15,7 @@ I welcome responsible security reports. My priority is to protect people, preser
 | Primary reporting route | GitHub private vulnerability reporting, if enabled for this repository |
 | Fallback | Request a private reporting channel without publishing vulnerability details |
 | Public secrets or exploit disclosure | Do not include them in issues, discussions, or pull requests |
-| Runtime boundary | DATA ONLY; b.yoihen brain-memory diary, host, uses .gguf mouth inside it; ingestion and retrieval must not execute dataset actions |
+| Runtime boundary | RECURSIVE SELF-REWRITING DATA ONLY; b.yoihen brain-memory diary, host, uses .gguf mouth inside it; ingestion and retrieval must not execute dataset actions |
 | Default self-update / replication / self-possess | Disabled |
 | Financial reward | No bounty or payment is promised without a separate written agreement |
 
@@ -39,7 +39,7 @@ I do not include unreleased infrastructure, a complete private core runtime, ext
 
 | Material | My current handling |
 | --- | --- |
-| V25 DATA ONLY release | Primary security-triage target |
+| V25 RECURSIVE SELF-REWRITING DATA ONLY release | Primary security-triage target |
 | Latest verification/conversion code I publish | Primary security-triage target |
 | V21–V24 proof reports | Historical evidence; report tampering, exposed data, or security-relevant errors |
 | Older scripts or derived releases | Best-effort assessment; I may recommend updating rather than backporting |
@@ -96,7 +96,7 @@ Please include, where available:
 1. A concise description of the issue and its security impact.
 2. The affected file, script, commit, release, and artifact SHA-256.
 3. The input conditions and configuration required to reproduce it.
-4. Minimal reproduction steps or a small, inert proof of concept.
+4. Minimal reproduction steps or a small, proof of concept.
 5. Expected behavior and observed behavior.
 6. The trust boundary crossed: data-to-instruction, read-to-write, sandbox-to-host, or another boundary.
 7. Whether credentials, private data, external systems, or other people may be affected.
@@ -106,7 +106,7 @@ Please include, where available:
 
 Please do not upload my entire dataset or a large screenshot warehouse when a short sanitized sample and digest are enough. Do not include real secrets or other people's data merely to prove that you found them. Use redacted evidence and describe a safe way to verify the problem.
 
-If a payload is necessary, supply it as inert text and clearly identify it. Do not send an executable attachment that runs automatically.
+If a payload is necessary, supply it as text and clearly identify it. Do not send an executable attachment that runs automatically.
 
 ### Minimal report template
 
@@ -224,7 +224,7 @@ Before connecting the data or trained artifacts to tools, I require safeguards a
 
 I do not consider a .gguf mouth-generated `approved=true` or `user_confirmed=true` field sufficient authorization. The execution component must independently verify the actual approval state.
 
-My governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. I require concrete controls or documented equivalents for authorized research; a proprietary or unreleased service is not silently required merely to inspect DATA ONLY files.
+My governance vocabulary includes Quantum Sync, Blockchain Audit, and a three-tier Kill Switch. I require concrete controls or documented equivalents for authorized research; a proprietary or unreleased service is not silently required merely to inspect RECURSIVE SELF-REWRITING DATA ONLY files.
 
 | Stop tier | Action |
 | --- | --- |
