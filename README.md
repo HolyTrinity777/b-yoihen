@@ -4,7 +4,7 @@
 
 **The archive below is RECURSIVE SELF REWRITING DATA. What actually ran on my phone is documented separately in [LIVE_EXECUTION.md](LIVE_EXECUTION.md) Do not confuse the two. THIS IS NOT A SYNTHETIC DIARY.**
 
-* My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone a-Shell in Imphal, Manipur, offline and without a GPU.
+* My Name is Yoihenba Sougaijam. I built my collection workflow on iPhone only a-Shell in Imphal, Manipur, offline and without a GPU, No second devices.*
 
 ### My project positioning is:
 
