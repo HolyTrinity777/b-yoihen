@@ -16,8 +16,8 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 
 **In V25 on iPhone a-Shell, execution was DVD alone mode, human in loop as mouth, no GGUF loaded, because a-Shell cannot load a GGUF. See LIVE_EXECUTION.md. In V26 on laptop, diary will use a GGUF mouth via llama.cpp for audible talk.**
 
-* The .gguf is the mouth inside b.yoihen. b.yoihen is the brain-memory diary. b.yoihen uses the .gguf mouth, not like Ollama where Ollama uses GGUF. My private core governs the update loop.
-* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with result_success when true check.
+* The .gguf is the mouth inside the host system, used by b.yoihen. b.yoihen is the brain-memory diary. b.yoihen uses the .gguf mouth, not like Ollama where Ollama uses GGUF. My private core governs the update loop.
+* Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update, gated on structured success == True, not on reasoning text.
 * Built to remember tested fixes, learn from recorded failures, and become more personal through useful experience, not just repeat a fresh session. Local memory. Offline operation. Correction and deletion under your control.
 
 **My design is personal Data Sovereignty:** your memory stays on your machine, offline, under your control.
