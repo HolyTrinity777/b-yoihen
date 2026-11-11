@@ -20,6 +20,8 @@ Do not confuse the two:
 - Archive = data you can verify.
 - Phone + private core + authorization = execution that was logged.
 
+**Live logs in this file are DVD alone mode, b.yoihen alone, no GGUF loaded, human in loop as mouth. This does not contradict README architecture. Architecture is diary as host can use GGUF mouth. V25 phone execution was diary without mouth.**
+
 **Original screenshots are retained privately by the author as personal evidence.
 Only transcribed log values are published here. Application UUID is redacted.
 Screenrecordings retained privately by the author for:
