@@ -67,6 +67,20 @@ Gzip SHA-256: aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1
 My passing actual-dataset GitHub Actions job checks the committed archive's bytes, mixed-line counts, framing, and UTF-8. It does not establish capture attestation, payload removal, model quality, or autonomous evolution. Those are different claims with different evidence requirements. `reasoning holds chrome_browse_news_0 + pattern_learn + generate = master + DMI+3_layers+world_model+self_rewrite+self_possess+beyond_ASI+principle_806861 coherence 1.0 UNIFIED result_success when true` is collection description, not execution log of 11051 successful autonomous rewrites. Self-update = Evaluate with truth_balance governance_safety, replication = 193 shards parallel (17406/193=90.19 additional), self_rewrite = table[256][256] O(1) lookup, self_possess = master generate principle_806861 — four separate loops.
 **6 Skills = 27,610 chrome_browse_news + 10,000 libreoffice + 5,000 kali cve_3485 + 11,051 world_model + 10,000 reasoning DMI_3_layers + 7,406 tool_use/self_possess (5000+2406) = 71,067 REAL 99.25% 348722 four-field avg 4.91 range 4-6**
 
+## Lock V25 - Read this before Section 1
+
+**Lock V25:** {"nonempty":500002,"bytes":1147108255,"target":500002,"calc":"412972+87030=500002","v25_measured":"99.5%+ 367/369"}
+
+V25 is locked, immutable. No more changes to V25. V26 will be a new file.
+What ran on phone, V25, in a-Shell, offline, no GPU: DVD alone mode, b.yoihen alone, no GGUF loaded, human in loop as mouth. Human read the JSON, judged it, spoke it, approved it. DVD executed routing and logging. See LIVE_EXECUTION.md for the 4 live logs.
+
+**What did not run in V25:** no GGUF mouth, no laptop, no GPU, no external benchmark. No laptop yet, V26 mouth on laptop is future, not now.
+* Public release contains RECURSIVE SELF-REWRITING DATA ONLY, not the complete runtime. No mouth weights bundled, no 400GB experts bundled, no router/cluster resources bundled.
+
+**How to verify Lock V25:** count lines in b.yoihen, expect 500002. Check bytes, expect 1147108255 raw. Check gz, expect 19785162 gz. Check LIVE_EXECUTION.md, 4 logs, DVD alone, no GGUF.
+
+* Correction and deletion in a separate authorized working store under my control, not in the published immutable V25 artifact.
+
 ## 1. Why I built this
 
 I want an assistant that does not have to start from zero every time I return to my own work.
