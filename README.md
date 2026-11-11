@@ -12,7 +12,9 @@ I built **b.yoihen**, my Alive DVD: a 500,002-line container format for recorded
 
 **Ollama + an unchanged checkpoint = frozen mouth weights.**
 
-**b.yoihen brain-memory diary, host, uses .gguf mouth inside it, via llama.cpp runner. Unlike Ollama where Ollama uses GGUF, diary uses GGUF.**
+**b.yoihen brain-memory diary system, host, can use a .gguf mouth inside the host system, via llama.cpp runner. Unlike Ollama where the runner is host and the GGUF is brain, here the diary system is host and the GGUF is mouth. The GGUF lives inside the host system, not inside the b.yoihen file.**
+
+**In V25 on iPhone a-Shell, execution was DVD alone mode, human in loop as mouth, no GGUF loaded, because a-Shell cannot load a GGUF. See LIVE_EXECUTION.md. In V26 on laptop, diary will use a GGUF mouth via llama.cpp for audible talk.**
 
 * The .gguf is the mouth inside b.yoihen. b.yoihen is the brain-memory diary. b.yoihen uses the .gguf mouth, not like Ollama where Ollama uses GGUF. My private core governs the update loop.
 * Day 1 ≠ Day 100 means diary appends via open(b.yoihen,'a') 87030 lines V24->V25, not that GGUF mouth weights change by themselves. Mouth weights change only through self-update with result_success when true check.
