@@ -927,13 +927,14 @@ python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --limit 2
 ```
-```bash
 For an exact topic:
+
+```bash
 python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --topic chrome_browse_news_0
 ```
-My example inspector is a four-field inspection path, not a substitute for the mixed-line archive verifier. Verifier counts 500002 = 348722 four-field vision_ref|DOM|action|reasoning + 151280 no-pipe hit lines, 0 invalid, 0 UTF-8 errors, 19785162 gz / 1147108255 raw, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1. Four-field inspector ignores hit lines.
+* My example inspector is a four-field inspection path, not a substitute for the mixed-line archive verifier. Verifier counts 500002 = 348722 four-field vision_ref|DOM|action|reasoning + 151280 no-pipe hit lines, 0 invalid, 0 UTF-8 errors, 19785162 gz / 1147108255 raw, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1. Four-field inspector ignores hit lines.
 
 ### Convert compatible examples without pretending to convert the whole archive
 For a small generic JSONL example:
