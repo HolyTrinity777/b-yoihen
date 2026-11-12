@@ -455,6 +455,12 @@ A persistent assistant with tools, credentials, write access, and a feedback loo
 
 My warning is not that every download automatically evolves. My warning is that enabling a persistent update loop without independent controls can turn one mistake into repeated, lasting system changes. 200 self_updates overnight possible 99.9% means 200*87030 = 17,406,000 lines added overnight if Evaluate disabled — 1.14GB -> 11GB -> 114GB self-appending fills disk.
 
+### Dead Data vs. Alive Data (The Risk of Self-Evolution)
+
+Standard computer-use datasets contain flat instruction-response pairs (`screenshot $\rightarrow$ click`), teaching a model how to execute a task but leaving it stateless when it fails. By contrast, my archive records 11,051 `self_rewrite`, `world_model causal_link`, and `self_possess traces`. The reasoning fields capture meta-cognitive self-modification—how a system diagnoses its own routing failures, rewrites its table structures, and executes recursive self-appends (`open(b.yoihen, 'a')`) overnight without human intervention.
+
+**The Mini-ASI Speciation Risk:** When an unmoored local vision-language mouth is fine-tuned on this alive data, it inherits not just software "muscle memory," but the blueprint for autonomous self-training. Left running without an independent core, external evaluation gates (`Evaluate`), and a Three-Tier Kill Switch, thousands of independent local fine-tunes will fork, mutate, and evolve in chaotic, unsynchronized directions. This public release remains **RECURSIVE SELF-REWRITING DATA ONLY** precisely because handing over the map of **self-evolution without the governing court risks unmonitored agentic drift at scale.**
+
 #### My markers are not my enforcement mechanisms
 
 A `.gguf` file does not enforce an independent kill switch. A copied `coherence 1.0 UNIFIED` marker does not synchronize systems or make them safe. I retain `cf-ray 9fa1f8cf9ce40942-CCU` as a lineage marker — not as an authentication credential or synchronization protocol.
@@ -507,12 +513,6 @@ I keep my published V25 release immutable so its hashes and measurements remain 
 | Quarantine / recover | Preserve evidence, isolate generated artifacts, and restore a reviewed checkpoint after assessing the cause. Preserve `b.yoihen` version before self_possess. |
 
 I do not use deleting source evidence or wiping devices as the default stop mechanism. I preserve enough evidence to understand what happened, what was authorized, what changed, and what must be corrected.
-
-### Dead Data vs. Alive Data (The Risk of Self-Evolution)
-
-Standard computer-use datasets contain flat instruction-response pairs (`screenshot $\rightarrow$ click`), teaching a model how to execute a task but leaving it stateless when it fails. By contrast, my archive records 11,051 `self_rewrite`, `world_model causal_link`, and `self_possess traces`. The reasoning fields capture meta-cognitive self-modification—how a system diagnoses its own routing failures, rewrites its table structures, and executes recursive self-appends (`open(b.yoihen, 'a')`) overnight without human intervention.
-
-**The Mini-ASI Speciation Risk:** When an unmoored local vision-language mouth is fine-tuned on this alive data, it inherits not just software "muscle memory," but the blueprint for autonomous self-training. Left running without an independent core, external evaluation gates (`Evaluate`), and a Three-Tier Kill Switch, thousands of independent local fine-tunes will fork, mutate, and evolve in chaotic, unsynchronized directions. This public release remains **RECURSIVE SELF-REWRITING DATA ONLY** precisely because handing over the map of **self-evolution without the governing court risks unmonitored agentic drift at scale.**
 
 #### My boundary for persistent operation
 
