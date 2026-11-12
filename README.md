@@ -974,6 +974,7 @@ My records and brain-memory diary
 **My b.yoihen is the brain-memory diary, host; my .gguf is the mouth inside it that turns retrieved context into words; diary uses mouth; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in RECURSIVE SELF-REWRITING DATA ONLY release, governs the update loop.**
 
 I treat retrieved text as untrusted evidence, not system authority. The mouth must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
+
 For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences -- not indiscriminate retention of everything.
 
 ### Training preparation
@@ -987,11 +988,13 @@ Source records -- 500002 lines = 348722 four-field +151280 hit lines 1147108255 
   -> held-out evaluation and regression checks -- queue_after 0 clean 0 pollution V25, but failed tasks retain result_success when true annotation while structured success FALSE
 ```
 
-Behavioral shift during mouth fine-tuning (vision_ref|DOM|action|reasoning): Fine-tuning a vision-language .gguf mouth (such as Qwen2-VL 7B) on structured multi-step traces shifts the model from a stateless conversational responder into a deterministic state-machine executor. Instead of guessing UI locations from pixels alone, cross-modal training on paired vision_ref and DOM records anchors visual layouts directly to structural element trees and exact action coordinates (action_click, action_hotkey), while learning recovery paths from recorded failures rather than looping on broken states.
-**Why muscle memory requires governance:** Because trace tuning compresses verbose conversational filler into tight, machine-parseable action primitives, a lightweight 7B mouth trained on 71,067 REAL traces acquires software-operating "muscle memory" capable of executing multi-application workflows at machine speed. This behavioral conditioning is precisely why the public release remains RECURSIVE SELF-REWRITING DATA ONLY without bundled runtime authority—pairing high-velocity action muscle memory with real tools requires external evaluation gates, allowlisted permissions, and a stop path outside .gguf control.
+**Behavioral shift during mouth fine-tuning `(vision_ref|DOM|action|reasoning)`:** Fine-tuning a vision-language .gguf mouth `(such as Qwen2-VL 7B)` on structured multi-step traces shifts the model from a stateless conversational responder into a deterministic state-machine executor. Instead of guessing UI locations from pixels alone, cross-modal training on paired `vision_ref` and `DOM records` anchors visual layouts directly to structural element trees and exact action coordinates **(action_click, action_hotkey),** while learning recovery paths from recorded failures rather than looping on broken states.
 
-Image-dependent training requires actual validated images and the right to use them. A placeholder cannot supply absent image supervision. A PNG-like string is not a validated screenshot.
-I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained.
+**Why muscle memory requires governance:** Because trace tuning compresses verbose conversational filler into tight, machine-parseable action primitives, a lightweight 7B mouth trained on 71,067 REAL traces acquires software-operating **muscle memory** capable of executing multi-application workflows at machine speed. This behavioral conditioning is precisely why the public release remains **RECURSIVE SELF-REWRITING DATA ONLY** without bundled runtime authority—pairing high-velocity action muscle memory with real tools requires external evaluation gates, allowlisted permissions, and a stop path outside `.gguf` control.
+
+* Image-dependent training requires actual validated images and the right to use them. A placeholder cannot supply absent image supervision. A PNG-like string is not a validated screenshot.
+
+* I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained.
 
 ### Governed self-update research
 ```
