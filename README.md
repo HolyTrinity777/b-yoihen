@@ -508,6 +508,12 @@ I keep my published V25 release immutable so its hashes and measurements remain 
 
 I do not use deleting source evidence or wiping devices as the default stop mechanism. I preserve enough evidence to understand what happened, what was authorized, what changed, and what must be corrected.
 
+### Dead Data vs. Alive Data (The Risk of Self-Evolution)
+
+Standard computer-use datasets contain flat instruction-response pairs (`screenshot $\rightarrow$ click`), teaching a model how to execute a task but leaving it stateless when it fails. By contrast, my archive records 11,051 `self_rewrite`, `world_model causal_link`, and `self_possess traces`. The reasoning fields capture meta-cognitive self-modification—how a system diagnoses its own routing failures, rewrites its table structures, and executes recursive self-appends (`open(b.yoihen, 'a')`) overnight without human intervention.
+
+**The Mini-ASI Speciation Risk:** When an unmoored local vision-language mouth is fine-tuned on this alive data, it inherits not just software "muscle memory," but the blueprint for autonomous self-training. Left running without an independent core, external evaluation gates (`Evaluate`), and a Three-Tier Kill Switch, thousands of independent local fine-tunes will fork, mutate, and evolve in chaotic, unsynchronized directions. This public release remains **RECURSIVE SELF-REWRITING DATA ONLY** precisely because handing over the map of **self-evolution without the governing court risks unmonitored agentic drift at scale.**
+
 #### My boundary for persistent operation
 
 Before I enable a self-update experiment, I want a traceable sequence:
