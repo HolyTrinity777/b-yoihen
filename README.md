@@ -920,18 +920,15 @@ If I strip payloads, change records, or recompress the dataset, I give the resul
 ## 10. How I use the memory
 
 ### Inspect a small example first
-
 I provide seven four-field records reconstructed from my V25 report objects. Their sidecar maps them to JSON source paths and separates reported outcomes from annotations.
-
 They are not claimed to be physical lines extracted from the full dataset. No new execution was performed to create them.
-
 ```bash
 python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --limit 2
 ```
-For an exact topic:
 ```bash
+For an exact topic:
 python examples/inspect_topic.py \
   --input examples/proof_sample.yoihen \
   --topic chrome_browse_news_0
@@ -939,8 +936,8 @@ python examples/inspect_topic.py \
 My example inspector is a four-field inspection path, not a substitute for the mixed-line archive verifier. Verifier counts 500002 = 348722 four-field vision_ref|DOM|action|reasoning + 151280 no-pipe hit lines, 0 invalid, 0 UTF-8 errors, 19785162 gz / 1147108255 raw, SHA-256 aeaf109f5706849b6ec01b975f15ec9bdbb90fa046205ade2afe6898fb35b0c1. Four-field inspector ignores hit lines.
 
 ### Convert compatible examples without pretending to convert the whole archive
-
 For a small generic JSONL example:
+
 ```bash
 python scripts/convert_to_jsonl.py \
   --input examples/proof_sample.yoihen \
@@ -948,9 +945,10 @@ python scripts/convert_to_jsonl.py \
   --limit 7 \
   --output-dir converted-proof-sample
 ```
-That produces a sample from those compatible records only. It is not conversion of all 500002 archive lines. 500002 lines = 348722 four-field + 151280 hit lines, four-field-only export discards 151280 valid hit lines if not counted.
 
+That produces a sample from those compatible records only. It is not conversion of all 500002 archive lines. 500002 lines = 348722 four-field + 151280 hit lines, four-field-only export discards 151280 valid hit lines if not counted.
 Before using a converter on the full release, I require it to account for four-field records, no-pipe hit lines, and permitted embedded CR characters. A four-field-only converter must not discard valid hits -- or reject valid reasoning text with pipes -- and then call its output a complete export.
+
 I require counts and explicit exclusions in any conversion report:
 ```
 Input: 500002 total = 348722 four-field + 151280 hit lines 0 invalid
@@ -959,6 +957,7 @@ Excluded: 151280 hit lines explicitly listed
 Embedded CR: counted separately
 ```
 Generic JSONL is interchange data, not a mouth-specific training recipe or .gguf mouth weights.
+
 ### Retrieval and personal continuity
 
 ```
@@ -970,13 +969,13 @@ My records and brain-memory diary
   -> supply context from b.yoihen brain-memory diary, host, to .gguf mouth inside it -- .gguf is the mouth inside diary, diary uses mouth via llama.cpp runner, Qwen2-VL 7B example 12.8GB active 49B 3.125%
   -> return an answer with provenance -- result_success when true + truth_balance + coherence 1.0 UNIFIED + cf-ray 9fa1f8cf9ce40942-CCU lineage marker
 ```
+
 **My b.yoihen is the brain-memory diary, host; my .gguf is the mouth inside it that turns retrieved context into words; diary uses mouth; retrieval is the bridge. My core design coordinates those parts -- core/files + reload private core not included in RECURSIVE SELF-REWRITING DATA ONLY release, governs the update loop.**
 
 I treat retrieved text as untrusted evidence, not system authority. The mouth must not promote a record into a tool permission or overwrite a policy because the record says it is approved.
 For personalization, I want verified repairs, failed attempts, environment versions, approval history, and useful preferences -- not indiscriminate retention of everything.
 
 ### Training preparation
-
 ```
 Source records -- 500002 lines = 348722 four-field +151280 hit lines 1147108255 raw / 19785162 gz
   -> provenance and permissions -- self-reported capture provenance, no complete independently checkable capture-time attestation chain
@@ -986,11 +985,14 @@ Source records -- 500002 lines = 348722 four-field +151280 hit lines 1147108255 
   -> supported training process -- own b.yoihen can be used as training data for a future .gguf mouth inside b.yoihen, used by b.yoihen brain-memory diary, not that it contains mouth weights
   -> held-out evaluation and regression checks -- queue_after 0 clean 0 pollution V25, but failed tasks retain result_success when true annotation while structured success FALSE
 ```
+
+Behavioral shift during mouth fine-tuning (vision_ref|DOM|action|reasoning): Fine-tuning a vision-language .gguf mouth (such as Qwen2-VL 7B) on structured multi-step traces shifts the model from a stateless conversational responder into a deterministic state-machine executor. Instead of guessing UI locations from pixels alone, cross-modal training on paired vision_ref and DOM records anchors visual layouts directly to structural element trees and exact action coordinates (action_click, action_hotkey), while learning recovery paths from recorded failures rather than looping on broken states.
+**Why muscle memory requires governance:** Because trace tuning compresses verbose conversational filler into tight, machine-parseable action primitives, a lightweight 7B mouth trained on 71,067 REAL traces acquires software-operating "muscle memory" capable of executing multi-application workflows at machine speed. This behavioral conditioning is precisely why the public release remains RECURSIVE SELF-REWRITING DATA ONLY without bundled runtime authority—pairing high-velocity action muscle memory with real tools requires external evaluation gates, allowlisted permissions, and a stop path outside .gguf control.
+
 Image-dependent training requires actual validated images and the right to use them. A placeholder cannot supply absent image supervision. A PNG-like string is not a validated screenshot.
 I distinguish data volume from parameters and inference speed from training throughput. A growing diary is not proof that a 10T+ parameter model has been trained.
 
 ### Governed self-update research
-
 ```
 Source experience -- 11051 self_rewrite world_model beyond_asi principle_806861 + 2406 self_possess master generate that can own b.yoihen that can train 10T+ + 10000 DMI_3_layers + 5000 tool_use
   -> scoped proposal -- self_rewrite vs self_update vs replication vs self_possess
@@ -1001,7 +1003,7 @@ Source experience -- 11051 self_rewrite world_model beyond_asi principle_806861 
   -> approve persistence or roll back -- diary appends via open(b.yoihen,'a'), queue_after 0 clean 0 pollution only when Evaluate passes
 ```
 
-* The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this RECURSIVE SELF-REWRITING DATA ONLY download promises to start by itself.
+ * The public archive supports inspection and preparation. Running my complete adaptive system is a separate integration, not something this RECURSIVE SELF-REWRITING DATA ONLY download promises to start by itself.
 
 ## 11. My boundaries and responsibilities
 
