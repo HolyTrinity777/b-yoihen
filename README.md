@@ -369,7 +369,7 @@ Propose → authorize → act → evaluate
 
 Retain a verified result, correct it, or roll back
 ```
-Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not "Ollama is dead." It is that I am building persistent experience in a brain-memory diary that uses its mouth inside it. Unlike Ollama where Ollama uses GGUF, b.yoihen uses GGUF. Diary is brain and memory in one, mouth is inside diary, diary is host.
+Ollama is a model-running tool, not a weight file. A GGUF is a model representation, not an autonomous learning loop. My intended distinction is not "Ollama is dead." It is that I am building persistent experience in a brain-memory diary that uses its mouth inside it. Unlike Ollama where **GGUF uses Ollama**, **b.yoihen uses GGUF.** Diary is brain and memory in one, mouth is inside diary, diary is host.
 
 ### The same brain-memory diary, a more useful assistant
 
